@@ -1,2 +1,3 @@
 
-<div class="bg" data-team="image" style="background-image: url(https://cdn.fs.agorize.com/C0WcrUhZRdOvxwgifqjv/convert?crop_first=true&amp;fit=crop&amp;h=200&amp;w=300)" bis_skin_checked="1">
+![1000_F_220407397_pjjJSdHOoSLO0T2LQyvQIe55ZVWThFxM](https://github.com/user-attachments/assets/ccbf6379-48c7-421c-af37-5bcf90fb7944)
+
