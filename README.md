@@ -17,6 +17,8 @@ Chacun fait l’**état de l’art** d’un sujet et **présente** les détails 
 ## Compte rendu du 27/10/25 :
 **Tempête d'idées :**
 
+405 h de projet (hors Grand Palais) soit environt 70 h par personnes
+
 On pourrait télécharger ROS2 sur un disque dur externe.
 
 Pour les prochains jours, prévoir la direction de notre projet et nos ambitions techniques
