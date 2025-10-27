@@ -1,10 +1,10 @@
-## Actualités de l'équipe
+# Actualités de l'équipe
 
-2 sujets : 
+2 sujets : Compte rendu du 27/10/25
 
-Séance de mardi 28/10/2025 :
+## Séance projet du mardi 28/10/2025 :
 
-Chacun fait l’état de l’art d’un sujet et présente les potentielles couches de difficultés à 11h.
+Chacun fait l’état de l’art d’un sujet et présente les détails et les potentielles couches de difficultés **à 11h.**
 
  - Max Consensus + Launch control (Di)
  - Méthodes de navigation , ex : Model Predict Control (A)
@@ -15,6 +15,6 @@ Chacun fait l’état de l’art d’un sujet et présente les potentielles couc
  - Recherches globales (M)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjU0NzQ1OTQsMTI5ODk0MTA4OSwtMTM1Mj
-M1NDUwXX0=
+eyJoaXN0b3J5IjpbLTgwMTc0MTY5NCwxMjk4OTQxMDg5LC0xMz
+UyMzU0NTBdfQ==
 -->
