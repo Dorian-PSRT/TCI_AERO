@@ -15,7 +15,7 @@ Chacun fait l’**état de l’art** d’un sujet et **présente** les détails 
  - Recherches globales (M)
 
 ## Compte rendu du 27/10/25 :
-Tem
+**Tempête d'idées :**
 
 On pourrait télécharger ROS2 sur un disque dur externe.
 
@@ -23,14 +23,14 @@ Pour les prochains jours, prévoir la direction de notre projet et nos ambitions
 
 Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce qu’on loge ?
 
-Propositions de travaux dans un futur proche :
+**Propositions de travaux dans un futur proche :**
 
  - Etat de l’art [anticollision]
  - Etat de l’art [score]
  - Redémarrage du max consensus une fois que le drone précédent a fait
    sa mission
 
-Questions pour les organisateurs :
+**Questions pour les organisateurs :**
 
  1. Précision sur le matériel
  2. Est-ce que les drones pourront voler ?
@@ -41,6 +41,6 @@ Questions pour les organisateurs :
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTUyNTUzNDAwNiwxMjk4OTQxMDg5LC0xMz
-UyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbMTc1NDQxNDMyLDEyOTg5NDEwODksLTEzNT
+IzNTQ1MF19
 -->
