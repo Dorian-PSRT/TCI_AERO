@@ -24,17 +24,27 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
 
 Propositions de travaux dans un futur proche :
 
-Etat de l’art [anticollision]
-Etat de l’art [score]
+ - Etat de l’art [anticollision]
+ - Etat de l’art [score]
+ - Redémarrage du max consensus une fois que le drone précédent a fait
+   sa mission
 
-<![if !supportLists]>· <![endif]>Développement de la fonction max consensus :
+<![endif]-->
 
-<![if !supportLists]>o <![endif]>Redémarrage du processus une fois que le drone précédent a fait sa mission
+Questions pour les organisateurs :
 
-<![if !supportLists]>o <![endif]>Clarifier le code (publication dans topic après traitement des infos voisins)
+Précision sur le matériel
 
-<![if !supportLists]>o <![endif]>Buffer ? (A compléter par une personne compétente - jsp ce que c’est)
+Est-ce que les drones pourront voler ?
+
+Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack par exemple ?
+
+Est-ce qu’on casse une fenêtre ?
+
+C’est quoi le simulateur ?
+
+Est-ce qu’on peut inviter des externes ?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NTgzMDAyNCwxMjk4OTQxMDg5LC0xMz
-UyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTIxMzM0MTUzNzIsMTI5ODk0MTA4OSwtMT
+M1MjM1NDUwXX0=
 -->
