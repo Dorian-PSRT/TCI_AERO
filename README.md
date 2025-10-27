@@ -15,6 +15,7 @@ Chacun fait l’**état de l’art** d’un sujet et **présente** les détails 
  - Recherches globales (M)
 
 ## Compte rendu du 27/10/25 :
+Tem
 
 On pourrait télécharger ROS2 sur un disque dur externe.
 
@@ -29,22 +30,17 @@ Propositions de travaux dans un futur proche :
  - Redémarrage du max consensus une fois que le drone précédent a fait
    sa mission
 
-<![endif]-->
-
 Questions pour les organisateurs :
 
-Précision sur le matériel
+ 1. Précision sur le matériel
+ 2. Est-ce que les drones pourront voler ?
+ 3. Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack
+    par exemple ?
+ 4. Est-ce qu’on casse une fenêtre ?
+ 5. C’est quoi le simulateur ?
+ 6. Est-ce qu’on peut inviter des externes ?
 
-Est-ce que les drones pourront voler ?
-
-Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack par exemple ?
-
-Est-ce qu’on casse une fenêtre ?
-
-C’est quoi le simulateur ?
-
-Est-ce qu’on peut inviter des externes ?
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM0MTUzNzIsMTI5ODk0MTA4OSwtMT
-M1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbMTUyNTUzNDAwNiwxMjk4OTQxMDg5LC0xMz
+UyMzU0NTBdfQ==
 -->
