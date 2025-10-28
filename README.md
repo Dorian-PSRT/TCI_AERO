@@ -13,7 +13,7 @@ Réunion ?
 ### Autres méthodes de navigation
 #### ORCA
 
-####MP
+#### MP
 
 ## Séance projet du mardi 28/10/2025 :
 
@@ -56,6 +56,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NTI0ODMwODYsLTkzNjExODYyMywxMj
-k4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbMTExMzE2MDE0OCwtOTM2MTE4NjIzLDEyOT
+g5NDEwODksLTEzNTIzNTQ1MF19
 -->
