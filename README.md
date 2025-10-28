@@ -22,6 +22,9 @@ Demander disques durs SSD pour Linux à F. Khenfri
 
 Bonus : Collecte de données
 
+### Etat de l'art global (M)
+
+
 
 ## Séance projet du mardi 28/10/2025 :
 
@@ -64,7 +67,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYyNjA2MDU2NCwtMTUyMjg1NDA5OCwtMT
-c5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIz
-NTQ1MF19
+eyJoaXN0b3J5IjpbLTE4MzAxNTY3MzcsLTE1MjI4NTQwOTgsLT
+E3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMzUy
+MzU0NTBdfQ==
 -->
