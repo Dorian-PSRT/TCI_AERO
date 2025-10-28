@@ -2,8 +2,6 @@
 
 ## Compte rendu du mardi 28/10/2025 :
 
-Recherche ?
-Réunion ?
 
 Demander disques durs SSD pour Linux à F. Khenfri
 Quelle est la philosophie de F. Khenfri concernant la réutilisation de modèles externes repris pour l'application étudiée ?
@@ -20,8 +18,14 @@ Quelle est la philosophie de F. Khenfri concernant la réutilisation de modèles
 #### Model Predictive Control
 
 ### Launch File (Di)
+[tuto Launch file](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+Ce lien est un tutoriel pour créer un launch file et comment l'utiliser. Il permet de lancer plusieurs node en même temps avec une seule ligne de commande.
+Travailler avec un launch file nous facilitera la vie lors de nos tests.
 
-Bonus : Collecte de données
+**Bonus :** Collecte de données
+A terme il serait intéressant de développer un "observateur" qui va collecter toutes les informations échangées lors du test, pour les traiter et en faire des **jolies graphiques**.
+
+Lien bonus: [thèse intéressante sur l'utilisation de Consensus avec un essaim de drones](https://theses.hal.science/tel-02529658/document)
 
 ### Etat de l'art essaims décentralisés (M)
 
