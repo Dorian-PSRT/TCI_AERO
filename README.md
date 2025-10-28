@@ -5,6 +5,9 @@
 Recherche ?
 Réunion ?
 
+### Méthode des champs potentiels
+
+
 ## Séance projet du mardi 28/10/2025 :
 
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
@@ -46,6 +49,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTk5MTA4NTIsMTI5ODk0MTA4OSwtMT
-M1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbMjAzOTk2MzAwLDEyOTg5NDEwODksLTEzNT
+IzNTQ1MF19
 -->
