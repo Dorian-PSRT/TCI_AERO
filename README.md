@@ -25,7 +25,7 @@ Bonus : Collecte de données
 
 ### Etat de l'art essaims décentralisés (M)
 
-### 
+### Sc
 
 
 
@@ -71,7 +71,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MD
-M2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4
-NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbMTc4Mjk0Mjc2NywtMTM0ODg4ODI1NywyMT
+I4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0Njcz
+Nzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX
+0=
 -->
