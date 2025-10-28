@@ -15,6 +15,8 @@ Réunion ?
 
 #### Model Predictive Control
 
+
+
 ## Séance projet du mardi 28/10/2025 :
 
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
@@ -56,6 +58,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMj
-k4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbMTkyNjEyNzE0NCwtMTc5NDY3Mzc4OCwtOT
+M2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
