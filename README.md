@@ -23,7 +23,7 @@ Quelle est la philosophie de F. Khenfri concernant la réutilisation de modèles
 
 Bonus : Collecte de données
 
-### Etat de l'art global (M)
+### Etat de l'art essaims décentralisés (M)
 
 
 
@@ -69,7 +69,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OT
-Q2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0
-NTBdfQ==
+eyJoaXN0b3J5IjpbMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMj
+g1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEw
+ODksLTEzNTIzNTQ1MF19
 -->
