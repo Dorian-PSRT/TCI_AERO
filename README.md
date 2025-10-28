@@ -5,15 +5,17 @@
 Recherche ?
 Réunion ?
 
-### Méthode des champs potentiels
+### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
 
 [Explication des limites de la méthode : minima locaux](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
 
-### Autres méthodes de navigation
+### Autres méthodes de navigation (A)
 #### ORCA
 
 #### Model Predictive Control
+
+### Launch File (Di)
 
 
 
@@ -58,6 +60,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNjEyNzE0NCwtMTc5NDY3Mzc4OCwtOT
-M2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLT
+kzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
 -->
