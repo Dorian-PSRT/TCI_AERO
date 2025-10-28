@@ -25,9 +25,9 @@ Bonus : Collecte de données
 
 ### Etat de l'art essaims décentralisés (M)
 
-### Score
+### Score ( C )
 
-### Planification de trajectoire à plusieurs drones
+### Planification de trajectoire à plusieurs drones (N)
 
 
 
@@ -74,8 +74,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMj
-EyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3
-Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF
-19
+eyJoaXN0b3J5IjpbMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMT
+M0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0
+MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OS
+wtMTM1MjM1NDUwXX0=
 -->
