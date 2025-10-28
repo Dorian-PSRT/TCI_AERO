@@ -5,6 +5,9 @@
 Recherche ?
 Réunion ?
 
+Demander disques durs SSD pour Linux à F. Khenfri
+
+
 ### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
 
@@ -61,7 +64,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc0MTQ4Mzc5MSwtMTUyMjg1NDA5OCwtMT
+eyJoaXN0b3J5IjpbLTYyNjA2MDU2NCwtMTUyMjg1NDA5OCwtMT
 c5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIz
 NTQ1MF19
 -->
