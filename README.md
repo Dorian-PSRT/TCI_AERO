@@ -4,8 +4,6 @@
 
 
 Demander disques durs SSD pour Linux à F. Khenfri
-Quelle est la philosophie de F. Khenfri concernant la réutilisation de modèles externes repris pour l'application étudiée ?
-
 
 ### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
