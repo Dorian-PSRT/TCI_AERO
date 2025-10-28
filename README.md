@@ -55,6 +55,9 @@ Chacun fait l’**état de l’art** d’un sujet et **présente** les détails 
  - Planification de trajectoire avec plusieurs drones,  ex : faisabilité
    Champs Potentiels ? (N)
  - Fonction Score ( C )
+   "UAV Swarm Mission Planning in Dynamic Environment Using Consensus-Based Bundle Algorithm" (2020) calcul d'une fonction score avec max-plus
+   score/état/valeur ? weighted score ?
+   "Max-consensus of multi-agent systems in random networks" (2024) pas encore lu mais a l'air intéressant
  - Recherches globales (M)
 
 ## Compte rendu du lundi 27/10/2025 :
