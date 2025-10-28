@@ -1,6 +1,9 @@
 # Actualités de l'équipe
 
-2 sujets : **Objectifs du 28/10/25** + **Compte rendu du 27/10/25**
+## Compte rendu du mardi 28/10/2025 :
+
+Recherche ?
+Réunion ?
 
 ## Séance projet du mardi 28/10/2025 :
 
@@ -14,7 +17,7 @@ Chacun fait l’**état de l’art** d’un sujet et **présente** les détails 
  - Fonction Score ( C )
  - Recherches globales (M)
 
-## Compte rendu du 27/10/25 :
+## Compte rendu du lundi 27/10/2025 :
 **Tempête d'idées :**
 
 405 h de projet (hors Grand Palais) soit environt 70 h par personnes
