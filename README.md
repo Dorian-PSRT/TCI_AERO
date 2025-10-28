@@ -8,6 +8,8 @@ Réunion ?
 ### Méthode des champs potentiels
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
 
+[Explication des limites de la méthode : minima locaux](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
+
 ## Séance projet du mardi 28/10/2025 :
 
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
@@ -49,6 +51,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3OTI0MDg5MiwxMjk4OTQxMDg5LC0xMz
+eyJoaXN0b3J5IjpbLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMz
 UyMzU0NTBdfQ==
 -->
