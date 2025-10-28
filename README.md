@@ -28,6 +28,17 @@ A terme il serait intéressant de développer un "observateur" qui va collecter 
 Lien bonus: [thèse intéressante sur l'utilisation de Consensus avec un essaim de drones](https://theses.hal.science/tel-02529658/document)
 
 ### Etat de l'art essaims décentralisés (M)
+Algorithme de fusion des données décentralisé
+https://www.sciencedirect.com/science/article/pii/S0957417423019462?ref=pdf_download&fr=RR-2&rr=9959d4e4dd7dd652
+
+Apprentissage par reforcement du controle d'un essaim de drone
+https://arxiv.org/pdf/2109.07735
+
+Algorithme robuste d'atribution des taches
+https://dspace.mit.edu/handle/1721.1/42177
+
+Code de controle d'essaim de drone basé sur la dépense d'energie 
+https://www.sciencedirect.com/science/article/pii/S0968090X23003777#sec4
 
 ### Score ( C )
 
