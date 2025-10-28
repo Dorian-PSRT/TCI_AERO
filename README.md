@@ -46,6 +46,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc1NDQxNDMyLDEyOTg5NDEwODksLTEzNT
-IzNTQ1MF19
+eyJoaXN0b3J5IjpbLTEwOTk5MTA4NTIsMTI5ODk0MTA4OSwtMT
+M1MjM1NDUwXX0=
 -->
