@@ -6,6 +6,7 @@ Recherche ?
 Réunion ?
 
 Demander disques durs SSD pour Linux à F. Khenfri
+Quelle est la philosophie de F. Khenfri concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 
 ### Méthode des champs potentiels (Do)
@@ -65,10 +66,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  4. Est-ce qu’on casse une fenêtre ?
  5. C’est quoi le simulateur ?
  6. Est-ce qu’on peut inviter des externes ?
- 7. Quel est la philosophie des organisateur concernant la réutilisation de modèle
+ 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc0Nzk3NTYsLTE1MjI4NTQwOTgsLTE3OT
+eyJoaXN0b3J5IjpbNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OT
 Q2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0
 NTBdfQ==
 -->
