@@ -10,6 +10,11 @@ Réunion ?
 
 [Explication des limites de la méthode : minima locaux](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
 
+### Autres méthodes de navigation
+#### ORCA
+
+####MP
+
 ## Séance projet du mardi 28/10/2025 :
 
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
@@ -51,6 +56,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMz
-UyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTE5NTI0ODMwODYsLTkzNjExODYyMywxMj
+k4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
 -->
