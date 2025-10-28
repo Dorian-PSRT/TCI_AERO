@@ -6,7 +6,7 @@ Recherche ?
 Réunion ?
 
 ### Méthode des champs potentiels
-
+[Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
 
 ## Séance projet du mardi 28/10/2025 :
 
@@ -49,6 +49,6 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  6. Est-ce qu’on peut inviter des externes ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzOTk2MzAwLDEyOTg5NDEwODksLTEzNT
-IzNTQ1MF19
+eyJoaXN0b3J5IjpbMTU3OTI0MDg5MiwxMjk4OTQxMDg5LC0xMz
+UyMzU0NTBdfQ==
 -->
