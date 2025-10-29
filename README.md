@@ -25,6 +25,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
 
 **Si on fait une bonne performance , qu'on est très impliqués pour la réussite du projet ; après le 26 novembre c'est VACANCES !!!**
 
+Idées à évoquer (Do) :
+Mettre un petit message frendly dans notre canal du discor
 
 
 ## Compte rendu du mardi 28/10/2025 :
@@ -117,10 +119,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzMDU3NTExMCw3MTU1OTEyMzIsLTkyOT
-A3MDI1NCwtNjQ3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEw
-NSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMT
-kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
-MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
-MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbLTQwNTY0MTU0LC01MzA1NzUxMTAsNzE1NT
+kxMjMyLC05MjkwNzAyNTQsLTY0NzczNjM4NiwtMTI5MzcyNzg5
+OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNj
+MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
+MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
+wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
