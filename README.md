@@ -11,7 +11,7 @@
 
 ## Compte rendu du mardi 28/10/2025 :
 
- - [ ] List item
+ 
 
 Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au service Info
 
@@ -20,7 +20,8 @@ Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au se
 
 [Explication des limites de la méthode : minima locaux](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
 
-### Autres méthodes de navigation (A)
+
+ - [ ] ### Autres méthodes de navigation (A)
 #### ORCA
 m
 #### Model Predictive Control
@@ -103,8 +104,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MT
-c4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMx
-MCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLD
-EyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbMTcyNDA5OTQ2MCwzMTUyNDIzOTUsMjA2Mz
+AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
+ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
+05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
