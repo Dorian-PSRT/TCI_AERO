@@ -14,6 +14,8 @@
 
 Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Réponse : Lire le règlement, mais si on utilise des ressources libres de droits c'est ok
 
+Entreprises affiliées au Challenge 2 : Naval Group
+
 ### Réunion de lancement réel du projet
 
 ## Compte rendu du mardi 28/10/2025 :
@@ -110,9 +112,9 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjczNjA1MTY1LDk4ODA3ODEwNSwtMTY3OT
-QyMzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4
-MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNT
-IyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0
-MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbMTQwNzMyMjUzMSw5ODgwNzgxMDUsLTE2Nz
+k0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1
+ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMT
+UyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5
+NDEwODksLTEzNTIzNTQ1MF19
 -->
