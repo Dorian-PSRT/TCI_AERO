@@ -41,8 +41,23 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
 
 ### Autres méthodes de navigation (A)
 #### ORCA
-m
+
+These pour l evitement individuelle des obstacles pour les drones + plannification route. (centralisé vs décentralisé)
+https://www.sesarju.eu/sites/default/files/documents/sid/2024/papers/SIDs_2024_paper_059%20final.pdf
+
+Explication de la methode avec un ROS + simu. 
+https://arxiv.org/html/2508.06722v1
+
 #### Model Predictive Control
+
+Algorithme mathématique sur la MPC pour un essaim. 
+https://www.researchgate.net/publication/352277057_Model_predictive_control_for_path_planning_of_UAV_group
+https://aerial-core.eu/wp-content/uploads/2021/11/Distributed_Predictive_Drone_Swarms_in_Cluttered_E.pd
+
+
+git mpc ou drone passe par des portes: Drone Navigation Through Moving Gates Using Model Predictive Control https://github.com/guilherme-mertens/drone-model-predictive-control
+
+git avec code (pas mpc) d'un challenge. Crazyfly doit identifier et passer a travers des "portes" https://github.com/utiasDSL/safe-control-gym/tree/beta-iros-competition
 
 
 ### Launch File (Di)
@@ -122,10 +137,9 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkyNzEwMTM3LC01MzA1NzUxMTAsNzE1NT
-kxMjMyLC05MjkwNzAyNTQsLTY0NzczNjM4NiwtMTI5MzcyNzg5
-OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNj
-MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
-MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
-wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5OD
+gwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3
+ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OC
+w0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2
+MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
