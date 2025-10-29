@@ -8,7 +8,7 @@
 ## Compte rendu du mercredi 29/10/2025
 
 ### Résumé de session d' "Onboarding" de la veille
-
+[Formulaire po](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://docs.google.com/forms/d/e/1FAIpQLSd2zwAvCWwnV72xIpKt66rNMgGJJnAYXtg2zbn6CrX4VLlAxA/viewform?usp=sharing&ouid=106816409187166232513&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-37fa0f3144ecc5d58fdbd04a89eda0a3b845b4b4)
 
 ### Réunion de lancement réel du projet
 
@@ -102,8 +102,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNTM5MDc0MCwzMTUyNDIzOTUsMjA2Mz
-AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
-ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
-05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbLTIwNDIyMDg4MjEsMzE1MjQyMzk1LDIwNj
+MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
+MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
+wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
