@@ -17,6 +17,8 @@ Quelle est la philosophie des organisateur concernant la réutilisation de modè
 Entreprises affiliées au Challenge 2 : [Naval Group](https://www.naval-group.com/en/drones), [Delair](https://delair.aero/), [Thales](https://www.thalesgroup.com/fr/catalogue-de-solutions/defense/les-drones-au-coeur-du-combat), [Cerbair](https://www.cerbair.com/)
 
 ### Réunion de lancement réel du projet
+Conseils de F. Khenfri :
+Première chose à faire pour ceux qui utilisent le simu 
 
 ## Compte rendu du mardi 28/10/2025 :
 
@@ -112,9 +114,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5OD
-gwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3
-ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OC
-w0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2
-MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTczNzg5MzY3NywtNjQ3NzM2Mzg2LC0xMj
+kzNzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIz
+OTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1Ny
+wyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0
+NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1ND
+UwXX0=
 -->
