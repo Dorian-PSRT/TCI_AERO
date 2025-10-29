@@ -10,6 +10,8 @@
 ### Résumé de session d' "Onboarding" de la veille
 [Formulaire pour restrictions alimentaires et logistique](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://docs.google.com/forms/d/e/1FAIpQLSd2zwAvCWwnV72xIpKt66rNMgGJJnAYXtg2zbn6CrX4VLlAxA/viewform?usp=sharing&ouid=106816409187166232513&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-37fa0f3144ecc5d58fdbd04a89eda0a3b845b4b4)
 
+Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Réponse : Lire le règlement, mais si on utilise des ressources libres de droits c'est ok
+
 ### Réunion de lancement réel du projet
 
 ## Compte rendu du mardi 28/10/2025 :
@@ -92,18 +94,18 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
 
 **Questions pour les organisateurs :**
 
- 1. Précision sur le matériel
+ 1. Précision sur le matériel 
  2. Est-ce que les drones pourront voler ?
  3. Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack
     par exemple ?
  4. Est-ce qu’on casse une fenêtre ?
  5. C’est quoi le simulateur ?
- 6. Est-ce qu’on peut inviter des externes ?
- 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Lire le règlement, mais si on n'utilise pas des ressources 
+ 6. Est-ce qu’on peut inviter des externes ? ==> A première vue, non. A confirmer
+ 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Lire le règlement, mais si on utilise des ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzM1NTIyODIsMzE1MjQyMzk1LDIwNj
-MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
-MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
-wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTcxMDQ2Nzc4NiwzMTUyNDIzOTUsMjA2Mz
+AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
+ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
+05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
