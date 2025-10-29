@@ -3,6 +3,8 @@
  - [Règlement du Challenge](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
  - [Documentation du matériel mis à disposition](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
  - [Discord du Challenge](https://discord.gg/Qwb9c3cZ)
+-   Un lien d'accès pour Google Drive vers les documents utiles (a??
+-   Un lien d'accès pour Google Drive vers le dossier de l'équipe pour partager des documents et  déposer le pitch final le 3e jour du hackathon ??
 
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
@@ -108,8 +110,9 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNj
-MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
-MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
-wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTIzMDYzMDE3MiwtMTY3OTQyMzU5MSwzMT
+UyNDIzOTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4
+ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC
+0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1
+MjM1NDUwXX0=
 -->
