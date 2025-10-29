@@ -99,11 +99,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  4. Est-ce qu’on casse une fenêtre ?
  5. C’est quoi le simulateur ?
  6. Est-ce qu’on peut inviter des externes ?
- 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
+ 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Lire le règlement, mais si on n'utilise pas des ressources 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM4OTYyNzAwLDMxNTI0MjM5NSwyMDYzMD
-AyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4
-NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLT
-kzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTEzMzM1NTIyODIsMzE1MjQyMzk1LDIwNj
+MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
+MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
+wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
