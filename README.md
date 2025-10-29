@@ -39,6 +39,9 @@ Code de controle d'essaim de drone basé sur la dépense d'energie
 https://www.sciencedirect.com/science/article/pii/S0968090X23003777#sec4
 
 ### Score ( C )
+"UAV Swarm Mission Planning in Dynamic Environment Using Consensus-Based Bundle Algorithm" (2020) calcul d'une fonction score avec max-plus
+   score/état/valeur ? weighted score ?
+   "Max-consensus of multi-agent systems in random networks" (2024) pas encore lu mais a l'air intéressant
 
 ### Planification de trajectoire à plusieurs drones (N)
 
