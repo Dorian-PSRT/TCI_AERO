@@ -32,6 +32,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
 
 
 
+
+
 ## Compte rendu du mardi 28/10/2025 :
 
 ### Méthode des champs potentiels (Do)
@@ -147,10 +149,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMj
-kzNzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIz
-OTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1Ny
-wyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0
-NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1ND
-UwXX0=
+eyJoaXN0b3J5IjpbLTg0NzY1MzIwNCwtNDYyMzY1NjE2LC02ND
+c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
+NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
+0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
+NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
+g5LC0xMzUyMzU0NTBdfQ==
 -->
