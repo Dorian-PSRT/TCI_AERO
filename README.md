@@ -6,6 +6,11 @@
 -  [ Lien d'accès pour Google Drive vers les documents utiles](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://drive.google.com/drive/folders/1W_Wg2FVmQdwj2N79XSCobN0JTkpTJQo7?usp=drive_link&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-e367aca922b926490718f84849ca771e0c325020) (pas encore accepté ??)
 -   Un lien d'accès pour Google Drive vers le dossier de l'équipe pour partager des documents et  déposer le pitch final le 3e jour du hackathon (pas trouvé ??)
 
+# Ressources complémentaires
+
+- [Informations sur l'imprimante 3D](https://www.cosmyx3d.com/imprimante-3d-nova) dimension : **300x200x270 mm**  (*note*: plus d'informations et fiche technique sur le [Drive](https://drive.google.com/drive/folders/12A98-17QO9h9z6vLt7dqGft_knDHMLwn))
+- ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
+
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
 
@@ -25,8 +30,6 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
 
 **Si on fait une bonne performance , qu'on est très impliqués pour la réussite du projet ; après le 26 novembre c'est VACANCES !!!**
 
-Idées à évoquer (Do) :
-Mettre un petit message frendly dans notre canal du discord
 
 
 ## Compte rendu du mardi 28/10/2025 :
@@ -119,10 +122,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMyNzc4MDQ2LC01MzA1NzUxMTAsNzE1NT
-kxMjMyLC05MjkwNzAyNTQsLTY0NzczNjM4NiwtMTI5MzcyNzg5
-OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNj
-MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
-MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
-wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTUzMDU3NTExMCw3MTU1OTEyMzIsLTkyOT
+A3MDI1NCwtNjQ3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEw
+NSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMT
+kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
+MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
+MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
