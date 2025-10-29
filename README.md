@@ -21,6 +21,8 @@ Conseils de F. Khenfri :
 Travailler en duo (CrazyFly physique, CrazyFly simulateur, Nodes)
 Première chose à faire pour ceux qui utilisent le simulateur, essayer de déplacer le drone
 
+**Si on **
+
 ## Compte rendu du mardi 28/10/2025 :
 
  
@@ -115,10 +117,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE1NTkxMjMyLC05MjkwNzAyNTQsLTY0Nz
-czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
-OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
-EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
-NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
-ksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbMTM3NzkzNTMyMyw3MTU1OTEyMzIsLTkyOT
+A3MDI1NCwtNjQ3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEw
+NSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMT
+kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
+MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
+MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
