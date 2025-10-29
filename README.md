@@ -93,8 +93,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMT
-M0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0
-MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OS
-wtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbLTMyNDcxNjU3NywyMDYzMDAyNzg0LC0xOT
+E3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYz
+MTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMy
+wxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
 -->
