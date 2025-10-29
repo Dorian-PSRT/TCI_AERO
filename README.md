@@ -3,7 +3,7 @@
 ## Compte rendu du mardi 28/10/2025 :
 
 
-Demander disques durs SSD pour Linux à F. Khenfri
+Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au service Info
 
 ### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
