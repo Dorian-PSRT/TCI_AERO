@@ -20,8 +20,7 @@ Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au se
 
 [Explication des limites de la méthode : minima locaux](https://medium.com/@rymshasiddiqui/path-planning-using-potential-field-algorithm-a30ad12bdb08)
 
-
- - [ ] ### Autres méthodes de navigation (A)
+### Autres méthodes de navigation (A)
 #### ORCA
 m
 #### Model Predictive Control
@@ -63,15 +62,12 @@ https://www.sciencedirect.com/science/article/pii/S0968090X23003777#sec4
 
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
 
- - Max Consensus + Launch control (Di)
+ - [x] Max Consensus + Launch control (Di)
  - Méthodes de navigation , ex : Model Predict Control (A)
- - Zoom sur méthode des champs potentiels (Do)
+ - [x] Zoom sur méthode des champs potentiels (Do)
  - Planification de trajectoire avec plusieurs drones,  ex : faisabilité
    Champs Potentiels ? (N)
- - Fonction Score ( C )
-   "UAV Swarm Mission Planning in Dynamic Environment Using Consensus-Based Bundle Algorithm" (2020) calcul d'une fonction score avec max-plus
-   score/état/valeur ? weighted score ?
-   "Max-consensus of multi-agent systems in random networks" (2024) pas encore lu mais a l'air intéressant
+ - [x] Fonction Score ( C )
  - Recherches globales (M)
 
 ## Compte rendu du lundi 27/10/2025 :
@@ -104,8 +100,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyNDA5OTQ2MCwzMTUyNDIzOTUsMjA2Mz
-AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
-ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
-05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbNTI3NTQyNDc4LDMxNTI0MjM5NSwyMDYzMD
+AyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4
+NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLT
+kzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
 -->
