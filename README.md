@@ -1,6 +1,8 @@
 # Liens des ressources principales
-[Règlement du Challenge](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
-[](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
+
+ - [Règlement du Challenge](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
+ - [Documentation du matériel mis à disposition](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
+
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
 
@@ -9,6 +11,7 @@
 
 ## Compte rendu du mardi 28/10/2025 :
 
+ - [ ] List item
 
 Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au service Info
 
@@ -100,8 +103,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODQ1NjEwMzcsMjA2MzAwMjc4NCwtMT
-kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
-MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
-MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MT
+c4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMx
+MCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLD
+EyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
