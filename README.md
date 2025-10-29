@@ -30,6 +30,7 @@ Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au se
 m
 #### Model Predictive Control
 
+
 ### Launch File (Di)
 [tuto Launch file](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 Ce lien est un tutoriel pour créer un launch file et comment l'utiliser. Il permet de lancer plusieurs node en même temps avec une seule ligne de commande.
@@ -101,13 +102,13 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  - [ ] C’est quoi le simulateur ?
  - [ ] Est-ce qu’on peut inviter des externes ? ==> A première vue, non.
        A confirmer
- - [ ] Quelle est la philosophie des organisateur concernant la
+ - [x] Quelle est la philosophie des organisateur concernant la
        réutilisation de modèles externes repris pour l'application
        étudiée ? ==> Lire le règlement, mais si on utilise des
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExOTQ5MzExODEsMzE1MjQyMzk1LDIwNj
+eyJoaXN0b3J5IjpbLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNj
 MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
 MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
 wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
