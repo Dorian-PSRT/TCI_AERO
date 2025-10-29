@@ -21,7 +21,7 @@ Conseils de F. Khenfri :
 Travailler en duo (CrazyFly physique, CrazyFly simulateur, Nodes)
 Première chose à faire pour ceux qui utilisent le simulateur, essayer de déplacer le drone
 
-
+On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinat
 
 **Si on fait une bonne performance , qu'on est très impliqués pour la réussite du projet ; après le 26 novembre c'est VACANCES !!!**
 
@@ -117,10 +117,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA5Nzg0NzY0LDcxNTU5MTIzMiwtOTI5MD
-cwMjU0LC02NDc3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1
-LC0xNjc5NDIzNTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOT
-E3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYz
-MTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMy
-wxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTExODkzMDk5Miw3MTU1OTEyMzIsLTkyOT
+A3MDI1NCwtNjQ3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEw
+NSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMT
+kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
+MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
+MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
