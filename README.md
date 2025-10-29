@@ -1,5 +1,6 @@
 # Liens des ressources principales
-
+[Règlement du Challenge](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
+[](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
 
@@ -99,8 +100,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1NzEyMzUxMiwyMDYzMDAyNzg0LC0xOT
-E3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYz
-MTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMy
-wxMjk4OTQxMDg5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTE0ODQ1NjEwMzcsMjA2MzAwMjc4NCwtMT
+kxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2
+MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2Mj
+MsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
 -->
