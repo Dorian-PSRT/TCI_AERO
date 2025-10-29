@@ -65,7 +65,17 @@ https://www.sciencedirect.com/science/article/pii/S0968090X23003777#sec4
 
 ### Planification de trajectoire à plusieurs drones (N)
 
+Lien état de l’art planification des trajectoires : https://www.ferdinandpiette.com/blog/2011/05/algorithmes-de-planification-de-trajectoires-bref-etat-de-lart/
 
+Lien Thèse de calcul dynamique de chemin (appliqué aux essaims) : https://theses.hal.science/tel-02500580v1/file/FALOMIR-BAGDASSARIAN_EMA_2019.pdf
+
+Cette thèse utilise dans un premier temps la méthode des champs potentielle pour calculer la trajectoire d’un seul drone puis l’applique à un essaim. 
+
+L’espace qui entoure le drone est décomposé en maille et le potentiel est calculé pour chaque maille. Ici cette méthode est principalement utilisée pour que le drone se déplace dans un milieu inconnu et atteigne un pt en évitant les obstacles qu’il détecte sur son chemin. 
+
+Appliqué à l’essaim, lors du calcul de la trajectoire la position des autres drones sera aussi prise en compte. 
+
+Les autres drones sont considérés comme des obstacles. 
 
 
 ## Séance projet du mardi 28/10/2025 :
