@@ -6,6 +6,11 @@
 -  [ Lien d'accès pour Google Drive vers les documents utiles](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://drive.google.com/drive/folders/1W_Wg2FVmQdwj2N79XSCobN0JTkpTJQo7?usp=drive_link&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-e367aca922b926490718f84849ca771e0c325020) (pas encore accepté ??)
 -   Un lien d'accès pour Google Drive vers le dossier de l'équipe pour partager des documents et  déposer le pitch final le 3e jour du hackathon (pas trouvé ??)
 
+# Ressources complémentaires
+
+- [Informations sur l'imprimante 3D](https://www.cosmyx3d.com/imprimante-3d-nova) dimension : **300x200x270 mm**  (*note*: plus d'informations et fiche technique sur le [Drive](https://drive.google.com/drive/folders/12A98-17QO9h9z6vLt7dqGft_knDHMLwn))
+- ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
+
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
 
@@ -17,12 +22,17 @@ Quelle est la philosophie des organisateur concernant la réutilisation de modè
 Entreprises affiliées au Challenge 2 : [Naval Group](https://www.naval-group.com/en/drones), [Delair](https://delair.aero/), [Thales](https://www.thalesgroup.com/fr/catalogue-de-solutions/defense/les-drones-au-coeur-du-combat), [Cerbair](https://www.cerbair.com/)
 
 ### Réunion de lancement réel du projet
+Conseils de F. Khenfri :
+Travailler en duo (CrazyFly physique, CrazyFly simulateur, Nodes)
+Première chose à faire pour ceux qui utilisent le simulateur, essayer de déplacer le drone
+
+On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs personnels
+
+**Si on fait une bonne performance , qu'on est très impliqués pour la réussite du projet ; après le 26 novembre c'est VACANCES !!!**
+
+
 
 ## Compte rendu du mardi 28/10/2025 :
-
- 
-
-Demander disques durs SSD pour Linux à F. Khenfri ==> Réponse : Demander au service Info
 
 ### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
