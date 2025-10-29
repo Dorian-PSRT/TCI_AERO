@@ -30,9 +30,18 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
 
 **Si on fait une bonne performance , qu'on est très impliqués pour la réussite du projet ; après le 26 novembre c'est VACANCES !!!**
 
+#### Challenge 2: Coopérer pour réussir (Note sur 20, 5 points par critère)
 
-
-
+ -   Efficacité de la coordination collective: Capacité des drones à travailler ensemble sans heurts (couverture optimale, rapidité d’exécution, absence de collisions).
+            
+  -   Originalité et pertinence du cas d’usage: Qualité et créativité du scénario imaginé (mission militaire, surveillance, sécurité civile, etc.).
+            
+    -   Capacité d’actions successives: Aptitude à enchaîner plusieurs actions coordonnées avec ou sans intervention humaine.
+            
+  -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
+  
+  ## To Do List
+ - [ ] 
 
 ## Compte rendu du mardi 28/10/2025 :
 
@@ -149,7 +158,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg0NzY1MzIwNCwtNDYyMzY1NjE2LC02ND
+eyJoaXN0b3J5IjpbMTQxMTA5NjA3MiwtNDYyMzY1NjE2LC02ND
 c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
 NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
 0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
