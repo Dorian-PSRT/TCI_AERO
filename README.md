@@ -41,7 +41,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
   
   ## To Do List
- - [ ] 
+ - [ ] Message friendly Discord (pour teams et mentors challenge 2) [Do]
+ - [ ] Remplir le formulaire [Tous]
 
 ## Compte rendu du mardi 28/10/2025 :
 
@@ -158,10 +159,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQxMTA5NjA3MiwtNDYyMzY1NjE2LC02ND
-c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
-NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
-0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
-NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
-g5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTI4NDM3NDI4LC00NjIzNjU2MTYsLTY0Nz
+czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
+OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
+EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
+NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
+ksLTEzNTIzNTQ1MF19
 -->
