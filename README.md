@@ -2,6 +2,7 @@
 
  - [Règlement du Challenge](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
  - [Documentation du matériel mis à disposition](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
+ - 
 
 # Actualités de l'équipe
 ## Compte rendu du mercredi 29/10/2025
@@ -9,7 +10,7 @@
 ### Résumé de session d' "Onboarding" de la veille
 
 
-
+### Réunion de lancement réel du projet
 
 ## Compte rendu du mardi 28/10/2025 :
 
@@ -101,8 +102,8 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
  7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ?
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU1NzA5NjcyMCwzMTUyNDIzOTUsMjA2Mz
-AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
-ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
-05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbLTIwMjc0NTU4NzUsMzE1MjQyMzk1LDIwNj
+MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
+MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
+wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
