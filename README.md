@@ -18,7 +18,7 @@ Entreprises affiliées au Challenge 2 : [Naval Group](https://www.naval-group.co
 
 ### Réunion de lancement réel du projet
 Conseils de F. Khenfri :
-Travailler en petits groupes (CrazyFly physique,
+Travailler en petits groupes (CrazyFly physique, CrazyFly simulateur, Nodes)
 Première chose à faire pour ceux qui utilisent le simulateur 
 
 ## Compte rendu du mardi 28/10/2025 :
@@ -115,7 +115,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5MjMxNzY2MSwtNjQ3NzM2Mzg2LC0xMj
+eyJoaXN0b3J5IjpbLTkyOTA3MDI1NCwtNjQ3NzM2Mzg2LC0xMj
 kzNzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIz
 OTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1Ny
 wyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0
