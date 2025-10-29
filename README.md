@@ -14,7 +14,7 @@
 
 Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Réponse : Lire le règlement, mais si on utilise des ressources libres de droits c'est ok
 
-Entreprises affiliées au Challenge 2 : [Naval Group](https://www.naval-group.com/en/drones), [Delair](https://delair.aero/), Thales, [Cerbair](https://www.cerbair.com/)
+Entreprises affiliées au Challenge 2 : [Naval Group](https://www.naval-group.com/en/drones), [Delair](https://delair.aero/), [Thales](https://www.thalesgroup.com/fr/catalogue-de-solutions/defense/les-drones-au-coeur-du-combat), [Cerbair](https://www.cerbair.com/)
 
 ### Réunion de lancement réel du projet
 
@@ -112,7 +112,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwMjA2NDc2NywtMTI5MzcyNzg5OSw5OD
+eyJoaXN0b3J5IjpbLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5OD
 gwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3
 ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OC
 w0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2
