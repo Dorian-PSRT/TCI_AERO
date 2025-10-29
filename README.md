@@ -94,18 +94,21 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
 
 **Questions pour les organisateurs :**
 
- 1. Précision sur le matériel 
- 2. Est-ce que les drones pourront voler ?
- 3. Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack
-    par exemple ?
- 4. Est-ce qu’on casse une fenêtre ?
- 5. C’est quoi le simulateur ?
- 6. Est-ce qu’on peut inviter des externes ? ==> A première vue, non. A confirmer
- 7. Quelle est la philosophie des organisateur concernant la réutilisation de modèles externes repris pour l'application étudiée ? ==> Lire le règlement, mais si on utilise des ressources libres de droits c'est ok
+ - [x] Précision sur le matériel
+ - [x] Est-ce que les drones pourront voler ?
+ - [x] Est-ce qu’on peut ramener un cerceau avec des marqueurs Optitrack par exemple ?
+ - [ ] Est-ce qu’on casse une fenêtre ?
+ - [ ] C’est quoi le simulateur ?
+ - [ ] Est-ce qu’on peut inviter des externes ? ==> A première vue, non.
+       A confirmer
+ - [ ] Quelle est la philosophie des organisateur concernant la
+       réutilisation de modèles externes repris pour l'application
+       étudiée ? ==> Lire le règlement, mais si on utilise des
+       ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcxMDQ2Nzc4NiwzMTUyNDIzOTUsMjA2Mz
-AwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nzkw
-ODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4LC
-05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUwXX0=
+eyJoaXN0b3J5IjpbLTExOTQ5MzExODEsMzE1MjQyMzk1LDIwNj
+MwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5
+MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OC
+wtOTM2MTE4NjIzLDEyOTg5NDEwODksLTEzNTIzNTQ1MF19
 -->
