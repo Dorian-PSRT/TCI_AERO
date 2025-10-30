@@ -25,9 +25,9 @@ Ne pas hésiter faire appel à Dimitri pour gagner du temps en créer un launch 
 Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer
 
 ### Missions des prochains jours :
- - Equipe simulation - Objectif : 
+ - Equipe simulation - Objectif : Faire le contrôle d'un drone
  - Equipe CrazyFly - Objectif : Se renseigner sur le matériel fourni + Contrôler le drone [Cl + Na]
- - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
+ - Equipe nodes - Objectif : Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer + mettre la méthode des champs potentiels dans une classe (pour modularité)
 
 
 
@@ -185,7 +185,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTkyNjMwODI5OSwxNDU5MTg4NTU2LC0xMj
+eyJoaXN0b3J5IjpbMjA0NDIwNTg3MSwxNDU5MTg4NTU2LC0xMj
 MxMDY5NTAsLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLTEzOTk4
 MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkzNzI3OD
 k5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2
