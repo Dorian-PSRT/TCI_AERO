@@ -20,7 +20,7 @@
  - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
 
 ### Réunion à 17h : 
-N'hésitez pas faire appel à Dimitri, 
+N'hésitez pas faire appel à Dimitri pour gagner du temps en créer un laun
 
 ## Compte rendu du mercredi 29/10/2025 :partly_sunny:
 
@@ -176,7 +176,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ1MTA4NDQ4MSwtMTkwMzA0NzUxMSwtMT
+eyJoaXN0b3J5IjpbMTg5MDk2NjE4OCwtMTkwMzA0NzUxMSwtMT
 kzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3
 MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNT
 kxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0x
