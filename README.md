@@ -1,4 +1,4 @@
-# Liens des ressources principales
+# Liens des ressources principales :school_satchel:
 
  - [Règlement du Challenge - Agorize](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
  - [Documentation du matériel mis à disposition - Agorize](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
@@ -11,7 +11,7 @@
 - [Informations sur l'imprimante 3D](https://www.cosmyx3d.com/imprimante-3d-nova) dimension : **300x200x270 mm**  (*note*: plus d'informations et fiche technique sur le [Drive](https://drive.google.com/drive/folders/12A98-17QO9h9z6vLt7dqGft_knDHMLwn))
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
-# Actualités de l'équipe :
+# Actualités de l'équipe :tropical_fish:
 ## Compte rendu du jeudi 30/10/2025
 
 ### Missions du jour :
@@ -49,7 +49,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
             
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
   
-  ## To Do List
+##  To Do List
+  
  - [ ] Message friendly Discord (pour teams et mentors challenge 2) [Do]
  - [ ] Remplir le formulaire [Tous]
  - [ ] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
@@ -171,7 +172,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTY4MjEzODY2LC00NjIzNjU2MTYsLTY0Nz
+eyJoaXN0b3J5IjpbNTUwNzMzMDg2LC00NjIzNjU2MTYsLTY0Nz
 czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
 OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
 EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
