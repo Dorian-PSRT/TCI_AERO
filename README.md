@@ -5,13 +5,13 @@
  - [Discord du Challenge](https://discord.gg/Qwb9c3cZ)
 -  [ Lien d'accès pour Google Drive vers les documents utiles](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://drive.google.com/drive/folders/1W_Wg2FVmQdwj2N79XSCobN0JTkpTJQo7?usp=drive_link&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-e367aca922b926490718f84849ca771e0c325020) 
 -   Un lien d'accès pour Google Drive vers le dossier de l'équipe pour partager des documents et  déposer le pitch final le 3e jour du hackathon (à ajouter par ceux qui ont l'accès)
-
-# Ressources complémentaires
+- 
+### Ressources complémentaires
 
 - [Informations sur l'imprimante 3D](https://www.cosmyx3d.com/imprimante-3d-nova) dimension : **300x200x270 mm**  (*note*: plus d'informations et fiche technique sur le [Drive](https://drive.google.com/drive/folders/12A98-17QO9h9z6vLt7dqGft_knDHMLwn))
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
-# Actualités de l'équipe
+# Actualités de l'équipe :
 ## Compte rendu du jeudi 30/10/2025
 
 ### Missions du jour :
@@ -171,10 +171,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEyOTM1MzY4NywtNDYyMzY1NjE2LC02ND
-c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
-NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
-0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
-NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
-g5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbNTY4MjEzODY2LC00NjIzNjU2MTYsLTY0Nz
+czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
+OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
+EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
+NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
+ksLTEzNTIzNTQ1MF19
 -->
