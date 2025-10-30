@@ -20,6 +20,7 @@
  - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
 
 ### Réunion à 17h : 
+N'hésitez pas faire appel à Dimitri, 
 
 ## Compte rendu du mercredi 29/10/2025 :partly_sunny:
 
@@ -175,11 +176,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLT
-EzOTk4MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkz
-NzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOT
-UsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1Nywy
-MTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0Nj
-czNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUw
-XX0=
+eyJoaXN0b3J5IjpbLTQ1MTA4NDQ4MSwtMTkwMzA0NzUxMSwtMT
+kzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3
+MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNT
+kxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0x
+MzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NT
+QwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5
+LC0xMzUyMzU0NTBdfQ==
 -->
