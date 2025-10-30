@@ -12,7 +12,7 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
-## Compte rendu du jeudi 30/10/2025
+## Compte rendu du jeudi 30/10/2025 :turtle:
 
 ### Missions du jour :
  - Equipe simulation - Objectif : Créer plusieurs CrazyFly et mettre en place le premier scénario [Al + Ma]
@@ -21,7 +21,7 @@
 
 ### Réunion à 17h : 
 
-## Compte rendu du mercredi 29/10/2025 :
+## Compte rendu du mercredi 29/10/2025 :partly_sunny:
 
 ### Résumé de session d' "Onboarding" de la veille
 [Formulaire pour restrictions alimentaires et logistique](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://docs.google.com/forms/d/e/1FAIpQLSd2zwAvCWwnV72xIpKt66rNMgGJJnAYXtg2zbn6CrX4VLlAxA/viewform?usp=sharing&ouid=106816409187166232513&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-37fa0f3144ecc5d58fdbd04a89eda0a3b845b4b4)
@@ -172,10 +172,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTI5NDMzMDgzMiwtNDYyMzY1NjE2LC02ND
-c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
-NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
-0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
-NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
-g5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbLTEzOTk4MjY4MzAsLTQ2MjM2NTYxNiwtNj
+Q3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQy
+MzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4My
+wtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIy
+ODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MT
+A4OSwtMTM1MjM1NDUwXX0=
 -->
