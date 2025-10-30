@@ -22,6 +22,12 @@
 ### Réunion à 17h : 
 Ne pas hésiter faire appel à Dimitri pour gagner du temps en créer un launch file et gagner du temps pour lancer des nodes
 
+Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer
+
+### Missions des prochains jours :
+ - Equipe simulation - Objectif : 
+ - Equipe CrazyFly - Objectif : Se renseigner sur le matériel fourni + Contrôler le drone [Cl + Na]
+ - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
 
 
 
@@ -179,11 +185,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ1OTE4ODU1NiwtMTIzMTA2OTUwLC0xOT
-AzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2ODMwLC00NjIz
-NjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMD
-UsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5
-MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2Nj
-MxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIz
-LDEyOTg5NDEwODldfQ==
+eyJoaXN0b3J5IjpbMTkyNjMwODI5OSwxNDU5MTg4NTU2LC0xMj
+MxMDY5NTAsLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLTEzOTk4
+MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkzNzI3OD
+k5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2
+MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nz
+kwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4
+LC05MzYxMTg2MjNdfQ==
 -->
