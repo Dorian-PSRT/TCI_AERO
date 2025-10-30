@@ -25,9 +25,9 @@ Ne pas hésiter faire appel à Dimitri pour gagner du temps en créer un launch 
 Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer
 
 ### Missions des prochains jours :
- - Equipe simulation - Objectif : Faire le contrôle d'un drone
+ - Equipe simulation - Objectif : Faire le contrôle d'un drone en reprenant le 
  - Equipe CrazyFly - Objectif : Contrôler le drone + Update les firmware avec F Khenfri
- - Equipe nodes - Objectif : Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer + mettre la méthode des champs potentiels dans une classe (pour modularité)
+ - Equipe nodes - Objectif : Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer + mettre la méthode des champs potentiels dans une classe (pour modularité) + passer le travail sur le git + lister les types des in et out des 
 
 
 
@@ -185,11 +185,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjA1MTk3MTcsMTQ1OTE4ODU1NiwtMT
-IzMTA2OTUwLC0xOTAzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5
-ODI2ODMwLC00NjIzNjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNz
-g5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIw
-NjMwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyOD
-c5MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4
-OCwtOTM2MTE4NjIzXX0=
+eyJoaXN0b3J5IjpbOTg5MzkwMjk1LDE0NTkxODg1NTYsLTEyMz
+EwNjk1MCwtMTkwMzA0NzUxMSwtMTkzMzM4NjE3OSwtMTM5OTgy
+NjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzODYsLTEyOTM3Mjc4OT
+ksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMxNTI0MjM5NSwyMDYz
+MDAyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OT
+A4NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OTQ2NzM3ODgs
+LTkzNjExODYyM119
 -->
