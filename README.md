@@ -12,6 +12,8 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe
+## Compte rendu du jei 29/10/2025
+
 ## Compte rendu du mercredi 29/10/2025
 
 ### Résumé de session d' "Onboarding" de la veille
@@ -160,7 +162,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIzMjU0ODAxOCwtNDYyMzY1NjE2LC02ND
+eyJoaXN0b3J5IjpbLTkxMjkzNTg1MCwtNDYyMzY1NjE2LC02ND
 c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
 NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
 0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
