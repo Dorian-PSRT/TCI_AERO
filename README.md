@@ -16,10 +16,11 @@
 
 ### Missions du jour :
  - Equipe simulation - Objectif : Créer plusieurs CrazyFly et mettre en place le premier scénario [Al + Ma]
- - Equipe CrazyFly - Objectif : Contrôler le drone puis essayer un petit programme pour le faire bouger [Cl + Na]
+ - Equipe CrazyFly - Objectif : Se renseigner sur le materiel fourni  Contrôler le drone [Cl + Na]
  - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
+ - 
 
-Réunion 
+### Réunion à 17h : 
 
 ## Compte rendu du mercredi 29/10/2025
 
@@ -170,7 +171,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk3Mjc2ODIzOSwtNDYyMzY1NjE2LC02ND
+eyJoaXN0b3J5IjpbMTQ1NzUyNDQ1MiwtNDYyMzY1NjE2LC02ND
 c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
 NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
 0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
