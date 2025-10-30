@@ -20,7 +20,9 @@
  - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
 
 ### Réunion à 17h : 
-N'hésitez pas faire appel à Dimitri pour gagner du temps en créer un laun
+N'hésitez pas faire appel à Dimitri pour gagner du temps en créer un launch file et gagner du temps pour lancer des nodes
+
+
 
 ## Compte rendu du mercredi 29/10/2025 :partly_sunny:
 
@@ -176,11 +178,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5MDk2NjE4OCwtMTkwMzA0NzUxMSwtMT
-kzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3
-MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNT
-kxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0x
-MzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NT
-QwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5
-LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbNjU5ODc2MTEyLC0xOTAzMDQ3NTExLC0xOT
+MzMzg2MTc5LC0xMzk5ODI2ODMwLC00NjIzNjU2MTYsLTY0Nzcz
+NjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OT
+EsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLTEz
+NDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1ND
+A5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwODks
+LTEzNTIzNTQ1MF19
 -->
