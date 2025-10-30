@@ -25,7 +25,6 @@ Ne pas hésiter faire appel à Dimitri pour gagner du temps en créer un launch 
 
 
 
-
 ## Compte rendu du mercredi 29/10/2025 :partly_sunny:
 
 ### Résumé de session d' "Onboarding" de la veille
@@ -180,11 +179,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzEwNjk1MCwtMTkwMzA0NzUxMSwtMT
-kzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3
-MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNT
-kxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0x
-MzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NT
-QwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5
-LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbMTQ1OTE4ODU1NiwtMTIzMTA2OTUwLC0xOT
+AzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2ODMwLC00NjIz
+NjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMD
+UsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5
+MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2Nj
+MxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIz
+LDEyOTg5NDEwODldfQ==
 -->
