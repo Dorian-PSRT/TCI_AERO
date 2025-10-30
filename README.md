@@ -49,7 +49,7 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
             
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
   
-##  To Do List
+##  To Do List :bell:
   
  - [ ] Message friendly Discord (pour teams et mentors challenge 2) [Do]
  - [ ] Remplir le formulaire [Tous]
@@ -133,9 +133,9 @@ Les autres drones sont considérés comme des obstacles.
 Chacun fait l’**état de l’art** d’un sujet et **présente** les détails et les potentielles couches de difficultés **à 11h.**
 
  - [x] Max Consensus + Launch control (Di)
- - [ ] Méthodes de navigation , ex : Model Predict Control (A)
+ - [x] Méthodes de navigation , ex : Model Predict Control (A)
  - [x] Zoom sur méthode des champs potentiels (Do)
- - [ ] Planification de trajectoire avec plusieurs drones,  ex : faisabilité Champs Potentiels ? (N)
+ - [x] Planification de trajectoire avec plusieurs drones,  ex : faisabilité Champs Potentiels ? (N)
  - [x] Fonction Score ( C )
  - [x] Recherches globales (M)
 
@@ -172,7 +172,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTUwNzMzMDg2LC00NjIzNjU2MTYsLTY0Nz
+eyJoaXN0b3J5IjpbODM2MDE3Nzk5LC00NjIzNjU2MTYsLTY0Nz
 czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
 OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
 EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
