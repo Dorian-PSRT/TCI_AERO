@@ -15,8 +15,8 @@
 ## Compte rendu du jeudi 30/10/2025
 
  - Equipe simulation - Objectif : Créer plusieurs CrazyFly et mettre en place le premier scénario
- - Equipe Crazy - Objectif : Controler le drone puis essayer
- - 
+ - Equipe CrazyFly - Objectif : Contrôler le drone puis essayer un petit programme pour le faire bouger
+ - Equipe nodes - Objectif : 
 
 ## Compte rendu du mercredi 29/10/2025
 
@@ -50,7 +50,7 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
  - [ ] Message friendly Discord (pour teams et mentors challenge 2) [Do]
  - [ ] Remplir le formulaire [Tous]
  - [ ] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
- - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici
+ - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici [M]
 
 ## Compte rendu du mardi 28/10/2025 :
 
@@ -167,10 +167,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODc1NjQyMjQ1LC00NjIzNjU2MTYsLTY0Nz
-czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
-OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
-EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
-NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
-ksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbLTE3MDk0NTY3MjYsLTQ2MjM2NTYxNiwtNj
+Q3NzM2Mzg2LC0xMjkzNzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQy
+MzU5MSwzMTUyNDIzOTUsMjA2MzAwMjc4NCwtMTkxNzg5MzU4My
+wtMTM0ODg4ODI1NywyMTI4NzkwODc4LDQwMzY2MzEwLC0xNTIy
+ODU0MDk4LC0xNzk0NjczNzg4LC05MzYxMTg2MjMsMTI5ODk0MT
+A4OSwtMTM1MjM1NDUwXX0=
 -->
