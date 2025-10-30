@@ -12,7 +12,9 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe
-## Compte rendu du jei 29/10/2025
+## Compte rendu du jeudi 30/10/2025
+
+ - Equipe simulation - Objectif : Créer plusieurs CrazyFly et mettre en place le premier scénario
 
 ## Compte rendu du mercredi 29/10/2025
 
@@ -162,10 +164,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxMjkzNTg1MCwtNDYyMzY1NjE2LC02ND
-c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
-NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
-0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
-NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
-g5LC0xMzUyMzU0NTBdfQ==
+eyJoaXN0b3J5IjpbNjE4MDI1NjYzLC00NjIzNjU2MTYsLTY0Nz
+czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
+OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
+EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
+NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
+ksLTEzNTIzNTQ1MF19
 -->
