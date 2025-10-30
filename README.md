@@ -26,7 +26,7 @@ Prévoir l'option de se tourner dans la direction du mouvement à faire avant de
 
 ### Missions des prochains jours :
  - Equipe simulation - Objectif : Faire le contrôle d'un drone
- - Equipe CrazyFly - Objectif : Se renseigner sur le matériel fourni + Contrôler le drone [Cl + Na]
+ - Equipe CrazyFly - Objectif : Contrôler le drone + Update les firmware avec F Khenfri
  - Equipe nodes - Objectif : Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer + mettre la méthode des champs potentiels dans une classe (pour modularité)
 
 
@@ -185,11 +185,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA0NDIwNTg3MSwxNDU5MTg4NTU2LC0xMj
-MxMDY5NTAsLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLTEzOTk4
-MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkzNzI3OD
-k5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2
-MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nz
-kwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4
-LC05MzYxMTg2MjNdfQ==
+eyJoaXN0b3J5IjpbLTE4MjA1MTk3MTcsMTQ1OTE4ODU1NiwtMT
+IzMTA2OTUwLC0xOTAzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5
+ODI2ODMwLC00NjIzNjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNz
+g5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIw
+NjMwMDI3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyOD
+c5MDg3OCw0MDM2NjMxMCwtMTUyMjg1NDA5OCwtMTc5NDY3Mzc4
+OCwtOTM2MTE4NjIzXX0=
 -->
