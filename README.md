@@ -49,7 +49,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
             
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
 
-![Scénario 1.1](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.jpg)
+![Scénario 1.1.png](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.png)
+![Scénario 1.1.jpg](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.jpg)
   
 ##  To Do List :bell:
   
@@ -174,11 +175,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg3OTQ1ODE2MiwtMTkzMzM4NjE3OSwtMT
-M5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzODYsLTEyOTM3
-Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMxNTI0MjM5NS
-wyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4ODg4MjU3LDIx
-Mjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgsLTE3OTQ2Nz
-M3ODgsLTkzNjExODYyMywxMjk4OTQxMDg5LC0xMzUyMzU0NTBd
-fQ==
+eyJoaXN0b3J5IjpbLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLT
+EzOTk4MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkz
+NzI3ODk5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOT
+UsMjA2MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1Nywy
+MTI4NzkwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0Nj
+czNzg4LC05MzYxMTg2MjMsMTI5ODk0MTA4OSwtMTM1MjM1NDUw
+XX0=
 -->
