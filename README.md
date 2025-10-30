@@ -21,7 +21,7 @@
 
 ### Réunion à 17h : 
 
-## Compte rendu du mercredi 29/10/2025
+## Compte rendu du mercredi 29/10/2025 :
 
 ### Résumé de session d' "Onboarding" de la veille
 [Formulaire pour restrictions alimentaires et logistique](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://docs.google.com/forms/d/e/1FAIpQLSd2zwAvCWwnV72xIpKt66rNMgGJJnAYXtg2zbn6CrX4VLlAxA/viewform?usp=sharing&ouid=106816409187166232513&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-37fa0f3144ecc5d58fdbd04a89eda0a3b845b4b4)
@@ -57,7 +57,7 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
  - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici [M]
  - [ ] Etat de l'art plus poussé
 
-## Compte rendu du mardi 28/10/2025 :
+## Compte rendu du mardi 28/10/2025 :earth_africa:
 
 ### Méthode des champs potentiels (Do)
 [Lien vidéo plannification de chemin d'un robot par champs potentiels](https://youtu.be/FT5DQ-SGYL4?t=1675)
@@ -172,10 +172,10 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM2MDE3Nzk5LC00NjIzNjU2MTYsLTY0Nz
-czNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2Nzk0MjM1
-OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OTM1ODMsLT
-EzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwtMTUyMjg1
-NDA5OCwtMTc5NDY3Mzc4OCwtOTM2MTE4NjIzLDEyOTg5NDEwOD
-ksLTEzNTIzNTQ1MF19
+eyJoaXN0b3J5IjpbMTI5NDMzMDgzMiwtNDYyMzY1NjE2LC02ND
+c3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIz
+NTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC
+0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4
+NTQwOTgsLTE3OTQ2NzM3ODgsLTkzNjExODYyMywxMjk4OTQxMD
+g5LC0xMzUyMzU0NTBdfQ==
 -->
