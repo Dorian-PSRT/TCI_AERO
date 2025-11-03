@@ -72,7 +72,7 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   
  - [x] Message friendly Discord (pour teams et mentors challenge 2) [Do]
  - [ ] Remplir le formulaire alergies [Tous]
- - [ ] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
+ - [x] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
  - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici [M]
  - [ ] Etat de l'art plus poussé
 
