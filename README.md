@@ -64,9 +64,6 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   -   Capacité d’actions successives: Aptitude à enchaîner plusieurs actions coordonnées avec ou sans intervention humaine.
             
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
-
-![Scénario 1.1.png](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.png)
-![Scénario 1.1.jpg](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.jpg)
   
 ##  To Do List :bell:
   
