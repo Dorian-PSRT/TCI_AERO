@@ -12,19 +12,20 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
-## Compte rendu du jeudi 03/11/2025
+## Compte rendu du jeudi 03/11/2025 :snowman:
+
+
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
 ### Missions du jour :
  - Equipe simulation - Objectif : Créer plusieurs CrazyFly et mettre en place le premier scénario [Al + Ma]
  - Equipe CrazyFly - Objectif : Se renseigner sur le matériel fourni + Contrôler le drone [Cl + Na]
- - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels [Di +Do]
+ - Equipe nodes - Objectif : Fichier launch complet + classe pour calcul des champs potentiels +Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer [Di +Do]
 
 ### Réunion à 17h : 
 Ne pas hésiter faire appel à Dimitri pour gagner du temps en créer un launch file et gagner du temps pour lancer des nodes
 
-Prévoir l'option de se tourner dans la direction du mouvement à faire avant de se déplacer
 
 ### Missions des prochains jours :
  - Equipe simulation - Objectif : Faire le contrôle d'un drone en reprenant le 
@@ -68,8 +69,8 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   
 ##  To Do List :bell:
   
- - [ ] Message friendly Discord (pour teams et mentors challenge 2) [Do]
- - [ ] Remplir le formulaire [Tous]
+ - [x] Message friendly Discord (pour teams et mentors challenge 2) [Do]
+ - [ ] Remplir le formulaire alergies [Tous]
  - [ ] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
  - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici [M]
  - [ ] Etat de l'art plus poussé
@@ -189,7 +190,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk5NDg0NDk2NiwxNzg5NDE1MTI0LDE0NT
+eyJoaXN0b3J5IjpbLTUyNTAwMTgyMCwxNzg5NDE1MTI0LDE0NT
 kxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0NzUxMSwtMTkzMzM4
 NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzOD
 YsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMx
