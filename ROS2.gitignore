@@ -1,0 +1,5 @@
+ws_drones/build/
+ws_drones/install/
+ws_drones/log/
+
+*__pycache__/
