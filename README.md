@@ -14,7 +14,7 @@
 # Actualités de l'équipe :tropical_fish:
 ## Compte rendu du jeudi 03/11/2025 :snowman:
 
-
+ - [ ] Prendre contact avec les mentors "Mon espace>
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
@@ -190,11 +190,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjEzNzY0ODc0MSwxNzg5NDE1MTI0LDE0NT
-kxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0NzUxMSwtMTkzMzM4
-NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzOD
-YsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMx
-NTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4OD
-g4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgs
-LTE3OTQ2NzM3ODhdfQ==
+eyJoaXN0b3J5IjpbMTQwMTg5NDYzMiwyMTM3NjQ4NzQxLDE3OD
+k0MTUxMjQsMTQ1OTE4ODU1NiwtMTIzMTA2OTUwLC0xOTAzMDQ3
+NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2ODMwLC00NjIzNjU2MT
+YsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2
+Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OT
+M1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwt
+MTUyMjg1NDA5OF19
 -->
