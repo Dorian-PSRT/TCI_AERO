@@ -4,9 +4,15 @@
 
 1.2 **Passage d’un essaim** dans une ouverture avec marqueur Optitrack
 
+![Scénario 1.2.png](Images_scenarios/Scenario_1.2.png)
+
 2. **Déplacement de l’essaim** vers une ouverture avec marqueur Optitrack avant d’y passer
 
+![Scénario 2.png](Images_scenarios/Scenario_2.png)
+
 3. **Regroupement des drones** puis déplacement de l’essaim vers une ouverture avec marqueur Optitrack avant d’y passer
+
+![Scénario 3.png](Images_scenarios/Scenario_2.png)
 
 4. Regroupement des drones puis déplacement de l’essaim vers une première ouverture avec marqueur Optitrack avant de **passer par plusieurs ouvertures avec marqueur Optitrack**
 
@@ -23,5 +29,5 @@
 
 8. **Combinaison du 6 et 7 : Repérage dans les bâtiment et passage dans les ouvertures à l’intérieur**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxODMwOTMxOF19
+eyJoaXN0b3J5IjpbMjAzODgyMjc4NV19
 -->
