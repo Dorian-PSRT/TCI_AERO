@@ -8,7 +8,7 @@ from geometry_msgs.msg import Point
 
 class observer_Node(Node):                        
     def __init__(self):
-        super().__init__(f'Observer_Node')  # Nom du nœud        
+        super().__init__(f'Observer_Node')      
 
         self.cl_group = ReentrantCallbackGroup()
 
