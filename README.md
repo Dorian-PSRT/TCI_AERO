@@ -16,6 +16,9 @@
 
  - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
  - [ ] Remplir formulaire materiel (1 fois, si ce n'est pas déjà fait)
+ - [ ] Preparer une réunion gestion de projet : proposer v1 résumé de projet(7 catégories); puis faire v1 OT(arbre des taches); puis faire v1 gantt
+
+Dans l'organisation des tâches, prévoir la préparation du pitch, les taches de gestion de projet, ...
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
@@ -69,7 +72,7 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   
  - [x] Message friendly Discord (pour teams et mentors challenge 2) [Do]
  - [ ] Remplir le formulaire alergies [Tous]
- - [ ] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
+ - [x] Ajouter lien Google Drive pour dépôt du pitch  [N, C ou A]
  - [ ] Recréer support Motive Optitrack Deck dans la liste du matériel pour pouvoir l'imprimer ici [M]
  - [ ] Etat de l'art plus poussé
 
