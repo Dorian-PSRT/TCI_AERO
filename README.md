@@ -3,9 +3,8 @@
  - [Règlement du Challenge - Agorize](https://www.agorize.com/fr/challenges/drone-defense-hackathon/agreements?lang=fr)
  - [Documentation du matériel mis à disposition - Agorize](https://www.agorize.com/fr/challenges/drone-defense-hackathon/pages/materiel?lang=fr)
  - [Discord du Challenge](https://discord.gg/Qwb9c3cZ)
--  [ Lien d'accès pour Google Drive vers les documents utiles](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://drive.google.com/drive/folders/1W_Wg2FVmQdwj2N79XSCobN0JTkpTJQo7?usp=drive_link&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-e367aca922b926490718f84849ca771e0c325020) 
--   Un lien d'accès pour Google Drive vers le dossier de l'équipe pour partager des documents et  déposer le pitch final le 3e jour du hackathon (à ajouter par ceux qui ont l'accès)
-- [G](https://drive.google.com/drive/folders/1XQggHXlNU9DMLE8ghfTbQx33a9UYjSem?usp=sharing)
+-  [Google Drive vers les documents utiles du Hackaton](https://cas5-0-urlprotect.trendmicro.com/wis/clicktime/v1/query?url=https://drive.google.com/drive/folders/1W_Wg2FVmQdwj2N79XSCobN0JTkpTJQo7?usp=drive_link&umid=1f2e17b0-60fb-439a-a2c8-c74d0f593a5c&rct=1761678757&auth=30c0fd8b430f5bbfd67a3bd83277817e276e0b55-e367aca922b926490718f84849ca771e0c325020) 
+- [Google Drive Equipe 9 - ESTACA-TCI-AERO - Challenge 2](https://drive.google.com/drive/folders/1XQggHXlNU9DMLE8ghfTbQx33a9UYjSem?usp=sharing)
 
 ### Ressources complémentaires
 
@@ -191,7 +190,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5ODE0MzYwMSwxNzg5NDE1MTI0LDE0NT
+eyJoaXN0b3J5IjpbMjEzNzY0ODc0MSwxNzg5NDE1MTI0LDE0NT
 kxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0NzUxMSwtMTkzMzM4
 NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzOD
 YsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMx
