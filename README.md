@@ -12,6 +12,8 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
+## Compte rendu du jeudi 03/11/2025
+
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
 ### Missions du jour :
@@ -187,11 +189,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc4OTQxNTEyNCwxNDU5MTg4NTU2LC0xMj
-MxMDY5NTAsLTE5MDMwNDc1MTEsLTE5MzMzODYxNzksLTEzOTk4
-MjY4MzAsLTQ2MjM2NTYxNiwtNjQ3NzM2Mzg2LC0xMjkzNzI3OD
-k5LDk4ODA3ODEwNSwtMTY3OTQyMzU5MSwzMTUyNDIzOTUsMjA2
-MzAwMjc4NCwtMTkxNzg5MzU4MywtMTM0ODg4ODI1NywyMTI4Nz
-kwODc4LDQwMzY2MzEwLC0xNTIyODU0MDk4LC0xNzk0NjczNzg4
-LC05MzYxMTg2MjNdfQ==
+eyJoaXN0b3J5IjpbMTk5NDg0NDk2NiwxNzg5NDE1MTI0LDE0NT
+kxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0NzUxMSwtMTkzMzM4
+NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1NjE2LC02NDc3MzYzOD
+YsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0xNjc5NDIzNTkxLDMx
+NTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3ODkzNTgzLC0xMzQ4OD
+g4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAsLTE1MjI4NTQwOTgs
+LTE3OTQ2NzM3ODhdfQ==
 -->
