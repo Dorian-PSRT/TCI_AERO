@@ -16,6 +16,9 @@
 
  - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
  - [ ] Remplir formulaire materiel (1 fois, si ce n'est pas déjà fait)
+ - [ ] Preparer une réunion gestion de projet : proposer v1 résumé de projet(7 catégories); puis faire v1 OT(arbre des taches); puis faire v1 gantt
+
+Dans l'organisation des tâches, prévoir la préparation du pitch, les taches de gestion de projet, ...
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
@@ -64,9 +67,6 @@ On a deux disques durs à disposition pour utiliser Ubuntu sur des ordinateurs p
   -   Capacité d’actions successives: Aptitude à enchaîner plusieurs actions coordonnées avec ou sans intervention humaine.
             
   -   Nombre de défis atteints: Évaluation du nombre de sous-défis relevés avec succès par l’équipe, en plus de la qualité de leur réalisation.
-
-![Scénario 1.1.png](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.png)
-![Scénario 1.1.jpg](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.jpg)
   
 ##  To Do List :bell:
   

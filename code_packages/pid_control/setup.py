@@ -25,7 +25,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'pid_control_node = pid_control.pid_control_node:main',
+            'pid_control_node_example = pid_control.pid_control_node_example:main',
             'global_path_node = pid_control.global_path_node:main',
             'local_path_node  = pid_control.local_path_node:main',
         ],

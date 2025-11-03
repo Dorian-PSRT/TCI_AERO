@@ -10,7 +10,7 @@ import math
 
 class PIDCOntrolNode(Node):
     def __init__(self):
-        super().__init__('pid_control_node')
+        super().__init__('pid_control_node_example')
 
         #déclaration et assignation de paramètres
         self.declare_parameter('kp_lin', 1.0)
