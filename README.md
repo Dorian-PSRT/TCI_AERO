@@ -14,7 +14,8 @@
 # Actualités de l'équipe :tropical_fish:
 ## Compte rendu du jeudi 03/11/2025 :snowman:
 
- - [ ] Prendre contact avec les mentors "Mon espace>
+ - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
+ - [ ] Remplir formulaire materiel (1 fois, si ce n'est pas déjà fait)
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
@@ -190,11 +191,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQwMTg5NDYzMiwyMTM3NjQ4NzQxLDE3OD
-k0MTUxMjQsMTQ1OTE4ODU1NiwtMTIzMTA2OTUwLC0xOTAzMDQ3
-NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2ODMwLC00NjIzNjU2MT
-YsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5ODgwNzgxMDUsLTE2
-Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMDI3ODQsLTE5MTc4OT
-M1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3OCw0MDM2NjMxMCwt
-MTUyMjg1NDA5OF19
+eyJoaXN0b3J5IjpbLTEzMjYzODIyOTYsMjEzNzY0ODc0MSwxNz
+g5NDE1MTI0LDE0NTkxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0
+NzUxMSwtMTkzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1Nj
+E2LC02NDc3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0x
+Njc5NDIzNTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3OD
+kzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAs
+LTE1MjI4NTQwOThdfQ==
 -->
