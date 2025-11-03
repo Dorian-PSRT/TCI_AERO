@@ -20,6 +20,17 @@
 
 Dans l'organisation des tâches, prévoir la préparation du pitch, les taches de gestion de projet, ...
 
+CR Equipe Crazyflie :
+- maj firmware des drones
+- vol des drones avec manette
+- code python pour controller le drone
+- guide d'installation du client
+  
+A faire pour l'équipe Crazyflie :
+- regarder la librairie CrazySwarm2
+- faire fonctionner les decks sur les drones
+- voir comment utiliser Optitrack avec les Crazyflie 2.0
+
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
 ### Missions du jour :
