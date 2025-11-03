@@ -1,6 +1,8 @@
 1. **Passage d’un drone dans une ouverture avec marqueur Optitrack**
 
-	1.2 **Passage d’un essaim** dans une ouverture avec marqueur Optitrack
+![Scénario 1.1.png](Comptes_rendus_seances_projet/Images_scenarios/Scenario_1.1.png)
+
+1.2 **Passage d’un essaim** dans une ouverture avec marqueur Optitrack
 
 2. **Déplacement de l’essaim** vers une ouverture avec marqueur Optitrack avant d’y passer
 
@@ -21,5 +23,5 @@
 
 8. **Combinaison du 6 et 7 : Repérage dans les bâtiment et passage dans les ouvertures à l’intérieur**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDI3Mjk5ODhdfQ==
+eyJoaXN0b3J5IjpbLTk1NzA1MTUzNl19
 -->
