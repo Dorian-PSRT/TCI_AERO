@@ -12,6 +12,23 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
+## Compte rendu du jeudi 04/11/2025 :snowman:
+### Réunion à 16h30 :
+
+
+Prévoir les PC qui devront communniquer avec la station Optitrack pour faire tourner les programmes
+
+Infos organisation GitHub : 
+                                 ------------o----------o----o------------------------ develop
+                                |
+-------------------o------------o--------o------------o------o---------o-------------- **main** (pour modif. README)
+                                                      |      |
+                                                      |       --------o--------------- Simu
+                                                       ---------o-------o------------- CrazyFlie
+- [ ] inventaire du matériel Crazy
+
+
+
 ## Compte rendu du jeudi 03/11/2025 :snowman:
 
  - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
