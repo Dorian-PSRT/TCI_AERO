@@ -1,0 +1,28 @@
+launch:
+
+- node:
+    pkg: "turtlesim"
+    exec: "turtlesim_node"
+    name: "sim"
+    namespace: ""
+
+
+
+- node:
+    pkg: "fusion_CP_Consensus"
+    exec: "pid_controle_node1"
+    name: ""
+    namespace: ""
+
+- node:
+    pkg: "fusion_CP_Consensus"
+    exec: "local_path_node1"
+    name: ""
+    namespace: ""
+
+- node:
+    pkg: "fusion_CP_Consensus"
+    exec: "global_path_node1"
+    name: ""
+    namespace: ""
+    parameters: ["fichier_param.yaml"]
