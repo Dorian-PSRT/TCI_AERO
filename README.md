@@ -28,9 +28,16 @@ Infos organisation GitHub :
                        ---------o-------o------------- CrazyFlie
 
 
-- [ ] inventaire du matériel Crazy
+- [x] inventaire du matériel Crazy
 
+CR (crazyflie) :   
+- recherches sur crazyswarm2  
+- essais au labo (optitrack + vol drones)  
 
+A faire (crazyflie) :  
+- faire communiquer les PC du labo entre eux  
+- tester crazyswarm2 sur drones
+- voir pour implémenter PID avec script python ?
 
 ## Compte rendu du jeudi 03/11/2025 :snowman:
 
