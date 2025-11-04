@@ -1,8 +1,8 @@
 **Objectifs** :
 
-[x] Update firmware CrazyRadio PA / Crazyflie 2.0  
-[ ] Contrôler le drone avec une node sur ROS2  
-[ ] Utiliser OptiTrack avec les Crazyflie  
+- [ ] Update firmware CrazyRadio PA / Crazyflie 2.0  
+- [ ] Contrôler le drone avec une node sur ROS2  
+- [ ] Utiliser OptiTrack avec les Crazyflie  
 
 **Liens utiles**
 
