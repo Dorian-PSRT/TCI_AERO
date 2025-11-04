@@ -1,0 +1,5 @@
+ws_crazyDev/build/
+ws_crazyDev/install/
+ws_crazyDev/log/
+
+*__pycache__/
