@@ -19,12 +19,15 @@
 Prévoir les PC qui devront communniquer avec la station Optitrack pour faire tourner les programmes
 
 Infos organisation GitHub : 
-                                 ------------o----------o----o------------------------ develop
-                                |
--------------------o------------o--------o------------o------o---------o-------------- **main** (pour modif. README)
-                                                      |      |
-                                                      |       --------o--------------- Simu
-                                                       ---------o-------o------------- CrazyFlie
+
+          ------------o----------o----o--------------- develop
+         |
+    -----o------o-----o------o---------o-------------- **main** (pour modif README)
+                      |      |
+                      |       --------o--------------- Simu
+                       ---------o-------o------------- CrazyFlie
+
+
 - [ ] inventaire du matériel Crazy
 
 
@@ -219,7 +222,7 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0NzQzNzU2NSwtMTMyNjM4MjI5NiwyMT
+eyJoaXN0b3J5IjpbMTU4NzU4NzkxMCwtMTMyNjM4MjI5NiwyMT
 M3NjQ4NzQxLDE3ODk0MTUxMjQsMTQ1OTE4ODU1NiwtMTIzMTA2
 OTUwLC0xOTAzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2OD
 MwLC00NjIzNjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5
