@@ -38,6 +38,8 @@ class global_path(Node):
         self.timer_maj   = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
         ################################################
 
+        self.get_logger().info('Le nœud est démarré !')
+
         
     
 ########################   MAX CONSENSUS   ###########################

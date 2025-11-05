@@ -19,6 +19,7 @@ class local_path(Node):
     def __init__(self):
         super().__init__('local_path_node')
 
+
         #création de variables globales
         self.start = False
         self.pose = Pose()
@@ -44,7 +45,6 @@ class local_path(Node):
         self.obstacles  = [obstacle]
         
     def handle_goal_request(self, request, response):
-        self.get_logger().info(f"Tor{id} : {request} reçu")
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
         return response
 
