@@ -24,6 +24,7 @@ class SimpleNode2(Node):
     #appelé lorsque la connexion au drone est établie
     def crazyflie_connected(self, uri):
         print("Connecté au drone :", uri)
+        time.sleep(1)
         # envois des commandes une fois la connexion établie
         self.send_setpoint()
 
@@ -34,8 +35,13 @@ class SimpleNode2(Node):
         yawrate = 0     # fait pivoter le drone à gauche ou à droite
         thrust  = 10001 # de 10001 à 60000 (pleine puissance)
         self.get_logger().info('Envoie les commandes de vols')
-        self.crazyflie.commander.send_setpoint(roll, pitch, yawrate, thrust)
-        time.sleep(2) #le drone continue d'exécuter la commande précédente pendant ce temps
+        temps = 0
+        while temps < 100:
+            self.crazyflie.commander.send_setpoint(roll, pitch, yawrate, thrust)
+            time.sleep(0.01)  # 100 Hz (envoie toutes les 10 ms)
+            temps = temps + 1
+        #self.crazyflie.commander.send_setpoint(roll, pitch, yawrate, thrust)
+        #time.sleep(5) #le drone continue d'exécuter la commande précédente pendant ce temps
         self.send_stop()
 
     def send_stop(self):
