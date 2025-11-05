@@ -12,6 +12,29 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
+## Compte rendu du jeudi 04/11/2025 :snowman:
+### Réunion à 16h30 :
+
+Parler de la temporalité du projet, de la répartition des tâches dans l'équipe, des mentors et du formulaire de materiel à remplir.
+
+Discussion déplacements des drones ==> Conclusion : décoréler le mouvement dans le plan et la rotation en lacet. On laisse la possibilité d'avoir un cible d'orientation et une cible de déplacement différente. (Attention c'est complexe) 
+
+Prévoir les PC qui devront communniquer avec la station Optitrack pour faire tourner les programmes
+
+Infos organisation GitHub : 
+
+          ------------o----------o----o--------------- develop
+         |
+    -----o------o-----o------o---------o-------------- **main** (pour modif README)
+                      |      |
+                      |       --------o--------------- Simu
+                       ---------o-------o------------- CrazyFlie
+
+
+- [ ] inventaire du matériel Crazy
+
+
+
 ## Compte rendu du jeudi 03/11/2025 :snowman:
 
  - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
@@ -19,6 +42,17 @@
  - [ ] Preparer une réunion gestion de projet : proposer v1 résumé de projet(7 catégories); puis faire v1 OT(arbre des taches); puis faire v1 gantt
 
 Dans l'organisation des tâches, prévoir la préparation du pitch, les taches de gestion de projet, ...
+
+CR Equipe Crazyflie :
+- maj firmware des drones
+- vol des drones avec manette
+- code python pour controller le drone
+- guide d'installation du client
+  
+A faire pour l'équipe Crazyflie :
+- regarder la librairie CrazySwarm2
+- faire fonctionner les decks sur les drones
+- voir comment utiliser Optitrack avec les Crazyflie 2.0
 
 ## Compte rendu du jeudi 30/10/2025 :turtle:
 
@@ -191,11 +225,11 @@ Les 3 jours au GP : Comment on y va ? C’est payé par l’école ? Où est-ce 
        ressources libres de droits c'est ok
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMjYzODIyOTYsMjEzNzY0ODc0MSwxNz
-g5NDE1MTI0LDE0NTkxODg1NTYsLTEyMzEwNjk1MCwtMTkwMzA0
-NzUxMSwtMTkzMzM4NjE3OSwtMTM5OTgyNjgzMCwtNDYyMzY1Nj
-E2LC02NDc3MzYzODYsLTEyOTM3Mjc4OTksOTg4MDc4MTA1LC0x
-Njc5NDIzNTkxLDMxNTI0MjM5NSwyMDYzMDAyNzg0LC0xOTE3OD
-kzNTgzLC0xMzQ4ODg4MjU3LDIxMjg3OTA4NzgsNDAzNjYzMTAs
-LTE1MjI4NTQwOThdfQ==
+eyJoaXN0b3J5IjpbMTU4NzU4NzkxMCwtMTMyNjM4MjI5NiwyMT
+M3NjQ4NzQxLDE3ODk0MTUxMjQsMTQ1OTE4ODU1NiwtMTIzMTA2
+OTUwLC0xOTAzMDQ3NTExLC0xOTMzMzg2MTc5LC0xMzk5ODI2OD
+MwLC00NjIzNjU2MTYsLTY0NzczNjM4NiwtMTI5MzcyNzg5OSw5
+ODgwNzgxMDUsLTE2Nzk0MjM1OTEsMzE1MjQyMzk1LDIwNjMwMD
+I3ODQsLTE5MTc4OTM1ODMsLTEzNDg4ODgyNTcsMjEyODc5MDg3
+OCw0MDM2NjMxMF19
 -->
