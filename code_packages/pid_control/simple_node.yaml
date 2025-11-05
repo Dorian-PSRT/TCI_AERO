@@ -1,5 +1,0 @@
-/simple_node:
-  ros__parameters:
-    kp_ang: 1.0
-    kp_lin: 1.0
-    use_sim_time: false
