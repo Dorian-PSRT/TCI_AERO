@@ -3,7 +3,7 @@ from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 from geometry_msgs.msg import Point
-
+from std_msgs.msg import Bool
 
 
 class observer_Node(Node):                        
@@ -16,6 +16,11 @@ class observer_Node(Node):
         self.subscription2 = self.create_subscription(Point,'/turtle2/bestTurtle' ,self.tor2,10, callback_group= self.cl_group)  
         self.subscription3 = self.create_subscription(Point,'/turtle3/bestTurtle' ,self.tor3,10, callback_group= self.cl_group)
         self.subscription4 = self.create_subscription(Point,'/turtle4/bestTurtle' ,self.tor4,10, callback_group= self.cl_group) 
+        self.go1 = self.create_subscription(Bool,'/turtle1/go' ,self.go1,10, callback_group= self.cl_group) 
+        self.go2 = self.create_subscription(Bool,'/turtle2/go' ,self.go2,10, callback_group= self.cl_group) 
+        self.go3 = self.create_subscription(Bool,'/turtle3/go' ,self.go3,10, callback_group= self.cl_group) 
+        self.go4 = self.create_subscription(Bool,'/turtle4/go' ,self.go4,10, callback_group= self.cl_group) 
+
 
     def tor1(self,msg):
         self.get_logger().info(f"Tor1 : msg reçu :{msg}")
@@ -28,6 +33,16 @@ class observer_Node(Node):
 
     def tor4(self,msg):
         self.get_logger().info(f"Tor4 : msg reçu :{msg}")
+
+    def go1(self,msg):
+        self.get_logger().info(f"Tor1 : GO reçu :{msg}")
+    def go2(self,msg):
+        self.get_logger().info(f"Tor2 : GO reçu :{msg}")
+    def go3(self,msg):
+        self.get_logger().info(f"Tor3 : GO reçu :{msg}")
+    def go4(self,msg):
+        self.get_logger().info(f"Tor4 : GO reçu :{msg}")
+
 
 def main(args=None):
     rclpy.init(args=args)

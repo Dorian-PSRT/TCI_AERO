@@ -26,7 +26,7 @@ dossier = Path(__file__).parent #dossier du script
 nodes_dir = "fusion_CP_Consensus"
 
 # fichiers
-liste_fichiers = ["global_path_node","local_path_node","pid_control_node"]
+liste_fichiers = ["global_path_node","local_path_node","pid_control_node","decision_node"]
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
 
@@ -34,7 +34,7 @@ for id in range (2,nb_drones+1):
     for fichier in liste_fichiers:
         source = dossier / nodes_dir / f"{fichier}1.py"
         destination = dossier / nodes_dir / f"{fichier}{id}.py"
-        #shutil.copy(source, destination)
+        shutil.copy(source, destination)
         print(f"✅ Copié : {source.name} → {destination.name}")
 
 
