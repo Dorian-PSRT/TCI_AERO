@@ -19,6 +19,7 @@ class GlobalPathNode(Node):
         #appel de fonctions à l'initialisation
         self.__wait_services() 
         wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+        
         self.send_waypoints(wps)
         
     def __wait_services(self): # méthode privée pour attendre que les deux serveurs de local_path_node soient accessibles, avant de continuer
@@ -38,7 +39,7 @@ class GlobalPathNode(Node):
                 ]
         waypoints = []
         for x,y in path:
-            wp = TeleportAbsolute.Request() #réecriture des duos de floats sous forme du type de la requête à envoyer 
+            wp = TeleportAbsolute.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 
             wp.x = x
             wp.y = y  
             waypoints.append(wp) #ajout du dernier point (dans le bon type) au nouveau vecteur qui donne les objectifs à atteindre
@@ -56,7 +57,7 @@ class GlobalPathNode(Node):
     
     """--------------------------------------Précisions sur set_goal et get_result---------------------------------------------
     call_async(request) : Make a service request and asyncronously get the result.Return type : Future.(A future completes when the request does)
-    future est un type de variable très spéciale qui aloue de l'espace vide dans la mémoire qui attend un réponse asynchrone et s'actualisera tout seul au moment venu"""
+    future est un type de variable très spéciale qui aloue de l'espace vide dans la mémoire qui attend une réponse asynchrone et s'actualisera tout seul au moment venu"""
         
     def get_result(self, request):
         future = self.client_result.call_async(request) #Envoie une requête vide pour demander à local_path_node si on est bien arrivé à l'objectif précédent
