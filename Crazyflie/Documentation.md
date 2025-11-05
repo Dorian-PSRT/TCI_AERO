@@ -5,7 +5,7 @@
 - [ ] Utiliser OptiTrack avec les Crazyflie
   
 - [ ] Récupérer les coordonées du drone sur PC Ubuntu
-- [ ] Faire un PID pour les positions x,y,z du drone
+- [ ] Faire un PID pour les positions x,y,z du drone (règler le PID)
 - [ ] Calibrer l'optitrack (définir un centre (0,0,0))
 
 # Liens utiles
@@ -54,7 +54,8 @@
 
 [The Crazyflie Python API explanation](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/python_api/)     
 [Lien liste méthodes commander](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/api/cflib/crazyflie/commander/)    
-[Changer l'adresse du crazyflie](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client/#firmware-configuration)   
+[Changer l'adresse du crazyflie](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client/#firmware-configuration)
+[Lien bitcraze high level commander](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/api/cflib/crazyflie/high_level_commander/)
 
 ## Notes
 
