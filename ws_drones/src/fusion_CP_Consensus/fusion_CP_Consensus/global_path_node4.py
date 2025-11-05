@@ -1,6 +1,7 @@
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.node import Node
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 #import des types qui serviront aux services
 from example_interfaces.srv import Trigger
 from turtlesim.srv import TeleportAbsolute
@@ -18,12 +19,16 @@ class global_path(Node):
 
         #appel de fonctions à l'initialisation
         self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+        
+        client_cb_group = None
+        topic_cb_group = MutuallyExclusiveCallbackGroup()
 
-        self.client_goal = self.create_client(TeleportAbsolute, f'/turtle{id}/set_target_pose') #global_path_node est un client du service set_target_pose proposé par local_path_node
-        self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result') #global_path_node est un client du service set_result proposé par local_path_node
+        self.client_goal = self.create_client(TeleportAbsolute, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
+        self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.__wait_services() 
-        self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10)        
 
+        self.free=True
+        self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
 
 
     def __wait_services(self): # méthode privée pour attendre que les deux serveurs de local_path_node soient accessibles, avant de continuer
@@ -49,13 +54,20 @@ class global_path(Node):
             waypoints.append(wp) #ajout du dernier point (dans le bon type) au nouveau vecteur qui donne les objectifs à atteindre
         return waypoints
 
-    def send_waypoints(self, msg):
+    def listener_go(self,msg):
+
         self.get_logger().info(f"Tor{id} : info {msg.data}")
+        if msg.data and self.free:
+            self.send_waypoints()
+
+    def send_waypoints(self,msg):
+        self.free=False
         if msg.data :
             for wp in self.wps:
-                #self.get_logger().info(f"Tor{id} : GO {wp}")
+                self.get_logger().info(f"Tor{id} : GO {wp}")
                 self.set_goal(wp)
                 self.get_result(Trigger.Request())
+        self.free=True
 
     def set_goal(self, request):
         self.get_logger().info(f"Tor{id} : colis envoyé")

@@ -8,6 +8,7 @@ from std_msgs.msg import Bool
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 from time import sleep
+import random
 
 id=int(__file__[-4])
 nb_drones=4
@@ -19,7 +20,7 @@ class global_path(Node):
         ############## max consensus init ##############
 
         self.turtleID = float(id) 
-        self.turtleScore = 5.0      #modifier
+        self.turtleScore = float(random.randrange(0,50,1))     #modifier
         self.curr_iter = 0.0
         self.bestTurtle = Point()
         self.bestTurtle.x = self.turtleID # ID
@@ -80,7 +81,7 @@ class global_path(Node):
                 go=Bool()
                 go.data=True
                 self.publisher_go.publish(go) # C'est parti !
-                
+
             self.timer_maj.cancel()
 ######################################################################
 
