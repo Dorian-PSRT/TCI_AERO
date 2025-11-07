@@ -12,7 +12,14 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
-## Compte rendu du jeudi 04/11/2025 :snowman:
+## Compte rendu du vendredi 07/11/2025
+
+Dans les prochains jours :
+- Lundi 10/11 vers 11h15 : contacter mentors pour leurs présenter le projet et demander ce qu'ils en pensent
+- Mercredi 12/11 vers 17h30 : remplir le formulaire du materiel
+- Vendredi 14/11 vers 17h30 : se renseigner sur les modalités du speech, répartir les heures qui y seront consacrées (ex : 1h ou 2h lundi 17/11 et 2*2h mardi 18h ou faire un teams dimanche 23 pour déplacer 2h du mardi)
+
+## Compte rendu du mardi 04/11/2025 :snowman:
 ### Réunion à 16h30 :
 
 
@@ -39,7 +46,7 @@ A faire (crazyflie) :
 - tester crazyswarm2 sur drones
 - voir pour implémenter PID avec script python ?
 
-## Compte rendu du jeudi 03/11/2025 :snowman:
+## Compte rendu du lundi 03/11/2025 :snowman:
 
  - [ ] Prendre contact avec les mentors [Mon espace>Mentor/Admin](https://www.agorize.com/fr/challenges/drone-defense-hackathon/teams/71786/mentorings)
  - [ ] Remplir formulaire materiel (1 fois, si ce n'est pas déjà fait)
