@@ -3,6 +3,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 #import des types qui serviront aux services
+from my_custom_interfaces.srv import Position3D
 from example_interfaces.srv import Trigger
 from turtlesim.srv import TeleportAbsolute
 #import des types qui serviront aux topics
@@ -23,7 +24,7 @@ class global_path(Node):
         client_cb_group = None
         topic_cb_group = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
 
-        self.client_goal = self.create_client(TeleportAbsolute, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
+        self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.__wait_services() 
 
@@ -40,17 +41,18 @@ class global_path(Node):
             self.get_logger().info('Services not available, waiting...')
 
     def compute_path(self):
-        path = [(1.0 , 1.0), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-                (10.0, 1.0),
-                (10.0, 10.0),
-                (1.0 , 10.0),
-                (1.0 , 1.0),
+        path = [(1.0 , 1.0 , 2.0), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+                (10.0, 1.0 , 2.0),
+                (10.0, 10.0, 2.0),
+                (1.0 , 10.0, 2.0),
+                (1.0 , 1.0 , 2.0),
                 ]
         waypoints = []
-        for x,y in path:
-            wp = TeleportAbsolute.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 
-            wp.x = x
-            wp.y = y  
+        for x,y,z in path:
+            wp = Position3D.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 
+            wp.linear.x = x
+            wp.linear.y = y  
+            wp.linear.z = z 
             waypoints.append(wp) #ajout du dernier point (dans le bon type) au nouveau vecteur qui donne les objectifs à atteindre
         return waypoints
 

@@ -6,6 +6,7 @@ from rclpy.node import Node
 #import des types qui serviront aux topics
 from turtlesim.msg import Pose
 #import des types qui serviront aux services
+from my_custom_interfaces.srv import Position3D
 from turtlesim.srv import TeleportAbsolute
 from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
@@ -36,7 +37,7 @@ class local_path(Node):
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
         self.publisher    = self.create_publisher(Pose, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
         self.timer        = self.create_timer(0.1, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
-        self.service      = self.create_service(TeleportAbsolute, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
+        self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
 
     def __create_obstacles(self):
