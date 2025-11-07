@@ -21,22 +21,22 @@ CircleArena {
 Crazyflie {
   translation 0.3 -0.3 0
   controller "<extern>"
-  name "turtle1"
+  name "Crazyflie1"
 }
 
 Crazyflie {
   translation -0.3 -0.3 0
   controller "<extern>"
-  name "turtle2"
+  name "Crazyflie2"
 }
 Crazyflie {
   translation -0.3 0.3 0
   controller "<extern>"
-  name "turtle3"
+  name "Crazyflie3"
 }
 
 Crazyflie {
   translation 0.3 0.3 0
   controller "<extern>"
-  name "turtle4"
+  name "Crazyflie4"
 }

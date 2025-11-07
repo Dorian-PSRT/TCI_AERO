@@ -107,13 +107,6 @@ class CrazyflieDriver:
         self.static_broadcaster = TransformBroadcaster(self.node)
         self.first_time = True
 
-        # Publisher pour /pose compatible turtlesim
-        pose_topic = f'/{self.robot.getName()}/pose'  # ou f'/turtle1/pose'
-        self.pose_publisher = self.node.create_publisher(
-            Pose,  # turtlesim.msg.Pose
-            pose_topic,
-            1
-        )
 
     def cmd_vel_callback(self, twist):
         self.vel_cmd_twist = twist
@@ -143,14 +136,6 @@ class CrazyflieDriver:
         v_y_global = (y_global - self.past_y_global)/dt
         z_global = self.gps.getValues()[2]
 
-
-        #  Publication du message Pose (turtlesim style) 
-        pose_msg = Pose()
-        pose_msg.x = float(x_global)   # float32 automatiquement
-        pose_msg.y = float(y_global)
-        pose_msg.theta = float(yaw)   # yaw en radians → theta (horaire = positif)
-
-        self.pose_publisher.publish(pose_msg)
 
         # Get body fixed velocities
         cosyaw = cos(yaw)

@@ -5,7 +5,7 @@ from ament_index_python.packages import get_package_share_directory
 from webots_ros2_driver.webots_launcher import WebotsLauncher
 from webots_ros2_driver.webots_controller import WebotsController
 
-name =['turtle1','turtle2','turtle3','turtle4']
+name =['Crazyflie1','Crazyflie2','Crazyflie3','Crazyflie4']
 contoller=[]
 
 def generate_launch_description():

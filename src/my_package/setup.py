@@ -22,7 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'my_robot_driver = my_package.my_robot_driver:main',
+            'interface_node = my_package.interface_node:main',
         ],
     },
 )
