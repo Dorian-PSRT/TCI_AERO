@@ -1,12 +1,12 @@
 # Objectifs :
 
 - [x] Update firmware CrazyRadio PA / Crazyflie 2.0  
-- [ ] Contrôler le drone avec une node sur ROS2  
-- [ ] Utiliser OptiTrack avec les Crazyflie
+- [x] Contrôler le drone avec une node sur ROS2  
+- [x] Utiliser OptiTrack avec les Crazyflie
   
-- [ ] Récupérer les coordonées du drone sur PC Ubuntu
+- [x] Récupérer les coordonées du drone sur PC Ubuntu
 - [ ] Faire un PID pour les positions x,y,z du drone (règler le PID)
-- [ ] Calibrer l'optitrack (définir un centre (0,0,0))
+- [x] Calibrer l'optitrack (définir un centre (0,0,0))
 
 # Liens utiles
 
