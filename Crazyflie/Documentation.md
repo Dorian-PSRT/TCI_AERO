@@ -16,7 +16,7 @@
 [Github Amid Omidfar Crazyflie + ROS2 + OptiTrack](https://github.com/Amir-Omidfar/Crazyflie/tree/master)   
 [Github Wolfgang Hönig Crazyflie + ROS](https://github.com/whoenig/crazyflie_ros)   
 [Github Repository crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md)
-[Lien GitHub Crazyflie + OptiTrack](https://github.com/juliordzcer/crazyflie_ros)
+[Lien GitHub Crazyflie + OptiTrack](https://github.com/juliordzcer/crazyflie_ros)    
 
 # Client + cflib
 
@@ -47,7 +47,8 @@
 [Crazyflie Keyboard Control - A simple approach](https://forum.bitcraze.io/viewtopic.php?t=1182)    
 [CrazyRadio not able to Connect to Scan for crazyflie](https://forum.bitcraze.io/viewtopic.php?t=1743)    
 [Problems with Firmware Upgrade](https://forum.bitcraze.io/viewtopic.php?t=5075)    
-[Solid or Blinking M2 LED [Solved]](https://forum.bitcraze.io/viewtopic.php?t=2185)     
+[Solid or Blinking M2 LED [Solved]](https://forum.bitcraze.io/viewtopic.php?t=2185)  
+[[SOLVED] Connection multiples crazyflies with cflib on ROS2](https://forum.bitcraze.io/viewtopic.php?p=23412)
 
 # Crazyflie + nodes python   
 
