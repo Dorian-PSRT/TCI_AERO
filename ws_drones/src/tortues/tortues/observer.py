@@ -16,10 +16,10 @@ class observer_Node(Node):
         self.subscription2 = self.create_subscription(Point,'/turtle2/bestTurtle' ,self.tor2,10, callback_group= self.cl_group)  
         self.subscription3 = self.create_subscription(Point,'/turtle3/bestTurtle' ,self.tor3,10, callback_group= self.cl_group)
         self.subscription4 = self.create_subscription(Point,'/turtle4/bestTurtle' ,self.tor4,10, callback_group= self.cl_group) 
-        self.go1 = self.create_subscription(Bool,'/turtle1/go' ,self.go1,10, callback_group= self.cl_group) 
-        self.go2 = self.create_subscription(Bool,'/turtle2/go' ,self.go2,10, callback_group= self.cl_group) 
-        self.go3 = self.create_subscription(Bool,'/turtle3/go' ,self.go3,10, callback_group= self.cl_group) 
-        self.go4 = self.create_subscription(Bool,'/turtle4/go' ,self.go4,10, callback_group= self.cl_group) 
+        self.go_1 = self.create_subscription(Bool,'/turtle1/go' ,self.go1,10, callback_group= self.cl_group) 
+        self.go_2 = self.create_subscription(Bool,'/turtle2/go' ,self.go2,10, callback_group= self.cl_group) 
+        self.go_3 = self.create_subscription(Bool,'/turtle3/go' ,self.go3,10, callback_group= self.cl_group) 
+        self.go_4 = self.create_subscription(Bool,'/turtle4/go' ,self.go4,10, callback_group= self.cl_group) 
 
 
     def tor1(self,msg):

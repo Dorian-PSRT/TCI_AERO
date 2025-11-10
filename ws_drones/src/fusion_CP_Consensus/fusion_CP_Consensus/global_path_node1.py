@@ -9,9 +9,22 @@ from turtlesim.srv import TeleportAbsolute
 from std_msgs.msg import Bool
 #import de bibliotheques pour des besoins spécifiques
 from time import sleep
+import json
+from pathlib import Path
 
+
+# Utils.json pournombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+
+# on récupère l'id du drone
 id=int(__file__[-4])
-nb_drones=4
+
 
 class global_path(Node):
     def __init__(self):
@@ -21,10 +34,10 @@ class global_path(Node):
         self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
         
         client_cb_group = None
-        topic_cb_group = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
+        topic_cb_group  = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
 
-        self.client_goal = self.create_client(TeleportAbsolute, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
-        self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
+        self.client_goal     = self.create_client(TeleportAbsolute, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
+        self.client_result   = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.__wait_services() 
 
         self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
@@ -32,10 +45,10 @@ class global_path(Node):
         self.get_logger().info('Le nœud est démarré !')
 
     def __wait_services(self): # méthode privée pour attendre que les deux serveurs de local_path_node soient accessibles, avant de continuer
-        wait_goal_service = self.client_goal.wait_for_service(timeout_sec=1.0)
+        wait_goal_service   = self.client_goal.wait_for_service(timeout_sec=1.0)
         wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
         while not wait_goal_service or not wait_result_service :
-            wait_goal_service = self.client_goal.wait_for_service(timeout_sec=1.0)
+            wait_goal_service   = self.client_goal.wait_for_service(timeout_sec=1.0)
             wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
             self.get_logger().info('Services not available, waiting...')
 

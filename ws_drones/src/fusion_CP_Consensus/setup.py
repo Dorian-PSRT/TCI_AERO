@@ -40,6 +40,7 @@ setup(
     'global_path_node3 = fusion_CP_Consensus.global_path_node3:main',
     'global_path_node2 = fusion_CP_Consensus.global_path_node2:main',
     'global_path_node1 = fusion_CP_Consensus.global_path_node1:main',
+    'fake_ot_node = fusion_CP_Consensus.fake_ot_node:main',
     'decision_node4 = fusion_CP_Consensus.decision_node4:main',
     'decision_node3 = fusion_CP_Consensus.decision_node3:main',
     'decision_node2 = fusion_CP_Consensus.decision_node2:main',

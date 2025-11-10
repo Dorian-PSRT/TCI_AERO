@@ -9,9 +9,22 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 from time import sleep
 import random
+import json
+from pathlib import Path
 
+
+# Utils.json pournombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+
+# on récupère l'id du drone
 id=int(__file__[-4])
-nb_drones=4
+
 
 class global_path(Node):
     def __init__(self):
@@ -19,23 +32,23 @@ class global_path(Node):
 
         ############## max consensus init ##############
 
-        self.turtleID = float(id) 
-        self.turtleScore = float(random.randrange(0,50,1))     #modifier
-        self.curr_iter = 0.0
-        self.bestTurtle = Point()
+        self.turtleID     = float(id) 
+        self.turtleScore  = float(random.randrange(0,50,1))     #modifier
+        self.curr_iter    = 0.0
+        self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID
         self.bestTurtle.y = self.turtleScore # score
         self.bestTurtle.z = self.curr_iter # itération actuelle
         
-        self.buff_vois1=[]
-        self.buff_vois2=[]
-        self.iter_max  = nb_drones//2  #uniquement valable en communication "circulaire"
+        self.buff_vois1   = []
+        self.buff_vois2   = []
+        self.iter_max     = nb_drones//2  #uniquement valable en communication "circulaire"
 
         self.__create_topics()
         sleep(0.5)
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
-        self.timer_maj   = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
+        self.timer_maj    = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -44,11 +57,11 @@ class global_path(Node):
     
 ########################   MAX CONSENSUS   ###########################
     def __create_topics(self):
-        self.cl_group = ReentrantCallbackGroup()
-        self.publisher = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
+        self.cl_group      = ReentrantCallbackGroup()
+        self.publisher     = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
         self.subscription1 = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
         self.subscription2 = self.create_subscription(Point,f'/turtle{((id+1)-1)%nb_drones+1}/bestTurtle' ,self.listener_callback_vois2,10, callback_group= self.cl_group)
-        self.publisher_go = self.create_publisher(Bool, f'/turtle{id}/go', 10)
+        self.publisher_go  = self.create_publisher(Bool, f'/turtle{id}/go', 10)
 
     def listener_callback_vois1(self, msg):
         self.buff_vois1.append(msg)

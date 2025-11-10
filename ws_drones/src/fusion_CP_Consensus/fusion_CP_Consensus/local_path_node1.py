@@ -11,9 +11,22 @@ from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
 import numpy as np  #sert pour utiliser des vecteurs
 import threading    #permet de lancer plusieurs fonctions en parallèle
+import json
+from pathlib import Path
 
+
+# Utils.json pournombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+
+# on récupère l'id du drone
 id=int(__file__[-4])
-nb_drones=4
+
 
 class local_path(Node):
     def __init__(self):

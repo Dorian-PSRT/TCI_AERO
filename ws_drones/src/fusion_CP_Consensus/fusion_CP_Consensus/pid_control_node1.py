@@ -7,9 +7,22 @@ from turtlesim.msg import Pose
 #import de bibliotheques ou classes pour des besoins spécifiques
 from fusion_CP_Consensus.pid_class import PID #on importe la classe dans laquelle on a délocalisé le calcul de PID
 import math
+import json
+from pathlib import Path
 
+
+# Utils.json pournombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+
+# on récupère l'id du drone
 id=int(__file__[-4])
-nb_drones=4
+
 
 class PID_Control(Node):
     def __init__(self):

@@ -4,7 +4,7 @@
 # 
 # 
 # 
-#  à n'exécuter qu'une fois 
+#  il s'occupe de tout :)
 # 
 # 
 # 
@@ -17,10 +17,15 @@ import shutil
 import re
 import os
 import yaml
+import json, signal
 import subprocess
+from time import sleep
 
-nb_drones=4
 
+
+mode=0      #0=Turtlesim et 1=simu
+autostart=True   #lance automatiquement les nodes
+build=True
 
 # Dossiers
 dossier = Path(__file__).parent #dossier du script
@@ -31,6 +36,14 @@ workspace_path = dossier.parents[1]
 liste_fichiers = ["global_path_node","local_path_node","pid_control_node","decision_node"]
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
+
+# Utils.json
+utils = dossier/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+
+nb_drones=file["nb_drones"]
 
 for id in range (2,nb_drones+1):
     for fichier in liste_fichiers:
@@ -92,9 +105,18 @@ static_nodes = [
             'exec': "spawn",
             'name': "apparition",
             'namespace': ""
-    }
-    }
+    }},
+    {   'node': {
+            'pkg': "fusion_CP_Consensus",
+            'exec': "fake_ot_node",
+            'name': "fake_ot_node",
+            'namespace': ""
+    }}
 ]
+
+if mode == 1:
+    static_nodes.pop(0)     #enlève les nodes liées à turtlesim inutiles à la simu
+    static_nodes.pop(0)
 
 # Génère la liste des nodes dynamiques
 dynamic_nodes = [
@@ -124,9 +146,51 @@ print(f"✅ {launch_file} mis à jour avec {len(dynamic_nodes)} nodes dynamiques
 
 
 os.chdir(workspace_path)
-try:
-    # Exécuter la commande colcon build
-    subprocess.run(['colcon', 'build'], check=True)
-    print("✅ colcon build réussi")
-except subprocess.CalledProcessError as e:
-    print(f"❌ Une erreur est survenue lors de l'exécution de colcon build: {e}")
+if build:
+    try:
+        # Exécuter la commande colcon build
+        subprocess.run(['colcon', 'build'], check=True)
+        print("✅ colcon build réussi")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Une erreur est survenue lors de l'exécution de colcon build: {e}")
+
+
+titre_terminal = "TEMP_ne_pas_fermer"
+
+
+# def close_old_terminals():         #non fonctionnel
+#     if os.path.exists(utils):
+#         with open(utils) as f:
+#             file = json.load(f)
+
+#         for pid in file["pids"]:
+#             try:
+#                 os.kill(pid, signal.SIGTERM)
+#                 print(f"fermeture de pid: {pid}")
+#             except ProcessLookupError:
+#                 pass
+#         file["pids"] = []
+#         with open(utils, "w") as f:
+#             json.dump(file, f)
+
+def open_terminal(*cmd):
+    proc = subprocess.Popen(["gnome-terminal","--title", titre_terminal, "--", *cmd])
+    if os.path.exists(utils):
+        file = json.load(open(utils))
+
+    # file["pids"].append(proc.pid)
+    # with open(utils, "w") as f:
+    #     json.dump(file, f)
+
+
+if autostart:
+    #close_old_terminals()
+    subprocess.run(["pkill", "-f", "gnome-terminal"], check=False)
+    open_terminal("ros2", "run", "tortues", "observer")
+    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+
+    #open_terminal("rqt_graph")
+
+
+    #les messages "# Failed to use specified server: ..." ne sont pas inquiétants, ce n'est pas bloquant
+
