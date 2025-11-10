@@ -16,6 +16,7 @@
 [Github Amid Omidfar Crazyflie + ROS2 + OptiTrack](https://github.com/Amir-Omidfar/Crazyflie/tree/master)   
 [Github Wolfgang Hönig Crazyflie + ROS](https://github.com/whoenig/crazyflie_ros)   
 [Github Repository crazyflie-lib-python](https://github.com/bitcraze/crazyflie-lib-python/blob/master/docs/installation/install.md)
+[Lien GitHub Crazyflie + OptiTrack](https://github.com/juliordzcer/crazyflie_ros)
 
 # Client + cflib
 
