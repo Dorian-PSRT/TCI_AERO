@@ -12,6 +12,7 @@ find_package(geometry_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/Position3D.srv"
+  "msg/PosObstacles.msg"
   DEPENDENCIES geometry_msgs  # <-- cette ligne est essentielle
 )
 
