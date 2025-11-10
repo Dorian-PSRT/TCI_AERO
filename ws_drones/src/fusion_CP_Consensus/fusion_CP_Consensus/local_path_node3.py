@@ -73,7 +73,7 @@ class local_path(Node):
             #self.publisher.publish(self.pose)
             return
         nav=CP()
-        if abs(nav.norme_erreur(self.pose_goal, self.pose)) > 0.1:
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:
 
             prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
             

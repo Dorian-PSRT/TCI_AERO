@@ -15,11 +15,11 @@ class CP():
     def norme_erreur(self, goal, pose):
         err = np.array([goal.point.x, goal.point.y]) - np.array([pose.x, pose.y])
         err_pose = np.linalg.norm(err)
-        return err_pose
+        return err_pose,err
 
     def force_attr(self, goal, pose, k=10):
         
-        f_attr = k * self.norme_erreur(goal,pose)
+        f_attr = k * self.norme_erreur(goal,pose)[1]
         return f_attr
 
     def force_repu(self, obstacles, pose_robot, k = 10.0, d_0 = 2.0):
@@ -45,7 +45,7 @@ class CP():
 
     def set_next_step(self, goal, pose, obstacles):
 
-        err_pose = self.norme_erreur(goal,pose)
+        err_pose = self.norme_erreur(goal,pose)[0]
         f_attr = self.force_attr(goal, pose, k=self.Kattr) #appel de la fonction force_attr
         
         if abs(err_pose) > 0.1:
@@ -54,3 +54,16 @@ class CP():
                         
         nextStep = self.Kpas * F/np.linalg.norm(F)
         return nextStep
+    
+    def force_frontieres(self, pose):
+        if (pose.x <=1):
+            f_walls += 2
+        if (pose.x >=9):
+            f_walls += 2
+        if (pose.y <=1):
+            f_walls += 2
+        if (pose.y >=9):
+            f_walls += 2
+
+        f_walls = 3
+        return f_walls
