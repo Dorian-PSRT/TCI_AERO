@@ -5,6 +5,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 #import des types qui serviront aux topics
 from turtlesim.msg import Pose
+from geometry_msgs.msg import Point
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D
 from turtlesim.srv import TeleportAbsolute
@@ -35,7 +36,7 @@ class local_path(Node):
         self.cl_group = ReentrantCallbackGroup() #outil de ROS2 appeler les fonctions dans ce groupe en parrallèle avec un callback(prioritaire en temps normal)
         self.thread_event = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
-        self.publisher    = self.create_publisher(Pose, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
+        self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
         self.timer        = self.create_timer(0.1, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
         self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
@@ -47,6 +48,7 @@ class local_path(Node):
         
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
+        #response.success = True
         return response
 
     def handle_result_request(self, request, response): #fonction précisé en callback_group de sorte qu'elle se fasse en parralèlle de la réupération de données par listener_callback
@@ -64,7 +66,7 @@ class local_path(Node):
         self.pose = pose                    #récupérations des données du topic pose publié par turtlesim_node en parralèlle d'autres actions (callback_group)
 
     def force_attr(self, goal, pose, k):
-        err = np.array([goal.x, goal.y]) - np.array([pose.x, pose.y])
+        err = np.array([goal.point.x, goal.point.y]) - np.array([pose.x, pose.y])
         err_pose = np.linalg.norm(err)
         f_attr = k * err
         return f_attr, err_pose
@@ -74,17 +76,17 @@ class local_path(Node):
         pose = np.array([pose_robot.x, pose_robot.y])
         for obs in obstacles:
             err = pose - obs  
-            d = np.linalg.norm(err) - 1.0
+            d = np.linalg.norm(err) - 1.0 #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon 1
 
-            if d <= 0:
+            if d <= 0:                     #cas où la zone de séucrité du drone touche l'obstacle
                 grad_d = err / np.linalg.norm(err)
                 f_repu += k*(1/d_0)**2*(1/d-1/d_0)*grad_d
                 
-            elif d < d_0:
+            elif d < d_0:                   #cas où le drone arrive dans le rayon de l'obstacle
                 grad_d = err / np.linalg.norm(err)
                 f_repu += (k/d**2)*(1/d-1/d_0)*grad_d
                 
-            else:
+            else:                           #cas où le drone est hors du rayon de l'obstacle
                 f_repu += np.array([0.0, 0.0])
 
         return f_repu
