@@ -15,9 +15,9 @@ nb_drones=4
 class Turtle1_Node(Node):                                   #modifier
     def __init__(self):
         super().__init__(f'Turtle{id}_Node')  # Nom du nœud          #modifier
-        self.target=[1,1,1]                                    #modifier
-        self.v=PID(1,0,0)
-        self.theta=PID(2,0,0)
+        self.v = PID(0.7, 0.05, 0.4)
+        self.theta = PID(2.0, 0.1, 0.8)
+        self.theta = PID(1.0, 0.2, 0.4)
         #self.z=PID(1,1,1)
         self.turtleID = float(id)           #modifier
         self.turtleScore = 25.0      #modifier
@@ -109,14 +109,45 @@ class Turtle1_Node(Node):                                   #modifier
 
                 err_theta = math.atan2(err_y, err_x) - pos.theta
                 
+                # Normalize the angle error to be between -pi and pi
+                if err_theta > math.pi:
+                    err_theta -= 2 * math.pi
+                elif err_theta < -math.pi:
+                    err_theta += 2 * math.pi
+
                 send.linear.x = v * math.cos(err_theta)
                 send.linear.y = v * math.sin(err_theta)
                 send.angular.z = self.theta.calcul(err_theta)
+
+                 #    On ne commande PLUS de vitesse latérale (linear.y)
+                if abs(err_theta) < 0.35: # Moins de ~20 degrés d'erreur
+                    send.linear.x = self.v.calcul(err_pos)
+                    send.linear.y = 0.0
+                else:
+                    # Si on n'est pas aligné, on se concentre sur la rotation. On n'avance pas.
+                    send.linear.x = 0.0
+                    send.linear.y = 0.0
+
             else:
                 self.arrived=True
-                self.get_logger().info(f'Je suis arrivé !')
+                #self.get_logger().info(f'Je suis arrivé !')
+            self.get_logger().info(f"""
+        --- DEBUG FRAME ---
+        Position Reçue:  x={pos.x:.2f}, y={pos.y:.2f}, theta={pos.theta:.2f}
+        Erreur Position: err_x={err_x:.2f}, err_y={err_y:.2f}, err_dist={err_pos:.2f}
+        Angle vers Cible: {math.atan2(err_y, err_x):.2f}
+        Erreur d'Angle:   {err_theta:.2f}
+        Vitesse Calculée: v={v:.2f}
+        -------------------
+        COMMANDE ENVOYÉE: linear.x={send.linear.x:.2f}, linear.y={send.linear.y:.2f}, angular.z={send.angular.z:.2f}
+        -------------------
+        """)    
+            self.get_logger().info(f'Je suis arrivé !')
+            send.linear.x = 0.0
+            send.linear.y = 0.0
+            send.angular.z = 0.0
             self.cmd.publish(send)  # Publie le message
-            self.get_logger().info(f'Publié : "{send}"')
+            #self.get_logger().info(f'Publié : "{send}"')
     
 
 def main(args=None):

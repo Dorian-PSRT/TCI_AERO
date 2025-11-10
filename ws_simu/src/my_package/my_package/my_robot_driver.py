@@ -17,9 +17,10 @@
 import math
 import rclpy
 from geometry_msgs.msg import Twist, PointStamped
-from sensor_msgs.msg import LaserScan
+from sensor_msgs.msg import LaserScan, Imu
 import numpy as np
 from geometry_msgs.msg import TransformStamped
+from std_msgs.msg import Float32 
 from tf2_ros import TransformBroadcaster
 import tf_transformations
 from turtlesim.msg import Pose
@@ -28,6 +29,7 @@ from math import cos, sin
 
 
 FLYING_ATTITUDE = 1
+
 
 #class Transfo:
 #    def __init__(self):
@@ -104,6 +106,10 @@ class CrazyflieDriver:
             Twist, f"/{self.robot.getName()}/cmd_vel", self.cmd_vel_callback, 1)
         self.laser_publisher = self.node.create_publisher(
             LaserScan, f"/{self.robot.getName()}/scan", 1)
+        self.imu_publisher = self.node.create_publisher(
+            Imu, f"/{self.robot.getName()}/imu", 1)
+        self.yaw_publisher = self.node.create_publisher(
+            Float32, f"/{self.robot.getName()}/yaw", 10)
         self.static_broadcaster = TransformBroadcaster(self.node)
         self.first_time = True
 
@@ -147,13 +153,51 @@ class CrazyflieDriver:
         forward_desired = self.vel_cmd_twist.linear.x
         sideways_desired = self.vel_cmd_twist.linear.y
         yaw_desired = self.vel_cmd_twist.angular.z
-        height_diff_desired = self.vel_cmd_twist.linear.z
 
-        self.height_desired += height_diff_desired * dt
+        height_diff_desired = self.vel_cmd_twist.linear.z
+        self.height_desired += height_diff_desired * dt   
+
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,
                   self.range_front.getValue()/1000.0, self.range_right.getValue()/1000.0]
+
+
+        # === PUBLIE LE YAW EN CLAIR (FLOAT32) ===
+        yaw_msg = Float32()
+        yaw_msg.data = yaw  # yaw = self.imu.getRollPitchYaw()[2] → déjà calculé !
+        self.yaw_publisher.publish(yaw_msg)
+
+         # 1. Créer le message Imu
+        imu_msg = Imu()
+        imu_msg.header.stamp = self.node.get_clock().now().to_msg()
+        imu_msg.header.frame_id = self.robot.getName() # ex: "Crazyflie1"
+
+        # 2. Remplir l'orientation (en quaternion)
+        # Le code le calcule déjà pour TF, on peut le réutiliser
+        q = tf_transformations.quaternion_from_euler(roll, pitch, yaw)
+        imu_msg.orientation.x = q[0]
+        imu_msg.orientation.y = q[1]
+        imu_msg.orientation.z = q[2]
+        imu_msg.orientation.w = q[3]
+
+        # 3. Remplir la vitesse angulaire (depuis le gyroscope)
+        gyro_values = self.gyro.getValues()
+        imu_msg.angular_velocity.x = gyro_values[0]
+        imu_msg.angular_velocity.y = gyro_values[1]
+        imu_msg.angular_velocity.z = gyro_values[2]
+
+        # 4. Remplir l'accélération linéaire
+        # Note: l'IMU de Webots ne fournit pas directement l'accélération.
+        # On la laisse à zéro, ce qui est une pratique courante
+        # lorsque le capteur ne fournit pas cette donnée.
+        imu_msg.linear_acceleration.x = 0.0
+        imu_msg.linear_acceleration.y = 0.0
+        imu_msg.linear_acceleration.z = 0.0
+        
+        # 5. Publier le message !
+        self.imu_publisher.publish(imu_msg)
+        # ==========================================================
 
         # Publish laser scan
         scan_msg = LaserScan()
@@ -173,7 +217,7 @@ class CrazyflieDriver:
         laser_transform = TransformStamped()
         laser_transform.header.stamp = self.node.get_clock().now().to_msg()
         laser_transform.header.frame_id = 'odom'
-        laser_transform.child_frame_id = 'crazyflie'
+        laser_transform.child_frame_id =   self.robot.getName() #'crazyflie'
         laser_transform.transform.translation.x = x_global
         laser_transform.transform.translation.y = y_global
         laser_transform.transform.translation.z = z_global
