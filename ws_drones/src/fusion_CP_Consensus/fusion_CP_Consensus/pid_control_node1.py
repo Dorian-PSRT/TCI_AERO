@@ -38,7 +38,7 @@ class PID_Control(Node):
 
 
     def listener_cb_pose_d(self, pose_d):
-        self.get_logger().info(f"Tor{id} : {pose_d} reçu")
+        #self.get_logger().info(f"Tor{id} : {pose_d} reçu")
         self.start = True
         self.pose_d = pose_d
 

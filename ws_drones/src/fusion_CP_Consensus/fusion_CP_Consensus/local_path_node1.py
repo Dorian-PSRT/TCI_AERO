@@ -13,6 +13,7 @@ from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
 import numpy as np  #sert pour utiliser des vecteurs
 import threading    #permet de lancer plusieurs fonctions en parallèle
+from fusion_CP_Consensus.champs_pot_class import CP
 
 id=int(__file__[-4])
 nb_drones=4
@@ -48,6 +49,7 @@ class local_path(Node):
         
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
+        self.get_logger().info(f'position reçue par local : x={self.pose_goal.point.x}, y={self.pose_goal.point.y}, z={self.pose_goal.point.z}')
         #response.success = True
         return response
 
@@ -65,51 +67,26 @@ class local_path(Node):
     def listener_callback(self, pose):
         self.pose = pose                    #récupérations des données du topic pose publié par turtlesim_node en parralèlle d'autres actions (callback_group)
 
-    def force_attr(self, goal, pose, k):
-        err = np.array([goal.point.x, goal.point.y]) - np.array([pose.x, pose.y])
-        err_pose = np.linalg.norm(err)
-        f_attr = k * err
-        return f_attr, err_pose
-
-    def force_repu(self, obstacles, pose_robot, k = 100.0, d_0 = 2.0):
-        f_repu = np.array([0.0, 0.0])
-        pose = np.array([pose_robot.x, pose_robot.y])
-        for obs in obstacles:
-            err = pose - obs  
-            d = np.linalg.norm(err) - 1.0 #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon 1
-
-            if d <= 0:                     #cas où la zone de séucrité du drone touche l'obstacle
-                grad_d = err / np.linalg.norm(err)
-                f_repu += k*(1/d_0)**2*(1/d-1/d_0)*grad_d
-                
-            elif d < d_0:                   #cas où le drone arrive dans le rayon de l'obstacle
-                grad_d = err / np.linalg.norm(err)
-                f_repu += (k/d**2)*(1/d-1/d_0)*grad_d
-                
-            else:                           #cas où le drone est hors du rayon de l'obstacle
-                f_repu += np.array([0.0, 0.0])
-
-        return f_repu
-        
-
     def set_pose_d(self):       #fonction appelée par un timer toutes les 0.1s
+
         if not self.start:      #si l'autorisation de démarer n'a pas été donnée on sort directement de la fonction
             #self.publisher.publish(self.pose)
             return
-        
-        f_attr, err_pose = self.force_attr(self.pose_goal, self.pose, k= 10.0) #appel de la fonction force_attr
-        
-        
-        if abs(err_pose) > 0.1:
-            f_repu = self.force_repu(self.obstacles, self.pose, k = 10.0, d_0 = 3.0)    #si on n'est pas encore arrivé on appel force_repu
-            F = f_attr + f_repu                                                         #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
-            pose_d_ = np.array([self.pose.x, self.pose.y]) + 2.0 * F/np.linalg.norm(F)  #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
+        nav=CP()
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)) > 0.1:
+
+            prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
+            
+            self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
+            
+
+            pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 
             """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
             La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
             , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
             
-            pose_d = Pose() #déclaration de la variable locale pose_d avec le type Pose
+            pose_d = Point() #déclaration de la variable locale pose_d avec le type Pose
             pose_d.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
             pose_d.y = pose_d_[1] 
             self.publisher.publish(pose_d)
@@ -117,7 +94,10 @@ class local_path(Node):
         else:                       #si on est arrivé
             self.start =False       #on annonce la fin du déplacement
             self.thread_event.set() #active l'interruption qui correspond à l'arrivée à l'objectif
-            self.publisher.publish(self.pose) #la prochaine position est celle à laquelle on est déjà
+            pointactuel = Point()
+            pointactuel.x = self.pose.x
+            pointactuel.y = self.pose.y
+            self.publisher.publish(pointactuel) #la prochaine position est celle à laquelle on est déjà
 
         
 

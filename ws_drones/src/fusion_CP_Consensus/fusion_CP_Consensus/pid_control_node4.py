@@ -4,6 +4,7 @@ from rclpy.node import Node
 #import des types qui serviront aux topics
 from geometry_msgs.msg import Twist
 from turtlesim.msg import Pose
+from geometry_msgs.msg import Point
 #import de bibliotheques ou classes pour des besoins spécifiques
 from fusion_CP_Consensus.pid_class import PID #on importe la classe dans laquelle on a délocalisé le calcul de PID
 import math
@@ -30,14 +31,14 @@ class PID_Control(Node):
 
         #abonnement et création de topicsh
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_cb_pose,10)
-        self.subscription1 = self.create_subscription(Pose,f'/turtle{id}/pose_d', self.listener_cb_pose_d,10)
+        self.subscription1 = self.create_subscription(Point,f'/turtle{id}/pose_d', self.listener_cb_pose_d,10)
         self.publisher = self.create_publisher(Twist, f'/turtle{id}/cmd_vel', 10) 
 
         self.get_logger().info('Le nœud est démarré !')
 
 
     def listener_cb_pose_d(self, pose_d):
-        self.get_logger().info(f"Tor{id} : {pose_d} reçu")
+        #self.get_logger().info(f"Tor{id} : {pose_d} reçu")
         self.start = True
         self.pose_d = pose_d
 

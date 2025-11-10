@@ -24,18 +24,20 @@ class global_path(Node):
         client_cb_group = None
         topic_cb_group = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
 
+        self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
+
         self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.__wait_services() 
 
-        self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
+        #self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
 
         self.get_logger().info('Le nœud est démarré !')
 
     def __wait_services(self): # méthode privée pour attendre que les deux serveurs de local_path_node soient accessibles, avant de continuer
         wait_goal_service = self.client_goal.wait_for_service(timeout_sec=1.0)
         wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
-        while not wait_goal_service or not wait_result_service :
+        while (not wait_goal_service) or (not wait_result_service) :
             wait_goal_service = self.client_goal.wait_for_service(timeout_sec=1.0)
             wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
             self.get_logger().info('Services not available, waiting...')
@@ -50,9 +52,9 @@ class global_path(Node):
         waypoints = []
         for x,y,z in path:
             wp = Position3D.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 
-            wp.linear.x = x
-            wp.linear.y = y  
-            wp.linear.z = z 
+            wp.point.x = x
+            wp.point.y = y  
+            wp.point.z = z 
             waypoints.append(wp) #ajout du dernier point (dans le bon type) au nouveau vecteur qui donne les objectifs à atteindre
         return waypoints
 

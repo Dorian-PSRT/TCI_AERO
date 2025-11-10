@@ -5,12 +5,15 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 #import des types qui serviront aux topics
 from turtlesim.msg import Pose
+from geometry_msgs.msg import Point
 #import des types qui serviront aux services
+from my_custom_interfaces.srv import Position3D
 from turtlesim.srv import TeleportAbsolute
 from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
 import numpy as np  #sert pour utiliser des vecteurs
 import threading    #permet de lancer plusieurs fonctions en parallèle
+from fusion_CP_Consensus.champs_pot_class import CP
 
 id=int(__file__[-4])
 nb_drones=4
@@ -34,9 +37,9 @@ class local_path(Node):
         self.cl_group = ReentrantCallbackGroup() #outil de ROS2 appeler les fonctions dans ce groupe en parrallèle avec un callback(prioritaire en temps normal)
         self.thread_event = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
-        self.publisher    = self.create_publisher(Pose, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
+        self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
         self.timer        = self.create_timer(0.1, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
-        self.service      = self.create_service(TeleportAbsolute, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
+        self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
 
     def __create_obstacles(self):
@@ -46,6 +49,8 @@ class local_path(Node):
         
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
+        self.get_logger().info(f'position reçue par local : x={self.pose_goal.point.x}, y={self.pose_goal.point.y}, z={self.pose_goal.point.z}')
+        #response.success = True
         return response
 
     def handle_result_request(self, request, response): #fonction précisé en callback_group de sorte qu'elle se fasse en parralèlle de la réupération de données par listener_callback
@@ -62,51 +67,26 @@ class local_path(Node):
     def listener_callback(self, pose):
         self.pose = pose                    #récupérations des données du topic pose publié par turtlesim_node en parralèlle d'autres actions (callback_group)
 
-    def force_attr(self, goal, pose, k):
-        err = np.array([goal.x, goal.y]) - np.array([pose.x, pose.y])
-        err_pose = np.linalg.norm(err)
-        f_attr = k * err
-        return f_attr, err_pose
-
-    def force_repu(self, obstacles, pose_robot, k = 100.0, d_0 = 2.0):
-        f_repu = np.array([0.0, 0.0])
-        pose = np.array([pose_robot.x, pose_robot.y])
-        for obs in obstacles:
-            err = pose - obs  
-            d = np.linalg.norm(err) - 1.0
-
-            if d <= 0:
-                grad_d = err / np.linalg.norm(err)
-                f_repu += k*(1/d_0)**2*(1/d-1/d_0)*grad_d
-                
-            elif d < d_0:
-                grad_d = err / np.linalg.norm(err)
-                f_repu += (k/d**2)*(1/d-1/d_0)*grad_d
-                
-            else:
-                f_repu += np.array([0.0, 0.0])
-
-        return f_repu
-        
-
     def set_pose_d(self):       #fonction appelée par un timer toutes les 0.1s
+
         if not self.start:      #si l'autorisation de démarer n'a pas été donnée on sort directement de la fonction
             #self.publisher.publish(self.pose)
             return
-        
-        f_attr, err_pose = self.force_attr(self.pose_goal, self.pose, k= 10.0) #appel de la fonction force_attr
-        
-        
-        if abs(err_pose) > 0.1:
-            f_repu = self.force_repu(self.obstacles, self.pose, k = 10.0, d_0 = 3.0)    #si on n'est pas encore arrivé on appel force_repu
-            F = f_attr + f_repu                                                         #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
-            pose_d_ = np.array([self.pose.x, self.pose.y]) + 2.0 * F/np.linalg.norm(F)  #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
+        nav=CP()
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)) > 0.1:
+
+            prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
+            
+            self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
+            
+
+            pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 
             """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
             La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
             , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
             
-            pose_d = Pose() #déclaration de la variable locale pose_d avec le type Pose
+            pose_d = Point() #déclaration de la variable locale pose_d avec le type Pose
             pose_d.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
             pose_d.y = pose_d_[1] 
             self.publisher.publish(pose_d)
@@ -114,7 +94,10 @@ class local_path(Node):
         else:                       #si on est arrivé
             self.start =False       #on annonce la fin du déplacement
             self.thread_event.set() #active l'interruption qui correspond à l'arrivée à l'objectif
-            self.publisher.publish(self.pose) #la prochaine position est celle à laquelle on est déjà
+            pointactuel = Point()
+            pointactuel.x = self.pose.x
+            pointactuel.y = self.pose.y
+            self.publisher.publish(pointactuel) #la prochaine position est celle à laquelle on est déjà
 
         
 
