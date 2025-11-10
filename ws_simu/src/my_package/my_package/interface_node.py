@@ -89,12 +89,7 @@ class interface_node(Node):
         cmd_out.linear.z = 0.0  # Tu as dit que ça montait trop → 0.0
         publisher.publish(cmd_out)
 
-    # === FORCE HOVER POUR Z=1m SANS MONTER ===
-    def force_hover(self):
-        hover = Twist()
-        hover.linear.z = 0.0  # ou 0.05 si tu veux un peu de marge
-        for pub in [self.cf1_cmd_pub, self.cf2_cmd_pub, self.cf3_cmd_pub, self.cf4_cmd_pub]:
-            pub.publish(hover)
+
 
 
 def main(args=None):
