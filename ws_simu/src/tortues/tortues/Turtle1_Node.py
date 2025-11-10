@@ -15,8 +15,8 @@ nb_drones=4
 class Turtle1_Node(Node):                                   #modifier
     def __init__(self):
         super().__init__(f'Turtle{id}_Node')  # Nom du nœud          #modifier
-        self.target=[10,3,0]                                    #modifier
-        self.v=PID(2,0,0)
+        self.target=[1,1,1]                                    #modifier
+        self.v=PID(1,0,0)
         self.theta=PID(2,0,0)
         #self.z=PID(1,1,1)
         self.turtleID = float(id)           #modifier

@@ -1,0 +1,81 @@
+launch:
+- node:
+    pkg: fusion_CP_Consensus
+    exec: pid_control_node4
+    name: pid_control_node4
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: pid_control_node3
+    name: pid_control_node3
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: pid_control_node2
+    name: pid_control_node2
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: pid_control_node1
+    name: pid_control_node1
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: local_path_node4
+    name: local_path_node4
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: local_path_node3
+    name: local_path_node3
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: local_path_node2
+    name: local_path_node2
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: local_path_node1
+    name: local_path_node1
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: global_path_node4
+    name: global_path_node4
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: global_path_node3
+    name: global_path_node3
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: global_path_node2
+    name: global_path_node2
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: global_path_node1
+    name: global_path_node1
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: decision_node4
+    name: decision_node4
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: decision_node3
+    name: decision_node3
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: decision_node2
+    name: decision_node2
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: decision_node1
+    name: decision_node1
+    namespace: ''
