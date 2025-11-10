@@ -8,7 +8,7 @@ from turtlesim.msg import Pose
 from geometry_msgs.msg import Point
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D
-from turtlesim.srv import TeleportAbsolute
+from my_custom_interfaces.msg import PosObstacles
 from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
 import numpy as np  #sert pour utiliser des vecteurs
@@ -37,11 +37,11 @@ class local_path(Node):
 
 
         #création de variables globales
-        self.start = False
-        self.pose = Pose()
+        self.start     = False
+        self.pose      = Pose()
+        self.obstacles = []
 
         #appel de fonctions à l'initialisation
-        self.__create_obstacles()
         self.__create_topics()
 
         self.get_logger().info('Le nœud est démarré !')
@@ -54,12 +54,13 @@ class local_path(Node):
         self.timer        = self.create_timer(0.1, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
         self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
+        self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
-    def __create_obstacles(self):
-        
-        obstacle  = np.array([3.0, 3.0])    #sert à définir les positions d'obstacles virtuels
-        self.obstacles  = [obstacle]
-        
+    def get_obstacles(self,obst_new):
+        self.obstacles  = obst_new.fixes+obst_new.flotants
+        #self.get_logger().info(f'liste des obstacles reçue dans local : {self.obstacles}')
+
+
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
         self.get_logger().info(f'position reçue par local : x={self.pose_goal.point.x}, y={self.pose_goal.point.y}, z={self.pose_goal.point.z}')

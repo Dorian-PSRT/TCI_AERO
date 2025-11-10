@@ -1,4 +1,4 @@
-import time
+
 class PID():
     def __init__(self, kp = 1, ki = 0, kd = 0):
         self.kp = kp

@@ -2,6 +2,7 @@
 import rclpy
 from rclpy.node import Node
 #import des types qui serviront aux topics
+from geometry_msgs.msg import Point
 from my_custom_interfaces.msg import PosObstacles
 from turtlesim.msg import Pose
 #import de bibliotheques ou classes pour des besoins spécifiques
@@ -23,8 +24,11 @@ class fake_ot_node(Node):
     def __init__(self):
         super().__init__('fake_ot_node')
 
-        self.obstacles_flotants = [(100,100) for _ in range(nb_drones)]
-        self.obstacles_fixes    = []
+        self.obstacles_flotants = [Point() for _ in range(nb_drones)]
+        obst1=Point()
+        obst1.x=3.0
+        obst1.y=3.0
+        self.obstacles_fixes    = [obst1]
 
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
@@ -42,7 +46,10 @@ class fake_ot_node(Node):
     def pose4 (self,pos): self.position (pos,4)
 
     def position (self,pos,i):
-        self.obstacles_flotants[i-1]=(pos.x,pos.y)
+        pos_point=Point()
+        pos_point.x=pos.x
+        pos_point.y=pos.y
+        self.obstacles_flotants[i-1]=pos_point
 
     def send_info (self):
         obstacles          = PosObstacles()

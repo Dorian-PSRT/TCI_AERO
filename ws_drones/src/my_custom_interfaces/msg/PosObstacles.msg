@@ -1,5 +1,5 @@
 
 
-float32[] fixes
+geometry_msgs/Point[] fixes
 
-float32[] flotants
+geometry_msgs/Point[] flotants
