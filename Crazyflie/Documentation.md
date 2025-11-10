@@ -29,7 +29,8 @@
 [***Userguide cfclient GUI***](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client/)    
 [***The Crazyflie Python API explanation***](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/python_api/)     
 [***USB and Radio protocol of the Crazyradio dongle***](https://www.bitcraze.io/documentation/repository/crazyradio-firmware/master/functional-areas/usb_radio_protocol/)      
-[***Recovery firmware flashing***](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/recovery-mode/)
+[***Recovery firmware flashing***](https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/recovery-mode/)        
+[***Step-by-Step: Connecting, logging and parameters***](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_connect_log_param/)     
 
 [Troubleshooting](https://www.bitcraze.io/support/troubleshooting/)  
 [Crazyradio firmware update](https://www.bitcraze.io/documentation/repository/crazyradio-firmware/master/building/programming/)   
