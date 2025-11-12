@@ -56,10 +56,8 @@ class global_path(Node):
             self.get_logger().info('Services not available, waiting...')
 
     def compute_path(self):
-        path = [(1.0 , 1.0 , 2.0), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-                (10.0, 1.0 , 2.0),
-                (10.0, 10.0, 2.0),
-                (1.0 , 10.0, 2.0),
+        path = [(5.5 , 5.5 , 2.0), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+                (10.0, 5.5 , 2.0),
                 ]
         waypoints = []
         for x,y,z in path:

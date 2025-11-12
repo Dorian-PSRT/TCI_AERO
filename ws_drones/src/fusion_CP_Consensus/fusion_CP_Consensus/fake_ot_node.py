@@ -26,9 +26,12 @@ class fake_ot_node(Node):
 
         self.obstacles_flotants = [Point() for _ in range(nb_drones)]
         obst1=Point()
-        obst1.x=6.0
+        obst1.x=5.5
         obst1.y=8.0
-        self.obstacles_fixes    = [obst1]
+        obst2=Point()
+        obst2.x=5.5
+        obst2.y=3.0
+        self.obstacles_fixes    = [obst1,obst2]
 
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
