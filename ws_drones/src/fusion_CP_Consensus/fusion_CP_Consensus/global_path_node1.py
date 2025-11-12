@@ -60,7 +60,6 @@ class global_path(Node):
                 (10.0, 1.0 , 2.0),
                 (10.0, 10.0, 2.0),
                 (1.0 , 10.0, 2.0),
-                (1.0 , 1.0 , 2.0),
                 ]
         waypoints = []
         for x,y,z in path:

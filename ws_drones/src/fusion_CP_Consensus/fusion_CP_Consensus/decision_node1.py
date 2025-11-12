@@ -33,13 +33,17 @@ class global_path(Node):
         ############## max consensus init ##############
 
         self.turtleID     = float(id) 
-        self.turtleScore  = float(random.randrange(0,50,1))     #modifier
+        self.turtleScore  = float(random.randrange(0,50,1))  #score aléatoire entre 0 et 50
         self.curr_iter    = 0.0
         self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID
         self.bestTurtle.y = self.turtleScore # score
         self.bestTurtle.z = self.curr_iter # itération actuelle
         
+        self.gone          = False
+        self.crash         = True
+        #self.counter_crash = 0
+
         self.buff_vois1   = []
         self.buff_vois2   = []
         self.iter_max     = nb_drones//2  #uniquement valable en communication "circulaire"
@@ -48,7 +52,8 @@ class global_path(Node):
         sleep(0.5)
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
-        self.timer_maj    = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
+        self.timer_maj     = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
+        self.timer_refresh = self.create_timer(3, self.refresh)  # Refresh après 3sec au cas où max-consensus est crash
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -86,18 +91,50 @@ class global_path(Node):
                     self.bestTurtle.y = msg_vois2.y
                 
                 self.curr_iter += 1
-                self.get_logger().info(f"Tor{id} : itération :{self.curr_iter}")
+                #self.get_logger().info(f"Tor{id} : itération :{self.curr_iter}")
                 
                 self.bestTurtle.z = self.curr_iter
                 self.publisher.publish(self.bestTurtle)  # Publie le message
         
         else:
-            if self.turtleID == self.bestTurtle.x:
-                go=Bool()
-                go.data=True
-                self.publisher_go.publish(go) # C'est parti !
+            self.crash = False   #cela signifi que le premier consensus n'a pas crash
+            self.get_logger().info(f"Tor{id}: score {self.bestTurtle.y}")
+            if self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
+                self.timer_maj.cancel()
+                self.timer_refresh.cancel()
+                self.get_logger().info("Tout le monde est parti !")
 
-            self.timer_maj.cancel()
+            if not(self.gone) :  #si il n'est pas encore parti :
+                if self.turtleID == self.bestTurtle.x:
+                    go=Bool()
+                    go.data=True
+                    self.publisher_go.publish(go) # C'est parti !
+                    self.turtleScore  = 0.0
+                    self.gone = True
+                else:
+                    self.turtleScore  = float(random.randrange(0,50,1))  #on recalcul le score
+                
+
+            self.curr_iter    = 0.0
+            self.bestTurtle.x = self.turtleID # ID
+            self.bestTurtle.y = self.turtleScore # score
+            self.bestTurtle.z = self.curr_iter # itération actuelle
+            self.buff_vois1   = []
+            self.buff_vois2   = []
+            sleep(3)
+            self.publisher.publish(self.bestTurtle)
+
+
+
+    def refresh (self):
+            if self.crash :
+                self.curr_iter    = 0.0
+                self.bestTurtle.x = self.turtleID # ID
+                self.bestTurtle.y = self.turtleScore # score
+                self.bestTurtle.z = self.curr_iter # itération actuelle
+                self.publisher.publish(self.bestTurtle)
+            self.timer_refresh.cancel()
+
 ######################################################################
 
 
