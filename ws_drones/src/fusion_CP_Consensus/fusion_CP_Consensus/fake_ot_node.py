@@ -34,7 +34,7 @@ class fake_ot_node(Node):
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
         self.subscription3 = self.create_subscription(Pose,'/turtle3/pose', self.pose3,10)
         self.subscription4 = self.create_subscription(Pose,'/turtle4/pose', self.pose4,10)
-        self.timer         = self.create_timer(0.1, self.send_info)
+        self.timer         = self.create_timer(0.02, self.send_info)
 
         self.publisher = self.create_publisher(PosObstacles,'OptiTrack/obstacles',10)
 
