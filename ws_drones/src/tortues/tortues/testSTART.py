@@ -26,6 +26,8 @@ class TurtleSpawner(Node):
             (2.0, 3.0, 0.0),
             (2.0, 5.0, 0.0),
             (2.0, 7.0, 0.0),
+            (5.5, 8.0, 0.0),     # fenêtre
+            (5.5, 3.0, 0.0),     # fenêtre
         ]
 
         # Spawn des nouvelles tortues
