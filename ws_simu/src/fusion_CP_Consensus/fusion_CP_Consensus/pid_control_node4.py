@@ -58,8 +58,10 @@ class PID_Control(Node):
             cmd_vel.linear.x = v * math.cos(err_theta)
             cmd_vel.linear.y = v * math.sin(err_theta)
             cmd_vel.angular.z = self.pid_theta.run(err_theta)
-        
+
+
         self.publisher.publish(cmd_vel)
+ 
         
             
             
