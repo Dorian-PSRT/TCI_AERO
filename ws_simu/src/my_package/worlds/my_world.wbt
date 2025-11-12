@@ -2,41 +2,214 @@
 
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackground.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2022b/projects/objects/floors/protos/CircleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/bitcraze/crazyflie/protos/Crazyflie.proto"
+
 WorldInfo {
 }
+
 Viewpoint {
   orientation -0.33185733874619844 -0.09874274160469809 0.9381474178937331 3.686018050088086
   position 1.700313773507203 1.0549607538959629 1.4846240848267684
   follow "my_robot"
 }
+
 TexturedBackground {
 }
+
 TexturedBackgroundLight {
 }
-CircleArena {
+
+# Côté haut du cadre
+DEF FRAME_TOP Solid {
+  translation 0 5 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 1.1 0.1 0.1
+      }
+    }
+  ]
+  name "frame_top"
 }
 
+# Côté bas du cadre
+DEF FRAME_BOTTOM Solid {
+  translation 0 5 1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 1.1 0.1 0.1
+      }
+    }
+  ]
+  name "frame_bottom"
+}
+
+# Côté gauche du cadre
+DEF FRAME_LEFT Solid {
+  translation -0.5 5 1.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 1.1
+      }
+    }
+  ]
+  name "frame_left"
+}
+
+# Côté droit du cadre
+DEF FRAME_RIGHT Solid {
+  translation 0.5 5 1.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 0
+        metalness 0
+      }
+      geometry Box {
+        size 0.1 0.1 1.1
+      }
+    }
+  ]
+  name "frame_right"
+}
+
+# Obstacles entre spawn et cadre
+
+# Obstacle 1 - Cylindre
+DEF OBSTACLE_1 Solid {
+  translation 0 0 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.2 0.2
+        metalness 0
+      }
+      geometry Cylinder {
+        height 4
+        radius 0.3
+      }
+    }
+  ]
+
+  name "obstacle_1"
+}
+
+# Obstacle 2 - Boîte
+DEF OBSTACLE_2 Solid {
+  translation 2 2 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.5 0.2
+        metalness 0
+      }
+      geometry Box {
+        size 0.6 0.6 4
+      }
+    }
+  ]
+
+  name "obstacle_2"
+}
+
+# Obstacle 3 - Cylindre
+DEF OBSTACLE_3 Solid {
+  translation -4 -2 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.2 0.8 0.2
+        metalness 0
+      }
+      geometry Cylinder {
+        height 4
+        radius 0.25
+      }
+    }
+  ]
+
+  name "obstacle_3"
+}
+
+# Obstacle 5 - Petit cylindre
+DEF OBSTACLE_5 Solid {
+  translation -4 3.5 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.9 0.1
+        metalness 0
+      }
+      geometry Cylinder {
+        height 4
+        radius 0.2
+      }
+    }
+  ]
+}
+
+# Obstacle 6 - Boîte haute
+DEF OBSTACLE_6 Solid {
+  translation 2 -3 2
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.3 0.6 2
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.5 4
+      }
+    }
+  ]
+  name "obstacle_6"
+}
+
+RectangleArena {
+  floorSize 10 10
+  floorAppearance PBRAppearance {
+    baseColor 0.8 0.8 0.8
+    roughness 1
+    metalness 0
+  }
+}
+
+
 Crazyflie {
-  translation 0.3 -0.3 0
+  translation 0.5 -4 0
   controller "<extern>"
   name "Crazyflie1"
 }
 
 Crazyflie {
-  translation -0.3 -0.3 0
+  translation -0.5 -4 0
   controller "<extern>"
   name "Crazyflie2"
 }
+
 Crazyflie {
-  translation -0.3 0.3 0
+  translation 0.5 -4.5 0
   controller "<extern>"
   name "Crazyflie3"
 }
 
 Crazyflie {
-  translation 0.3 0.3 0
+  translation -0.5 -4.5 0
   controller "<extern>"
   name "Crazyflie4"
 }
