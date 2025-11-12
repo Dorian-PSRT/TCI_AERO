@@ -8,6 +8,8 @@
 - [ ] Faire un PID pour les positions x,y,z du drone (règler le PID)
 - [x] Calibrer l'optitrack (définir un centre (0,0,0))
 
+- [ ] Vérifier que les position dans l'estimateur Kalman sont les mêmes que celle de l'optitrack (un programme permet de faire ça dans les exemples)
+
 # Liens utiles
 
 [Lien GitHub Bitcraze](https://github.com/bitcraze)   
