@@ -32,6 +32,7 @@ class TurtleSpawner(Node):
 
         # Spawn des nouvelles tortues
         self.spawn_turtles()
+        #raise SystemExit
 
     def kill_default_turtle(self):
         request = Kill.Request()
