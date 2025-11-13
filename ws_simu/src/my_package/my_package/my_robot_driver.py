@@ -16,34 +16,22 @@
 
 import math
 import rclpy
-from geometry_msgs.msg import Twist, PoseStamped
-from sensor_msgs.msg import LaserScan, Imu
+from geometry_msgs.msg import Twist, PoseStamped    #PoseStamped rajouté
+from sensor_msgs.msg import LaserScan, Imu          #Imu rajouté
 import numpy as np
 from geometry_msgs.msg import TransformStamped
-from std_msgs.msg import Float32 
 from tf2_ros import TransformBroadcaster
 import tf_transformations
-from turtlesim.msg import Pose
 
 from math import cos, sin
+
+############# import rajoutés #########
+from turtlesim.msg import Pose
+from std_msgs.msg import Float32 
 from my_package.pid_vel import QuadrotorController
+#######################################
 
 FLYING_ATTITUDE = 1
-
-
-#class Transfo:
-#    def __init__(self):
-
-#        self.gps = self.robot.getDevice("gps")
-#        self.publisher = self.create_publisher(Pose, f'/{self.robot.getName()}/pose', 10)
-    
-#    def transformation_step(self):
-
-#        self.pose.x = self.gps.getValues()[0]
-#        self.pose.y = self.gps.getValues()[1]
-     
-
-
 
 
 class CrazyflieDriver:
@@ -98,6 +86,7 @@ class CrazyflieDriver:
         self.vel_cmd_twist = Twist()
         self.height_desired = FLYING_ATTITUDE
 
+        ############################# rajouté ###########################
         # === Contrôleur de position (utilise PID_vel.py tel quel) ===
         self.position_controller = QuadrotorController()
         self.target_position = [0.0, 0.0, FLYING_ATTITUDE, 0.0, 0.0, 0.0]  # x, y, z, roll, pitch, yaw
@@ -108,35 +97,38 @@ class CrazyflieDriver:
         buscando_direccion = True
         personaDetectada = False
         crearRecorrido = False
-
+        ##################################################################
 
         # Intialize ROS
         rclpy.init(args=None)
         self.node = rclpy.create_node('crazyflie_driver')
 
+        ####################### rajouté ############################
         # Topic pour recevoir une position cible
         self.node.create_subscription(
             PoseStamped, f"/{self.robot.getName()}/cmd_pos", self.cmd_pos_callback, 1
         )
-        
+        ############################################################
+
         self.node.create_subscription(
-            Twist, f"/{self.robot.getName()}/cmd_vel", self.cmd_vel_callback, 1)
+            Twist, f"/{self.robot.getName()}/cmd_vel", self.cmd_vel_callback, 1)    #/{self.robot.getName()}/ pour communiquer avec le bon drone
         self.laser_publisher = self.node.create_publisher(
-            LaserScan, f"/{self.robot.getName()}/scan", 1)
+            LaserScan, f"/{self.robot.getName()}/scan", 1)                          #/{self.robot.getName()}/ pour communiquer avec le bon drone
+        
+        ######################### rajouté ###########################
         self.imu_publisher = self.node.create_publisher(
             Imu, f"/{self.robot.getName()}/imu", 1)
         self.yaw_publisher = self.node.create_publisher(
             Float32, f"/{self.robot.getName()}/yaw", 10)
+        #############################################################
+        
         self.static_broadcaster = TransformBroadcaster(self.node)
         self.first_time = True
-
-
-
-
 
     def cmd_vel_callback(self, twist):
         self.vel_cmd_twist = twist
 
+################################### rajouté #######################
     def cmd_pos_callback(self, msg):
         x = msg.pose.position.x
         y = msg.pose.position.y
@@ -230,7 +222,7 @@ class CrazyflieDriver:
                     self.use_position_control = False  # stop mode autonome
 
         return forward_desired, sideways_desired, yaw_desired, height_diff_desired
-
+##############################################################################################
 
     def step(self):
 
@@ -257,42 +249,33 @@ class CrazyflieDriver:
         v_y_global = (y_global - self.past_y_global)/dt
         z_global = self.gps.getValues()[2]
 
-
         # Get body fixed velocities
         cosyaw = cos(yaw)
         sinyaw = sin(yaw)
         v_x = v_x_global * cosyaw + v_y_global * sinyaw
         v_y = - v_x_global * sinyaw + v_y_global * cosyaw
 
-        # # === Position step ===
+
         # if self.use_position_control:
-        #     current_pos = [
-        #         x_global, y_global, z_global,
-        #         roll, pitch, yaw
-        #     ]
-        #     forward_desired, sideways_desired, yaw_desired = self.position_controller.control_quadrotor(
-        #         current_pos, self.target_position, dt
-        #     )
-        #     height_diff_desired = 0.0  # z géré par le PID de vitesse existant
-        #     self.height_desired = self.target_position[2]  # z cible
-        # === Position step ===
-        if self.use_position_control:
-            current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
-            forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
-                self.navigate_to_target(current_pos, self.target_position, dt)
-            self.height_desired += height_diff_desired * dt
-        else:
-            forward_desired = self.vel_cmd_twist.linear.x
-            sideways_desired = self.vel_cmd_twist.linear.y
-            yaw_desired = self.vel_cmd_twist.angular.z
-            height_diff_desired = self.vel_cmd_twist.linear.z
-            self.height_desired += height_diff_desired * dt
+        #     current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
+        #     forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
+        #         self.navigate_to_target(current_pos, self.target_position, dt)
+        #     self.height_desired += height_diff_desired * dt
+        # else:
+
+        # Initialize values
+        forward_desired = self.vel_cmd_twist.linear.x
+        sideways_desired = self.vel_cmd_twist.linear.y
+        yaw_desired = self.vel_cmd_twist.angular.z
+        height_diff_desired = self.vel_cmd_twist.linear.z
+
+        self.height_desired += height_diff_desired * dt
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,
                   self.range_front.getValue()/1000.0, self.range_right.getValue()/1000.0]
 
-
+################################# rajouté ######################################
         # === PUBLIE LE YAW EN CLAIR (FLOAT32) ===
         yaw_msg = Float32()
         yaw_msg.data = yaw  # yaw = self.imu.getRollPitchYaw()[2] → déjà calculé !
@@ -328,6 +311,7 @@ class CrazyflieDriver:
         # 5. Publier le message !
         self.imu_publisher.publish(imu_msg)
         # ==========================================================
+###############################################################################
 
         # Publish laser scan
         scan_msg = LaserScan()
@@ -431,7 +415,7 @@ class pid_velocity_fixed_height_controller():
         m4 = alt_command + roll_command + pitch_command - yaw_command
 
         # Limit the motor command
-        m1 = np.clip(m1, 0, 600)
+        m1 = np.clip(m1, 0, 600)    #clip = saturation entre deux bornes
         m2 = np.clip(m2, 0, 600)
         m3 = np.clip(m3, 0, 600)
         m4 = np.clip(m4, 0, 600)
@@ -439,3 +423,32 @@ class pid_velocity_fixed_height_controller():
         return [m1, m2, m3, m4]
 
 
+
+
+
+#class Transfo:
+#    def __init__(self):
+
+#        self.gps = self.robot.getDevice("gps")
+#        self.publisher = self.create_publisher(Pose, f'/{self.robot.getName()}/pose', 10)
+    
+#    def transformation_step(self):
+
+#        self.pose.x = self.gps.getValues()[0]
+#        self.pose.y = self.gps.getValues()[1]
+     
+
+
+
+        # # === Position step ===
+        # if self.use_position_control:
+        #     current_pos = [
+        #         x_global, y_global, z_global,
+        #         roll, pitch, yaw
+        #     ]
+        #     forward_desired, sideways_desired, yaw_desired = self.position_controller.control_quadrotor(
+        #         current_pos, self.target_position, dt
+        #     )
+        #     height_diff_desired = 0.0  # z géré par le PID de vitesse existant
+        #     self.height_desired = self.target_position[2]  # z cible
+        # === Position step ===
