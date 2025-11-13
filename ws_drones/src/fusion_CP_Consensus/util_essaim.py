@@ -173,8 +173,10 @@ titre_terminal = "TEMP_ne_pas_fermer"
 #         with open(utils, "w") as f:
 #             json.dump(file, f)
 
+terminal_type="gnome-terminal"
+
 def open_terminal(*cmd):
-    proc = subprocess.Popen(["gnome-terminal","--title", titre_terminal, "--", *cmd])
+    proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
     if os.path.exists(utils):
         file = json.load(open(utils))
 
@@ -185,7 +187,7 @@ def open_terminal(*cmd):
 
 if autostart:
     #close_old_terminals()
-    subprocess.run(["pkill", "-f", "gnome-terminal"], check=False)
+    subprocess.run(["pkill", "-f", terminal_type], check=False)
     open_terminal("ros2", "launch", "my_package", "robot_launch.py")
     open_terminal("ros2", "run", "my_package", "interface_node")
     sleep(8)

@@ -58,7 +58,7 @@ class fake_ot_node(Node):
         obstacles          = PosObstacles()
         obstacles.fixes    = self.obstacles_fixes
         obstacles.flotants = self.obstacles_flotants
-        #self.publisher.publish(obstacles)
+        self.publisher.publish(obstacles)
         
             
             
