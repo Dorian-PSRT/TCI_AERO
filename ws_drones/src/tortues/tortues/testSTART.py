@@ -4,6 +4,18 @@ from turtlesim.srv import Spawn
 #from turtlesim.srv import Spawn_Request
 from turtlesim.srv import Kill
 
+import json
+from pathlib import Path
+
+# Utils.json pournombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+obstacles_data=file["obstacles"]
 
 class TurtleSpawner(Node):
     def __init__(self):
@@ -26,12 +38,12 @@ class TurtleSpawner(Node):
             (2.0, 3.0, 0.0),
             (2.0, 5.0, 0.0),
             (2.0, 7.0, 0.0),
-            (5.5, 8.0, 0.0),     # fenêtre
-            (5.5, 3.0, 0.0),     # fenêtre
+            (2.0, 9.0, 0.0),
         ]
 
         # Spawn des nouvelles tortues
         self.spawn_turtles()
+        self.spawn_obstacles()
         #raise SystemExit
 
     def kill_default_turtle(self):
@@ -42,8 +54,8 @@ class TurtleSpawner(Node):
         self.get_logger().info('Tortue par défaut supprimée.')
 
     def spawn_turtles(self):
-        for i, pos in enumerate(self.spawn_positions, 1):
-            x, y, theta = pos
+        for i in range(1,nb_drones+1):
+            x, y, theta = self.spawn_positions[i-1]
             request = Spawn.Request()
             request.x = x
             request.y = y
@@ -55,6 +67,19 @@ class TurtleSpawner(Node):
             if future.result():
                 self.get_logger().info(f"Tortue {i} spawnée avec succès.")
 
+    def spawn_obstacles (self):
+        i=0
+        for obs in obstacles_data:
+            i+=1
+            request = Spawn.Request()
+            request.x = obs[0]
+            request.y = obs[1]
+            request.name = f'obstacle{i}'
+            self.get_logger().info(f"Spawning obstacle{i} at ({request.x}, {request.y})")
+            future = self.spawn_client.call_async(request)
+            rclpy.spin_until_future_complete(self, future)
+            if future.result():
+                self.get_logger().info(f"Obstacle {i} spawné avec succès.")
 
 def main(args=None):
     rclpy.init(args=args)
