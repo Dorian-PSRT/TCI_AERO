@@ -16,7 +16,7 @@
 
 import math
 import rclpy
-from geometry_msgs.msg import Twist, PointStamped
+from geometry_msgs.msg import Twist, PoseStamped
 from sensor_msgs.msg import LaserScan, Imu
 import numpy as np
 from geometry_msgs.msg import TransformStamped
@@ -26,7 +26,7 @@ import tf_transformations
 from turtlesim.msg import Pose
 
 from math import cos, sin
-
+from my_package.pid_vel import QuadrotorController
 
 FLYING_ATTITUDE = 1
 
@@ -98,9 +98,26 @@ class CrazyflieDriver:
         self.vel_cmd_twist = Twist()
         self.height_desired = FLYING_ATTITUDE
 
+        # === Contrôleur de position (utilise PID_vel.py tel quel) ===
+        self.position_controller = QuadrotorController()
+        self.target_position = [0.0, 0.0, FLYING_ATTITUDE, 0.0, 0.0, 0.0]  # x, y, z, roll, pitch, yaw
+        self.use_position_control = False
+
+                    # États internes pour navigation
+        global buscando_direccion, personaDetectada, crearRecorrido
+        buscando_direccion = True
+        personaDetectada = False
+        crearRecorrido = False
+
+
         # Intialize ROS
         rclpy.init(args=None)
         self.node = rclpy.create_node('crazyflie_driver')
+
+        # Topic pour recevoir une position cible
+        self.node.create_subscription(
+            PoseStamped, f"/{self.robot.getName()}/cmd_pos", self.cmd_pos_callback, 1
+        )
         
         self.node.create_subscription(
             Twist, f"/{self.robot.getName()}/cmd_vel", self.cmd_vel_callback, 1)
@@ -114,8 +131,106 @@ class CrazyflieDriver:
         self.first_time = True
 
 
+
+
+
     def cmd_vel_callback(self, twist):
         self.vel_cmd_twist = twist
+
+    def cmd_pos_callback(self, msg):
+        x = msg.pose.position.x
+        y = msg.pose.position.y
+        z = msg.pose.position.z
+
+        # Optionnel : extraire yaw du quaternion
+        q = [msg.pose.orientation.x, msg.pose.orientation.y,
+            msg.pose.orientation.z, msg.pose.orientation.w]
+        yaw = tf_transformations.euler_from_quaternion(q)[2]
+
+        self.target_position = [x, y, z, 0.0, 0.0, yaw]  # roll/pitch = 0
+        self.use_position_control = True
+        self.node.get_logger().info(f"Cible position reçue : ({x:.2f}, {y:.2f}, {z:.2f})")
+
+    def navigate_to_target(self, current_position, target_position, dt):
+
+        global buscando_direccion  # état de rotation
+        global crearRecorrido
+        global personaDetectada
+        global t_detectada
+        global total_simulation_time
+        global t_espera_persona
+
+        # === Décomposition ===
+        x, y, z, roll, pitch, yaw = current_position
+        yaw_desired = 0.0
+        forward_desired = 0.0
+        sideways_desired = 0.0
+        height_diff_desired = 0.0
+
+        # --- Angle vers la cible ---
+        alpha = math.atan2((target_position[1] - y), (target_position[0]) - x)
+
+        # === Phase orientation ===
+        if buscando_direccion:
+            if yaw >= math.pi/2 and yaw * alpha < 0:
+                current_position_desplazada = yaw - math.pi
+                alpha_desplazada = alpha - math.pi/2
+                if current_position_desplazada > alpha_desplazada + 0.1:
+                    yaw_desired = +0.15
+                elif current_position_desplazada < alpha_desplazada - 0.1:
+                    yaw_desired = -0.15
+            elif yaw <= -math.pi/2 and yaw * alpha < 0:
+                current_position_desplazada = yaw - math.pi
+                alpha_desplazada = alpha - math.pi/2
+                if current_position_desplazada > alpha_desplazada + 0.1:
+                    yaw_desired = +0.15
+                elif current_position_desplazada < alpha_desplazada - 0.1:
+                    yaw_desired = -0.15
+            else:
+                if yaw > alpha + 0.1:
+                    yaw_desired = -0.15
+                elif yaw < alpha - 0.1:
+                    yaw_desired = +0.15
+                else:
+                    buscando_direccion = False
+
+        # === Phase déplacement ===
+        else:
+            buscando_direccion = False
+            if personaDetectada:
+                t_espera_persona = total_simulation_time - t_detectada
+                forward_desired = 0
+                sideways_desired = 0
+                yaw_desired = 0
+                height_diff_desired = 0
+                self.node.get_logger().info("🧍 Persona detectada — arrêt du drone")
+            else:
+                # PID de position
+                cmd_vel_x, cmd_vel_y, cmd_ang_w = self.position_controller.control_quadrotor(
+                    current_position, target_position, dt
+                )
+                if target_position[2] > z:
+                    height_diff_desired = min(target_position[2] - z, 0.1)
+                if target_position[2] < z:
+                    height_diff_desired = max(target_position[2] - z, -0.1)
+                
+                sideways_desired = cmd_vel_y
+                forward_desired = cmd_vel_x
+                yaw_desired = cmd_ang_w
+
+                # Distances à la cible
+                distTargetX = abs(target_position[0] - x)
+                distTargetY = abs(target_position[1] - y)
+                distTargetZ = abs(target_position[2] - z)
+
+                # Même logique que ton code original
+                if distTargetX < 0.2 and distTargetY < 0.2 and distTargetZ < 0.3:
+                    buscando_direccion = True
+                    self.node.get_logger().info("✅ Cible atteinte !")
+                    self.use_position_control = False  # stop mode autonome
+
+        return forward_desired, sideways_desired, yaw_desired, height_diff_desired
+
 
     def step(self):
 
@@ -149,14 +264,29 @@ class CrazyflieDriver:
         v_x = v_x_global * cosyaw + v_y_global * sinyaw
         v_y = - v_x_global * sinyaw + v_y_global * cosyaw
 
-        # Initialize values
-        forward_desired = self.vel_cmd_twist.linear.x
-        sideways_desired = self.vel_cmd_twist.linear.y
-        yaw_desired = self.vel_cmd_twist.angular.z
-
-        height_diff_desired = self.vel_cmd_twist.linear.z
-        self.height_desired += height_diff_desired * dt   
-
+        # # === Position step ===
+        # if self.use_position_control:
+        #     current_pos = [
+        #         x_global, y_global, z_global,
+        #         roll, pitch, yaw
+        #     ]
+        #     forward_desired, sideways_desired, yaw_desired = self.position_controller.control_quadrotor(
+        #         current_pos, self.target_position, dt
+        #     )
+        #     height_diff_desired = 0.0  # z géré par le PID de vitesse existant
+        #     self.height_desired = self.target_position[2]  # z cible
+        # === Position step ===
+        if self.use_position_control:
+            current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
+            forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
+                self.navigate_to_target(current_pos, self.target_position, dt)
+            self.height_desired += height_diff_desired * dt
+        else:
+            forward_desired = self.vel_cmd_twist.linear.x
+            sideways_desired = self.vel_cmd_twist.linear.y
+            yaw_desired = self.vel_cmd_twist.angular.z
+            height_diff_desired = self.vel_cmd_twist.linear.z
+            self.height_desired += height_diff_desired * dt
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,
@@ -307,3 +437,5 @@ class pid_velocity_fixed_height_controller():
         m4 = np.clip(m4, 0, 600)
 
         return [m1, m2, m3, m4]
+
+
