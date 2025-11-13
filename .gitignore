@@ -1,3 +1,7 @@
 /ws_simu/build/
 /ws_simu/install/
 /ws_simu/log/
+
+/ws_drones/build/
+/ws_drones/install/
+/ws_drones/log/
