@@ -51,7 +51,7 @@ class local_path(Node):
         self.thread_event = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
         #self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
-        self.publisher    = self.create_publisher(PoseStamped, f'/turtle{id}/pose_d', 10)
+        self.publisher    = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
         self.timer        = self.create_timer(0.1, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
         self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
@@ -61,7 +61,7 @@ class local_path(Node):
         obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
         self.obstacles  = obst_new.fixes+obst_new.flotants
         #self.get_logger().info(f'liste des obstacles reçue dans local : {self.obstacles}')
-
+   
 
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
@@ -105,6 +105,7 @@ class local_path(Node):
             pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
             pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
             pose_d_point.y = pose_d_[1]
+            pose_d_point.z = 1.5
 
             pose_d = PoseStamped()
             pose_d.pose.position = pose_d_point

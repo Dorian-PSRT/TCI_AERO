@@ -38,6 +38,8 @@ class CrazyflieDriver:
 
     def init(self, webots_node, properties):
 
+        #self.get_logger().info('Driver démmaré')
+
         self.robot = webots_node.robot
         self.timestep = int(self.robot.getBasicTimeStep())
 
@@ -104,10 +106,12 @@ class CrazyflieDriver:
         self.node = rclpy.create_node('crazyflie_driver')
 
         ####################### rajouté ############################
-        # Topic pour recevoir une position cible
-        self.node.create_subscription(
-            PoseStamped, f"/{self.robot.getName()}/cmd_pos", self.cmd_pos_callback, 1
-        )
+        # # Topic pour recevoir une position cible
+        # self.node.create_subscription(
+        #     PoseStamped, f"/{self.robot.getName()}/cmd_pos", self.cmd_pos_callback, 1
+        # )
+                # Topic pour recevoir une position cible
+        self.node.create_subscription(PoseStamped, f'/{self.robot.getName()}/pose_d', self.cmd_pos_callback, 10)
         ############################################################
 
         self.node.create_subscription(
@@ -202,9 +206,9 @@ class CrazyflieDriver:
                     current_position, target_position, dt
                 )
                 if target_position[2] > z:
-                    height_diff_desired = min(target_position[2] - z, 0.1)
+                    height_diff_desired = min(target_position[2] - z, 0.05)
                 if target_position[2] < z:
-                    height_diff_desired = max(target_position[2] - z, -0.1)
+                    height_diff_desired = max(target_position[2] - z, -0.05)
                 
                 sideways_desired = cmd_vel_y
                 forward_desired = cmd_vel_x
@@ -256,20 +260,20 @@ class CrazyflieDriver:
         v_y = - v_x_global * sinyaw + v_y_global * cosyaw
 
 
-        # if self.use_position_control:
-        #     current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
-        #     forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
-        #         self.navigate_to_target(current_pos, self.target_position, dt)
-        #     self.height_desired += height_diff_desired * dt
-        # else:
+        if self.use_position_control:
+            current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
+            forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
+                self.navigate_to_target(current_pos, self.target_position, dt)
+            self.height_desired += height_diff_desired * dt
+        else:
 
-        # Initialize values
-        forward_desired = self.vel_cmd_twist.linear.x
-        sideways_desired = self.vel_cmd_twist.linear.y
-        yaw_desired = self.vel_cmd_twist.angular.z
-        height_diff_desired = self.vel_cmd_twist.linear.z
+                # Initialize values
+            forward_desired = self.vel_cmd_twist.linear.x
+            sideways_desired = self.vel_cmd_twist.linear.y
+            yaw_desired = self.vel_cmd_twist.angular.z
+            height_diff_desired = self.vel_cmd_twist.linear.z
 
-        self.height_desired += height_diff_desired * dt
+            self.height_desired += height_diff_desired * dt
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,

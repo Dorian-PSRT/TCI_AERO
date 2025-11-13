@@ -29,9 +29,24 @@ from math import cos, sin
 from turtlesim.msg import Pose
 from std_msgs.msg import Float32 
 from my_package.pid_vel import QuadrotorController
+import json
+from pathlib import Path
 #######################################
 
 FLYING_ATTITUDE = 1
+
+########## import data drone  #########
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+nb_drones=int(file["nb_drones"])
+
+# on récupère l'id du drone
+id=int(__file__[-4])
+#######################################
 
 
 class CrazyflieDriver:
@@ -106,8 +121,7 @@ class CrazyflieDriver:
         ####################### rajouté ############################
         # Topic pour recevoir une position cible
         self.node.create_subscription(
-            PoseStamped, f"/{self.robot.getName()}/cmd_pos", self.cmd_pos_callback, 1
-        )
+            PoseStamped, f'/turtle{id}/pose_d', self.cmd_pos_callback, 10)
         ############################################################
 
         self.node.create_subscription(
@@ -249,20 +263,20 @@ class CrazyflieDriver:
         v_y = - v_x_global * sinyaw + v_y_global * cosyaw
 
 
-        # if self.use_position_control:
-        #     current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
-        #     forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
-        #         self.navigate_to_target(current_pos, self.target_position, dt)
-        #     self.height_desired += height_diff_desired * dt
-        # else:
+        if self.use_position_control:
+            current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
+            forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
+                self.navigate_to_target(current_pos, self.target_position, dt)
+            self.height_desired += height_diff_desired * dt
+        else:
 
-        # Initialize values
-        forward_desired = self.vel_cmd_twist.linear.x
-        sideways_desired = self.vel_cmd_twist.linear.y
-        yaw_desired = self.vel_cmd_twist.angular.z
-        height_diff_desired = self.vel_cmd_twist.linear.z
+            # Initialize values
+            forward_desired = self.vel_cmd_twist.linear.x
+            sideways_desired = self.vel_cmd_twist.linear.y
+            yaw_desired = self.vel_cmd_twist.angular.z
+            height_diff_desired = self.vel_cmd_twist.linear.z
 
-        self.height_desired += height_diff_desired * dt
+            self.height_desired += height_diff_desired * dt
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,

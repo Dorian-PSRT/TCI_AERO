@@ -263,20 +263,20 @@ class CrazyflieDriver:
         v_y = - v_x_global * sinyaw + v_y_global * cosyaw
 
 
-        # if self.use_position_control:
-        #     current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
-        #     forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
-        #         self.navigate_to_target(current_pos, self.target_position, dt)
-        #     self.height_desired += height_diff_desired * dt
-        # else:
+        if self.use_position_control:
+            current_pos = [x_global, y_global, z_global, roll, pitch, yaw]
+            forward_desired, sideways_desired, yaw_desired, height_diff_desired = \
+                self.navigate_to_target(current_pos, self.target_position, dt)
+            self.height_desired += height_diff_desired * dt
+        else:
 
-        # Initialize values
-        forward_desired = self.vel_cmd_twist.linear.x
-        sideways_desired = self.vel_cmd_twist.linear.y
-        yaw_desired = self.vel_cmd_twist.angular.z
-        height_diff_desired = self.vel_cmd_twist.linear.z
+            # Initialize values
+            forward_desired = self.vel_cmd_twist.linear.x
+            sideways_desired = self.vel_cmd_twist.linear.y
+            yaw_desired = self.vel_cmd_twist.angular.z
+            height_diff_desired = self.vel_cmd_twist.linear.z
 
-        self.height_desired += height_diff_desired * dt
+            self.height_desired += height_diff_desired * dt
 
         # Example how to get sensor data
         ranges = [self.range_back.getValue()/1000.0, self.range_left.getValue()/1000.0,

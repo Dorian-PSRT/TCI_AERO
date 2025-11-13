@@ -24,7 +24,7 @@ from time import sleep
 
 
 mode=0      #0=Turtlesim et 1=simu
-autostart=False   #lance automatiquement les nodes
+autostart=True  #lance automatiquement les nodes
 build=True
 
 # Dossiers
@@ -33,7 +33,7 @@ nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
 
 # fichiers
-liste_fichiers = ["global_path_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
+liste_fichiers = ["global_path_node","my_robot_driver_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
 
@@ -164,7 +164,7 @@ titre_terminal = "TEMP_ne_pas_fermer"
 #             file = json.load(f)
 
 #         for pid in file["pids"]:
-#             try:
+#             try:t
 #                 os.kill(pid, signal.SIGTERM)
 #                 print(f"fermeture de pid: {pid}")
 #             except ProcessLookupError:
@@ -186,6 +186,10 @@ def open_terminal(*cmd):
 if autostart:
     #close_old_terminals()
     subprocess.run(["pkill", "-f", "gnome-terminal"], check=False)
+    open_terminal("ros2", "launch", "my_package", "robot_launch.py")
+    open_terminal("ros2", "run", "my_package", "interface_node")
+    sleep(8)
+
     open_terminal("ros2", "run", "tortues", "observer")
     open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
 

@@ -45,11 +45,6 @@ class interface_node(Node):
         # Stockage yaw
         self.yaw = [0.0] * 5  # index 1 à 4
 
-        # Timer anti-chute
-        self.create_timer(0.1, self.force_hover)
-
-        self.get_logger().info("interface_node → pose.theta VRAI + Z=1m STABLE → GO !")
-
     # === GPS + IDX ===
     def cf1_gps_callback(self, p_s, idx): self._publish_pose(p_s, self.cf1_pose_pub, idx)
     def cf2_gps_callback(self, p_s, idx): self._publish_pose(p_s, self.cf2_pose_pub, idx)
@@ -87,7 +82,7 @@ class interface_node(Node):
         cmd_out.linear.y = cmd_in.linear.y
         cmd_out.angular.z = cmd_in.angular.z
         cmd_out.linear.z = 0.0  # Tu as dit que ça montait trop → 0.0
-        publisher.publish(cmd_out)
+        #publisher.publish(cmd_out)
 
 
 
@@ -106,39 +101,6 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
-
-
-#  ...........       ____  _ __
-#  |  ,-^-,  |      / __ )(_) /_______________ _____  ___
-#  | (  O  ) |     / __  / / __/ ___/ ___/ __ `/_  / / _ \
-#  | / ,..´  |    / /_/ / / /_/ /__/ /  / /_/ / / /_/  __/
-#     +.......   /_____/_/\__/\___/_/   \__,_/ /___/\___/
-
-# MIT License
-
-# Copyright (c) 2023 Bitcraze
-
-#  ...........       ____  _ __
-#  |  ,-^-,  |      / __ )(_) /_______________ _____  ___
-#  | (  O  ) |     / __  / / __/ ___/ ___/ __ `/_  / / _ \
-#  | / ,..´  |    / /_/ / / /_/ /__/ /  / /_/ / / /_/  __/
-#     +.......   /_____/_/\__/\___/_/   \__,_/ /___/\___/
-
-# MIT License
-
-# Copyright (c) 2023 Bitcraze
-
-# Fichier : interface_node.py (version finale)
-
-# Fichier : interface_node.py (version avec le bug corrigé)
-
-
-
-
-
-
-
 
 
 
