@@ -49,7 +49,7 @@ class CP():
         f_attr = self.force_attr(goal, pose, k=self.Kattr) #appel de la fonction force_attr
         
         if abs(err_pose) > 0.1:
-            f_repu = self.force_repu(obstacles, pose, k = 10.0, d_0 = 2.0)    #si on n'est pas encore arrivé on appel force_repu
+            f_repu = self.force_repu(obstacles, pose, k =0.7, d_0 = 15.0)    #si on n'est pas encore arrivé on appel force_repu
             F = f_attr + f_repu                                                         #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
                         
         nextStep = self.Kpas * F/np.linalg.norm(F)
