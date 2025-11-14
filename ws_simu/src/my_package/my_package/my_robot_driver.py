@@ -210,63 +210,6 @@ class CrazyflieDriver:
 
 
 
-
-    # def navigate_to_target(self, current_position, target_position, dt):
-
-    #     x, y, z, roll, pitch, yaw = current_position
-
-    #     forward_desired     = 0.0
-    #     sideways_desired    = 0.0
-    #     yaw_desired         = 0.0
-    #     height_diff_desired = 0.0
-
-    #     # === 1. Angle désiré vers le waypoint ===
-    #     alpha = math.atan2(target_position[1] - y, target_position[0] - x)
-
-    #     # === 2. Erreur yaw corrigée dans [-pi, pi] ===
-    #     yaw_error = alpha - yaw
-    #     yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
-
-    #     # On autorise le vol même si pas 100% aligné (waypoints continus)
-    #     ALIGN_TOLERANCE = 0.30   # ≈ 17°, fluide
-
-    #     # === PHASE 1 : rotation seule si très mal aligné ===
-    #     if abs(yaw_error) > ALIGN_TOLERANCE:
-    #         yaw_desired = np.clip(4.0 * yaw_error, -3.5, 3.5)
-    #         forward_desired  = 0.0
-    #         sideways_desired = 0.0
-
-    #     # === PHASE 2 : déplacement fluide + micro correction yaw ===
-    #     else:
-    #         yaw_desired = np.clip(2.0 * yaw_error, -1.5, 1.5)
-
-    #         # --- Utilise ton PID EXACT tel quel ---
-    #         vx_g, vy_g, _ = self.position_controller.control_quadrotor(
-    #             current_position, target_position, dt
-    #         )
-
-    #         # === Empêcher le ralentissement avant chaque waypoint ===
-    #         MIN_SPEED = 0.35
-    #         speed = math.hypot(vx_g, vy_g)
-
-    #         if speed < MIN_SPEED:
-    #             ang = math.atan2(vy_g, vx_g)
-    #             vx_g = MIN_SPEED * math.cos(ang)
-    #             vy_g = MIN_SPEED * math.sin(ang)
-
-    #         # === Conversion GLOBAL → BODY (indispensable) ===
-    #         cosy = math.cos(yaw)
-    #         siny = math.sin(yaw)
-
-    #         forward_desired  =  vx_g * cosy + vy_g * siny
-    #         sideways_desired = -vx_g * siny + vy_g * cosy
-
-    #     # === Altitude ===
-    #     height_diff_desired = np.clip(target_position[2] - z, -0.05, 0.05)
-
-    #     return forward_desired, sideways_desired, yaw_desired, height_diff_desired
-
-
     def step(self):
 
         rclpy.spin_once(self.node, timeout_sec=0)
@@ -468,30 +411,3 @@ class pid_velocity_fixed_height_controller():
 
 
 
-
-#class Transfo:
-#    def __init__(self):
-
-#        self.gps = self.robot.getDevice("gps")
-#        self.publisher = self.create_publisher(Pose, f'/{self.robot.getName()}/pose', 10)
-    
-#    def transformation_step(self):
-
-#        self.pose.x = self.gps.getValues()[0]
-#        self.pose.y = self.gps.getValues()[1]
-     
-
-
-
-        # # === Position step ===
-        # if self.use_position_control:
-        #     current_pos = [
-        #         x_global, y_global, z_global,
-        #         roll, pitch, yaw
-        #     ]
-        #     forward_desired, sideways_desired, yaw_desired = self.position_controller.control_quadrotor(
-        #         current_pos, self.target_position, dt
-        #     )
-        #     height_diff_desired = 0.0  # z géré par le PID de vitesse existant
-        #     self.height_desired = self.target_position[2]  # z cible
-        # === Position step ===
