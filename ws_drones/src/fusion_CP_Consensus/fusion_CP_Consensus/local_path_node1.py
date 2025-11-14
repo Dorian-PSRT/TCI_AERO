@@ -88,7 +88,7 @@ class local_path(Node):
             #self.publisher.publish(self.pose)
             return
         nav=CP()
-        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 1:
 
             prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
             
@@ -109,10 +109,14 @@ class local_path(Node):
         else:                       #si on est arrivé
             self.start =False       #on annonce la fin du déplacement
             self.thread_event.set() #active l'interruption qui correspond à l'arrivée à l'objectif
-            pointactuel = Point()
-            pointactuel.x = self.pose.x
-            pointactuel.y = self.pose.y
-            self.publisher.publish(pointactuel) #la prochaine position est celle à laquelle on est déjà
+            # pointactuel = Point()
+            # pointactuel.x = self.pose.x
+            # pointactuel.y = self.pose.y
+            pointfinal = Point()
+            pointfinal.x = self.pose_goal.point.x
+            pointfinal.y = self.pose_goal.point.y
+            #pointfinal.z = self.pose_goal.point.Z
+            self.publisher.publish(pointfinal) #la prochaine position est celle à laquelle on est déjà
 
         
 
