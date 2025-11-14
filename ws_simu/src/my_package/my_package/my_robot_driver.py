@@ -26,7 +26,7 @@ import tf_transformations
 from math import cos, sin
 
 ############# import rajoutés #########
-from turtlesim.msg import Pose
+from turtlesim_msgs.msg import Pose
 from std_msgs.msg import Float32 
 from my_package.pid_vel import QuadrotorController
 #######################################
@@ -147,86 +147,125 @@ class CrazyflieDriver:
         self.use_position_control = True
         self.node.get_logger().info(f"Cible position reçue : ({x:.2f}, {y:.2f}, {z:.2f})")
 
+
+
     def navigate_to_target(self, current_position, target_position, dt):
 
-        global buscando_direccion  # état de rotation
-        global crearRecorrido
-        global personaDetectada
-        global t_detectada
-        global total_simulation_time
-        global t_espera_persona
+        
 
-        # === Décomposition ===
         x, y, z, roll, pitch, yaw = current_position
-        yaw_desired = 0.0
-        forward_desired = 0.0
-        sideways_desired = 0.0
+
+        forward_desired     = 0.0
+        sideways_desired    = 0.0
+        yaw_desired         = 0.0
         height_diff_desired = 0.0
 
-        # --- Angle vers la cible ---
-        alpha = math.atan2((target_position[1] - y), (target_position[0]) - x)
+        # === 1. Angle désiré vers la cible ===
+        alpha = math.atan2(target_position[1] - y, target_position[0] - x)
 
-        # === Phase orientation ===
-        if buscando_direccion:
-            if yaw >= math.pi/2 and yaw * alpha < 0:
-                current_position_desplazada = yaw - math.pi
-                alpha_desplazada = alpha - math.pi/2
-                if current_position_desplazada > alpha_desplazada + 0.1:
-                    yaw_desired = +0.15
-                elif current_position_desplazada < alpha_desplazada - 0.1:
-                    yaw_desired = -0.15
-            elif yaw <= -math.pi/2 and yaw * alpha < 0:
-                current_position_desplazada = yaw - math.pi
-                alpha_desplazada = alpha - math.pi/2
-                if current_position_desplazada > alpha_desplazada + 0.1:
-                    yaw_desired = +0.15
-                elif current_position_desplazada < alpha_desplazada - 0.1:
-                    yaw_desired = -0.15
-            else:
-                if yaw > alpha + 0.1:
-                    yaw_desired = -0.15
-                elif yaw < alpha - 0.1:
-                    yaw_desired = +0.15
-                else:
-                    buscando_direccion = False
+        # === 2. Erreur yaw dans [-pi, pi] ===
+        yaw_error = alpha - yaw
+        yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
 
-        # === Phase déplacement ===
+        ALIGN_TOLERANCE = 0.17  # ≈10°
+
+        # === PHASE 1 : rotation seule ===
+        if abs(yaw_error) > ALIGN_TOLERANCE:
+            yaw_desired = np.clip(5.5 * yaw_error, -4.5, 4.5)
+            forward_desired  = 0.0
+            sideways_desired = 0.0
+
+        # === PHASE 2 : déplacement + micro-correction yaw ===
         else:
-            buscando_direccion = False
-            if personaDetectada:
-                t_espera_persona = total_simulation_time - t_detectada
-                forward_desired = 0
-                sideways_desired = 0
-                yaw_desired = 0
-                height_diff_desired = 0
-                self.node.get_logger().info("🧍 Persona detectada — arrêt du drone")
-            else:
-                # PID de position
-                cmd_vel_x, cmd_vel_y, cmd_ang_w = self.position_controller.control_quadrotor(
-                    current_position, target_position, dt
-                )
-                if target_position[2] > z:
-                    height_diff_desired = min(target_position[2] - z, 0.05)
-                if target_position[2] < z:
-                    height_diff_desired = max(target_position[2] - z, -0.05)
-                
-                sideways_desired = cmd_vel_y
-                forward_desired = cmd_vel_x
-                yaw_desired = cmd_ang_w
+            yaw_desired = np.clip(2.8 * yaw_error, -1.8, 1.8)
 
-                # Distances à la cible
-                distTargetX = abs(target_position[0] - x)
-                distTargetY = abs(target_position[1] - y)
-                distTargetZ = abs(target_position[2] - z)
+            # Vitesses dans le REPÈRE GLOBAL
+            vx_g, vy_g, _ = self.position_controller.control_quadrotor(
+                current_position, target_position, dt
+            )
 
-                # Même logique que ton code original
-                if distTargetX < 0.2 and distTargetY < 0.2 and distTargetZ < 0.3:
-                    buscando_direccion = True
-                    self.node.get_logger().info("✅ Cible atteinte !")
-                    self.use_position_control = False  # stop mode autonome
+             # === Empêcher le ralentissement avant chaque waypoint ===
+    #        MIN_SPEED = 0.35
+    #        speed = math.hypot(vx_g, vy_g)
+
+    #        if speed < MIN_SPEED:
+    #            ang = math.atan2(vy_g, vx_g)
+    #            vx_g = MIN_SPEED * math.cos(ang)
+    #            vy_g = MIN_SPEED * math.sin(ang)
+
+            # === 🔥 CONVERSION GLOBAL → BODY (CORRECTION DU BUG À 90°) ===
+            cosy = math.cos(yaw)
+            siny = math.sin(yaw)
+
+            forward_desired  = vx_g * cosy + vy_g * siny
+            sideways_desired = -vx_g * siny + vy_g * cosy
+
+        # === Altitude ===
+        height_diff_desired = np.clip(target_position[2] - z, -0.05, 0.05)
+
+ 
 
         return forward_desired, sideways_desired, yaw_desired, height_diff_desired
-##############################################################################################
+
+
+
+
+
+    # def navigate_to_target(self, current_position, target_position, dt):
+
+    #     x, y, z, roll, pitch, yaw = current_position
+
+    #     forward_desired     = 0.0
+    #     sideways_desired    = 0.0
+    #     yaw_desired         = 0.0
+    #     height_diff_desired = 0.0
+
+    #     # === 1. Angle désiré vers le waypoint ===
+    #     alpha = math.atan2(target_position[1] - y, target_position[0] - x)
+
+    #     # === 2. Erreur yaw corrigée dans [-pi, pi] ===
+    #     yaw_error = alpha - yaw
+    #     yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
+
+    #     # On autorise le vol même si pas 100% aligné (waypoints continus)
+    #     ALIGN_TOLERANCE = 0.30   # ≈ 17°, fluide
+
+    #     # === PHASE 1 : rotation seule si très mal aligné ===
+    #     if abs(yaw_error) > ALIGN_TOLERANCE:
+    #         yaw_desired = np.clip(4.0 * yaw_error, -3.5, 3.5)
+    #         forward_desired  = 0.0
+    #         sideways_desired = 0.0
+
+    #     # === PHASE 2 : déplacement fluide + micro correction yaw ===
+    #     else:
+    #         yaw_desired = np.clip(2.0 * yaw_error, -1.5, 1.5)
+
+    #         # --- Utilise ton PID EXACT tel quel ---
+    #         vx_g, vy_g, _ = self.position_controller.control_quadrotor(
+    #             current_position, target_position, dt
+    #         )
+
+    #         # === Empêcher le ralentissement avant chaque waypoint ===
+    #         MIN_SPEED = 0.35
+    #         speed = math.hypot(vx_g, vy_g)
+
+    #         if speed < MIN_SPEED:
+    #             ang = math.atan2(vy_g, vx_g)
+    #             vx_g = MIN_SPEED * math.cos(ang)
+    #             vy_g = MIN_SPEED * math.sin(ang)
+
+    #         # === Conversion GLOBAL → BODY (indispensable) ===
+    #         cosy = math.cos(yaw)
+    #         siny = math.sin(yaw)
+
+    #         forward_desired  =  vx_g * cosy + vy_g * siny
+    #         sideways_desired = -vx_g * siny + vy_g * cosy
+
+    #     # === Altitude ===
+    #     height_diff_desired = np.clip(target_position[2] - z, -0.05, 0.05)
+
+    #     return forward_desired, sideways_desired, yaw_desired, height_diff_desired
+
 
     def step(self):
 
