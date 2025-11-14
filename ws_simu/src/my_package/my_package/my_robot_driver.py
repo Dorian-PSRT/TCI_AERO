@@ -26,7 +26,7 @@ import tf_transformations
 from math import cos, sin
 
 ############# import rajoutés #########
-from turtlesim_msgs.msg import Pose
+from turtlesim.msg import Pose
 from std_msgs.msg import Float32 
 from my_package.pid_vel import QuadrotorController
 #######################################
@@ -185,13 +185,13 @@ class CrazyflieDriver:
             )
 
              # === Empêcher le ralentissement avant chaque waypoint ===
-    #        MIN_SPEED = 0.35
-    #        speed = math.hypot(vx_g, vy_g)
+            # MIN_SPEED = 0.35
+            # speed = math.hypot(vx_g, vy_g)
 
-    #        if speed < MIN_SPEED:
-    #            ang = math.atan2(vy_g, vx_g)
-    #            vx_g = MIN_SPEED * math.cos(ang)
-    #            vy_g = MIN_SPEED * math.sin(ang)
+            # if speed < MIN_SPEED:
+            #     ang = math.atan2(vy_g, vx_g)
+            #     vx_g = MIN_SPEED * math.cos(ang)
+            #     vy_g = MIN_SPEED * math.sin(ang)
 
             # === 🔥 CONVERSION GLOBAL → BODY (CORRECTION DU BUG À 90°) ===
             cosy = math.cos(yaw)

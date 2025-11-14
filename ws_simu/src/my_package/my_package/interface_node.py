@@ -12,11 +12,6 @@ class interface_node(Node):
         super().__init__('interface_node')
         self.cl_group = ReentrantCallbackGroup()
 
-        # === PUBLISHERS VERS CRAZYFLIE ===
-        self.cf1_cmd_pub = self.create_publisher(Twist, '/Crazyflie1/cmd_vel', 10, callback_group=self.cl_group)
-        self.cf2_cmd_pub = self.create_publisher(Twist, '/Crazyflie2/cmd_vel', 10, callback_group=self.cl_group)
-        self.cf3_cmd_pub = self.create_publisher(Twist, '/Crazyflie3/cmd_vel', 10, callback_group=self.cl_group)
-        self.cf4_cmd_pub = self.create_publisher(Twist, '/Crazyflie4/cmd_vel', 10, callback_group=self.cl_group)
 
         # === SUBSCRIPTIONS GPS ===
         self.create_subscription(PointStamped, '/Crazyflie1/gps', lambda msg: self.cf1_gps_callback(msg, 1), 10, callback_group=self.cl_group)
@@ -36,11 +31,6 @@ class interface_node(Node):
         self.cf3_pose_pub = self.create_publisher(Pose, '/turtle3/pose', 10, callback_group=self.cl_group)
         self.cf4_pose_pub = self.create_publisher(Pose, '/turtle4/pose', 10, callback_group=self.cl_group)
 
-        # === CMD_VEL TURTLESIM → CRAZYFLIE (CORRIGÉ !) ===
-        self.create_subscription(Twist, '/turtle1/cmd_vel', lambda msg: self.cf1_cmd_vel_callback(msg, 1), 10, callback_group=self.cl_group)
-        self.create_subscription(Twist, '/turtle2/cmd_vel', lambda msg: self.cf2_cmd_vel_callback(msg, 2), 10, callback_group=self.cl_group)
-        self.create_subscription(Twist, '/turtle3/cmd_vel', lambda msg: self.cf3_cmd_vel_callback(msg, 3), 10, callback_group=self.cl_group)
-        self.create_subscription(Twist, '/turtle4/cmd_vel', lambda msg: self.cf4_cmd_vel_callback(msg, 4), 10, callback_group=self.cl_group)
 
         # Stockage yaw
         self.yaw = [0.0] * 5  # index 1 à 4
@@ -67,24 +57,9 @@ class interface_node(Node):
         pose = Pose()
         pose.x = p_s.point.x
         pose.y = p_s.point.y
-        pose.theta = self.yaw[idx]
+        #pose.z = p_s.point.z
+        pose.theta = self.yaw[idx]      # à méditer
         publisher.publish(pose)
-
-    # === CMD_VEL + Z STABLE (0.0 si tu veux pas monter) ===
-    def cf1_cmd_vel_callback(self, cmd, idx): self._publish_cmd_with_z(cmd, self.cf1_cmd_pub)
-    def cf2_cmd_vel_callback(self, cmd, idx): self._publish_cmd_with_z(cmd, self.cf2_cmd_pub)
-    def cf3_cmd_vel_callback(self, cmd, idx): self._publish_cmd_with_z(cmd, self.cf3_cmd_pub)
-    def cf4_cmd_vel_callback(self, cmd, idx): self._publish_cmd_with_z(cmd, self.cf4_cmd_pub)
-
-    def _publish_cmd_with_z(self, cmd_in, publisher):
-        cmd_out = Twist()
-        cmd_out.linear.x = cmd_in.linear.x
-        cmd_out.linear.y = cmd_in.linear.y
-        cmd_out.angular.z = cmd_in.angular.z
-        cmd_out.linear.z = 0.0  # Tu as dit que ça montait trop → 0.0
-        #publisher.publish(cmd_out)
-
-
 
 
 def main(args=None):

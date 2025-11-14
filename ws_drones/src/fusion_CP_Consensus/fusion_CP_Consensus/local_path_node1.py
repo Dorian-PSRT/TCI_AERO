@@ -58,9 +58,9 @@ class local_path(Node):
         self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
     def get_obstacles(self,obst_new):
-        obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
+        moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
         self.obstacles  = obst_new.fixes+obst_new.flotants
-        #self.get_logger().info(f'liste des obstacles reçue dans local : {self.obstacles}')
+        self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
    
 
     def handle_goal_request(self, request, response):
@@ -89,7 +89,7 @@ class local_path(Node):
             #self.publisher.publish(self.pose)
             return
         nav=CP()
-        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
 
             prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
             
@@ -118,7 +118,12 @@ class local_path(Node):
             pointactuel = Point()
             pointactuel.x = self.pose.x
             pointactuel.y = self.pose.y
-            self.publisher.publish(pointactuel) #la prochaine position est celle à laquelle on est déjà
+            pointactuel.z = 1.5
+
+            pointactuel_ps = PoseStamped()
+            pointactuel_ps.pose.position = pointactuel
+
+            self.publisher.publish(pointactuel_ps) #la prochaine position est celle à laquelle on est déjà
 
         
 

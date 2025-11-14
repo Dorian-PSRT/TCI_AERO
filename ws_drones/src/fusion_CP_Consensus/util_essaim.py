@@ -154,6 +154,17 @@ if build:
     except subprocess.CalledProcessError as e:
         print(f"❌ Une erreur est survenue lors de l'exécution de colcon build: {e}")
 
+ws_simu=workspace_path.parent/"ws_simu"
+
+os.chdir(ws_simu)
+if build:
+    try:
+        # Exécuter la commande colcon build
+        subprocess.run(['colcon', 'build'], check=True)
+        print("✅ colcon build simu réussi")
+    except subprocess.CalledProcessError as e:
+        print(f"❌ Une erreur est survenue lors de l'exécution de colcon build: {e}")
+
 
 titre_terminal = "TEMP_ne_pas_fermer"
 
