@@ -205,6 +205,7 @@ if autostart:
 
     open_terminal("ros2", "run", "tortues", "observer")
     open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+    open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
 
     #open_terminal("rqt_graph")
 
