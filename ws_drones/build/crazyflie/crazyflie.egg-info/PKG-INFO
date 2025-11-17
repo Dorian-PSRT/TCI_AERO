@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: crazyflie
+Version: 0.0.0
+Summary: TODO: Package description
+Maintainer: Alexmin9
+Maintainer-email: alexandre.minvielle@estaca.eu
+License: TODO: License declaration
+Provides-Extra: test

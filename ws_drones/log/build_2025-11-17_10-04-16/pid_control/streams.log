@@ -1,0 +1,23 @@
+[0.750s] Invoking command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/pid_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_control build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log --single-version-externally-managed install_data
+[0.903s] running egg_info
+[0.913s] writing ../../build/pid_control/pid_control.egg-info/PKG-INFO
+[0.913s] writing dependency_links to ../../build/pid_control/pid_control.egg-info/dependency_links.txt
+[0.913s] writing entry points to ../../build/pid_control/pid_control.egg-info/entry_points.txt
+[0.914s] writing requirements to ../../build/pid_control/pid_control.egg-info/requires.txt
+[0.914s] writing top-level names to ../../build/pid_control/pid_control.egg-info/top_level.txt
+[0.935s] reading manifest file '../../build/pid_control/pid_control.egg-info/SOURCES.txt'
+[0.935s] writing manifest file '../../build/pid_control/pid_control.egg-info/SOURCES.txt'
+[0.936s] running build
+[0.936s] running build_py
+[0.936s] running install
+[0.940s] running install_lib
+[0.951s] running install_data
+[0.951s] running install_egg_info
+[0.962s] removing '/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control-0.0.0-py3.12.egg-info' (and everything under it)
+[0.962s] Copying ../../build/pid_control/pid_control.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control-0.0.0-py3.12.egg-info
+[0.963s] running install_scripts
+[1.042s] Installing global_path_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.042s] Installing local_path_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.042s] Installing pid_control_node_example script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.042s] writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log'
+[1.065s] Invoked command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/pid_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_control build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log --single-version-externally-managed install_data
