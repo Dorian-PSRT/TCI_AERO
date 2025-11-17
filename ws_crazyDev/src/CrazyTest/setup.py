@@ -21,7 +21,8 @@ setup(
     entry_points={
         'console_scripts': [
             'node1 = CrazyTest.FlieTest:main',
-            'node2 = CrazyTest.Connect:main'
+            'node2 = CrazyTest.Connect:main',
+            'mocap_node = CrazyTest.mocap_wrapper_node:main',
         ],
     },
 )
