@@ -5,8 +5,8 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D
 from example_interfaces.srv import Trigger
-#from turtlesim.srv import TeleportAbsolute
-from turtlesim_msgs.srv import TeleportAbsolute     #pour Alexandre
+from turtlesim.srv import TeleportAbsolute
+#from turtlesim_msgs.srv import TeleportAbsolute     #pour Alexandre
 #import des types qui serviront aux topics
 from std_msgs.msg import Bool
 #import de bibliotheques pour des besoins spécifiques

@@ -20,12 +20,14 @@ import yaml
 import json, signal
 import subprocess
 from time import sleep
+import cflib.crtp
 
 
 
-mode=0      #0=Turtlesim et 1=simu
+mode=2      #0=Turtlesim, 1=simu et 2=réel
 autostart=True  #lance automatiquement les nodes
 build=True
+radio=True
 
 # Dossiers
 dossier = Path(__file__).parent #dossier du script
@@ -33,17 +35,30 @@ nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
 
 # fichiers
-liste_fichiers = ["global_path_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
+liste_fichiers = ["global_path_node","local_path_node","control_node","decision_node"]  #,"my_robot_driver_node"
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
+
+# radio
+uris=[]
+cflib.crtp.init_drivers()
+available = cflib.crtp.scan_interfaces()
+for i in available:
+    uris.append(i[0])
+    print("Interface with URI [%s] found and name/comment [%s]" % (i[0], i[1]))
+
 
 # Utils.json
 utils = dossier/"utils.json" 
 with open(utils) as f:
     file = json.load(f)
 
-
 nb_drones=file["nb_drones"]
+
+file["uri"]=uris
+
+with open(utils, "w") as outfile:
+    json.dump(file, outfile, indent=4)
 
 for id in range (2,nb_drones+1):
     for fichier in liste_fichiers:
@@ -93,19 +108,19 @@ print("✅ setup.py mis à jour avec les nodes actuels.")
 
 # Nodes existants à ignorer ou à conserver (par exemple turtlesim)
 static_nodes = [
-    # {
-    #     'node': {
-    #         'pkg': 'turtlesim',
-    #         'exec': 'turtlesim_node',
-    #         'name': 'sim',
-    #         'namespace': ''
-    # }},
-    # {   'node': {
-    #         'pkg': "tortues",
-    #         'exec': "spawn",
-    #         'name': "apparition",
-    #         'namespace': ""
-    # }},
+    {
+        'node': {
+            'pkg': 'turtlesim',
+            'exec': 'turtlesim_node',
+            'name': 'sim',
+            'namespace': ''
+    }},
+    {   'node': {
+            'pkg': "tortues",
+            'exec': "spawn",
+            'name': "apparition",
+            'namespace': ""
+    }},
     {   'node': {
             'pkg': "fusion_CP_Consensus",
             'exec': "fake_ot_node",
@@ -116,6 +131,10 @@ static_nodes = [
 
 if mode == 1:
     static_nodes.pop(0)     #enlève les nodes liées à turtlesim inutiles à la simu
+    static_nodes.pop(0)
+elif mode == 2:
+    static_nodes.pop(0)
+    static_nodes.pop(0)
     static_nodes.pop(0)
 
 # Génère la liste des nodes dynamiques
@@ -158,43 +177,36 @@ if build:
 
 titre_terminal = "TEMP_ne_pas_fermer"
 
-
-# def close_old_terminals():         #non fonctionnel
-#     if os.path.exists(utils):
-#         with open(utils) as f:
-#             file = json.load(f)
-
-#         for pid in file["pids"]:
-#             try:t
-#                 os.kill(pid, signal.SIGTERM)
-#                 print(f"fermeture de pid: {pid}")
-#             except ProcessLookupError:
-#                 pass
-#         file["pids"] = []
-#         with open(utils, "w") as f:
-#             json.dump(file, f)
-
 terminal_type="gnome-terminal"
 
 def open_terminal(*cmd):
-    proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
+    full_cmd = (
+        f"source {workspace_path}/install/setup.bash; "  #f"source ~/Desktop/TCI_AERO/ws_drones/install/setup.bash; " 
+        + " ".join(cmd)
+        + "; exec bash"
+    )
+
+    subprocess.Popen([
+        terminal_type,
+        "--title", titre_terminal,
+        "--",
+        "bash", "-c", full_cmd
+    ])
+    #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
     if os.path.exists(utils):
         file = json.load(open(utils))
 
-    # file["pids"].append(proc.pid)
-    # with open(utils, "w") as f:
-    #     json.dump(file, f)
 
 
 if autostart:
     #close_old_terminals()
     subprocess.run(["pkill", "-f", terminal_type], check=False)
-    open_terminal("ros2", "run", "crazyflie", "Control_node.py")
-    # open_terminal("ros2", "run", "crazyflie", "interface_node_vrai")
-    # sleep(8)
+    #open_terminal("ros2", "run", "crazyflie", "Control_node.py")
+    #open_terminal("ros2", "run", "crazyflie", "interface_node_vrai")
+    #sleep(8)
 
     # open_terminal("ros2", "run", "tortues", "observer")
-    # open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
 
     #open_terminal("rqt_graph")
 

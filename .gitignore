@@ -1,13 +1,14 @@
-/ws_crazyDev/build/
-/ws_crazyDev/install/
-/ws_crazyDev/log/
-/ws_drones/build/
-/ws_drones/install/
-/ws_drones/log/
+ws_crazyDev/build/
+ws_crazyDev/install/
+ws_crazyDev/log/
+
+ws_drones/build/
+ws_drones/install/
+ws_drones/log/
 
 
 
 cache/
 
 
-*__pycache__/
+__pycache__/
