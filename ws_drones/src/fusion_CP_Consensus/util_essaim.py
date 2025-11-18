@@ -33,7 +33,7 @@ nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
 
 # fichiers
-liste_fichiers = ["global_path_node","my_robot_driver_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
+liste_fichiers = ["global_path_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
 
