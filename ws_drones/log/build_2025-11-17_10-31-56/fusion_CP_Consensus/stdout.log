@@ -1,0 +1,72 @@
+running egg_info
+writing ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/PKG-INFO
+writing dependency_links to ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/dependency_links.txt
+writing entry points to ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/entry_points.txt
+writing requirements to ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/requires.txt
+writing top-level names to ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/top_level.txt
+reading manifest file '../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/SOURCES.txt'
+writing manifest file '../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info/SOURCES.txt'
+running build
+running build_py
+copying fusion_CP_Consensus/global_path_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/local_path_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/global_path_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/decision_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/my_robot_driver_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/decision_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/local_path_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/my_robot_driver_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/global_path_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/my_robot_driver_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/local_path_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+copying fusion_CP_Consensus/decision_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus
+running install
+running install_lib
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/global_path_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/local_path_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/global_path_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/decision_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/my_robot_driver_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/decision_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/local_path_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/my_robot_driver_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/global_path_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/my_robot_driver_node3.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/local_path_node4.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/build/lib/fusion_CP_Consensus/decision_node2.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/global_path_node2.py to global_path_node2.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/local_path_node3.py to local_path_node3.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/global_path_node4.py to global_path_node4.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/decision_node3.py to decision_node3.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/my_robot_driver_node4.py to my_robot_driver_node4.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/decision_node4.py to decision_node4.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/local_path_node2.py to local_path_node2.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/my_robot_driver_node2.py to my_robot_driver_node2.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/global_path_node3.py to global_path_node3.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/my_robot_driver_node3.py to my_robot_driver_node3.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/local_path_node4.py to local_path_node4.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus/decision_node2.py to decision_node2.cpython-312.pyc
+running install_data
+copying launch/essaim_launch.yaml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/share/fusion_CP_Consensus/launch
+running install_egg_info
+removing '/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/fusion_CP_Consensus/fusion_CP_Consensus.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/python3.12/site-packages/fusion_CP_Consensus-0.0.0-py3.12.egg-info
+running install_scripts
+Installing decision_node1 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing decision_node2 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing decision_node3 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing decision_node4 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing fake_ot_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing global_path_node1 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing global_path_node2 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing global_path_node3 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing global_path_node4 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing local_path_node1 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing local_path_node2 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing local_path_node3 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing local_path_node4 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing my_robot_driver_node1 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing my_robot_driver_node2 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing my_robot_driver_node3 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+Installing my_robot_driver_node4 script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/fusion_CP_Consensus/lib/fusion_CP_Consensus
+writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/fusion_CP_Consensus/install.log'

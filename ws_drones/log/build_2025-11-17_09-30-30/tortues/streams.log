@@ -1,0 +1,62 @@
+[0.791s] Invoking command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/tortues': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tortues build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log --single-version-externally-managed install_data
+[0.931s] running egg_info
+[0.931s] creating ../../build/tortues/tortues.egg-info
+[0.941s] writing ../../build/tortues/tortues.egg-info/PKG-INFO
+[0.941s] writing dependency_links to ../../build/tortues/tortues.egg-info/dependency_links.txt
+[0.941s] writing entry points to ../../build/tortues/tortues.egg-info/entry_points.txt
+[0.941s] writing requirements to ../../build/tortues/tortues.egg-info/requires.txt
+[0.941s] writing top-level names to ../../build/tortues/tortues.egg-info/top_level.txt
+[0.941s] writing manifest file '../../build/tortues/tortues.egg-info/SOURCES.txt'
+[0.960s] reading manifest file '../../build/tortues/tortues.egg-info/SOURCES.txt'
+[0.960s] writing manifest file '../../build/tortues/tortues.egg-info/SOURCES.txt'
+[0.960s] running build
+[0.960s] running build_py
+[0.960s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build
+[0.960s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib
+[0.961s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/observer.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/Turtle3_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/Turtle4_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/pid_lib.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/Turtle1_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/testSTART.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] copying tortues/Turtle2_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues
+[0.961s] running install
+[0.964s] running install_lib
+[0.974s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.974s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/observer.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.974s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/Turtle3_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.974s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/Turtle4_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.974s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/pid_lib.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.974s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/Turtle1_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.975s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.975s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/testSTART.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.975s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build/lib/tortues/Turtle2_Node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues
+[0.975s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/observer.py to observer.cpython-312.pyc
+[0.976s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/Turtle3_Node.py to Turtle3_Node.cpython-312.pyc
+[0.976s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/Turtle4_Node.py to Turtle4_Node.cpython-312.pyc
+[0.977s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/pid_lib.py to pid_lib.cpython-312.pyc
+[0.977s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/Turtle1_Node.py to Turtle1_Node.cpython-312.pyc
+[0.978s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/__init__.py to __init__.cpython-312.pyc
+[0.978s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/testSTART.py to testSTART.cpython-312.pyc
+[0.978s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues/Turtle2_Node.py to Turtle2_Node.cpython-312.pyc
+[0.979s] running install_data
+[0.979s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/ament_index
+[0.979s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/ament_index/resource_index
+[0.979s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/ament_index/resource_index/packages
+[0.979s] copying resource/tortues -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/ament_index/resource_index/packages
+[0.979s] copying package.xml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/tortues
+[0.979s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/tortues/launch
+[0.979s] copying launch/test_launch.yaml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/share/tortues/launch
+[0.979s] running install_egg_info
+[0.989s] Copying ../../build/tortues/tortues.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues-0.0.0-py3.12.egg-info
+[0.990s] running install_scripts
+[1.063s] Installing Turtle1_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.063s] Installing Turtle2_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.063s] Installing Turtle3_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.063s] Installing Turtle4_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.063s] Installing observer script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.064s] Installing spawn script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.064s] writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log'
+[1.086s] Invoked command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/tortues' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tortues build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log --single-version-externally-managed install_data

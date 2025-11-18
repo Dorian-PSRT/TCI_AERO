@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/crazyflie/crazyflie.egg-info
+writing ../../build/crazyflie/crazyflie.egg-info/PKG-INFO
+writing dependency_links to ../../build/crazyflie/crazyflie.egg-info/dependency_links.txt
+writing entry points to ../../build/crazyflie/crazyflie.egg-info/entry_points.txt
+writing requirements to ../../build/crazyflie/crazyflie.egg-info/requires.txt
+writing top-level names to ../../build/crazyflie/crazyflie.egg-info/top_level.txt
+writing manifest file '../../build/crazyflie/crazyflie.egg-info/SOURCES.txt'
+reading manifest file '../../build/crazyflie/crazyflie.egg-info/SOURCES.txt'
+writing manifest file '../../build/crazyflie/crazyflie.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib/crazyflie
+copying crazyflie/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib/crazyflie
+copying crazyflie/Control_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib/crazyflie
+running install
+running install_lib
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib/crazyflie/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie
+copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build/lib/crazyflie/Control_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie/__init__.py to __init__.cpython-312.pyc
+byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie/Control_node.py to Control_node.cpython-312.pyc
+running install_data
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/ament_index
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/ament_index/resource_index
+creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/ament_index/resource_index/packages
+copying resource/crazyflie -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/ament_index/resource_index/packages
+copying package.xml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/crazyflie
+running install_egg_info
+Copying ../../build/crazyflie/crazyflie.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie-0.0.0-py3.12.egg-info
+running install_scripts
+Installing Control_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/crazyflie
+writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/install.log'

@@ -1,0 +1,26 @@
+[0.798s] Invoking command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/tortues': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tortues build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log --single-version-externally-managed install_data
+[0.949s] running egg_info
+[0.960s] writing ../../build/tortues/tortues.egg-info/PKG-INFO
+[0.960s] writing dependency_links to ../../build/tortues/tortues.egg-info/dependency_links.txt
+[0.960s] writing entry points to ../../build/tortues/tortues.egg-info/entry_points.txt
+[0.960s] writing requirements to ../../build/tortues/tortues.egg-info/requires.txt
+[0.960s] writing top-level names to ../../build/tortues/tortues.egg-info/top_level.txt
+[0.983s] reading manifest file '../../build/tortues/tortues.egg-info/SOURCES.txt'
+[0.983s] writing manifest file '../../build/tortues/tortues.egg-info/SOURCES.txt'
+[0.983s] running build
+[0.983s] running build_py
+[0.983s] running install
+[0.987s] running install_lib
+[0.998s] running install_data
+[0.998s] running install_egg_info
+[1.008s] removing '/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues-0.0.0-py3.12.egg-info' (and everything under it)
+[1.009s] Copying ../../build/tortues/tortues.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages/tortues-0.0.0-py3.12.egg-info
+[1.009s] running install_scripts
+[1.086s] Installing Turtle1_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] Installing Turtle2_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] Installing Turtle3_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] Installing Turtle4_Node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] Installing observer script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] Installing spawn script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/tortues
+[1.086s] writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log'
+[1.103s] Invoked command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/tortues' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/tortues/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/tortues build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/tortues/install.log --single-version-externally-managed install_data

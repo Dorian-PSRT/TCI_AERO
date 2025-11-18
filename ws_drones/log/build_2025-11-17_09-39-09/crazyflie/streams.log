@@ -1,0 +1,22 @@
+[0.841s] Invoking command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/crazyflie': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/crazyflie build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/install.log --single-version-externally-managed install_data
+[0.984s] running egg_info
+[0.993s] writing ../../build/crazyflie/crazyflie.egg-info/PKG-INFO
+[0.994s] writing dependency_links to ../../build/crazyflie/crazyflie.egg-info/dependency_links.txt
+[0.994s] writing entry points to ../../build/crazyflie/crazyflie.egg-info/entry_points.txt
+[0.994s] writing requirements to ../../build/crazyflie/crazyflie.egg-info/requires.txt
+[0.994s] writing top-level names to ../../build/crazyflie/crazyflie.egg-info/top_level.txt
+[1.014s] reading manifest file '../../build/crazyflie/crazyflie.egg-info/SOURCES.txt'
+[1.015s] writing manifest file '../../build/crazyflie/crazyflie.egg-info/SOURCES.txt'
+[1.015s] running build
+[1.015s] running build_py
+[1.015s] running install
+[1.019s] running install_lib
+[1.029s] running install_data
+[1.029s] copying package.xml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/share/crazyflie
+[1.030s] running install_egg_info
+[1.040s] removing '/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie-0.0.0-py3.12.egg-info' (and everything under it)
+[1.040s] Copying ../../build/crazyflie/crazyflie.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages/crazyflie-0.0.0-py3.12.egg-info
+[1.041s] running install_scripts
+[1.116s] Installing Control_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/crazyflie
+[1.116s] writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/install.log'
+[1.135s] Invoked command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/crazyflie' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/crazyflie/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/crazyflie build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/crazyflie/install.log --single-version-externally-managed install_data

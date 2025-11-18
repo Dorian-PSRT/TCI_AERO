@@ -1,0 +1,50 @@
+[0.801s] Invoking command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/pid_control': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_control build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log --single-version-externally-managed install_data
+[0.946s] running egg_info
+[0.946s] creating ../../build/pid_control/pid_control.egg-info
+[0.956s] writing ../../build/pid_control/pid_control.egg-info/PKG-INFO
+[0.956s] writing dependency_links to ../../build/pid_control/pid_control.egg-info/dependency_links.txt
+[0.956s] writing entry points to ../../build/pid_control/pid_control.egg-info/entry_points.txt
+[0.956s] writing requirements to ../../build/pid_control/pid_control.egg-info/requires.txt
+[0.956s] writing top-level names to ../../build/pid_control/pid_control.egg-info/top_level.txt
+[0.956s] writing manifest file '../../build/pid_control/pid_control.egg-info/SOURCES.txt'
+[0.976s] reading manifest file '../../build/pid_control/pid_control.egg-info/SOURCES.txt'
+[0.976s] writing manifest file '../../build/pid_control/pid_control.egg-info/SOURCES.txt'
+[0.976s] running build
+[0.976s] running build_py
+[0.976s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build
+[0.977s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib
+[0.977s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] copying pid_control/global_path_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] copying pid_control/local_path_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] copying pid_control/pid_class.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] copying pid_control/pid_control_node_example.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] copying pid_control/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control
+[0.977s] running install
+[0.980s] running install_lib
+[0.990s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.990s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control/global_path_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.990s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control/local_path_node.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.990s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control/pid_class.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.991s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control/pid_control_node_example.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.991s] copying /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build/lib/pid_control/__init__.py -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control
+[0.991s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control/global_path_node.py to global_path_node.cpython-312.pyc
+[0.991s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control/local_path_node.py to local_path_node.cpython-312.pyc
+[0.992s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control/pid_class.py to pid_class.cpython-312.pyc
+[0.992s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control/pid_control_node_example.py to pid_control_node_example.cpython-312.pyc
+[0.993s] byte-compiling /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control/__init__.py to __init__.cpython-312.pyc
+[0.993s] running install_data
+[0.993s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/ament_index
+[0.993s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/ament_index/resource_index
+[0.993s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/ament_index/resource_index/packages
+[0.993s] copying resource/pid_control -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/ament_index/resource_index/packages
+[0.993s] copying package.xml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/pid_control
+[0.993s] creating /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/pid_control/launch
+[0.993s] copying launch/essaim_launch.yaml -> /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/share/pid_control/launch
+[0.993s] running install_egg_info
+[1.004s] Copying ../../build/pid_control/pid_control.egg-info to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages/pid_control-0.0.0-py3.12.egg-info
+[1.005s] running install_scripts
+[1.083s] Installing global_path_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.083s] Installing local_path_node script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.083s] Installing pid_control_node_example script to /home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/pid_control
+[1.083s] writing list of installed files to '/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log'
+[1.104s] Invoked command in '/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/pid_control' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ PYTHONPATH=/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/alexmin9/Desktop/TCI_AERO/ws_drones/install/pid_control/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/pid_control build --build-base /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/build install --record /home/alexmin9/Desktop/TCI_AERO/ws_drones/build/pid_control/install.log --single-version-externally-managed install_data

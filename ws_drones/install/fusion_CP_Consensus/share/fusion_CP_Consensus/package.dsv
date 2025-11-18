@@ -1,0 +1,6 @@
+source;share/fusion_CP_Consensus/hook/pythonpath.ps1
+source;share/fusion_CP_Consensus/hook/pythonpath.dsv
+source;share/fusion_CP_Consensus/hook/pythonpath.sh
+source;share/fusion_CP_Consensus/hook/ament_prefix_path.ps1
+source;share/fusion_CP_Consensus/hook/ament_prefix_path.dsv
+source;share/fusion_CP_Consensus/hook/ament_prefix_path.sh

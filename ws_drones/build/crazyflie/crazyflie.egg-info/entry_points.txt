@@ -1,0 +1,3 @@
+[console_scripts]
+Control_node = crazyflie.Control_node:main
+interface_node_vrai = crazyflie.interface_node_vrai:main

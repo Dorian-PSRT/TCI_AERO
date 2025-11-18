@@ -1,0 +1,14 @@
+{
+  "package_name": "my_custom_interfaces",
+  "output_dir": "/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/my_custom_interfaces/rosidl_generator_type_description/my_custom_interfaces",
+  "idl_tuples": [
+    "/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/my_custom_interfaces/rosidl_adapter/my_custom_interfaces:srv/Position3D.idl",
+    "/home/alexmin9/Desktop/TCI_AERO/ws_drones/build/my_custom_interfaces/rosidl_adapter/my_custom_interfaces:msg/PosObstacles.idl"
+  ],
+  "include_paths": [
+    "geometry_msgs:/opt/ros/kilted/share/geometry_msgs",
+    "std_msgs:/opt/ros/kilted/share/std_msgs",
+    "service_msgs:/opt/ros/kilted/share/service_msgs",
+    "builtin_interfaces:/opt/ros/kilted/share/builtin_interfaces"
+  ]
+}
