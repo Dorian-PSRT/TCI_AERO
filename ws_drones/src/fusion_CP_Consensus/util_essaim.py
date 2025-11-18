@@ -33,6 +33,7 @@ radio=True
 dossier = Path(__file__).parent #dossier du script
 nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
+workspace_path2 = dossier.parents[2] / "ws_crazyDev"
 
 # fichiers
 liste_fichiers = ["global_path_node","local_path_node","control_node","decision_node"]  #,"my_robot_driver_node"
@@ -179,9 +180,9 @@ titre_terminal = "TEMP_ne_pas_fermer"
 
 terminal_type="gnome-terminal"
 
-def open_terminal(*cmd):
+def open_terminal(*cmd,ws):
     full_cmd = (
-        f"source {workspace_path}/install/setup.bash; "  #f"source ~/Desktop/TCI_AERO/ws_drones/install/setup.bash; " 
+        f"source {ws}/install/setup.bash; "  #f"source ~/Desktop/TCI_AERO/ws_drones/install/setup.bash; " 
         + " ".join(cmd)
         + "; exec bash"
     )
@@ -202,13 +203,14 @@ if autostart:
     #close_old_terminals()
     subprocess.run(["pkill", "-f", terminal_type], check=False)
     #open_terminal("ros2", "run", "crazyflie", "Control_node.py")
-    #open_terminal("ros2", "run", "crazyflie", "interface_node_vrai")
-    #sleep(8)
+    open_terminal("ros2", "run", "crflie_test", "Mocap_node",ws=workspace_path2)
+    open_terminal("ros2", "run", "crazyflie", "interface_node_vrai",ws=workspace_path)
+    sleep(2)
 
     # open_terminal("ros2", "run", "tortues", "observer")
-    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+    #open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml",ws=workspace_path)
 
-    #open_terminal("rqt_graph")
+    open_terminal("rqt_graph")
 
 
     #les messages "# Failed to use specified server: ..." ne sont pas inquiétants, ce n'est pas bloquant

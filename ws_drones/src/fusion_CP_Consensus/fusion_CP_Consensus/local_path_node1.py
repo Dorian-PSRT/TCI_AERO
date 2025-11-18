@@ -5,7 +5,7 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.node import Node
 #import des types qui serviront aux topics
 #from turtlesim.msg import Pose
-from turtlesim_msgs.msg import Pose
+from turtlesim.msg import Pose
 from geometry_msgs.msg import Point, PoseStamped
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D

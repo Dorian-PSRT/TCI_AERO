@@ -1,8 +1,6 @@
 {
-    "nb_drones": 4,
-    "uri": [
-        "radio://0/5/2M"
-    ],
+    "nb_drones": 1,
+    "uri": [],
     "pids": [
         245333,
         245334

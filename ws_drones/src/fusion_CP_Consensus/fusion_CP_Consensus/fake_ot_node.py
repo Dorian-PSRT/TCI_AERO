@@ -4,7 +4,7 @@ from rclpy.node import Node
 #import des types qui serviront aux topics
 from geometry_msgs.msg import Point
 from my_custom_interfaces.msg import PosObstacles
-from turtlesim_msgs.msg import Pose
+from turtlesim.msg import Pose
 #import de bibliotheques ou classes pour des besoins spécifiques
 
 import json

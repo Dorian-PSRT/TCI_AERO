@@ -4,7 +4,7 @@ from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
 
 from geometry_msgs.msg import PoseStamped
-from turtlesim_msgs.msg import Pose
+from turtlesim.msg import Pose
 
 import math
 
