@@ -1,6 +1,12 @@
-ws_crazyDev/build/
-ws_crazyDev/install/
-ws_crazyDev/log/
+/ws_crazyDev/build/
+/ws_crazyDev/install/
+/ws_crazyDev/log/
+/ws_drones/build/
+/ws_drones/install/
+/ws_drones/log/
+
+
+
 cache/
 
 
