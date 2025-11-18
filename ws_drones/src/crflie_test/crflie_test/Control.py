@@ -17,8 +17,8 @@ from cflib.utils import uri_helper
 from geometry_msgs.msg import PoseStamped
 from threading import Thread
 from geometry_msgs.msg import Pose
-import motioncapture
 
+import motioncapture
 host_name = '192.168.2.10'
 
 # The type of the mocap system
@@ -82,20 +82,13 @@ class CrazyflieControl(Node):
         # Initialiser les CrazyRadios pour se connecter le drone
         cflib.crtp.init_drivers()
         available = cflib.crtp.scan_interfaces()
-        for i in available:
-            print("Interface with URI [%s] found and name/comment [%s]" % (i[0], i[1]))
-        self.link_uri = "radio://0/82/2M"
-
-        '''
-        cflib.crtp.init_drivers()
-        available = cflib.crtp.scan_interfaces()
         self.link_uri = "" #permet de stocker l'addresse
         for i in available:
             radio_name = i[0]
             print("Interface with URI [%s] found and name/comment [%s]" % (radio_name, i[1]))
             if "radio" in radio_name:
                 self.link_uri = radio_name
-        ''' 
+            
 
         #uri = uri_helper.uri_from_env(default='radio://0/82/2M/E7E7E7E7E7') #entrer la radio de l'optitrack
         #self.syncrazyflie = SyncCrazyflie(uri, cf = Crazyflie(rw_cache='./cache')) #création d'un objet python représentant le drone)
@@ -176,9 +169,11 @@ class CrazyflieControl(Node):
         print("Connecté au drone :", uri)
         self.connected = True
 
-              
+
+               
            
-    def takeoff(self, request, response): 
+    def takeoff(self, request, response):
+ 
         #if not self.is_takeof:
         #self.crazyflie.high_level_commander.takeoff(1.0, 2.0)
         self.pose.position.z = 1.0

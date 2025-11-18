@@ -1,0 +1,11 @@
+launch:
+- node:
+    pkg: crflie_test
+    exec: Mocap_node
+    name: Mocap_node
+    namespace: ''
+- node:
+    pkg: crflie_test
+    exec: Control_node
+    name: Control_node
+    namespace: ''

@@ -18,6 +18,21 @@ from geometry_msgs.msg import PoseStamped
 from threading import Thread
 from geometry_msgs.msg import Pose
 import motioncapture
+import json
+from pathlib import Path
+
+# on récupère l'id du drone
+id=int(__file__[-4])
+
+# Utils.json pour nombre de drones
+dossier = Path(__file__).parent
+dossier = dossier.parents[5]
+utils = dossier/"src"/"fusion_CP_Consensus"/"utils.json" 
+with open(utils) as f:
+    file = json.load(f)
+
+uri=file["uri"][id-1]
+
 
 host_name = '192.168.2.10'
 
@@ -26,7 +41,7 @@ host_name = '192.168.2.10'
 mocap_system_type = 'optitrack'
 
 # The name of the rigid body that represents the Crazyflie
-rigid_body_name = 'crazyflie_1' #mettre de nom de l'objet rigid qui est dans optitrack
+rigid_body_name = f'crazyflie_{id}' #mettre de nom de l'objet rigid qui est dans optitrack
 
 # True: send position and orientation; False: send position only
 send_full_pose = False
@@ -66,8 +81,8 @@ class Crazflie():
 
 class CrazyflieControl(Node):
     def __init__(self):
-        super().__init__('crazyflie_control')  # Nom du nœud
-        self.cf_name = "crazyflie_1" #Nom du crazyflie
+        super().__init__(f'crazyflie_control{id}')  # Nom du nœud
+        self.cf_name = f"crazyflie_{id}" #Nom du crazyflie
         self.clb_group = ReentrantCallbackGroup() #plusieurs callback du même groupe peuvent êre créer en parallèle
         
         self.is_takeof = False #état du drone (a t-il décollé ?)
@@ -79,13 +94,13 @@ class CrazyflieControl(Node):
         self.free = True
         
 
-        # Initialiser les CrazyRadios pour se connecter le drone
-        cflib.crtp.init_drivers()
-        available = cflib.crtp.scan_interfaces()
-        for i in available:
-            print("Interface with URI [%s] found and name/comment [%s]" % (i[0], i[1]))
-        self.link_uri = "radio://0/82/2M"
-
+        # Connexion en précisant l'URI
+        # cflib.crtp.init_drivers()
+        # available = cflib.crtp.scan_interfaces()
+        # for i in available:
+        #     print("Interface with URI [%s] found and name/comment [%s]" % (i[0], i[1]))
+        # self.link_uri = "radio://0/80/2M"
+        self.link_uri = uri
         '''
         cflib.crtp.init_drivers()
         available = cflib.crtp.scan_interfaces()
@@ -95,8 +110,7 @@ class CrazyflieControl(Node):
             print("Interface with URI [%s] found and name/comment [%s]" % (radio_name, i[1]))
             if "radio" in radio_name:
                 self.link_uri = radio_name
-        ''' 
-
+        '''
         #uri = uri_helper.uri_from_env(default='radio://0/82/2M/E7E7E7E7E7') #entrer la radio de l'optitrack
         #self.syncrazyflie = SyncCrazyflie(uri, cf = Crazyflie(rw_cache='./cache')) #création d'un objet python représentant le drone)
         #self.syncrazyflie.open_link()
@@ -115,11 +129,11 @@ class CrazyflieControl(Node):
 
         #Topic pour les positions avec mocap_node
         
-        self.service_takeoff = self.create_service(Trigger, '/takeoff',self.takeoff, callback_group=self.clb_group)
-        self.service_land = self.create_service(Trigger, '/land',self.clb_land , callback_group=self.clb_group)
-        self.set_point = self.create_subscription(PoseStamped, '/TargetPose', self.sub_sendposition_setpoint, 10)
+        self.service_takeoff = self.create_service(Trigger, f'/crazyflie_{id}/takeoff',self.takeoff, callback_group=self.clb_group)
+        self.service_land = self.create_service(Trigger, f'/crazyflie_{id}/land',self.clb_land , callback_group=self.clb_group)
+        self.set_point = self.create_subscription(PoseStamped, f'/crazyflie_{id}/TargetPose', self.sub_sendposition_setpoint, 10)
         self.timer_setpoint = self.create_timer(0.1, self.timer_clb_positions)
-        self.sub_position = self.create_subscription(Pose, '/crazyflie_1/pose', self.clb_poses, 10, callback_group=self.clb_group)
+        self.sub_position = self.create_subscription(Pose, f'/crazyflie_{id}/pose', self.clb_poses, 10, callback_group=self.clb_group)
 
         #envoie les positions mocap au drone
     def clb_poses(self,msg_poses) :
