@@ -1,7 +1,0 @@
-{
-  "package_name": "my_custom_interfaces",
-  "non_idl_tuples": [
-    "/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/my_custom_interfaces:srv/Position3D.srv",
-    "/home/alexmin9/Desktop/TCI_AERO/ws_drones/src/my_custom_interfaces:msg/PosObstacles.msg"
-  ]
-}
