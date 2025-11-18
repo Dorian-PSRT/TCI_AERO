@@ -23,7 +23,7 @@ from time import sleep
 
 
 
-mode=0      #0=Turtlesim et 1=simu
+mode=1      #0=Turtlesim et 1=simu
 autostart=True  #lance automatiquement les nodes
 build=True
 
@@ -93,19 +93,19 @@ print("✅ setup.py mis à jour avec les nodes actuels.")
 
 # Nodes existants à ignorer ou à conserver (par exemple turtlesim)
 static_nodes = [
-    # {
-    #     'node': {
-    #         'pkg': 'turtlesim',
-    #         'exec': 'turtlesim_node',
-    #         'name': 'sim',
-    #         'namespace': ''
-    # }},
-    # {   'node': {
-    #         'pkg': "tortues",
-    #         'exec': "spawn",
-    #         'name': "apparition",
-    #         'namespace': ""
-    # }},
+    {
+        'node': {
+            'pkg': 'turtlesim',
+            'exec': 'turtlesim_node',
+            'name': 'sim',
+            'namespace': ''
+    }},
+    {   'node': {
+            'pkg': "tortues",
+            'exec': "spawn",
+            'name': "apparition",
+            'namespace': ""
+    }},
     {   'node': {
             'pkg': "fusion_CP_Consensus",
             'exec': "fake_ot_node",
@@ -160,7 +160,7 @@ os.chdir(ws_simu)
 if build:
     try:
         # Exécuter la commande colcon build
-        subprocess.run(['colcon', 'build'], check=True)
+        subprocess.run(['colcon', 'build','--packages-skip-regex', 'webots_ros2.*'], check=True)
         print("✅ colcon build simu réussi")
     except subprocess.CalledProcessError as e:
         print(f"❌ Une erreur est survenue lors de l'exécution de colcon build: {e}")
@@ -187,7 +187,12 @@ titre_terminal = "TEMP_ne_pas_fermer"
 terminal_type="gnome-terminal"
 
 def open_terminal(*cmd):
-    proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
+    proc = subprocess.Popen([
+        terminal_type, "--title", titre_terminal,
+        "--", "bash", "-i", "-c", " ".join(cmd) + "; exec bash"
+    ])
+
+    #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])  #ne fonctionne plus sur mon pc portable (Dimitri)
     if os.path.exists(utils):
         file = json.load(open(utils))
 
@@ -203,7 +208,7 @@ if autostart:
     open_terminal("ros2", "run", "my_package", "interface_node")
     sleep(8)
 
-    open_terminal("ros2", "run", "tortues", "observer")
+    #open_terminal("ros2", "run", "tortues", "observer")
     open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
     open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
 

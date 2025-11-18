@@ -31,7 +31,7 @@ class interface_node(Node):
         self.cf3_pose_pub = self.create_publisher(Pose, '/turtle3/pose', 10, callback_group=self.cl_group)
         self.cf4_pose_pub = self.create_publisher(Pose, '/turtle4/pose', 10, callback_group=self.cl_group)
 
-
+        self.get_logger().info("Interface_node lancée.")
         # Stockage yaw
         self.yaw = [0.0] * 5  # index 1 à 4
 
