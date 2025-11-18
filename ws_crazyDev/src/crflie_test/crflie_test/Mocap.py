@@ -23,7 +23,7 @@ class MocapNode(Node):
             if 'crazyflie' in name:    
                 topic_name = f"/{name}/pose"
                 
-                print(self.list_topic)
+                #print(self.list_topic)
 
                 if self.list_topic.get(topic_name):
                     pos = obj.position
