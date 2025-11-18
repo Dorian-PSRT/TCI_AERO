@@ -1,6 +1,0 @@
-source;share/tortues/hook/pythonpath.ps1
-source;share/tortues/hook/pythonpath.dsv
-source;share/tortues/hook/pythonpath.sh
-source;share/tortues/hook/ament_prefix_path.ps1
-source;share/tortues/hook/ament_prefix_path.dsv
-source;share/tortues/hook/ament_prefix_path.sh

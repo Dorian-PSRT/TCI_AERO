@@ -28,10 +28,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-    'my_robot_driver_node4 = fusion_CP_Consensus.my_robot_driver_node4:main',
-    'my_robot_driver_node3 = fusion_CP_Consensus.my_robot_driver_node3:main',
-    'my_robot_driver_node2 = fusion_CP_Consensus.my_robot_driver_node2:main',
-    'my_robot_driver_node1 = fusion_CP_Consensus.my_robot_driver_node1:main',
     'local_path_node4 = fusion_CP_Consensus.local_path_node4:main',
     'local_path_node3 = fusion_CP_Consensus.local_path_node3:main',
     'local_path_node2 = fusion_CP_Consensus.local_path_node2:main',
@@ -45,6 +41,10 @@ setup(
     'decision_node3 = fusion_CP_Consensus.decision_node3:main',
     'decision_node2 = fusion_CP_Consensus.decision_node2:main',
     'decision_node1 = fusion_CP_Consensus.decision_node1:main',
+    'control_node4 = fusion_CP_Consensus.control_node4:main',
+    'control_node3 = fusion_CP_Consensus.control_node3:main',
+    'control_node2 = fusion_CP_Consensus.control_node2:main',
+    'control_node1 = fusion_CP_Consensus.control_node1:main',
 ],
     },
 )

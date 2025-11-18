@@ -1,7 +1,0 @@
-[console_scripts]
-Turtle1_Node = tortues.Turtle1_Node:main
-Turtle2_Node = tortues.Turtle2_Node:main
-Turtle3_Node = tortues.Turtle3_Node:main
-Turtle4_Node = tortues.Turtle4_Node:main
-observer = tortues.observer:main
-spawn = tortues.testSTART:main
