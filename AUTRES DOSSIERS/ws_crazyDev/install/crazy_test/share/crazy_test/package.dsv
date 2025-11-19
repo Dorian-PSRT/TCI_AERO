@@ -1,0 +1,9 @@
+source;share/crazy_test/hook/pythonpath.ps1
+source;share/crazy_test/hook/pythonpath.dsv
+source;share/crazy_test/hook/pythonpath.sh
+source;share/crazy_test/hook/ament_prefix_path.ps1
+source;share/crazy_test/hook/ament_prefix_path.dsv
+source;share/crazy_test/hook/ament_prefix_path.sh
+source;../../build/crazy_test/share/crazy_test/hook/pythonpath_develop.ps1
+source;../../build/crazy_test/share/crazy_test/hook/pythonpath_develop.dsv
+source;../../build/crazy_test/share/crazy_test/hook/pythonpath_develop.sh

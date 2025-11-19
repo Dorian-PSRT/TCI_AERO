@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+CrazyTest/Connect.py
+CrazyTest/CrazySwarm.py
+CrazyTest/FlieTest.py
+CrazyTest/__init__.py
+CrazyTest/mocap_wrapper_node.py
+CrazyTest.egg-info/PKG-INFO
+CrazyTest.egg-info/SOURCES.txt
+CrazyTest.egg-info/dependency_links.txt
+CrazyTest.egg-info/entry_points.txt
+CrazyTest.egg-info/requires.txt
+CrazyTest.egg-info/top_level.txt
+CrazyTest.egg-info/zip-safe
+resource/CrazyTest

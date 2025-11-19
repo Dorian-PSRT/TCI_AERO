@@ -1,0 +1,15 @@
+package.xml
+setup.cfg
+setup.py
+crflie_test/Control.py
+crflie_test/Mocap.py
+crflie_test/Test-control.py
+crflie_test/__init__.py
+crflie_test.egg-info/PKG-INFO
+crflie_test.egg-info/SOURCES.txt
+crflie_test.egg-info/dependency_links.txt
+crflie_test.egg-info/entry_points.txt
+crflie_test.egg-info/requires.txt
+crflie_test.egg-info/top_level.txt
+crflie_test.egg-info/zip-safe
+resource/crflie_test

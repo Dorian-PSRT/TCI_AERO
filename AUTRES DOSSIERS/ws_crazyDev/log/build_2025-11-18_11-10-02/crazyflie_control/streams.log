@@ -1,0 +1,25 @@
+[1.990s] Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/build --no-deps symlink_data
+[2.705s] running develop
+[3.084s] running egg_info
+[3.084s] creating crazyflie_control.egg-info
+[3.084s] writing crazyflie_control.egg-info/PKG-INFO
+[3.084s] writing dependency_links to crazyflie_control.egg-info/dependency_links.txt
+[3.085s] writing entry points to crazyflie_control.egg-info/entry_points.txt
+[3.085s] writing requirements to crazyflie_control.egg-info/requires.txt
+[3.085s] writing top-level names to crazyflie_control.egg-info/top_level.txt
+[3.085s] writing manifest file 'crazyflie_control.egg-info/SOURCES.txt'
+[3.087s] reading manifest file 'crazyflie_control.egg-info/SOURCES.txt'
+[3.087s] writing manifest file 'crazyflie_control.egg-info/SOURCES.txt'
+[3.092s] running build_ext
+[3.094s] Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages/crazyflie-control.egg-link (link to .)
+[3.094s] Installing crazyflie_control script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/crazyflie_control
+[3.094s] Installing mocap_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/crazyflie_control
+[3.094s] 
+[3.095s] Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control
+[3.098s] running symlink_data
+[3.098s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/ament_index
+[3.098s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/ament_index/resource_index
+[3.099s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/ament_index/resource_index/packages
+[3.099s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/resource/crazyflie_control -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/ament_index/resource_index/packages
+[3.099s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control
+[3.152s] Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/build --no-deps symlink_data

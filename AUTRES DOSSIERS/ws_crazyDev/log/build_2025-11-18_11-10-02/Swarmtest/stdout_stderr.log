@@ -1,0 +1,24 @@
+running develop
+running egg_info
+creating Swarmtest.egg-info
+writing Swarmtest.egg-info/PKG-INFO
+writing dependency_links to Swarmtest.egg-info/dependency_links.txt
+writing entry points to Swarmtest.egg-info/entry_points.txt
+writing requirements to Swarmtest.egg-info/requires.txt
+writing top-level names to Swarmtest.egg-info/top_level.txt
+writing manifest file 'Swarmtest.egg-info/SOURCES.txt'
+reading manifest file 'Swarmtest.egg-info/SOURCES.txt'
+writing manifest file 'Swarmtest.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages/Swarmtest.egg-link (link to .)
+Installing node1 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/Swarmtest
+
+Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest
+running symlink_data
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index/packages
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/resource/Swarmtest -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index/packages
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest/launch
+error: can't copy '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/launch/launch': doesn't exist or not a regular file

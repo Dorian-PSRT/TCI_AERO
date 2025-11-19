@@ -1,0 +1,25 @@
+[2.013s] Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/build --no-deps symlink_data
+[2.496s] running develop
+[3.036s] running egg_info
+[3.036s] creating crflie_test.egg-info
+[3.041s] writing crflie_test.egg-info/PKG-INFO
+[3.041s] writing dependency_links to crflie_test.egg-info/dependency_links.txt
+[3.041s] writing entry points to crflie_test.egg-info/entry_points.txt
+[3.041s] writing requirements to crflie_test.egg-info/requires.txt
+[3.047s] writing top-level names to crflie_test.egg-info/top_level.txt
+[3.047s] writing manifest file 'crflie_test.egg-info/SOURCES.txt'
+[3.047s] reading manifest file 'crflie_test.egg-info/SOURCES.txt'
+[3.048s] writing manifest file 'crflie_test.egg-info/SOURCES.txt'
+[3.048s] running build_ext
+[3.048s] Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages/crflie-test.egg-link (link to .)
+[3.048s] Installing Control_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/crflie_test
+[3.048s] Installing Mocap_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/crflie_test
+[3.048s] 
+[3.048s] Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test
+[3.048s] running symlink_data
+[3.048s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index
+[3.048s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index
+[3.048s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index/packages
+[3.048s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/resource/crflie_test -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index/packages
+[3.048s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test
+[3.095s] Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/build --no-deps symlink_data

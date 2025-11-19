@@ -1,0 +1,4 @@
+[console_scripts]
+Control_node = crflie_test.Control:main
+Mocap_node = crflie_test.Mocap:main
+

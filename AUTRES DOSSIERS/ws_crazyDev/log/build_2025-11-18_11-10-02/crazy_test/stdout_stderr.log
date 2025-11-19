@@ -1,0 +1,22 @@
+running develop
+running egg_info
+creating CrazyTest.egg-info
+writing CrazyTest.egg-info/PKG-INFO
+writing dependency_links to CrazyTest.egg-info/dependency_links.txt
+writing entry points to CrazyTest.egg-info/entry_points.txt
+writing requirements to CrazyTest.egg-info/requires.txt
+writing top-level names to CrazyTest.egg-info/top_level.txt
+writing manifest file 'CrazyTest.egg-info/SOURCES.txt'
+reading manifest file 'CrazyTest.egg-info/SOURCES.txt'
+writing manifest file 'CrazyTest.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages/CrazyTest.egg-link (link to .)
+Installing mocap_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+Installing node1 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+Installing node2 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+
+Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test
+running symlink_data
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/resource/CrazyTest -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/ament_index/resource_index/packages
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/CrazyTest
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/CrazyTest

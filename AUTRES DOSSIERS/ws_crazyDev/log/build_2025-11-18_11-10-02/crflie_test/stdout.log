@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating crflie_test.egg-info
+writing crflie_test.egg-info/PKG-INFO
+writing dependency_links to crflie_test.egg-info/dependency_links.txt
+writing entry points to crflie_test.egg-info/entry_points.txt
+writing requirements to crflie_test.egg-info/requires.txt
+writing top-level names to crflie_test.egg-info/top_level.txt
+writing manifest file 'crflie_test.egg-info/SOURCES.txt'
+reading manifest file 'crflie_test.egg-info/SOURCES.txt'
+writing manifest file 'crflie_test.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages/crflie-test.egg-link (link to .)
+Installing Control_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/crflie_test
+Installing Mocap_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/crflie_test
+
+Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test
+running symlink_data
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index
+creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index/packages
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/resource/crflie_test -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/ament_index/resource_index/packages
+symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test

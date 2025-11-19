@@ -1,0 +1,26 @@
+[2.070s] Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/build --no-deps symlink_data
+[2.708s] running develop
+[3.184s] running egg_info
+[3.184s] creating Swarmtest.egg-info
+[3.184s] writing Swarmtest.egg-info/PKG-INFO
+[3.184s] writing dependency_links to Swarmtest.egg-info/dependency_links.txt
+[3.184s] writing entry points to Swarmtest.egg-info/entry_points.txt
+[3.184s] writing requirements to Swarmtest.egg-info/requires.txt
+[3.189s] writing top-level names to Swarmtest.egg-info/top_level.txt
+[3.190s] writing manifest file 'Swarmtest.egg-info/SOURCES.txt'
+[3.195s] reading manifest file 'Swarmtest.egg-info/SOURCES.txt'
+[3.195s] writing manifest file 'Swarmtest.egg-info/SOURCES.txt'
+[3.197s] running build_ext
+[3.198s] Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages/Swarmtest.egg-link (link to .)
+[3.199s] Installing node1 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/Swarmtest
+[3.199s] 
+[3.199s] Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest
+[3.200s] running symlink_data
+[3.200s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index
+[3.200s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index
+[3.200s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index/packages
+[3.200s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/resource/Swarmtest -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/ament_index/resource_index/packages
+[3.201s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest
+[3.201s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest/launch
+[3.202s] error: can't copy '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/launch/launch': doesn't exist or not a regular file
+[3.242s] Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest' returned '1': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/build --no-deps symlink_data

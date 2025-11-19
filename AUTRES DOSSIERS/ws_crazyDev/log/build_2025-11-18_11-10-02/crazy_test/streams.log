@@ -1,0 +1,24 @@
+[2.051s] Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/build --no-deps symlink_data
+[2.621s] running develop
+[2.944s] running egg_info
+[2.944s] creating CrazyTest.egg-info
+[2.946s] writing CrazyTest.egg-info/PKG-INFO
+[2.947s] writing dependency_links to CrazyTest.egg-info/dependency_links.txt
+[2.949s] writing entry points to CrazyTest.egg-info/entry_points.txt
+[2.949s] writing requirements to CrazyTest.egg-info/requires.txt
+[2.950s] writing top-level names to CrazyTest.egg-info/top_level.txt
+[2.950s] writing manifest file 'CrazyTest.egg-info/SOURCES.txt'
+[2.955s] reading manifest file 'CrazyTest.egg-info/SOURCES.txt'
+[2.955s] writing manifest file 'CrazyTest.egg-info/SOURCES.txt'
+[2.959s] running build_ext
+[2.965s] Creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages/CrazyTest.egg-link (link to .)
+[2.965s] Installing mocap_node script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+[2.965s] Installing node1 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+[2.965s] Installing node2 script to /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/CrazyTest
+[2.965s] 
+[2.966s] Installed /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test
+[2.966s] running symlink_data
+[2.966s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/resource/CrazyTest -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/ament_index/resource_index/packages
+[2.966s] creating /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/CrazyTest
+[2.966s] symbolically linking /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/package.xml -> /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/CrazyTest
+[3.027s] Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/build --no-deps symlink_data

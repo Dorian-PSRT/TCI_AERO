@@ -1,0 +1,275 @@
+[0.142s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.142s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x784143262320>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x784143347d30>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x784143347d30>>)
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.403s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.404s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.404s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.404s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.418s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.419s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extensions ['ignore', 'ignore_ament_install']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extension 'ignore'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extension 'ignore_ament_install'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extensions ['colcon_pkg']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extension 'colcon_pkg'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extensions ['colcon_meta']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extension 'colcon_meta'
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extensions ['ros']
+[0.420s] Level 1:colcon.colcon_core.package_identification:_identify(src/CrazyTest) by extension 'ros'
+[0.423s] DEBUG:colcon.colcon_core.package_identification:Package 'src/CrazyTest' with type 'ros.ament_python' and name 'crazy_test'
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extensions ['ignore', 'ignore_ament_install']
+[0.423s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extension 'ignore'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extension 'ignore_ament_install'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extensions ['colcon_pkg']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extension 'colcon_pkg'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extensions ['colcon_meta']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extension 'colcon_meta'
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extensions ['ros']
+[0.424s] Level 1:colcon.colcon_core.package_identification:_identify(src/Swarmtest) by extension 'ros'
+[0.425s] DEBUG:colcon.colcon_core.package_identification:Package 'src/Swarmtest' with type 'ros.ament_python' and name 'Swarmtest'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extensions ['ignore', 'ignore_ament_install']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extension 'ignore'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extension 'ignore_ament_install'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extensions ['colcon_pkg']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extension 'colcon_pkg'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extensions ['colcon_meta']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extension 'colcon_meta'
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extensions ['ros']
+[0.425s] Level 1:colcon.colcon_core.package_identification:_identify(src/crazyflie_control) by extension 'ros'
+[0.426s] DEBUG:colcon.colcon_core.package_identification:Package 'src/crazyflie_control' with type 'ros.ament_python' and name 'crazyflie_control'
+[0.426s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extensions ['ignore', 'ignore_ament_install']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extension 'ignore'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extension 'ignore_ament_install'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extensions ['colcon_pkg']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extension 'colcon_pkg'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extensions ['colcon_meta']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extension 'colcon_meta'
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extensions ['ros']
+[0.427s] Level 1:colcon.colcon_core.package_identification:_identify(src/crflie_test) by extension 'ros'
+[0.428s] DEBUG:colcon.colcon_core.package_identification:Package 'src/crflie_test' with type 'ros.ament_python' and name 'crflie_test'
+[0.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.428s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.467s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.467s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.469s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/estacalab/Documents/Pr_ws/install
+[0.470s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 1 installed packages in /home/estacalab/Documents/crazyflie_ws/install
+[0.471s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 7 installed packages in /home/estacalab/Documents/crazyswarm_ws/install
+[0.472s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 272 installed packages in /opt/ros/humble
+[0.474s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_args' from command line to 'None'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_target' from command line to 'None'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_clean_cache' from command line to 'False'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_clean_first' from command line to 'False'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'cmake_force_configure' from command line to 'False'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'ament_cmake_args' from command line to 'None'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'catkin_cmake_args' from command line to 'None'
+[0.524s] Level 5:colcon.colcon_core.verb:set package 'Swarmtest' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.525s] DEBUG:colcon.colcon_core.verb:Building package 'Swarmtest' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest', 'merge_install': False, 'path': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/Swarmtest', 'symlink_install': True, 'test_result_base': None}
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_args' from command line to 'None'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_target' from command line to 'None'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_clean_cache' from command line to 'False'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_clean_first' from command line to 'False'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'cmake_force_configure' from command line to 'False'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'ament_cmake_args' from command line to 'None'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'catkin_cmake_args' from command line to 'None'
+[0.525s] Level 5:colcon.colcon_core.verb:set package 'crazy_test' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.525s] DEBUG:colcon.colcon_core.verb:Building package 'crazy_test' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test', 'merge_install': False, 'path': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/CrazyTest', 'symlink_install': True, 'test_result_base': None}
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_target' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_clean_first' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'cmake_force_configure' from command line to 'False'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'ament_cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crazyflie_control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.526s] DEBUG:colcon.colcon_core.verb:Building package 'crazyflie_control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control', 'merge_install': False, 'path': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crazyflie_control', 'symlink_install': True, 'test_result_base': None}
+[0.526s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_args' from command line to 'None'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_target' from command line to 'None'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_clean_cache' from command line to 'False'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_clean_first' from command line to 'False'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'cmake_force_configure' from command line to 'False'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'ament_cmake_args' from command line to 'None'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'catkin_cmake_args' from command line to 'None'
+[0.527s] Level 5:colcon.colcon_core.verb:set package 'crflie_test' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.527s] DEBUG:colcon.colcon_core.verb:Building package 'crflie_test' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test', 'merge_install': False, 'path': '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crflie_test', 'symlink_install': True, 'test_result_base': None}
+[0.527s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.529s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.530s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/Swarmtest' with build type 'ament_python'
+[0.530s] Level 1:colcon.colcon_core.shell:create_environment_hook('Swarmtest', 'ament_prefix_path')
+[0.533s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.533s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest/hook/ament_prefix_path.ps1'
+[0.534s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest/hook/ament_prefix_path.dsv'
+[0.534s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/share/Swarmtest/hook/ament_prefix_path.sh'
+[0.535s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.535s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.541s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/CrazyTest' with build type 'ament_python'
+[0.541s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazy_test', 'ament_prefix_path')
+[0.541s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/ament_prefix_path.ps1'
+[0.542s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/ament_prefix_path.dsv'
+[0.542s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/ament_prefix_path.sh'
+[0.543s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.543s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.549s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crazyflie_control' with build type 'ament_python'
+[0.549s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazyflie_control', 'ament_prefix_path')
+[0.549s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/ament_prefix_path.ps1'
+[0.550s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/ament_prefix_path.dsv'
+[0.550s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/ament_prefix_path.sh'
+[0.551s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.551s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.556s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crflie_test' with build type 'ament_python'
+[0.556s] Level 1:colcon.colcon_core.shell:create_environment_hook('crflie_test', 'ament_prefix_path')
+[0.556s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/ament_prefix_path.ps1'
+[0.557s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/ament_prefix_path.dsv'
+[0.557s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/ament_prefix_path.sh'
+[0.558s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.558s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.913s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/Swarmtest'
+[0.914s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.914s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.271s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'crazy_test' doesn't explicitly install a marker in the package index (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[1.272s] WARNING:colcon.colcon_ros.task.ament_python.build:Package 'crazy_test' doesn't explicitly install the 'package.xml' file (colcon-ros currently does it implicitly but that fallback will be removed in the future)
+[1.272s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/CrazyTest'
+[1.272s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.272s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.631s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crazyflie_control'
+[1.632s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.632s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.990s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/src/crflie_test'
+[1.991s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.991s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.539s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/build --no-deps symlink_data
+[2.569s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/build --no-deps symlink_data
+[2.592s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/build --no-deps symlink_data
+[2.601s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/build --no-deps symlink_data
+[3.567s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazy_test', 'pythonpath_develop')
+[3.568s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/share/crazy_test/hook/pythonpath_develop.ps1'
+[3.569s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/build --no-deps symlink_data
+[3.571s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/share/crazy_test/hook/pythonpath_develop.dsv'
+[3.572s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazy_test/share/crazy_test/hook/pythonpath_develop.sh'
+[3.575s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test' for CMake module files
+[3.575s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test' for CMake config files
+[3.576s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib'
+[3.576s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/bin'
+[3.576s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/pkgconfig/crazy_test.pc'
+[3.580s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/lib/python3.10/site-packages'
+[3.580s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazy_test', 'pythonpath')
+[3.580s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/pythonpath.ps1'
+[3.581s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/pythonpath.dsv'
+[3.581s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/hook/pythonpath.sh'
+[3.582s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/bin'
+[3.582s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(crazy_test)
+[3.582s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/package.ps1'
+[3.586s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/package.dsv'
+[3.587s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/package.sh'
+[3.591s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/package.bash'
+[3.593s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/crazy_test/package.zsh'
+[3.594s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazy_test/share/colcon-core/packages/crazy_test)
+[3.651s] Level 1:colcon.colcon_core.shell:create_environment_hook('crflie_test', 'pythonpath_develop')
+[3.651s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/build --no-deps symlink_data
+[3.652s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/share/crflie_test/hook/pythonpath_develop.ps1'
+[3.653s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/share/crflie_test/hook/pythonpath_develop.dsv'
+[3.654s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crflie_test/share/crflie_test/hook/pythonpath_develop.sh'
+[3.655s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test' for CMake module files
+[3.655s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test' for CMake config files
+[3.656s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib'
+[3.656s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/bin'
+[3.656s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/pkgconfig/crflie_test.pc'
+[3.657s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/lib/python3.10/site-packages'
+[3.657s] Level 1:colcon.colcon_core.shell:create_environment_hook('crflie_test', 'pythonpath')
+[3.657s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/pythonpath.ps1'
+[3.658s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/pythonpath.dsv'
+[3.659s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/hook/pythonpath.sh'
+[3.661s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/bin'
+[3.661s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(crflie_test)
+[3.662s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/package.ps1'
+[3.663s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/package.dsv'
+[3.663s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/package.sh'
+[3.664s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/package.bash'
+[3.664s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/crflie_test/package.zsh'
+[3.664s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crflie_test/share/colcon-core/packages/crflie_test)
+[3.700s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazyflie_control', 'pythonpath_develop')
+[3.701s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/share/crazyflie_control/hook/pythonpath_develop.ps1'
+[3.701s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control' returned '0': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/build --no-deps symlink_data
+[3.704s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/share/crazyflie_control/hook/pythonpath_develop.dsv'
+[3.704s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/crazyflie_control/share/crazyflie_control/hook/pythonpath_develop.sh'
+[3.706s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control' for CMake module files
+[3.707s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control' for CMake config files
+[3.707s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib'
+[3.707s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/bin'
+[3.707s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/pkgconfig/crazyflie_control.pc'
+[3.708s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/lib/python3.10/site-packages'
+[3.708s] Level 1:colcon.colcon_core.shell:create_environment_hook('crazyflie_control', 'pythonpath')
+[3.708s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/pythonpath.ps1'
+[3.709s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/pythonpath.dsv'
+[3.709s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/hook/pythonpath.sh'
+[3.711s] Level 1:colcon.colcon_core.environment:checking '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/bin'
+[3.711s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(crazyflie_control)
+[3.711s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/package.ps1'
+[3.712s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/package.dsv'
+[3.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/package.sh'
+[3.713s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/package.bash'
+[3.714s] INFO:colcon.colcon_core.shell:Creating package script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/crazyflie_control/package.zsh'
+[3.714s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/crazyflie_control/share/colcon-core/packages/crazyflie_control)
+[3.773s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest' returned '1': PYTHONPATH=/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/Swarmtest/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/estacalab/Desktop/TCI_AERO/ws_crazyDev/build/Swarmtest/build --no-deps symlink_data
+[3.783s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[3.783s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[3.783s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[3.783s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[3.791s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[3.791s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[3.791s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[3.806s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[3.809s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/local_setup.ps1'
+[3.810s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/_local_setup_util_ps1.py'
+[3.812s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/setup.ps1'
+[3.814s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/local_setup.sh'
+[3.814s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/_local_setup_util_sh.py'
+[3.815s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/setup.sh'
+[3.819s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/local_setup.bash'
+[3.819s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/setup.bash'
+[3.821s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/local_setup.zsh'
+[3.822s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/estacalab/Desktop/TCI_AERO/ws_crazyDev/install/setup.zsh'

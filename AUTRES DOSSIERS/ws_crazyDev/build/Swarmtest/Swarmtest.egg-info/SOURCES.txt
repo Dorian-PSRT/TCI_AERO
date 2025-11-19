@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+Swarmtest/SimpleTest.py
+Swarmtest/__init__.py
+Swarmtest.egg-info/PKG-INFO
+Swarmtest.egg-info/SOURCES.txt
+Swarmtest.egg-info/dependency_links.txt
+Swarmtest.egg-info/entry_points.txt
+Swarmtest.egg-info/requires.txt
+Swarmtest.egg-info/top_level.txt
+Swarmtest.egg-info/zip-safe
+config/crazyflies.yalm
+config/motion_capture.yalm
+config/server.yalm
+resource/Swarmtest

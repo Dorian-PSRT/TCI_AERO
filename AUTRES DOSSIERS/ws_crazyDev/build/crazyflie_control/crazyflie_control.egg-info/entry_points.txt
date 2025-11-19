@@ -1,0 +1,4 @@
+[console_scripts]
+crazyflie_control = crazyflie_control.crazyflie_control_node:main
+mocap_node = crazyflie_control.Motion_capture_node:main
+

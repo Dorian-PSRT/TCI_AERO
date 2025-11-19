@@ -1,0 +1,5 @@
+[console_scripts]
+mocap_node = CrazyTest.mocap_wrapper_node:main
+node1 = CrazyTest.FlieTest:main
+node2 = CrazyTest.Connect:main
+
