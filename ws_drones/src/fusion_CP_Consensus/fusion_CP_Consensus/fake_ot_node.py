@@ -29,9 +29,9 @@ class fake_ot_node(Node):
         obst1.x=0.0
         obst1.y=0.0
         obst2=Point()
-        obst2.x=5.5
-        obst2.y=3.0
-        self.obstacles_fixes    = [obst1]
+        obst2.x=2.0
+        obst2.y=1.0
+        self.obstacles_fixes    = [obst1,obst2]
 
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)

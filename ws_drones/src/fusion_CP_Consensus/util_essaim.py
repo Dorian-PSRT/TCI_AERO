@@ -33,7 +33,7 @@ nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
 
 # fichiers
-liste_fichiers = ["global_path_node","my_robot_driver_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
+liste_fichiers = ["global_path_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
 
@@ -169,36 +169,27 @@ if build:
 titre_terminal = "TEMP_ne_pas_fermer"
 
 
-# def close_old_terminals():         #non fonctionnel
-#     if os.path.exists(utils):
-#         with open(utils) as f:
-#             file = json.load(f)
-
-#         for pid in file["pids"]:
-#             try:t
-#                 os.kill(pid, signal.SIGTERM)
-#                 print(f"fermeture de pid: {pid}")
-#             except ProcessLookupError:
-#                 pass
-#         file["pids"] = []
-#         with open(utils, "w") as f:
-#             json.dump(file, f)
-
 terminal_type="gnome-terminal"
 
-def open_terminal(*cmd):
-    proc = subprocess.Popen([
-        terminal_type, "--title", titre_terminal,
-        "--", "bash", "-i", "-c", " ".join(cmd) + "; exec bash"
-    ])
 
-    #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])  #ne fonctionne plus sur mon pc portable (Dimitri)
+
+def open_terminal(*cmd):
+    full_cmd = (
+        f"source {workspace_path}/install/setup.bash; "  #f"source ~/Desktop/TCI_AERO/ws_drones/install/setup.bash; " 
+        + " ".join(cmd)
+        + "; exec bash"
+    )
+
+    subprocess.Popen([
+        terminal_type,
+        "--title", titre_terminal,
+        "--",
+        "bash", "-c", full_cmd
+    ])
+    #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
     if os.path.exists(utils):
         file = json.load(open(utils))
 
-    # file["pids"].append(proc.pid)
-    # with open(utils, "w") as f:
-    #     json.dump(file, f)
 
 
 if autostart:
@@ -215,5 +206,35 @@ if autostart:
     #open_terminal("rqt_graph")
 
 
-    #les messages "# Failed to use specified server: ..." ne sont pas inquiétants, ce n'est pas bloquant
+
+# def open_terminal(*cmd):
+#     proc = subprocess.Popen([
+#         terminal_type, "--title", titre_terminal,
+#         "--", "bash", "-i", "-c", " ".join(cmd) + "; exec bash"
+#     ])
+
+#     #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])  #ne fonctionne plus sur mon pc portable (Dimitri)
+#     if os.path.exists(utils):
+#         file = json.load(open(utils))
+
+#     # file["pids"].append(proc.pid)
+#     # with open(utils, "w") as f:
+#     #     json.dump(file, f)
+
+
+# if autostart:
+#     #close_old_terminals()
+#     subprocess.run(["pkill", "-f", terminal_type], check=False)
+#     open_terminal("ros2", "launch", "my_package", "robot_launch.py")
+#     open_terminal("ros2", "run", "my_package", "interface_node")
+#     sleep(8)
+
+#     #open_terminal("ros2", "run", "tortues", "observer")
+#     open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+#     open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
+
+#     #open_terminal("rqt_graph")
+
+
+#     #les messages "# Failed to use specified server: ..." ne sont pas inquiétants, ce n'est pas bloquant
 

@@ -6,26 +6,6 @@ launch:
     namespace: ''
 - node:
     pkg: fusion_CP_Consensus
-    exec: my_robot_driver_node4
-    name: my_robot_driver_node4
-    namespace: ''
-- node:
-    pkg: fusion_CP_Consensus
-    exec: my_robot_driver_node3
-    name: my_robot_driver_node3
-    namespace: ''
-- node:
-    pkg: fusion_CP_Consensus
-    exec: my_robot_driver_node2
-    name: my_robot_driver_node2
-    namespace: ''
-- node:
-    pkg: fusion_CP_Consensus
-    exec: my_robot_driver_node1
-    name: my_robot_driver_node1
-    namespace: ''
-- node:
-    pkg: fusion_CP_Consensus
     exec: local_path_node4
     name: local_path_node4
     namespace: ''
