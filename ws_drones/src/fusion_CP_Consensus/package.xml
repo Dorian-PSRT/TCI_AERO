@@ -9,14 +9,15 @@
 
   <depend>rclpy</depend>
   <depend>my_interfaces</depend>
+  <depend>my_custom_interfaces</depend>
+  <depend>turtlesim_msgs</depend>
+  <exec_depend>ros2launch</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
-  <depend>my_custom_interfaces</depend>
-  <depend>turtlesim_msgs</depend>
-
+  
   <export>
     <build_type>ament_python</build_type>
   </export>
