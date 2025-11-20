@@ -29,7 +29,8 @@ class CP():
             obsV=np.array([obs.x, obs.y])  #En effet, obs est du type Point (Cf fake_ot_node et local_path_node)
             #print(f"obsV____________:({obsV}")
             err = pose - obsV  
-            d = np.linalg.norm(err) - 1.0 #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon 1
+            d   = np.linalg.norm(err) - 1.0 #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon 1
+            d_0 = obs.z
 
             if d <= 0:                     #cas où la zone de sécurité du drone touche l'obstacle
                 grad_d = err / np.linalg.norm(err)

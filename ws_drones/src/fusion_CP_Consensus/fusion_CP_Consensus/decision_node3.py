@@ -33,7 +33,7 @@ class global_path(Node):
         ############## max consensus init ##############
 
         self.turtleID     = float(id) 
-        self.turtleScore  = 5-float(id)    #float(random.randrange(0,50,1))  #score aléatoire entre 0 et 50
+        self.turtleScore  = 5.0-float(id)    #float(random.randrange(0,50,1))  #score aléatoire entre 0 et 50
         self.curr_iter    = 0.0
         self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID

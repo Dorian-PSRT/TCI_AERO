@@ -18,7 +18,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-obstacles=file["obstacles"]
+obstacles_data=file["obstacles"]
 
 class fake_ot_node(Node):
     def __init__(self):
@@ -27,11 +27,12 @@ class fake_ot_node(Node):
         self.obstacles_flotants = [Point() for _ in range(nb_drones)]
 
         self.obstacles_fixes    = []
-
-        for obs in obstacles:
-            o=Point()
-            o.x,o.y=obs[0],obs[1]
-            self.obstacles_fixes.append(o)
+        for obs in obstacles_data:
+            obs_point=Point()
+            obs_point.x=obs[0]
+            obs_point.y=obs[1]
+            obs_point.z=obs[2]
+            self.obstacles_fixes.append(obs_point)
 
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
@@ -52,13 +53,13 @@ class fake_ot_node(Node):
         pos_point=Point()
         pos_point.x=pos.x
         pos_point.y=pos.y
-        #pos_point.z=pos.z
+        pos_point.z=0.5  #rayon de sécu du drone
         self.obstacles_flotants[i-1]=pos_point
 
     def send_info (self):
         obstacles          = PosObstacles()
         obstacles.fixes    = self.obstacles_fixes
-        #obstacles.flotants = self.obstacles_flotants
+        obstacles.flotants = self.obstacles_flotants
         self.publisher.publish(obstacles)
         
             

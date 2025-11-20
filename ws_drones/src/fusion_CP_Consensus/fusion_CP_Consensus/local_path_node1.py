@@ -58,7 +58,7 @@ class local_path(Node):
         self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
     def get_obstacles(self,obst_new):
-        #moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
+        moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
         self.obstacles  = obst_new.fixes+obst_new.flotants
         #self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
    
@@ -89,41 +89,43 @@ class local_path(Node):
             #self.publisher.publish(self.pose)
             return
         nav=CP()
-        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
+        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 1:
+            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
+                prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
+                
+                self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
+                
 
-            prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
-            
-            self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
-            
+                pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 
-            pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
+                """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
+                La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
+                , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
+                
+                pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
+                pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
+                pose_d_point.y = pose_d_[1]
+                pose_d_point.z = 1.5
 
-            """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
-            La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
-            , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
-            
-            pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
-            pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
-            pose_d_point.y = pose_d_[1]
-            pose_d_point.z = 1.5
+                pose_d = PoseStamped()
+                pose_d.pose.position = pose_d_point
 
-            pose_d = PoseStamped()
-            pose_d.pose.position = pose_d_point
+                self.publisher.publish(pose_d)
+            else:
+                self.start =False       #on annonce la fin du déplacement
+                pointactuel = Point()
+                pointactuel.x = self.pose.x
+                pointactuel.y = self.pose.y
+                pointactuel.z = 1.5
 
-            self.publisher.publish(pose_d)
+                pointactuel_ps = PoseStamped()
+                pointactuel_ps.pose.position = pointactuel
+
+                self.publisher.publish(pointactuel_ps) #la prochaine position est celle à laquelle on est déjà
 
         else:                       #si on est arrivé
-            self.start =False       #on annonce la fin du déplacement
-            self.thread_event.set() #active l'interruption qui correspond à l'arrivée à l'objectif
-            pointactuel = Point()
-            pointactuel.x = self.pose.x
-            pointactuel.y = self.pose.y
-            pointactuel.z = 1.5
+            self.thread_event.set() #active l'interruption qui correspond à l'arrivée prochaine à l'objectif
 
-            pointactuel_ps = PoseStamped()
-            pointactuel_ps.pose.position = pointactuel
-
-            self.publisher.publish(pointactuel_ps) #la prochaine position est celle à laquelle on est déjà
 
         
 
