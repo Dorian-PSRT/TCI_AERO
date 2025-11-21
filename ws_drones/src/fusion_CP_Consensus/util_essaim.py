@@ -196,15 +196,18 @@ def open_terminal(*cmd):
 if autostart:
     #close_old_terminals()
     subprocess.run(["pkill", "-f", terminal_type], check=False)
-    open_terminal("ros2", "launch", "my_package", "robot_launch.py")
-    open_terminal("ros2", "run", "my_package", "interface_node")
-    sleep(8)
+    #open_terminal("ros2", "launch", "my_package", "robot_launch.py")
+    open_terminal("ros2", "launch", "crazyflie_control", "launch.py")
+    sleep(5)
+    open_terminal("ros2", "launch", "crazyflie_control", "takeoff.launch.py")
+    open_terminal("ros2", "run", "my_package", "interface_node_real")
+    sleep(5)
 
     open_terminal("ros2", "run", "tortues", "observer")
-    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
-    open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
+    #open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+    #open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
 
-    #open_terminal("rqt_graph")
+    open_terminal("rqt")
 
 
 

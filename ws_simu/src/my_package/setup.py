@@ -23,6 +23,7 @@ setup(
     entry_points={
         'console_scripts': [
             'interface_node = my_package.interface_node:main',
+            'interface_node_real = my_package.interface_node_real:main',
             
         ],
     },
