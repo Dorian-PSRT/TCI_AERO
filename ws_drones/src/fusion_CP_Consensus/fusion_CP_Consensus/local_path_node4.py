@@ -95,8 +95,8 @@ class local_path(Node):
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:   #pour preshot l'arrivée à la cible
                 if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
-                    
-                    self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
+                    self.get_logger().info(f"Prochaine période:({self.period})")
+                    #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
                     
 
                     pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position

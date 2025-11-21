@@ -73,12 +73,13 @@ class CP():
 
             F = f_attr + f_repu + f_prevision                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
         
-        Kpas = np.clip(min(self.err_min_obs,err_pose)*1,self.Kpas_min,self.Kpas_max)  #broné par Kpas_max et Kpas_min
-        if abs(Kpas-self.Kpas_old) >= 0.5: #Si il y un changement de pas trop brusque, alors on fait une moyenne
-            Kpas=(Kpas+self.Kpas_old)/2
+        Kpas = np.clip(min(self.err_min_obs,err_pose)*1,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
+        diff = Kpas-self.Kpas_old
+        if abs(diff) >= 0.5: #Si il y un changement de pas trop brusque, alors on sature la variation
+            Kpas=self.Kpas_old+np.sign(diff)*0.5
         nextStep = Kpas * F/np.linalg.norm(F)
-        period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
-        #period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
+        #period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
+        period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
         self.Kpas_old = Kpas
         return nextStep, period
     
