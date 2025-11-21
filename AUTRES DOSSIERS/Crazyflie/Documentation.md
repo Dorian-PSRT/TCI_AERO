@@ -79,6 +79,14 @@ The Crazyflie Python API explanation :
 > self.crazyflie.commander.send_setpoint(roll, pitch, yawrate, thrust)
 > ```
 
+# Swarm 
+Comment se connecter à plusieurs crazyflie avec une crazyradio PA ?
+
+[Lien bitcraze pour le swarm](https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_swarm_interface/?utm_source=chatgpt.com)
+plusieurs drone utilisant la même radio doivent avoir la même chaine
+
+[exemple d'essaim de crazyflie](https://github.com/bitcraze/crazyflie-lib-python/blob/master/examples/swarm/asynchronized_swarm.py)
+
 # Crazyswarm2
 
 ## Liens utiles 
