@@ -24,7 +24,7 @@ class fake_ot_node(Node):
     def __init__(self):
         super().__init__('fake_ot_node')
 
-        self.obstacles_flotants = [Point() for _ in range(nb_drones)]
+        self.obstacles_flottants = [Point() for _ in range(nb_drones+1)]
 
         self.obstacles_fixes    = []
         for obs in obstacles_data:
@@ -54,12 +54,13 @@ class fake_ot_node(Node):
         pos_point.x=pos.x
         pos_point.y=pos.y
         pos_point.z=0.5  #rayon de sécu du drone
-        self.obstacles_flotants[i-1]=pos_point
+        if i <= nb_drones :
+            self.obstacles_flottants[i-1]=pos_point
 
     def send_info (self):
         obstacles          = PosObstacles()
         obstacles.fixes    = self.obstacles_fixes
-        obstacles.flotants = self.obstacles_flotants
+        obstacles.flotants = self.obstacles_flottants
         self.publisher.publish(obstacles)
         
             

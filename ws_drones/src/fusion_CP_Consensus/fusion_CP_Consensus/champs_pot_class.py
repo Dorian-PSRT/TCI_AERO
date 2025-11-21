@@ -4,7 +4,7 @@ from geometry_msgs.msg import Point
 
 
 class CP():
-    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 2, rayon_obstacle = 1.5, rayon_secu = 0.2, coeff_pas = 1, taille_du_pas_min=0.5, taille_du_pas_max = 1.5):
+    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.2, coeff_pas = 2.0, taille_du_pas_min=0.5, taille_du_pas_max = 1.5):
         self.Kattr     = coeff_attraction
         self.Krepu     = coeff_repu
         self.Kprev     = coeff_prev
@@ -13,6 +13,7 @@ class CP():
         self.Kpas_err  = coeff_pas
         self.Kpas_min  = taille_du_pas_min   
         self.Kpas_max  = taille_du_pas_max        
+        #init
         self.Kpas_old  = 0.5
 
     def norme_erreur(self, goal, pose):
@@ -64,16 +65,18 @@ class CP():
             f_repu      = self.force_repu(obstacles, pose, self.Krepu, self.d_0)    #si on n'est pas encore arrivé on appel force_repu
             angle       = self.angle_vect(f_attr,f_repu)
             vect        = self.vect_prev(f_attr)    #calcul un vecteur unitaire orthogonal à f_attr
-            if angle >= 85:   # l'obstacle total est face à nous
-                f_prevision = angle*self.Kprev*vect
-            else:
-                f_prevision = 0*vect
-                f_repu = 0*vect
+            if     angle >= 180:   # l'obstacle total est face à nous
+                f_prevision = angle*self.Kprev*vect   #on se décale vers la gauche ou la droite
+            elif   angle >= 85:    # l'obstacle total est devant nous
+                f_prevision = np.array([0.0,0.0])
+            else:                  # l'obstacle est derrière nous
+                f_prevision = np.array([0.0,0.0])
+                f_repu = np.array([0.0,0.0])
                 self.err_min_obs = 1000.0
 
             F = f_attr + f_repu + f_prevision                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
         
-        Kpas = np.clip(min(self.err_min_obs,err_pose)*1,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
+        Kpas = np.clip(min(self.err_min_obs,err_pose)*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
         diff = Kpas-self.Kpas_old
         if abs(diff) >= 0.5: #Si il y un changement de pas trop brusque, alors on sature la variation
             Kpas=self.Kpas_old+np.sign(diff)*0.5
@@ -103,7 +106,10 @@ class CP():
         magnitude_A = np.linalg.norm(A)
         magnitude_B = np.linalg.norm(B)
 
-        angle_radians = np.arccos(dot_product / (magnitude_A * magnitude_B))
+        if magnitude_A == 0 or magnitude_B == 0:
+            angle_radians = 3.14
+        else:
+            angle_radians = np.arccos(dot_product / (magnitude_A * magnitude_B))
 
         angle_degrees = np.degrees(angle_radians)
         return angle_degrees
@@ -114,4 +120,4 @@ class CP():
         else:
             y = np.sqrt(1/((A[0]/A[1])**2+1))
             x = -A[0]/A[1]*y
-            return np.array([0.0,0.0]) #np.array([x,y])
+            return np.array([x,y])

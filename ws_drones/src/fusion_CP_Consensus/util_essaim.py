@@ -45,14 +45,15 @@ with open(utils) as f:
 
 nb_drones=file["nb_drones"]
 
-for id in range (2,nb_drones+1):
+for id in range (2,5+1):  #5 = nombre max de drones
     for fichier in liste_fichiers:
         source = dossier / nodes_dir / f"{fichier}1.py"
         destination = dossier / nodes_dir / f"{fichier}{id}.py"
         if destination.exists():
             os.remove(destination)
-        shutil.copy(source, destination)
-        print(f"✅ Copié : {source.name} → {destination.name}")
+        if id <= nb_drones:
+            shutil.copy(source, destination)
+            print(f"✅ Copié : {source.name} → {destination.name}")
 
 
 
