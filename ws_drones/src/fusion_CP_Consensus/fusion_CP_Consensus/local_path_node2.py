@@ -61,7 +61,7 @@ class local_path(Node):
         self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
     def get_obstacles(self,obst_new):
-        #moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
+        moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
         self.obstacles  = obst_new.fixes+obst_new.flotants
         #self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
    

@@ -80,11 +80,11 @@ class CP():
         diff = Kpas-self.Kpas_old
         if abs(diff) >= 0.5: #Si il y un changement de pas trop brusque, alors on sature la variation
             Kpas=self.Kpas_old+np.sign(diff)*0.5
-        nextStep = Kpas * F/np.linalg.norm(F)
+        nextStep = 0.5 * F/np.linalg.norm(F)
         #period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
         period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
         self.Kpas_old = Kpas
-        return nextStep, period
+        return nextStep, 0.5#period
     
     def force_frontieres(self, pose):
         if (pose.x <=1):

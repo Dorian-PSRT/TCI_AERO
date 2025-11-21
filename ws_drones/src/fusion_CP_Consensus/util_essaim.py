@@ -199,17 +199,26 @@ if autostart:
     #open_terminal("ros2", "launch", "my_package", "robot_launch.py")
     open_terminal("ros2", "launch", "crazyflie_control", "launch.py")
     sleep(5)
+    input("Appuie sur Entrée si ça a fini d'init.")
     open_terminal("ros2", "launch", "crazyflie_control", "takeoff.launch.py")
     open_terminal("ros2", "run", "my_package", "interface_node_real")
     sleep(5)
 
-    input("Appuie sur Entrée pour continuer...")
+    input("Appuie sur Entrée pour lancer les nodes.")
 
     open_terminal("ros2", "run", "tortues", "observer")
     open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
-    #open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
+    
+    input("Appuie sur Entrée pour LAND.")
 
-    #open_terminal("rqt")
+    for i in range(1,5):
+        subprocess.Popen(
+        ["ros2", "service", "call", f"/crazyflie_{i}/land", "std_srvs/srv/Trigger"]
+        )
+
+    sleep(5)
+
+    subprocess.run(["pkill", "-f", terminal_type], check=False)
 
 
 

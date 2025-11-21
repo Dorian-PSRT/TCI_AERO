@@ -13,6 +13,8 @@ from time import sleep
 import json
 from pathlib import Path
 
+from geometry_msgs.msg import PoseStamped
+from rclpy.qos import ReliabilityPolicy, QoSProfile
 
 # Utils.json pournombre de drones
 dossier = Path(__file__).parent
@@ -32,11 +34,17 @@ class global_path(Node):
         super().__init__('global_path_node')
 
         #appel de fonctions à l'initialisation
-        self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
-        
+
         client_cb_group = None
         topic_cb_group  = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
+        self.recu_pos_w = False  #on a pas encore reçu la position de la fenêtre
 
+        self.path = [(2.0, float(id)-1.0 , 1.0), #va devenir la target Window
+                    (2.5, float(id)-1.0 , 1.0),
+                    ] #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+
+        qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
+        self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
 
         self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
@@ -44,6 +52,9 @@ class global_path(Node):
         self.__wait_services() 
 
         #self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
+
+        self.wps = [] #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+
 
         self.get_logger().info('Le nœud est démarré !')
 
@@ -55,14 +66,22 @@ class global_path(Node):
             wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
             self.get_logger().info('Services not available, waiting...')
 
+    def poseW (self,msg):
+        if not(self.recu_pos_w):
+            self.path[0]=(msg.pose.position.x,msg.pose.position.y,msg.pose.position.z)
+            self.recu_pos_w=True
+            self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+            self.get_logger().info('Position Window reçu!')
+        else:
+            pass
+
     def compute_path(self):
         # path = [(0.0 , 5.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
         #         (-5.0, 8.0 , 2.0), #+2.0*float(id)
         #         ]
-        path = [(2.0, float(id)-1.0 , 1.0), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-                ]
+
         waypoints = []
-        for x,y,z in path:
+        for x,y,z in self.path:
             wp = Position3D.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 
             wp.point.x = x
             wp.point.y = y  
@@ -71,6 +90,8 @@ class global_path(Node):
         return waypoints
 
     def send_waypoints(self,msg):
+        while self.wps == []:
+            sleep(0.1)
         if msg.data :
             for wp in self.wps:
                 self.set_goal(wp)

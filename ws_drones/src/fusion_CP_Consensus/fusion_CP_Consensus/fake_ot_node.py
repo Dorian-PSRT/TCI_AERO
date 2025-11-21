@@ -5,7 +5,9 @@ from rclpy.node import Node
 from geometry_msgs.msg import Point
 from my_custom_interfaces.msg import PosObstacles
 from turtlesim.msg import Pose
+from geometry_msgs.msg import PoseStamped
 #import de bibliotheques ou classes pour des besoins spécifiques
+from rclpy.qos import ReliabilityPolicy, QoSProfile
 
 import json
 from pathlib import Path
@@ -38,8 +40,10 @@ class fake_ot_node(Node):
         obs_point.x=0.7
         obs_point.y=0.5
         obs_point.z=0.6
-        self.obstacles_fixes    = [obs_point]
+        self.obstacles_fixes    = []
 
+        qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
+        self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
         self.subscription3 = self.create_subscription(Pose,'/turtle3/pose', self.pose3,10)
@@ -66,9 +70,11 @@ class fake_ot_node(Node):
     def send_info (self):
         obstacles          = PosObstacles()
         obstacles.fixes    = self.obstacles_fixes
-        #obstacles.flotants = self.obstacles_flottants
+        obstacles.flotants = self.obstacles_flottants
         self.publisher.publish(obstacles)
         
+    def poseW (self,msg):
+        pass
             
             
         
