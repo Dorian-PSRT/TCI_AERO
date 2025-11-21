@@ -188,8 +188,8 @@ def open_terminal(*cmd):
         "bash", "-c", full_cmd
     ])
     #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
-    if os.path.exists(utils):
-        file = json.load(open(utils))
+    # if os.path.exists(utils):
+    #     file = json.load(open(utils))
 
 
 
@@ -203,11 +203,13 @@ if autostart:
     open_terminal("ros2", "run", "my_package", "interface_node_real")
     sleep(5)
 
+    input("Appuie sur Entrée pour continuer...")
+
     open_terminal("ros2", "run", "tortues", "observer")
-    #open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
     #open_terminal("ros2", "topic", "echo", "/Crazyflie1/pose_d")
 
-    open_terminal("rqt")
+    #open_terminal("rqt")
 
 
 
