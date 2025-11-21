@@ -4,13 +4,16 @@ from geometry_msgs.msg import Point
 
 
 class CP():
-    def __init__(self, coef_attraction = 2, coef_repu = 3, coeff_prev = 2, rayon_obstacle = 1.5, taille_du_pas = 1.5):
-        self.Kattr = coef_attraction
-        self.Krepu = coef_repu
-        self.Kprev = coeff_prev
-        self.d_0   = rayon_obstacle
-        self.Kpas  = taille_du_pas
-        
+    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 2, rayon_obstacle = 1.5, rayon_secu = 0.2, coeff_pas = 1, taille_du_pas_min=0.5, taille_du_pas_max = 1.5):
+        self.Kattr     = coeff_attraction
+        self.Krepu     = coeff_repu
+        self.Kprev     = coeff_prev
+        self.d_0       = rayon_obstacle
+        self.r_s       = rayon_secu
+        self.Kpas_err  = coeff_pas
+        self.Kpas_min  = taille_du_pas_min   
+        self.Kpas_max  = taille_du_pas_max        
+        self.Kpas_old  = 0.5
 
     def norme_erreur(self, goal, pose):
         err = np.array([goal.point.x, goal.point.y]) - np.array([pose.x, pose.y])
@@ -22,15 +25,17 @@ class CP():
         f_attr = k * self.norme_erreur(goal,pose)[1]
         return f_attr
 
-    def force_repu(self, obstacles, pose_robot, k, d_0, sigma=2, max_force=3):
+    def force_repu(self, obstacles, pose_robot, k, d_0, sigma=2, max_force=2):
         f_repu = np.array([0.0, 0.0])
         pose = np.array([pose_robot.x, pose_robot.y])
+        err_l = [1000]
         for obs in obstacles:
             obsV=np.array([obs.x, obs.y])  #En effet, obs est du type Point (Cf fake_ot_node et local_path_node)
-            #print(f"obsV____________:({obsV}")
+
             err = pose - obsV  
-            d   = np.linalg.norm(err) - 1.0 #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon 1
-            d_0 = obs.z
+            err_l.append(np.linalg.norm(err))
+            d   = np.linalg.norm(err) - self.r_s #correspond à la distance entre l'obstacle et la zone de sécurité du drone de rayon r_s
+            d_0 = obs.z   #obs.z est le rayon de l'obstacle
 
             if d <= 0:                     #cas où la zone de sécurité du drone touche l'obstacle
                 grad_d = err / np.linalg.norm(err)
@@ -46,8 +51,10 @@ class CP():
             else:                           #cas où le drone est hors du rayon de l'obstacle
                 f_repu += np.array([0.0, 0.0])
 
+        self.err_min_obs=min(err_l)
         return f_repu
     
+
 
     def set_next_step(self, goal, pose, obstacles):
         err_pose = self.norme_erreur(goal,pose)[0]
@@ -57,15 +64,23 @@ class CP():
             f_repu      = self.force_repu(obstacles, pose, self.Krepu, self.d_0)    #si on n'est pas encore arrivé on appel force_repu
             angle       = self.angle_vect(f_attr,f_repu)
             vect        = self.vect_prev(f_attr)    #calcul un vecteur unitaire orthogonal à f_attr
-            if angle >= 85:
+            if angle >= 85:   # l'obstacle total est face à nous
                 f_prevision = angle*self.Kprev*vect
             else:
                 f_prevision = 0*vect
+                f_repu = 0*vect
+                self.err_min_obs = 1000.0
 
             F = f_attr + f_repu + f_prevision                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
-                        
-        nextStep = self.Kpas * F/np.linalg.norm(F)
-        return nextStep
+        
+        Kpas = np.clip(min(self.err_min_obs,err_pose)*1,self.Kpas_min,self.Kpas_max)  #broné par Kpas_max et Kpas_min
+        if abs(Kpas-self.Kpas_old) >= 0.5: #Si il y un changement de pas trop brusque, alors on fait une moyenne
+            Kpas=(Kpas+self.Kpas_old)/2
+        nextStep = Kpas * F/np.linalg.norm(F)
+        period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
+        #period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
+        self.Kpas_old = Kpas
+        return nextStep, period
     
     def force_frontieres(self, pose):
         if (pose.x <=1):
@@ -98,4 +113,4 @@ class CP():
         else:
             y = np.sqrt(1/((A[0]/A[1])**2+1))
             x = -A[0]/A[1]*y
-            return np.array([x,y])
+            return np.array([0.0,0.0]) #np.array([x,y])

@@ -40,6 +40,8 @@ class local_path(Node):
         self.start     = False
         self.pose      = Pose()
         self.obstacles = []
+        self.period    = 0.5
+        self.c         = 0.0 
 
         #appel de fonctions à l'initialisation
         self.__create_topics()
@@ -52,7 +54,7 @@ class local_path(Node):
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
         #self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
         self.publisher    = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
-        self.timer        = self.create_timer(0.5, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
+        self.timer        = self.create_timer(0.01, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
         self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
         self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
@@ -84,48 +86,50 @@ class local_path(Node):
         self.pose = pose                    #récupérations des données du topic pose publié par turtlesim_node en parralèlle d'autres actions (callback_group)
 
     def set_pose_d(self):       #fonction appelée par un timer toutes les 0.1s
+        if self.c >= self.period :
+            self.c = 0.0
+            if not self.start:      #si l'autorisation de démarer n'a pas été donnée on sort directement de la fonction
+                #self.publisher.publish(self.pose)
+                return
+            nav=CP()
+            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:   #pour preshot l'arrivée à la cible
+                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
+                    prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
+                    
+                    self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
+                    
 
-        if not self.start:      #si l'autorisation de démarer n'a pas été donnée on sort directement de la fonction
-            #self.publisher.publish(self.pose)
-            return
-        nav=CP()
-        if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 1:
-            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
-                prochain_pas = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
-                
-                self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
-                
+                    pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 
-                pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
+                    """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
+                    La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
+                    , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
+                    
+                    pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
+                    pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
+                    pose_d_point.y = pose_d_[1]
+                    pose_d_point.z = 1.5
 
-                """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
-                La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
-                , mais on pourrait utiliser une autre méthode, ainsi il suffirait de remplacer la partie qu'on aditionne à la position actuelle pour obtenir la prochaine position différement"""
-                
-                pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
-                pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
-                pose_d_point.y = pose_d_[1]
-                pose_d_point.z = 1.5
+                    pose_d = PoseStamped()
+                    pose_d.pose.position = pose_d_point
 
-                pose_d = PoseStamped()
-                pose_d.pose.position = pose_d_point
+                    self.publisher.publish(pose_d)
+                else:
+                    self.start =False       #on annonce la fin du déplacement
+                    pointactuel = Point()
+                    pointactuel.x = self.pose.x
+                    pointactuel.y = self.pose.y
+                    pointactuel.z = 1.5
 
-                self.publisher.publish(pose_d)
-            else:
-                self.start =False       #on annonce la fin du déplacement
-                pointactuel = Point()
-                pointactuel.x = self.pose.x
-                pointactuel.y = self.pose.y
-                pointactuel.z = 1.5
+                    pointactuel_ps = PoseStamped()
+                    pointactuel_ps.pose.position = pointactuel
 
-                pointactuel_ps = PoseStamped()
-                pointactuel_ps.pose.position = pointactuel
+                    self.publisher.publish(pointactuel_ps) #la prochaine position est celle à laquelle on est déjà
 
-                self.publisher.publish(pointactuel_ps) #la prochaine position est celle à laquelle on est déjà
-
-        else:                       #si on est arrivé
-            self.thread_event.set() #active l'interruption qui correspond à l'arrivée prochaine à l'objectif
-
+            else:                       #si on est arrivé
+                self.thread_event.set() #active l'interruption qui correspond à l'arrivée prochaine à l'objectif
+        else :
+            self.c += 0.01
 
         
 
