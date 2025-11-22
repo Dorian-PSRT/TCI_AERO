@@ -28,13 +28,13 @@ class fake_ot_node(Node):
 
         self.obstacles_flottants = [Point() for _ in range(nb_drones+1)]
 
-        self.obstacles_fixes    = []
-        for obs in obstacles_data:
-            obs_point=Point()
-            obs_point.x=obs[0]
-            obs_point.y=obs[1]
-            obs_point.z=obs[2]
-            self.obstacles_fixes.append(obs_point)
+        # self.obstacles_fixes    = []
+        # for obs in obstacles_data:
+        #     obs_point=Point()
+        #     obs_point.x=obs[0]
+        #     obs_point.y=obs[1]
+        #     obs_point.z=obs[2]
+        #     self.obstacles_fixes.append(obs_point)
 
         obs_point=Point()
         obs_point.x=0.7
@@ -42,8 +42,11 @@ class fake_ot_node(Node):
         obs_point.z=0.6
         self.obstacles_fixes    = []
 
+        self.recu_pos_w=False
+        self.recu_pos_O=False
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
+        self.subscriptionO = self.create_subscription(PoseStamped,'/obstacle_1/pose', self.poseO1,qos)
         self.subscription1 = self.create_subscription(Pose,'/turtle1/pose', self.pose1,10)
         self.subscription2 = self.create_subscription(Pose,'/turtle2/pose', self.pose2,10)
         self.subscription3 = self.create_subscription(Pose,'/turtle3/pose', self.pose3,10)
@@ -74,9 +77,33 @@ class fake_ot_node(Node):
         self.publisher.publish(obstacles)
         
     def poseW (self,msg):
-        pass
-            
-            
+        if not(self.recu_pos_w):
+            self.recu_pos_w=True
+            obs_point1=Point()
+            obs_point1.x=msg.pose.position.x 
+            obs_point1.y=msg.pose.position.y+0.32            #,msg.pose.position.z
+            obs_point1.z=0.10   #rayon
+            obs_point2=Point()
+            obs_point2.x=msg.pose.position.x 
+            obs_point2.y=msg.pose.position.y-0.32            #,msg.pose.position.z
+            obs_point2.z=0.10   #rayon
+            self.obstacles_fixes.append(obs_point1)
+            self.obstacles_fixes.append(obs_point2)
+            #self.get_logger().info(f"_____________Position Window:({self.obstacles_fixes})")
+        else:
+            pass
+
+    def poseO1 (self,msg):
+        if not(self.recu_pos_O):
+            self.recu_pos_O=True
+            obs_point1=Point()
+            obs_point1.x=msg.pose.position.x
+            obs_point1.y=msg.pose.position.y           #,msg.pose.position.z
+            obs_point1.z=0.35  #rayon
+            self.obstacles_fixes.append(obs_point1)
+            #self.get_logger().info(f"_____________Position obstacle1:({self.obstacles_fixes})")
+        else:
+            pass
         
 
 

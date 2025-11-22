@@ -4,7 +4,7 @@ from geometry_msgs.msg import Point
 
 
 class CP():
-    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.2, coeff_pas = 2.0, taille_du_pas_min=0.5, taille_du_pas_max = 1.5):
+    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5):
         self.Kattr     = coeff_attraction
         self.Krepu     = coeff_repu
         self.Kprev     = coeff_prev
@@ -14,7 +14,7 @@ class CP():
         self.Kpas_min  = taille_du_pas_min   
         self.Kpas_max  = taille_du_pas_max        
         #init
-        self.Kpas_old  = 0.5
+        self.Kpas_old  = 0.1
 
     def norme_erreur(self, goal, pose):
         err = np.array([goal.point.x, goal.point.y]) - np.array([pose.x, pose.y])
@@ -75,16 +75,17 @@ class CP():
                 self.err_min_obs = 1000.0
 
             F = f_attr + f_repu + f_prevision                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
-        
-        Kpas = np.clip(min(self.err_min_obs,err_pose)*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
+        #,err_pose
+        Kpas = np.clip(min([self.err_min_obs])*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
         diff = Kpas-self.Kpas_old
-        if abs(diff) >= 0.5: #Si il y un changement de pas trop brusque, alors on sature la variation
-            Kpas=self.Kpas_old+np.sign(diff)*0.5
-        nextStep = 0.5 * F/np.linalg.norm(F)
+        if abs(diff) >= (self.Kpas_max-self.Kpas_min): #Si il y un changement de pas trop brusque, alors on sature la variation
+            Kpas=self.Kpas_old+np.sign(diff)*(self.Kpas_max-self.Kpas_min)
+        nextStep = Kpas * F/np.linalg.norm(F)
         #period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
-        period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
+        #period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
+        period = 0.5*Kpas+0.05
         self.Kpas_old = Kpas
-        return nextStep, 0.5#period
+        return nextStep, 0.1#period
     
     def force_frontieres(self, pose):
         if (pose.x <=1):

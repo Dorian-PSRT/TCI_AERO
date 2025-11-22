@@ -40,7 +40,7 @@ class local_path(Node):
         self.start     = False
         self.pose      = Pose()
         self.obstacles = []
-        self.period    = 0.5
+        self.period    = 0.1
         self.c         = 0.0 
 
         #appel de fonctions à l'initialisation
@@ -64,6 +64,7 @@ class local_path(Node):
         moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
         self.obstacles  = obst_new.fixes+obst_new.flotants
         #self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
+        #self.get_logger().info(f'obstacles  {self.obstacles}')
    
 
     def handle_goal_request(self, request, response):
@@ -96,7 +97,7 @@ class local_path(Node):
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:   #pour preshot l'arrivée à la cible
                 if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
-                    self.get_logger().info(f"Prochaine période:({self.period})")
+                    #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
                     
 
@@ -109,7 +110,7 @@ class local_path(Node):
                     pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
                     pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
                     pose_d_point.y = pose_d_[1]
-                    pose_d_point.z = 1.5
+                    pose_d_point.z = self.pose_goal.point.z
 
                     pose_d = PoseStamped()
                     pose_d.pose.position = pose_d_point
@@ -120,7 +121,7 @@ class local_path(Node):
                     pointactuel = Point()
                     pointactuel.x = self.pose.x
                     pointactuel.y = self.pose.y
-                    pointactuel.z = 1.5
+                    pointactuel.z = self.pose_goal.point.z
 
                     pointactuel_ps = PoseStamped()
                     pointactuel_ps.pose.position = pointactuel
