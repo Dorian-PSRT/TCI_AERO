@@ -26,6 +26,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
+mode=int(file["mode"])
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -53,8 +54,11 @@ class local_path(Node):
         self.thread_event = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
         #self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
-        #self.publisher    = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
-        self.publisher    = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
+        if mode :
+            self.publisher    = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
+        else:
+            self.publisher    = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
+        
         self.timer        = self.create_timer(0.01, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
         self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
@@ -93,13 +97,19 @@ class local_path(Node):
             if not self.start:      #si l'autorisation de démarer n'a pas été donnée on sort directement de la fonction
                 #self.publisher.publish(self.pose)
                 return
-            nav=CP()
+            
+            if mode:
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5)
+            else:
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = 1.5)
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:   #pour preshot l'arrivée à la cible
                 if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
                     #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
                     
+                    if mode :
+                        self.period=0.1
 
                     pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 

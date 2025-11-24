@@ -21,6 +21,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
+mode=int(file["mode"])
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -121,7 +122,7 @@ class global_path(Node):
             self.bestTurtle.z = self.curr_iter # itération actuelle
             self.buff_vois1   = []
             self.buff_vois2   = []
-            sleep(5)
+            sleep(5)                                 #à modifier
             self.publisher.publish(self.bestTurtle)
 
 

@@ -2,19 +2,22 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
+from rclpy.qos import ReliabilityPolicy, QoSProfile
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D
 from example_interfaces.srv import Trigger
 from turtlesim.srv import TeleportAbsolute
 #import des types qui serviront aux topics
 from std_msgs.msg import Bool
+from turtlesim.msg import Pose
+from geometry_msgs.msg import PoseStamped
 #import de bibliotheques pour des besoins spécifiques
 from time import sleep
 import json
 from pathlib import Path
 
-from geometry_msgs.msg import PoseStamped
-from rclpy.qos import ReliabilityPolicy, QoSProfile
+
+
 
 # Utils.json pournombre de drones
 dossier = Path(__file__).parent
@@ -24,6 +27,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
+mode=int(file["mode"])
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -35,18 +39,23 @@ class global_path(Node):
 
         #appel de fonctions à l'initialisation
 
-        client_cb_group = None
-        topic_cb_group  = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
-        self.recu_pos_w = False  #on a pas encore reçu la position de la fenêtre
+        client_cb_group    = None
+        topic_cb_group     = MutuallyExclusiveCallbackGroup()  #hyper important, ça permet d'appeler un service dans un callback ! (sinon ça casse tout)
+        self.recu_pos_w    = False  #on a pas encore reçu la position de la fenêtre
+        self.recu_pos_init = False
 
-        self.path = [(2.0, float(id)-1.0 , 1.0), #va devenir la target Window
-                    (2.5, float(id)-1.0 , 1.0),
+        if mode :
+            self.path = [(float(id)-1.0 , 2.0,  1.0), #va devenir la target Window
+                    (float(id)-1.0 , 3.0,  1.0),
                     ] #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-
+        else:
+            self.path = [(0.0 , 5.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+                    (-5.0, 8.0 , 2.0), #+2.0*float(id)
+                    ]
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
-
+        self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos)
         self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.__wait_services() 
@@ -55,6 +64,8 @@ class global_path(Node):
 
         self.wps = [] #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
 
+        if mode == 0:
+            self.wps = self.compute_path()
 
         self.get_logger().info('Le nœud est démarré !')
 
@@ -70,16 +81,24 @@ class global_path(Node):
         if not(self.recu_pos_w):
             self.path[0]=(msg.pose.position.x,msg.pose.position.y,msg.pose.position.z)
             self.recu_pos_w=True
-            self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+            if self.recu_pos_init:
+                self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
             self.get_logger().info('Position Window reçu!')
         else:
             pass
 
-    def compute_path(self):
-        # path = [(0.0 , 5.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-        #         (-5.0, 8.0 , 2.0), #+2.0*float(id)
-        #         ]
+    def poseInit (self,msg):
+        if not(self.recu_pos_init):
+            x,y,z=self.path[1]
+            self.path[1]=(msg.x, y, z)
+            self.recu_pos_init=True
+            if self.recu_pos_w or mode==0:
+                self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+            self.get_logger().info('Position Init reçu!')
+        else:
+            pass
 
+    def compute_path(self):
         waypoints = []
         for x,y,z in self.path:
             wp = Position3D.Request() #réécriture des duos de floats sous forme du type de la requête à envoyer 

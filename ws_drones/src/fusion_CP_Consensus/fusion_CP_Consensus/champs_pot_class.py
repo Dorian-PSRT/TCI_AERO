@@ -82,19 +82,19 @@ class CP():
             Kpas=self.Kpas_old+np.sign(diff)*(self.Kpas_max-self.Kpas_min)
         nextStep = Kpas * F/np.linalg.norm(F)
         #period = -0.4*Kpas+0.7 #droite qui passe par les 2 points de fonctionnement (pas=0,5;0,5s) et (pas=1,5;0,1s) 
-        #period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
-        period = 0.5*Kpas+0.05
+        period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
+        #period = 0.5*Kpas+0.05
         self.Kpas_old = Kpas
-        return nextStep, 0.1#period
+        return nextStep, period
     
     def force_frontieres(self, pose):
-        if (pose.x <=1):
+        if (pose.point.x <=1):
             f_walls += 2
-        if (pose.x >=9):
+        if (pose.point.x >=9):
             f_walls += 2
-        if (pose.y <=1):
+        if (pose.point.y <=1):
             f_walls += 2
-        if (pose.y >=9):
+        if (pose.point.y >=9):
             f_walls += 2
 
         f_walls = 3

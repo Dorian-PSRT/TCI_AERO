@@ -23,7 +23,7 @@ from time import sleep
 
 
 
-mode=1      #0=Turtlesim et 1=simu
+mode=1      #0=simu, 1=simu et 2=Turtlesim
 autostart=True  #lance automatiquement les nodes
 build=True
 
@@ -44,6 +44,7 @@ with open(utils) as f:
 
 
 nb_drones=file["nb_drones"]
+mode=int(file["mode"])
 
 for id in range (2,5+1):  #5 = nombre max de drones
     for fichier in liste_fichiers:
@@ -115,7 +116,7 @@ static_nodes = [
     }}
 ]
 
-if mode == 1:
+if mode != 2:
     static_nodes.pop(0)     #enlève les nodes liées à turtlesim inutiles à la simu
     static_nodes.pop(0)
 
@@ -196,31 +197,39 @@ def open_terminal(*cmd):
 if autostart:
     #close_old_terminals()
     subprocess.run(["pkill", "-f", terminal_type], check=False)
-    #open_terminal("ros2", "launch", "my_package", "robot_launch.py")
-    open_terminal("ros2", "launch", "crazyflie_control", "launch.py")
-    sleep(5)
-    input("Appuie sur Entrée si ça a fini d'init.")
-    open_terminal("ros2", "launch", "crazyflie_control", "takeoff.launch.py")
-    open_terminal("ros2", "run", "my_package", "interface_node_real")
-    sleep(5)
-
-    input("Appuie sur Entrée pour lancer les nodes.")
-
-    open_terminal("ros2", "run", "tortues", "observer")
-    open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
     
-    input("Appuie sur Entrée pour LAND.")
 
-    for i in range(1,5):
-        subprocess.Popen(
-        ["ros2", "service", "call", f"/crazyflie_{i}/land", "std_srvs/srv/Trigger"]
-        )
+    if mode :
+        open_terminal("ros2", "launch", "crazyflie_control", "launch.py")
+        sleep(5)
+        input("Appuie sur Entrée si ça a fini d'init.")
+        open_terminal("ros2", "launch", "crazyflie_control", "takeoff.launch.py")
+        open_terminal("ros2", "run", "my_package", "interface_node_real")
+        sleep(5)
 
-    sleep(5)
+        input("Appuie sur Entrée pour lancer les nodes.")
 
-    subprocess.run(["pkill", "-f", terminal_type], check=False)
+        open_terminal("ros2", "run", "tortues", "observer")
+        open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+        
+        input("Appuie sur Entrée pour LAND.")
 
+        for i in range(1,5):
+            subprocess.Popen(
+            ["ros2", "service", "call", f"/crazyflie_{i}/land", "std_srvs/srv/Trigger"]
+            )
 
+        sleep(5)
+
+        subprocess.run(["pkill", "-f", terminal_type], check=False)
+    else:
+        open_terminal("ros2", "launch", "my_package", "robot_launch.py")
+        open_terminal("ros2", "run", "my_package", "interface_node")
+        sleep(8)
+        open_terminal("ros2", "run", "tortues", "observer")
+        open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
+        input("Appuie sur Entrée pour KILL.")
+        subprocess.run(["pkill", "-f", terminal_type], check=False)
 
 # def open_terminal(*cmd):
 #     proc = subprocess.Popen([

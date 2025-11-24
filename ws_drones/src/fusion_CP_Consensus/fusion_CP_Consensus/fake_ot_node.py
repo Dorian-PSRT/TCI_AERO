@@ -20,6 +20,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
+mode=int(file["mode"])
 obstacles_data=file["obstacles"]
 
 class fake_ot_node(Node):
@@ -27,20 +28,21 @@ class fake_ot_node(Node):
         super().__init__('fake_ot_node')
 
         self.obstacles_flottants = [Point() for _ in range(nb_drones+1)]
-
-        # self.obstacles_fixes    = []
-        # for obs in obstacles_data:
-        #     obs_point=Point()
-        #     obs_point.x=obs[0]
-        #     obs_point.y=obs[1]
-        #     obs_point.z=obs[2]
-        #     self.obstacles_fixes.append(obs_point)
-
-        obs_point=Point()
-        obs_point.x=0.7
-        obs_point.y=0.5
-        obs_point.z=0.6
         self.obstacles_fixes    = []
+        if mode==0:
+            
+            for obs in obstacles_data:
+                obs_point=Point()
+                obs_point.x=obs[0]
+                obs_point.y=obs[1]
+                obs_point.z=obs[2]
+                self.obstacles_fixes.append(obs_point)
+
+        # obs_point=Point()    #obstacle virtuel
+        # obs_point.x=0.7
+        # obs_point.y=0.5
+        # obs_point.z=0.6
+        # self.obstacles_fixes    = []
 
         self.recu_pos_w=False
         self.recu_pos_O=False
@@ -80,12 +82,12 @@ class fake_ot_node(Node):
         if not(self.recu_pos_w):
             self.recu_pos_w=True
             obs_point1=Point()
-            obs_point1.x=msg.pose.position.x 
-            obs_point1.y=msg.pose.position.y+0.32            #,msg.pose.position.z
+            obs_point1.x=msg.pose.position.x+0.29  
+            obs_point1.y=msg.pose.position.y           #,msg.pose.position.z
             obs_point1.z=0.10   #rayon
             obs_point2=Point()
-            obs_point2.x=msg.pose.position.x 
-            obs_point2.y=msg.pose.position.y-0.32            #,msg.pose.position.z
+            obs_point2.x=msg.pose.position.x-0.29 
+            obs_point2.y=msg.pose.position.y            #,msg.pose.position.z
             obs_point2.z=0.10   #rayon
             self.obstacles_fixes.append(obs_point1)
             self.obstacles_fixes.append(obs_point2)
@@ -99,7 +101,7 @@ class fake_ot_node(Node):
             obs_point1=Point()
             obs_point1.x=msg.pose.position.x
             obs_point1.y=msg.pose.position.y           #,msg.pose.position.z
-            obs_point1.z=0.35  #rayon
+            obs_point1.z=0.45  #rayon
             self.obstacles_fixes.append(obs_point1)
             #self.get_logger().info(f"_____________Position obstacle1:({self.obstacles_fixes})")
         else:
