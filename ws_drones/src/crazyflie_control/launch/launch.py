@@ -13,8 +13,8 @@ config = {"crazyflie_1": "radio://3/10/2M/E7E7E70901",
 #           "crazyflie_5": "radio://2/50/2M/E7E7E7E705"} 
 
 all_radio = [#[2],  # ch 20
-             #[3],  # ch 30
-             [1],  # ch 10
+             [3],  # ch 30
+             #[1],  # ch 10
              #[4],  # ch 40
              #[5], # ch 50
              ]
@@ -30,7 +30,7 @@ def generate_launch_description():
                  executable='client_node',
                 #  parameters=[{"server": "192.168.2.10",
                 #               "port": 3883}]
-                 parameters=[{"server": "10.40.61.251", #251 à gauche / 252 à droite
+                 parameters=[{"server": "10.40.61.252", #251 à gauche / 252 à droite
                               "port": 3883}]
                               )
     nodes = [node1]
