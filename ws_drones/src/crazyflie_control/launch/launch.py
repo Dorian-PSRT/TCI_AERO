@@ -12,9 +12,9 @@ config = {"crazyflie_1": "radio://3/10/2M/E7E7E70901",
 #           "crazyflie_3": "radio://1/30/2M/E7E7E7E703",
 #           "crazyflie_5": "radio://2/50/2M/E7E7E7E705"} 
 
-all_radio = [[2],  # ch 20
-             [3],  # ch 30
-             [1],  # ch 80
+all_radio = [#[2],  # ch 20
+             #[3],  # ch 30
+             [1],  # ch 10
              #[4],  # ch 40
              #[5], # ch 50
              ]

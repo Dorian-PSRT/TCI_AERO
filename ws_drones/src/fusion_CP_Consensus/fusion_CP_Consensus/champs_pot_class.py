@@ -78,7 +78,7 @@ class CP():
         # else:
         #     self.err_min_obs = 1000.0
 
-            F = f_attr + f_repu + f_prevision #+ f_walls                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
+            F = f_attr + f_repu + f_prevision + f_walls                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
         #,err_pose
         Kpas = np.clip(min([self.err_min_obs])*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
         diff = Kpas-self.Kpas_old

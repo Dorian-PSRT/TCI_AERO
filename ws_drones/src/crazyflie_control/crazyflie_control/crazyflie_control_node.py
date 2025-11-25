@@ -128,7 +128,9 @@ class CrazyflieControl(Node):
             self.get_logger().info("Configuration des paramètres : estimator, controller…")
 
             self.crazyflie.param.set_value('stabilizer.estimator', '2')
+            self.get_logger().info("Fin config paramètres. 1")
             self.crazyflie.param.set_value('stabilizer.controller', '1')
+            self.get_logger().info("Fin config paramètres. 2")
             time.sleep(0.1)
 
             reset_estimator(self.crazyflie)
