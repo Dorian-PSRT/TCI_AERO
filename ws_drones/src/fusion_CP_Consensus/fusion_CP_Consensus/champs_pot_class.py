@@ -63,6 +63,7 @@ class CP():
         if abs(err_pose) > 0.1:
             f_attr      = self.force_attr(goal, pose, self.Kattr) #appel de la fonction force_attr
             f_repu      = self.force_repu(obstacles, pose, self.Krepu, self.d_0)    #si on n'est pas encore arrivé on appel force_repu
+            f_walls     = self.force_frontieres(pose,self.Krepu)
             angle       = self.angle_vect(f_attr,f_repu)
             vect        = self.vect_prev(f_attr)    #calcul un vecteur unitaire orthogonal à f_attr
             if     angle >= 180:   # l'obstacle total est face à nous
@@ -74,7 +75,7 @@ class CP():
                 f_repu = np.array([0.0,0.0])
                 self.err_min_obs = 1000.0
 
-            F = f_attr + f_repu + f_prevision                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
+            F = f_attr + f_repu + f_prevision + f_walls                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
         #,err_pose
         Kpas = np.clip(min([self.err_min_obs])*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
         diff = Kpas-self.Kpas_old
@@ -87,17 +88,20 @@ class CP():
         self.Kpas_old = Kpas
         return nextStep, period
     
-    def force_frontieres(self, pose):
-        if (pose.point.x <=1):
-            f_walls += 2
-        if (pose.point.x >=9):
-            f_walls += 2
-        if (pose.point.y <=1):
-            f_walls += 2
-        if (pose.point.y >=9):
-            f_walls += 2
-
-        f_walls = 3
+    def force_frontieres(self, pose, k , sigma=2):
+        f_walls = np.array([0.0,0.0])
+        if (pose.point.x >=2.5):
+            d = abs(3 - pose.point.x)
+            f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([1.0,0.0])
+        if (pose.point.x <=-2.5):
+            d = abs(-3 - pose.point.x)
+            f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([-1.0,0.0])
+        if (pose.point.y >=4.5):
+            d = abs(5 - pose.point.y)
+            f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([0.0,1.0])
+        if (pose.point.y <=-4.5):
+            d = abs(-5 - pose.point.y)
+            f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([0.0,-1.0])
         return f_walls
     
     def angle_vect(self,A,B): #np array
