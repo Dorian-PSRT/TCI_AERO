@@ -68,6 +68,8 @@ class global_path(Node):
         self.subscription1 = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
         self.subscription2 = self.create_subscription(Point,f'/turtle{((id+1)-1)%nb_drones+1}/bestTurtle' ,self.listener_callback_vois2,10, callback_group= self.cl_group)
         self.publisher_go  = self.create_publisher(Bool, f'/turtle{id}/go', 10)
+        self.subscriptionLead = self.create_subscription(Bool,'/leader/done',self.listener_callback_Leader,10)
+
 
     def listener_callback_vois1(self, msg):
         self.buff_vois1.append(msg)
@@ -114,7 +116,7 @@ class global_path(Node):
                     self.gone = True
                 else:
                     self.turtleScore  = float(random.randrange(1,50,1))  #on recalcul le score
-                
+
 
             self.curr_iter    = 0.0
             self.bestTurtle.x = self.turtleID # ID
@@ -122,7 +124,11 @@ class global_path(Node):
             self.bestTurtle.z = self.curr_iter # itération actuelle
             self.buff_vois1   = []
             self.buff_vois2   = []
-            sleep(5)                                 #à modifier
+            #sleep(5)                                 #à modifier
+            
+    def listener_callback_Leader (self,msg):
+        self.get_logger().info(f"Ok le leader est arrivé")
+        if msg.data: #le leader est arrivé
             self.publisher.publish(self.bestTurtle)
 
 

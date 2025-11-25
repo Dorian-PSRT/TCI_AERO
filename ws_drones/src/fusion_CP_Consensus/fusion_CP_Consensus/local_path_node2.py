@@ -102,8 +102,8 @@ class local_path(Node):
                 nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5)
             else:
                 nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = 1.5)
-            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:   #pour preshot l'arrivée à la cible
-                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.2:
+            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:   #pour preshot l'arrivée à la cible
+                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
                     #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
