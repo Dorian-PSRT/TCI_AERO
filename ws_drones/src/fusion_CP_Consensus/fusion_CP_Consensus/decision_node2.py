@@ -4,6 +4,7 @@ from rclpy.node import Node
 #import des types qui serviront aux topics
 from geometry_msgs.msg import Point
 from std_msgs.msg import Bool
+from my_custom_interfaces.msg import Map, Go
 #import de bibliotheques pour des besoins spécifiques
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.callback_groups import ReentrantCallbackGroup
@@ -34,7 +35,7 @@ class global_path(Node):
         ############## max consensus init ##############
 
         self.turtleID     = float(id) 
-        self.turtleScore  = float(random.randrange(1,50,1))   #5.0-float(id)      #score aléatoire entre 0 et 50
+        self.turtleScore  = 5.0-float(id) #float(random.randrange(1,50,1))         #score aléatoire entre 0 et 50
         self.curr_iter    = 0.0
         self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID
@@ -43,7 +44,9 @@ class global_path(Node):
         
         self.gone          = False
         self.crash         = True
-        #self.counter_crash = 0
+        self.Leader        = True  #tant qu'on est pas parti on est potentiellement le leader
+        self.formation_ok  = False
+        self.nb            = 0
 
         self.buff_vois1   = []
         self.buff_vois2   = []
@@ -53,8 +56,8 @@ class global_path(Node):
         sleep(0.5)
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
-        self.timer_maj     = self.create_timer(0.1, self.maj)  # Lance la boucle de publication de mise à jour
-        self.timer_refresh = self.create_timer(3, self.refresh)  # Refresh après 3sec au cas où max-consensus est crash
+        self.timer_maj     = self.create_timer(0.2, self.maj)  # Lance la boucle de publication de mise à jour
+        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 3sec au cas où max-consensus est crash
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -67,9 +70,9 @@ class global_path(Node):
         self.publisher     = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
         self.subscription1 = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
         self.subscription2 = self.create_subscription(Point,f'/turtle{((id+1)-1)%nb_drones+1}/bestTurtle' ,self.listener_callback_vois2,10, callback_group= self.cl_group)
-        self.publisher_go  = self.create_publisher(Bool, f'/turtle{id}/go', 10)
-        self.subscriptionLead = self.create_subscription(Bool,'/leader/done',self.listener_callback_Leader,10)
-
+        self.publisher_go  = self.create_publisher(Go, f'/turtle{id}/go', 10)
+        self.subscriptionLead = self.create_subscription(Map,'/leader/done',self.listener_callback_Leader,10)
+        #self.subscription_ready = self.create_subscription(Go, f'/turtle{id}/go',self.ready, 10,callback_group=self.cl_group)
 
     def listener_callback_vois1(self, msg):
         self.buff_vois1.append(msg)
@@ -102,21 +105,43 @@ class global_path(Node):
         else:
             self.crash = False   #cela signifi que le premier consensus n'a pas crash
             self.get_logger().info(f"Tor{id}: score {self.bestTurtle.y}")
-            if self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
-                self.timer_maj.cancel()
-                self.timer_refresh.cancel()
-                self.get_logger().info("Tout le monde est parti !")
-
-            if not(self.gone) :  #si il n'est pas encore parti :
-                if self.turtleID == self.bestTurtle.x:
-                    go=Bool()
-                    go.data=True
-                    self.publisher_go.publish(go) # C'est parti !
-                    self.turtleScore  = 0.0
-                    self.gone = True
-                else:
-                    self.turtleScore  = float(random.randrange(1,50,1))  #on recalcul le score
-
+            if self.formation_ok:
+                go=Go()
+                # data=Bool()
+                # data.data=self.Leader
+                go.leader=self.Leader
+                go.nb=self.nb
+                self.publisher_go.publish(go) # C'est parti !
+                self.get_logger().info("Go 2!")
+            else:
+                if self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
+                    # self.timer_maj.cancel()
+                    # self.timer_refresh.cancel()
+                    self.get_logger().info("Tout le monde est prêt ?")
+                    self.formation_ok =True
+                    self.iter_max     = 2
+                    self.bestTurtle.x = self.turtleID # ID
+                    self.bestTurtle.y = 0.0 # score
+                    self.bestTurtle.z = 0.0 # itération actuelle
+                    self.nb = 0
+                    self.publisher.publish(self.bestTurtle)
+                    
+                if not(self.gone) :  #si il n'est pas encore parti :
+                    if self.turtleID == self.bestTurtle.x:
+                        go=Go()
+                        # data=Bool()
+                        # data.data=self.Leader
+                        go.leader=self.Leader
+                        go.nb=self.nb
+                        self.publisher_go.publish(go) # C'est parti !
+                        self.get_logger().info("Go !")
+                        self.turtleScore  = 0.0
+                        self.gone = True
+                    else:
+                        self.Leader       = False #On est pas parti en premier donc on n'est pas leader
+                        self.turtleScore  = 5.0-float(id) #float(random.randrange(1,50,1))  #on calcul le score pour ceux qui passent dans la fenêtre
+                        self.nb+=1
+                        self.get_logger().info(f"nb {self.nb}")
 
             self.curr_iter    = 0.0
             self.bestTurtle.x = self.turtleID # ID
@@ -124,12 +149,15 @@ class global_path(Node):
             self.bestTurtle.z = self.curr_iter # itération actuelle
             self.buff_vois1   = []
             self.buff_vois2   = []
+            self.nb = 0
             #sleep(5)                                 #à modifier
             
     def listener_callback_Leader (self,msg):
         self.get_logger().info(f"Ok le leader est arrivé")
-        if msg.data: #le leader est arrivé
-            self.publisher.publish(self.bestTurtle)
+        self.publisher.publish(self.bestTurtle)
+
+    def ready (self,msg):
+        self.formation_ok = True
 
 
 

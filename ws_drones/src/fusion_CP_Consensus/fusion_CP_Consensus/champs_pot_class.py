@@ -3,6 +3,7 @@ import numpy as np
 from geometry_msgs.msg import Point
 
 
+
 class CP():
     def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5):
         self.Kattr     = coeff_attraction
@@ -63,7 +64,7 @@ class CP():
         if abs(err_pose) > 0.1:
             f_attr      = self.force_attr(goal, pose, self.Kattr) #appel de la fonction force_attr
             f_repu      = self.force_repu(obstacles, pose, self.Krepu, self.d_0)    #si on n'est pas encore arrivé on appel force_repu
-            f_walls     = self.force_frontieres(pose,self.Krepu)
+            f_walls     = self.force_frontieres(pose,self.Krepu*3)
             angle       = self.angle_vect(f_attr,f_repu)
             vect        = self.vect_prev(f_attr)    #calcul un vecteur unitaire orthogonal à f_attr
             if     angle >= 180:   # l'obstacle total est face à nous
@@ -73,9 +74,11 @@ class CP():
             else:                  # l'obstacle est derrière nous
                 f_prevision = np.array([0.0,0.0])
                 f_repu = np.array([0.0,0.0])
-                self.err_min_obs = 1000.0
+                
+        # else:
+        #     self.err_min_obs = 1000.0
 
-            F = f_attr + f_repu + f_prevision + f_walls                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
+            F = f_attr + f_repu + f_prevision #+ f_walls                                                        #le vecteur qui défini le prochain pas correspond à la sommes des vecteurs de forces atractives et répulsives
         #,err_pose
         Kpas = np.clip(min([self.err_min_obs])*self.Kpas_err ,self.Kpas_min,self.Kpas_max)  #borné par Kpas_max et Kpas_min
         diff = Kpas-self.Kpas_old
@@ -86,21 +89,22 @@ class CP():
         period = -0.6*Kpas**2+0.8*Kpas+0.25 #courbe qui passe par les 3 points de fonctionnement (pas=0,5;0,5s), (pas=1,0;0,45s) et (pas=1,5;0,1s)   
         #period = 0.5*Kpas+0.05
         self.Kpas_old = Kpas
+
         return nextStep, period
     
     def force_frontieres(self, pose, k , sigma=2):
         f_walls = np.array([0.0,0.0])
-        if (pose.point.x >=2.5):
-            d = abs(3 - pose.point.x)
+        if (pose.x >=2.5):
+            d = abs(3 - pose.x)
             f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([1.0,0.0])
-        if (pose.point.x <=-2.5):
-            d = abs(-3 - pose.point.x)
+        if (pose.x <=-2.5):
+            d = abs(-3 + pose.x)
             f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([-1.0,0.0])
-        if (pose.point.y >=4.5):
-            d = abs(5 - pose.point.y)
+        if (pose.y >=4.5):
+            d = abs(5 - pose.y)
             f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([0.0,1.0])
-        if (pose.point.y <=-4.5):
-            d = abs(-5 - pose.point.y)
+        if (pose.y <=-4.5):
+            d = abs(-5 + pose.y)
             f_walls += (k / d**2) * np.exp(-d**2 / (2 * sigma**2)) * np.array([0.0,-1.0])
         return f_walls
     

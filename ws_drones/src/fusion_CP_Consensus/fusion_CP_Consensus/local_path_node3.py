@@ -6,9 +6,10 @@ from rclpy.node import Node
 #import des types qui serviront aux topics
 from turtlesim.msg import Pose
 from geometry_msgs.msg import Point, PoseStamped
+from std_msgs.msg import Bool
 #import des types qui serviront aux services
 from my_custom_interfaces.srv import Position3D
-from my_custom_interfaces.msg import PosObstacles
+from my_custom_interfaces.msg import PosObstacles, Go
 from example_interfaces.srv import Trigger
 #import de bibliotheques pour des besoins spécifiques
 import numpy as np  #sert pour utiliser des vecteurs
@@ -43,6 +44,7 @@ class local_path(Node):
         self.obstacles = []
         self.period    = 0.1
         self.c         = 0.0 
+        self.Leader    = False
 
         #appel de fonctions à l'initialisation
         self.__create_topics()
@@ -64,9 +66,17 @@ class local_path(Node):
         self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
         self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
+        self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.lead_update, 10)
+
+    def lead_update(self,msg):
+        self.Leader=msg.leader
+
     def get_obstacles(self,obst_new):
         moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
-        self.obstacles  = obst_new.fixes+obst_new.flotants
+        if self.Leader:
+            self.obstacles  = obst_new.fixes+obst_new.flotants
+        else:
+            self.obstacles  = obst_new.fixes
         #self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
         #self.get_logger().info(f'obstacles  {self.obstacles}')
    
@@ -101,9 +111,13 @@ class local_path(Node):
             if mode:
                 nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5)
             else:
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = 1.5)
-            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:   #pour preshot l'arrivée à la cible
-                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.1:
+                if self.Leader:
+                    maxi=1.5
+                else:
+                    maxi=1.0
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
+            if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8:   #pour preshot l'arrivée à la cible
+                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
                     #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
