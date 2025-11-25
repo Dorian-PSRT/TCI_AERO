@@ -49,8 +49,8 @@ class global_path(Node):
                     (float(id)-1.0 , 3.0,  1.0),
                     ] #définition les objectifs à atteindre sous forme de vecteur de duos de floats
         else:
-            self.path = [(0.0 , 5.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-                    (-5.0, 8.0 , 2.0), #+2.0*float(id)
+            self.path = [(2.0 , 0.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+                    #(-5.0, 8.0 , 2.0), #+2.0*float(id)
                     ]
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
@@ -58,6 +58,7 @@ class global_path(Node):
         self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos)
         self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
+        self.publisher_done  = self.create_publisher(Bool, f'/leader/done', 10)
         self.__wait_services() 
 
         #self.subscription_go = self.create_subscription(Bool, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
@@ -89,8 +90,9 @@ class global_path(Node):
 
     def poseInit (self,msg):
         if not(self.recu_pos_init):
-            x,y,z=self.path[1]
-            self.path[1]=(msg.x, y, z)
+            if len(self.path)!=1:
+                x,y,z=self.path[1]
+                self.path[1]=(msg.x, y, z)
             self.recu_pos_init=True
             if self.recu_pos_w or mode==0:
                 self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
@@ -115,7 +117,10 @@ class global_path(Node):
             for wp in self.wps:
                 self.set_goal(wp)
                 self.get_result(Trigger.Request())
-
+            done=Bool()
+            done.data=True
+            self.publisher_done.publish(done)  #je suis arrivé
+            self.get_logger().info('Le leader est arrivé !')
 
     def set_goal(self, request):
         future = self.client_goal.call_async(request) #Envoie la requête contenant le prochain objectif à local_path_node, future.result deviendra True quand le serveur aura répondu ""
