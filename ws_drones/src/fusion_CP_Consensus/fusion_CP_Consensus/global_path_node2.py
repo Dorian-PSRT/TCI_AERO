@@ -8,7 +8,7 @@ from my_custom_interfaces.srv import Position3D
 from example_interfaces.srv import Trigger
 from turtlesim.srv import TeleportAbsolute
 #import des types qui serviront aux topics
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool,Float32
 from geometry_msgs.msg import Point
 from turtlesim.msg import Pose
 from geometry_msgs.msg import PoseStamped
@@ -17,7 +17,7 @@ from my_custom_interfaces.msg import Map, Go
 from time import sleep
 import json
 from pathlib import Path
-
+import numpy as np
 
 
 
@@ -47,7 +47,11 @@ class global_path(Node):
         self.recu_pos_init = False
         self.graph         = []
         self.formation     = False
-        
+        self.lead          = False
+        self.pos_init      = None
+        self.repli = False
+        self.future = None
+
         #path du leader
         if mode :
             self.path = [(float(id)-1.0 , 2.0,  1.0), #va devenir la target Window
@@ -61,15 +65,17 @@ class global_path(Node):
                     (1.0, 4.5 , 1.5), #+2.0*float(id)
                     ]
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
-        self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
-        self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
-        self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos)
-        self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
-        self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
-        self.publisher_done  = self.create_publisher(Map, f'/leader/done', 10)
-        self.subscription_done = self.create_subscription(Map, f'/leader/done', self.update_graph, 10) #ils update leur graph
-        self.publisher_ready  = self.create_publisher(Bool, f'/turtle{id}/ready', 10)
-        # self.subscription_ready = self.create_subscription(Ready, f'/formation', self.update_ready, 10)
+        self.subscriptionW      = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
+        self.subscription_go    = self.create_subscription(Go, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
+        self.subscription       = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos,callback_group=topic_cb_group)
+        self.client_goal        = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
+        self.client_result      = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
+        self.publisher_done     = self.create_publisher(Map, f'/leader/done', 10)
+        self.subscription_done  = self.create_subscription(Map, f'/leader/done', self.update_graph, 10) #ils update leur graph
+        self.publisher_ready    = self.create_publisher(Bool, f'/turtle{id}/ready', 10)
+        self.subscription_repli = self.create_subscription(Go, f'/turtle{id}/repli', self.repli_update, 10)
+        self.dist_init          = self.create_publisher(Float32,f'/turtle{id}/err_dist', 10)
+        self.timer_err          = self.create_timer(0.2, self.maj_err, callback_group=topic_cb_group)
         self.__wait_services() 
         if mode :
             self.subscription_wp = self.create_subscription(PoseStamped, f'/crazyflie_{id}/TargetPose', self.graph_build, 10)
@@ -92,6 +98,26 @@ class global_path(Node):
             wait_goal_service   = self.client_goal.wait_for_service(timeout_sec=1.0)
             wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
             self.get_logger().info('Services not available, waiting...')
+
+    def repli_update(self):
+        self.repli=True
+        if self.future is not None:
+            self.future.cancel()
+
+        if self.lead:
+            #build graph?...
+            pass
+        else:
+            pass
+
+    def maj_err(self):
+        while self.pos_init == None:
+            sleep(0.2)
+        Pose_init=np.array(self.pos_init)
+        Pose=np.array((self.pose.x,self.pose.y,self.pose.theta))
+        d = Float32()
+        d.data = float(np.linalg.norm(Pose_init-Pose))
+        self.dist_init.publish(d)
 
     def poseW (self,msg):
         if not(self.recu_pos_w):
@@ -117,7 +143,7 @@ class global_path(Node):
             #     self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
             self.get_logger().info('Position Init reçu!')
         else:
-            pass
+            self.pose=msg
 
     def compute_path(self):
         waypoints = []
@@ -158,6 +184,8 @@ class global_path(Node):
             self.get_logger().info(f"altitude {altitude}")
             if self.formation:
                 for wp in self.wps:          #on suit le graph
+                    if self.repli:
+                        return
                     self.send_util(wp.x,wp.y,wp.z+altitude)
                 
 

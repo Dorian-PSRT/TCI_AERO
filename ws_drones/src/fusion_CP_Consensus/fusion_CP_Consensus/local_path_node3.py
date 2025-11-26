@@ -45,6 +45,7 @@ class local_path(Node):
         self.period    = 0.1
         self.c         = 0.0 
         self.Leader    = False
+        self.nb        = 0
 
         #appel de fonctions à l'initialisation
         self.__create_topics()
@@ -69,7 +70,8 @@ class local_path(Node):
         self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.lead_update, 10)
 
     def lead_update(self,msg):
-        self.Leader=msg.leader
+        self.Leader = msg.leader
+        self.nb = msg.nb
 
     def get_obstacles(self,obst_new):
         moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
@@ -109,13 +111,17 @@ class local_path(Node):
                 return
             
             if mode:
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
+                # if self.nb>=1:
+                #     Kz=1.0
+                # else:
+                #     Kz=0.5
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, coeff_vert = 1.5, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
             else:
                 if self.Leader:
                     maxi=1.0
                 else:
                     maxi=0.5
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, coeff_vert = 1.5, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
             #self.get_logger().info(f'erreur Z : {abs(self.pose_goal.point.z-self.pose.theta)}')
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8 or abs(self.pose_goal.point.z-self.pose.theta) > 0.1:   #pour preshot l'arrivée à la cible
                 if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8 or abs(self.pose_goal.point.z-self.pose.theta) > 0.1:

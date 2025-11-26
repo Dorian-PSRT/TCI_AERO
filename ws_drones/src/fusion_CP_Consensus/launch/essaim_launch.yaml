@@ -6,6 +6,11 @@ launch:
     namespace: ''
 - node:
     pkg: fusion_CP_Consensus
+    exec: local_path_node4
+    name: local_path_node4
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
     exec: local_path_node3
     name: local_path_node3
     namespace: ''
@@ -18,6 +23,11 @@ launch:
     pkg: fusion_CP_Consensus
     exec: local_path_node1
     name: local_path_node1
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: global_path_node4
+    name: global_path_node4
     namespace: ''
 - node:
     pkg: fusion_CP_Consensus
@@ -38,6 +48,11 @@ launch:
     pkg: fusion_CP_Consensus
     exec: fake_ot_node
     name: fake_ot_node
+    namespace: ''
+- node:
+    pkg: fusion_CP_Consensus
+    exec: decision_node4
+    name: decision_node4
     namespace: ''
 - node:
     pkg: fusion_CP_Consensus

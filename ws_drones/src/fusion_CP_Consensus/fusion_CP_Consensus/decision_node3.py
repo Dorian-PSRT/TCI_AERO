@@ -1,9 +1,11 @@
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.node import Node
+from rclpy.qos import ReliabilityPolicy, QoSProfile
 #import des types qui serviront aux topics
 from geometry_msgs.msg import Point
-from std_msgs.msg import Bool
+from turtlesim.msg import Pose
+from std_msgs.msg import Bool, Float32
 from my_custom_interfaces.msg import Map, Go
 #import de bibliotheques pour des besoins spécifiques
 from rclpy.executors import MultiThreadedExecutor
@@ -42,6 +44,9 @@ class decision(Node):
         self.bestTurtle.y = self.turtleScore # score
         self.bestTurtle.z = self.curr_iter # itération actuelle
         
+        self.err           = None
+        self.repli         = False
+
         self.gone          = False
         self.crash         = True
         self.Leader        = True  #tant qu'on est pas parti on est potentiellement le leader
@@ -68,6 +73,7 @@ class decision(Node):
     
 ########################   MAX CONSENSUS   ###########################
     def __create_topics(self):
+        #qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.cl_group      = ReentrantCallbackGroup()
         self.publisher     = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
         self.subscription1 = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
@@ -75,6 +81,9 @@ class decision(Node):
         self.publisher_go  = self.create_publisher(Go, f'/turtle{id}/go', 10)
         self.subscriptionLead = self.create_subscription(Map,'/leader/done',self.listener_callback_Leader,10)
         self.subscription_ready = self.create_subscription(Bool, f'/turtle{id}/ready',self.ready,10)
+        self.subscription_repli = self.create_subscription(Bool, f'/repli', self.repli_update, 10)
+        self.dist_init          = self.create_subscription(Float32,f'/turtle{id}/err_dist',self.err_update, 10,callback_group=self.cl_group)
+        self.publisher_repli_go = self.create_publisher(Go, f'/turtle{id}/repli', 10)
 
     def listener_callback_vois1(self, msg):
         self.buff_vois1.append(msg)
@@ -83,7 +92,10 @@ class decision(Node):
     def listener_callback_vois2(self, msg):
         self.buff_vois2.append(msg)
 
-     
+
+    def err_update(self, msg):
+        self.err=msg.data
+    
     def maj(self):
         if self.curr_iter <= self.iter_max:
             if self.phase == 1 or (self.phase == 2 and (self.formation_ok or self.Leader)):
@@ -107,6 +119,7 @@ class decision(Node):
         
         else:
             self.crash = False   #cela signifi que le premier consensus n'a pas crash
+            
             #self.get_logger().info(f"Tor{id}: score {self.bestTurtle.y}")
             if self.phase == 2 and self.formation_ok:
                 go=Go()
@@ -114,10 +127,21 @@ class decision(Node):
                 go.nb=self.nb
                 self.publisher_go.publish(go) # C'est parti !
                 self.get_logger().info("Go 2!")
-                self.timer_maj.cancel()
-                self.timer_refresh.cancel()
+                #self.timer_maj.cancel()
+
             else:
-                if self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
+                if self.repli:
+                    if self.turtleID == self.bestTurtle.x:
+                        go=Go()
+                        go.leader=self.Leader
+                        go.nb=self.nb
+                        self.publisher_repli_go.publish(go)
+                        self.get_logger().info("Repli Go!")
+                    else:
+                        self.turtleScore  = 1024.0-self.err#float(random.randrange(1,50,1))  #on calcul le score pour ceux qui passent dans la fenêtre
+                        self.nb+=1
+
+                elif self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
                     # self.timer_maj.cancel()
                     # self.timer_refresh.cancel()
                     self.get_logger().info("Tout le monde est prêt ?")
@@ -130,7 +154,7 @@ class decision(Node):
                     # self.publisher.publish(self.bestTurtle)
                     self.phase = 2                                     #On déclenche la phase 2
                     
-                if not(self.gone) :  #si il n'est pas encore parti :
+                elif not(self.gone) :  #si il n'est pas encore parti :
                     if self.turtleID == self.bestTurtle.x:
                         go=Go()
                         go.leader=self.Leader
@@ -153,7 +177,7 @@ class decision(Node):
                 self.buff_vois2   = []
 
                 sleep(1)                                 #à modifier
-                if (not(self.Leader) and self.leader_ok) or self.phase == 2 :  #not(self.Leader) and 
+                if (not(self.Leader) and self.leader_ok) or self.phase == 2 or self.repli:  #not(self.Leader) and 
                     self.publisher.publish(self.bestTurtle)
                     self.get_logger().info(f"Publi, nb {self.nb}")
             
@@ -165,6 +189,18 @@ class decision(Node):
     def ready (self,msg):
         self.formation_ok = True
 
+    def repli_update (self,msg):
+        self.repli=True
+        self.get_logger().info(f"Repli !")
+
+        self.turtleScore  = 1024.0-self.err
+        self.curr_iter    = 0.0
+        self.bestTurtle.x = self.turtleID # ID
+        self.bestTurtle.y = self.turtleScore # score
+        self.bestTurtle.z = self.curr_iter # itération actuelle
+        self.buff_vois1   = []
+        self.buff_vois2   = []
+        self.publisher.publish(self.bestTurtle)
 
 
     def refresh (self):

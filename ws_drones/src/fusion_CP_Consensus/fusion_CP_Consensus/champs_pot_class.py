@@ -139,7 +139,7 @@ import numpy as np
 from geometry_msgs.msg import Point
 
 class CP():
-    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2,
+    def __init__(self, coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, coeff_vert = 1.5,
                  rayon_obstacle = 1.5, rayon_secu = 0.15,
                  coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5):
 
@@ -154,7 +154,7 @@ class CP():
         self.Kpas_old  = 0.1
 
         # ---- PARAMÈTRES VERTICAUX SÉPARÉS ----
-        self.Kz        = 1.5         # gain vertical (augmente si tu veux monter plus vite)
+        self.Kz        = coeff_vert         # gain vertical (augmente si tu veux monter plus vite)
         self.VZ_MAX    = 1.0         # m/s max (sécurité)
     
 
