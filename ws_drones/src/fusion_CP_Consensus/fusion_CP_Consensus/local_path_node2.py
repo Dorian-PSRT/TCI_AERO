@@ -109,16 +109,16 @@ class local_path(Node):
                 return
             
             if mode:
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.5)
+                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
             else:
                 if self.Leader:
-                    maxi=1.5
-                else:
                     maxi=1.0
+                else:
+                    maxi=0.5
                 nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
             #self.get_logger().info(f'erreur Z : {abs(self.pose_goal.point.z-self.pose.theta)}')
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8 or abs(self.pose_goal.point.z-self.pose.theta) > 0.1:   #pour preshot l'arrivée à la cible
-                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8:
+                if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.8 or abs(self.pose_goal.point.z-self.pose.theta) > 0.1:
                     prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
                     #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
@@ -126,7 +126,8 @@ class local_path(Node):
                     if mode :
                         self.period=0.1
 
-                    pose_d_ = np.array([self.pose.x, self.pose.y]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
+                    self.get_logger().info(f"Prochain pas : {prochain_pas}")
+                    pose_d_ = np.array([self.pose.x, self.pose.y, self.pose.theta]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
 
                     """-------------Précision sur le calcul de la prochaine position locale à atteindre---------------"
                     La ligne de code ci dessus sera adaptée pour être modulaire. Actuellement on utilise la méthode des champs potentiels pour connaitre le prochain pas à faire
@@ -135,7 +136,7 @@ class local_path(Node):
                     pose_d_point = Point() #déclaration de la variable locale pose_d avec le type Pose
                     pose_d_point.x = pose_d_[0] #changement de type de la prochaine position (le vecteur étant utilisé pour la méthode des champs potentiels)
                     pose_d_point.y = pose_d_[1]
-                    pose_d_point.z = self.pose_goal.point.z
+                    pose_d_point.z = pose_d_[2] #self.pose_goal.point.z
 
                     pose_d = PoseStamped()
                     pose_d.pose.position = pose_d_point
@@ -146,7 +147,7 @@ class local_path(Node):
                     pointactuel = Point()
                     pointactuel.x = self.pose.x
                     pointactuel.y = self.pose.y
-                    pointactuel.z = self.pose_goal.point.z
+                    pointactuel.z = self.pose.theta #self.pose_goal.point.z
 
                     pointactuel_ps = PoseStamped()
                     pointactuel_ps.pose.position = pointactuel

@@ -201,7 +201,7 @@ class CrazyflieDriver:
             sideways_desired = -vx_g * siny + vy_g * cosy
 
         # === Altitude ===
-        height_diff_desired = np.clip(target_position[2] - z, -0.05, 0.05)
+        height_diff_desired = np.clip(target_position[2] - z, -0.1, 0.1)
 
  
 

@@ -54,13 +54,16 @@ class global_path(Node):
                     (float(id)-1.0 , 3.0,  1.0),
                     ] #définition les objectifs à atteindre sous forme de vecteur de duos de floats
         else:
+            # self.path = [(2.0, 0.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
+            #         (3.0, 0.0 , 1.5), #+2.0*float(id)
+            #         ]
             self.path = [(0.0, 4.5 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
                     (1.0, 4.5 , 1.5), #+2.0*float(id)
                     ]
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
-        #self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos)
+        self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos)
         self.client_goal = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.publisher_done  = self.create_publisher(Map, f'/leader/done', 10)
@@ -92,8 +95,10 @@ class global_path(Node):
 
     def poseW (self,msg):
         if not(self.recu_pos_w):
-            self.posWindow=(msg.pose.position.x,msg.pose.position.y,msg.pose.position.z)
+            self.posWindow=(msg.pose.position.x,msg.pose.position.y -0.5 ,msg.pose.position.z)
             self.path[0]=self.posWindow
+            self.posWindow=(msg.pose.position.x -1.0 ,msg.pose.position.y -0.5 ,msg.pose.position.z)
+            self.path[1]=self.posWindow
             self.recu_pos_w=True
             # if self.recu_pos_init:
             #     self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
@@ -103,9 +108,10 @@ class global_path(Node):
 
     def poseInit (self,msg):
         if not(self.recu_pos_init):
-            if len(self.path)!=1:
-                x,y,z=self.path[1]
-                self.path[1]=(msg.x, y, z)
+            self.pos_init=(msg.x,msg.y,msg.theta)
+            # if len(self.path)!=1:
+            #     x,y,z=self.path[1]
+            #     self.path[1]=(msg.x, y, z)
             self.recu_pos_init=True
             # if self.recu_pos_w or mode==0:
             #     self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
@@ -128,8 +134,11 @@ class global_path(Node):
         return waypoints
 
     def send_waypoints(self,msg):
-        # while self.wps == []:
-        #     sleep(0.1)
+        if mode:
+            while not(self.recu_pos_w):
+                sleep(0.1)
+        while not(self.recu_pos_init):
+            sleep(0.1)
         self.wps = self.compute_path()
 
         self.lead = msg.leader
@@ -139,29 +148,35 @@ class global_path(Node):
             wp = self.wps[0]
             self.send_util(wp.x,wp.y,wp.z)
             newMap=Map()
-            newMap.graph=self.graph[::3]   #on garde un wp sur 3
+            newMap.graph=self.graph[::4]   #on garde un wp sur 3
             self.publisher_done.publish(newMap)  
             wp = self.wps[1]
             self.send_util(wp.x,wp.y,wp.z)
         else:
             
-            alttitude=float(msg.nb-1)/4.0
-            #self.get_logger().info(f"alttitude {alttitude}")
+            altitude=float(msg.nb-1)/1.0
+            self.get_logger().info(f"altitude {altitude}")
             if self.formation:
                 for wp in self.wps:          #on suit le graph
-                    self.send_util(wp.x,wp.y,wp.z+alttitude)
+                    self.send_util(wp.x,wp.y,wp.z+altitude)
                 
+
                 if mode:
+                    for i in range (msg.nb-1,0,-1):
+                        self.send_util(self.posWindow[0],self.posWindow[1] -0.5 ,self.posWindow[2]+float(i-1))
                     self.send_util(self.posWindow[0],self.posWindow[1],self.posWindow[2])
+                    self.send_util(self.pos_init[0],self.posWindow[1] +1.5 ,self.posWindow[2])
                 else:
+                    for i in range (msg.nb-1,0,-1):
+                        self.send_util(0.0,5.0 -0.5 ,1.5 +float(i-1))
                     self.send_util(0.0,5.0,1.0)
-                self.send_util(float(id)-1.0,3.0,1.0)
+                    self.send_util(self.pos_init[0],6.5,1.0)
                 newMap=Map()
                 newMap.graph=self.graph[::3]   #on garde un wp sur 3
                 self.publisher_done.publish(newMap)  #je suis arrivé
             else:
                 wp=self.wps.pop(0)
-                self.send_util(wp.x,wp.y,wp.z+alttitude)
+                self.send_util(wp.x,wp.y,wp.z+altitude)
                 self.formation = True          #car la prochaine fois que l'on appel GO, on sait qu'on sera en formation
                 rd=Bool()
                 self.publisher_ready.publish(rd)

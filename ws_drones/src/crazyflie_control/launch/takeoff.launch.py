@@ -4,7 +4,7 @@ from launch_ros.actions import Node
 
 
 
-crazyflie_list = [3]#[2, 3, 1]
+crazyflie_list = [2, 3, 1]
 
 def generate_launch_description():
     nodes = []

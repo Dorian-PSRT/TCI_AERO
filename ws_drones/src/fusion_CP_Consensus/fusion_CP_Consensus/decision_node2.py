@@ -28,9 +28,9 @@ mode=int(file["mode"])
 id=int(__file__[-4])
 
 
-class global_path(Node):
+class decision(Node):
     def __init__(self):
-        super().__init__('global_path_node')
+        super().__init__('decision')
 
         ############## max consensus init ##############
 
@@ -59,7 +59,7 @@ class global_path(Node):
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
         self.timer_maj     = self.create_timer(0.2, self.maj)  # Lance la boucle de publication de mise à jour
-        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 3sec au cas où max-consensus est crash
+        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 5sec au cas où max-consensus est crash
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -86,7 +86,7 @@ class global_path(Node):
      
     def maj(self):
         if self.curr_iter <= self.iter_max:
-            if self.phase == 1 or (self.phase == 2 and self.formation_ok):
+            if self.phase == 1 or (self.phase == 2 and (self.formation_ok or self.Leader)):
                 if self.buff_vois1 and self.buff_vois2:
                     msg_vois1=self.buff_vois1.pop(0)
                     msg_vois2=self.buff_vois2.pop(0)
@@ -122,11 +122,12 @@ class global_path(Node):
                     # self.timer_refresh.cancel()
                     self.get_logger().info("Tout le monde est prêt ?")
                     
-                    self.iter_max     = 0
+                    #self.iter_max     = 1
                     self.bestTurtle.x = self.turtleID # ID
                     self.bestTurtle.y = 0.0 # score
                     self.bestTurtle.z = 0.0 # itération actuelle
-                    self.publisher.publish(self.bestTurtle)
+                    # sleep(1) 
+                    # self.publisher.publish(self.bestTurtle)
                     self.phase = 2                                     #On déclenche la phase 2
                     
                 if not(self.gone) :  #si il n'est pas encore parti :
@@ -152,7 +153,7 @@ class global_path(Node):
                 self.buff_vois2   = []
 
                 sleep(1)                                 #à modifier
-                if not(self.Leader) and self.leader_ok:
+                if (not(self.Leader) and self.leader_ok) or self.phase == 2 :  #not(self.Leader) and 
                     self.publisher.publish(self.bestTurtle)
                     self.get_logger().info(f"Publi, nb {self.nb}")
             
@@ -180,7 +181,7 @@ class global_path(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    node = global_path()
+    node = decision()
     executor = MultiThreadedExecutor()
     executor.add_node(node)
     executor.spin()

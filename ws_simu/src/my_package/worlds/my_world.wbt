@@ -191,25 +191,25 @@ RectangleArena {
 
 
 Crazyflie {
-  translation 0.5 -2 0
+  translation 0.5 -2.5 0
   controller "<extern>"
   name "Crazyflie1"
 }
 
 Crazyflie {
-  translation -0.5 -2 0
+  translation -0.5 -2.5 0
   controller "<extern>"
   name "Crazyflie2"
 }
 
 Crazyflie {
-  translation 0.5 -2.5 0
+  translation 1.0 -2.5 0
   controller "<extern>"
   name "Crazyflie3"
 }
 
 Crazyflie {
-  translation -0.5 -2.5 0
+  translation -1.0 -2.5 0
   controller "<extern>"
   name "Crazyflie4"
 }

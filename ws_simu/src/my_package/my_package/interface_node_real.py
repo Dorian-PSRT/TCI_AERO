@@ -61,7 +61,7 @@ class interface_node(Node):
         pose = Pose()
         pose.x = p_s.pose.position.x
         pose.y = p_s.pose.position.y
-        pose.theta = p_s.point.position.z
+        pose.theta = p_s.pose.position.z
         #pose.theta = self.yaw[idx]      # à méditer
         publisher.publish(pose)
 
