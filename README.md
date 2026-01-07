@@ -15,11 +15,13 @@
 
 ## Consignes évaluation 07/01/2026
 
-Faire un tutoriel sur le guide pour qu'une nouvelle équipe puisse reprendre le projet
-Faire un rapport sur la démarche scientifique (état de l'art, explication des choix, résultats, problemùes et solutions ...)
+- Faire un tutoriel sur le github pour qu'une nouvelle équipe puisse reprendre le projet
+- Faire un rapport sur la démarche scientifique (état de l'art, explication des choix, résultats, problemùes et solutions ...) FAIRE DES SCHEMAS
+
 Rendus le lundi 19/01
-Soutenance le 23/01 : résumer ces deux documents peut durer jusqu'à 30 min max
-FAIRE DES SCHEMAS
+
+Soutenance le 23/01 : résumer ces deux documents (20 à 30 min max)
+
 
 ## Compte rendu du vendredi 07/11/2025
 
