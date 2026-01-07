@@ -12,6 +12,15 @@
 - ligne de commande pour lancer le simulateur : **ros2 launch webots_ros2_crazyflie robot_launch.py**
 
 # Actualités de l'équipe :tropical_fish:
+
+## Consignes évaluation 07/01/2026
+
+Faire un tutoriel sur le guide pour qu'une nouvelle équipe puisse reprendre le projet
+Faire un rapport sur la démarche scientifique (état de l'art, explication des choix, résultats, problemùes et solutions ...)
+Rendus le lundi 19/01
+Soutenance le 23/01 : résumer ces deux documents peut durer jusqu'à 30 min max
+FAIRE DES SCHEMAS
+
 ## Compte rendu du vendredi 07/11/2025
 
 Dans les prochains jours :
