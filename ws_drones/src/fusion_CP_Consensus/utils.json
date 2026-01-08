@@ -1,6 +1,6 @@
 {
-    "nb_drones": 3,
-    "mode": 1,
+    "nb_drones": 4,
+    "mode": 0,
     "obstacles": [
         [
             0.0,

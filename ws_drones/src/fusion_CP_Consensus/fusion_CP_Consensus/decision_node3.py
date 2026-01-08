@@ -35,7 +35,7 @@ class decision(Node):
         ############## max consensus init ##############
 
         self.turtleID     = float(id) 
-        self.turtleScore  = 5.0-float(id) #float(random.randrange(1,50,1))         #score aléatoire entre 0 et 50
+        self.turtleScore  = float(id) #float(random.randrange(1,50,1))         #score aléatoire entre 0 et 50
         self.curr_iter    = 0.0
         self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID

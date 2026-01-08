@@ -97,7 +97,7 @@ class global_path(Node):
         if not(self.recu_pos_w):
             self.posWindow=(msg.pose.position.x,msg.pose.position.y -0.5 ,msg.pose.position.z)
             self.path[0]=self.posWindow
-            self.posWindow=(msg.pose.position.x -1.0 ,msg.pose.position.y -0.5 ,msg.pose.position.z)
+            self.posWindow=(msg.pose.position.x -1.5 ,msg.pose.position.y -0.5 ,msg.pose.position.z)
             self.path[1]=self.posWindow
             self.recu_pos_w=True
             # if self.recu_pos_init:
@@ -148,35 +148,36 @@ class global_path(Node):
             wp = self.wps[0]
             self.send_util(wp.x,wp.y,wp.z)
             newMap=Map()
-            newMap.graph=self.graph[::4]   #on garde un wp sur 3
+            newMap.graph=self.graph[::3]   #on garde un wp sur 4
             self.publisher_done.publish(newMap)  
+            self.get_logger().info(f"New map : {newMap}")
             wp = self.wps[1]
             self.send_util(wp.x,wp.y,wp.z)
         else:
-            
-            altitude=float(msg.nb-1)/1.0
-            self.get_logger().info(f"altitude {altitude}")
+            y_offset = float(msg.nb-1)/1.0
+            altitude=0 #float(msg.nb-1)/1.0 # on arrête l'idée de "colonne"
+            #self.get_logger().info(f"altitude {altitude}")
             if self.formation:
                 for wp in self.wps:          #on suit le graph
-                    self.send_util(wp.x,wp.y,wp.z+altitude)
+                    self.send_util(wp.x,wp.y,wp.z)#+altitude)
                 
 
                 if mode:
                     for i in range (msg.nb-1,0,-1):
                         self.send_util(self.posWindow[0],self.posWindow[1] -0.5 ,self.posWindow[2]+float(i-1))
                     self.send_util(self.posWindow[0],self.posWindow[1],self.posWindow[2])
-                    self.send_util(self.pos_init[0],self.posWindow[1] +1.5 ,self.posWindow[2])
+                    self.send_util(self.pos_init[0],self.posWindow[1] +2.0 ,self.posWindow[2])
                 else:
                     for i in range (msg.nb-1,0,-1):
                         self.send_util(0.0,5.0 -0.5 ,1.5 +float(i-1))
                     self.send_util(0.0,5.0,1.0)
                     self.send_util(self.pos_init[0],6.5,1.0)
                 newMap=Map()
-                newMap.graph=self.graph[::3]   #on garde un wp sur 3
+                newMap.graph=self.graph#[::3]   #on garde un wp sur 3
                 self.publisher_done.publish(newMap)  #je suis arrivé
             else:
                 wp=self.wps.pop(0)
-                self.send_util(wp.x,wp.y,wp.z+altitude)
+                self.send_util(wp.x,wp.y-y_offset,wp.z)#+altitude)
                 self.formation = True          #car la prochaine fois que l'on appel GO, on sait qu'on sera en formation
                 rd=Bool()
                 self.publisher_ready.publish(rd)

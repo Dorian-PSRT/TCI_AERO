@@ -154,7 +154,7 @@ class CP():
         self.Kpas_old  = 0.1
 
         # ---- PARAMÈTRES VERTICAUX SÉPARÉS ----
-        self.Kz        = 1.5         # gain vertical (augmente si tu veux monter plus vite)
+        self.Kz        = 0.1         # gain vertical (augmente si tu veux monter plus vite)
         self.VZ_MAX    = 1.0         # m/s max (sécurité)
     
 
@@ -232,7 +232,7 @@ class CP():
         # période identique à avant (ne dépend pas du Z)
         period = -0.6*Kpas**2 + 0.8*Kpas + 0.25
 
-        return nextStep, 0.5 #period
+        return nextStep, period #0.5
 
 
     # === Fonctions annexes inchangées === #
