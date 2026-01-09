@@ -1,10 +1,14 @@
 # Tutoriel
 ## Organisation du dépôt
 
-## Présentation du pr
+## Présentation de l'ensemble du projet
 
 ## Ressources Optitrack
 
+## Ressources Crazyflie
+
+## Détails du code
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEzNDU2NzYyNV19
+eyJoaXN0b3J5IjpbLTE0MjkwNjE4MDNdfQ==
 -->
