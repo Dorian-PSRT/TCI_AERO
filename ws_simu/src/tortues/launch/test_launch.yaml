@@ -1,0 +1,24 @@
+launch:
+- node:
+    pkg: "tortues"
+    exec: "Turtle1_Node"
+    name: "tor1"
+    namespace: ""
+
+- node:
+    pkg: "tortues"
+    exec: "Turtle2_Node"
+    name: "tor2"
+    namespace: ""
+
+- node:
+    pkg: "tortues"
+    exec: "Turtle3_Node"
+    name: "tor3"
+    namespace: ""
+    
+- node:
+    pkg: "tortues"
+    exec: "Turtle4_Node"
+    name: "tor4"
+    namespace: ""
