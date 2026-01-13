@@ -197,7 +197,9 @@ class global_path(Node):
         wp_r.point.y = y  
         wp_r.point.z = z 
         self.set_goal(wp_r)
-        self.get_result(Trigger.Request())
+        result=self.get_result(Trigger.Request())
+        self.get_logger().info(f"Petit target ? : {result}")
+
 
     def set_goal(self, request):
         future = self.client_goal.call_async(request) #Envoie la requête contenant le prochain objectif à local_path_node, future.result deviendra True quand le serveur aura répondu ""

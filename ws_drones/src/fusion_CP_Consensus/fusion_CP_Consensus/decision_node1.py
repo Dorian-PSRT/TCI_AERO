@@ -22,7 +22,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-mode=int(file["mode"])
+mode=int(file["mode"]) #On récupère l'information du mode : 0=Simu, 1=Réel
 
 # on récupère l'id du drone
 id=int(__file__[-4])

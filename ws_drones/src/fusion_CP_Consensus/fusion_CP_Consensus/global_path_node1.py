@@ -29,7 +29,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-mode=int(file["mode"])
+mode=int(file["mode"])  #On récupère l'information du mode : 0=Simu, 1=Réel
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -48,18 +48,16 @@ class global_path(Node):
         self.graph         = []
         self.formation     = False
         
-        #path du leader
+        #path du leader en fonction du mode
         if mode :
-            self.path = [(float(id)-1.0 , 2.0,  1.0), #va devenir la target Window
-                    (float(id)-1.0 , 3.0,  1.0),
+            self.path = [(float(id)-1.0 , 2.0,  1.0), #va devenir la target Window si elle est récupéré par OptiTrack
+                    (float(id)-1.0 , 3.0,  1.0), #"float(id)" permet de donner une cible différente pour chaque drone
                     ] #définition les objectifs à atteindre sous forme de vecteur de duos de floats
         else:
-            # self.path = [(2.0, 0.0 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-            #         (3.0, 0.0 , 1.5), #+2.0*float(id)
-            #         ]
             self.path = [(0.0, 4.5 , 1.5), #définition les objectifs à atteindre sous forme de vecteur de duos de floats
-                    (1.0, 4.5 , 1.5), #+2.0*float(id)
-                    ]
+                    (1.0, 4.5 , 1.5), #"+2.0*float(id)" en x ou en y peut permettre de donner une cible différente pour chaque drone
+                    ] # à modifier en fonction de la mission à éffectuer
+            
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
@@ -95,10 +93,9 @@ class global_path(Node):
 
     def poseW (self,msg):
         if not(self.recu_pos_w):
-            self.posWindow=(msg.pose.position.x,msg.pose.position.y -0.5 ,msg.pose.position.z)
+            self.posWindow=(msg.pose.position.x,msg.pose.position.y -0.5 ,msg.pose.position.z) #on veut que le drone leader s'arrête devant la fenêtre
             self.path[0]=self.posWindow
-            self.posWindow=(msg.pose.position.x -1.5 ,msg.pose.position.y -0.5 ,msg.pose.position.z)
-            self.path[1]=self.posWindow
+            self.path[1]=(msg.pose.position.x -1.5 ,msg.pose.position.y -0.5 ,msg.pose.position.z) #puis le leader attend à côté de la fenêtre
             self.recu_pos_w=True
             # if self.recu_pos_init:
             #     self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
@@ -111,7 +108,7 @@ class global_path(Node):
             self.pos_init=(msg.x,msg.y,msg.theta)
             # if len(self.path)!=1:
             #     x,y,z=self.path[1]
-            #     self.path[1]=(msg.x, y, z)
+            #     self.path[1]=(msg.x, y, z) #la destination finale a le même x qu'à la position initiale
             self.recu_pos_init=True
             # if self.recu_pos_w or mode==0:
             #     self.wps = self.compute_path() #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
@@ -134,7 +131,7 @@ class global_path(Node):
         return waypoints
 
     def send_waypoints(self,msg):
-        if mode:
+        if mode: #en mode réel on attend la position de la fenêtre par optitrack
             while not(self.recu_pos_w):
                 sleep(0.1)
         while not(self.recu_pos_init):
@@ -144,11 +141,11 @@ class global_path(Node):
         self.lead = msg.leader
         self.get_logger().info(f"Go ! leader {self.lead}")
 
-        if self.lead :
+        if self.lead : #le déroulé est différent en fonction du rôle du drone : leader ou non
             wp = self.wps[0]
             self.send_util(wp.x,wp.y,wp.z)
             newMap=Map()
-            newMap.graph=self.graph[::3]   #on garde un wp sur 4
+            newMap.graph=self.graph[::3]   #on garde un wp sur 3
             self.publisher_done.publish(newMap)  
             self.get_logger().info(f"New map : {newMap}")
             wp = self.wps[1]
@@ -197,7 +194,9 @@ class global_path(Node):
         wp_r.point.y = y  
         wp_r.point.z = z 
         self.set_goal(wp_r)
-        self.get_result(Trigger.Request())
+        result=self.get_result(Trigger.Request())
+        self.get_logger().info(f"Petit target ? : {result}")
+
 
     def set_goal(self, request):
         future = self.client_goal.call_async(request) #Envoie la requête contenant le prochain objectif à local_path_node, future.result deviendra True quand le serveur aura répondu ""
