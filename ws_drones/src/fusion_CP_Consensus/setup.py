@@ -28,13 +28,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
-<<<<<<< HEAD
     'pid_control_node4 = fusion_CP_Consensus.pid_control_node4:main',
     'pid_control_node3 = fusion_CP_Consensus.pid_control_node3:main',
     'pid_control_node2 = fusion_CP_Consensus.pid_control_node2:main',
     'pid_control_node1 = fusion_CP_Consensus.pid_control_node1:main',
-=======
->>>>>>> simulateur
     'local_path_node4 = fusion_CP_Consensus.local_path_node4:main',
     'local_path_node3 = fusion_CP_Consensus.local_path_node3:main',
     'local_path_node2 = fusion_CP_Consensus.local_path_node2:main',
