@@ -1,0 +1,9 @@
+crazyflie_1:
+  ros__parameters:
+    cf_name: "crazyflie_1"
+    link_uri: "radio://0/5/2M/E7E7E7E7E7"
+
+crazyflie_2:
+  ros__parameters:
+    cf_name: "crazyflie_2"
+    link_uri: "radio://0/5/2M/E7E7E7E7E6"
