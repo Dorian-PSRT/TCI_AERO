@@ -1,28 +1,64 @@
 # Tutoriel
 ## Organisation du dépôt
-[Dorian]
+Bienvenue sur le dépôt de la promo AERO-TCI 2026.
+Vous êtes sur la branche main qui rassemble toutes les informations et document du projet.
+
+ - [Informations et documents](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents "Informations et documents") est mis à jour avec la documentation du projet.
+ - [Nouveau dossier](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Nouveau%20dossier "Nouveau dossier") contient les archives de code.
+
+Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
+
+ - [develop](https://github.com/Dorian-PSRT/TCI_AERO/tree/develop "develop") a servit  à créer des fonctions en les testant sur TurtleSim 
+ - [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") a d'abord été dédiés au tests sur simulateurs puis l'ensemble du code y a été regroupé
+ - [crazyflie](https://github.com/Dorian-PSRT/TCI_AERO/tree/crazyflie "crazyflie") a servit à apprendre à contrôler les drones 
+
 ## Présentation de l'ensemble du projet
-[Dorian]
+ Ce projet avait pour but de participer au drone défense hackathon, qui a eu lieu entre le 24 octobre et le 24 novembre (phase préliminaire incluse), nous avons dû nous pencher sur la création d’un scénario ainsi que la programmation d’un essaim de drone collaboratif capable de le réaliser. Ce [scénario](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/Fil_rouge_projet.md "main/Information et documents/ Fil_rouge_projet.md") devait nous permettre de démontrer le côté collaboratif de notre essaim, ainsi que d’être le plus complet possible pour avoir une chance d’être sélectionné par le jury.
+ 
 ## Ressources Optitrack
 [Clara]
 ## Ressources Crazyflie
 [Clara]
 ## Détails du code
-[Dorian]
+Il est maintenant temps de lancer le programme. Pour cela rendez vous sur la branche [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") afin d'avoir les dernières fonctionnalités développées.
+Dans un premier temps choisissez les paramètres en modifiant le fichier *utils.json* dans le package *fusion_CP_Consensus*du workspace *ws_drones*. 
+Chemin complet : TCI_AERO\ws_drones\src\fusion_CP_Consensus\utils.json
 
+		{
+			"nb_drones": 4,		# à modifier selon le nombre de drones souhaité
+			"mode": 0,			# 0 pour lancer le simulateur ou 1 pour des drones réels
+			"obstacles": [		# créations d'obstacles virtuels, 3 valeurs par obstacle
+				[
+					0.0,		# position en x de l'obstacle
+					0.0,		# position en y de l'obstacle
+					2.0			# rayon de l'obstacle
+				],
+				[
+					2.0,
+					2.0,
+					1.5
+				],
+				[
+					0.5,
+					5.0,
+					0.25
+				],
+				[
+					-0.5,
+					5.0,
+					0.25
+				]
+			]
+		}
 
-util_essaims.py
+Il ne reste plus qu'à lancer le fichier *util_essaim.py* qui automatise toute les actions nécéssaires pour faire fonctionner l'essaim. 
+Chemin complet : TCI_AERO\ws_drones\src\fusion_CP_Consensus\util_essaim.py
 
-utils.json à modifier 
+ Si vous lancer le programme avec des drones réels :
 
-nb de drone
-
-mode  0 simu
-mode 1 réel
-
-position des obstacles virtuels
-
-
+ 1. Vérifiez que l'initialisation s'est bien passée (drone connectés, pas de messages d'erreur,...) puis appuyez sur "Entrée" pour donner la consigne de décollage.
+ 2. Assurez-vous que tous les drones sont stabilisés en vol puis appuyez à nouveau sur "Entrée" pour lancer le scénario.
+ 3. A tout moment vous pouvez appuyer un troisième fois sur "Entrée" pour faire atterir les drones.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY5OTIyNzQxNiwxNzI3MjQzNTU5XX0=
+eyJoaXN0b3J5IjpbLTIwNjI4OTQzMzUsMTcyNzI0MzU1OV19
 -->
