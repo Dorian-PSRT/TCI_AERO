@@ -1,3 +1,5 @@
+#Node qui reçoit une target globale venant de Global Path, calcule le prochain petit pas à l'aide de la classe Champs Potentiel et l'envoie en consigne au drone
+
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.executors import MultiThreadedExecutor
@@ -56,8 +58,9 @@ class local_path(Node):
         self.cl_group = ReentrantCallbackGroup() #outil de ROS2 appeler les fonctions dans ce groupe en parrallèle avec un callback(prioritaire en temps normal)
         self.thread_event  = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription  = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
-        #self.publisher     = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
-        if mode : #définition du publisher de la position désirée en fonction du mode (interface différente entre Simulateur et OptiTrack)
+        if mode == 2 : #définition du publisher de la position désirée en fonction du mode (interface différente entre Simulateur et OptiTrack)
+            self.publisher = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
+        elif mode == 1:
             self.publisher = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
         else:
             self.publisher = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
@@ -106,18 +109,14 @@ class local_path(Node):
                 #self.publisher.publish(self.pose)
                 return
             
-            if mode:
-                # if self.nb>=1:
-                #     Kz=1.0
-                # else:
-                #     Kz=0.5
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, coeff_vert = 1.5, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
+            if mode: #les coefficients de pas sont différents en fonction du mode
+                nav=CP(coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
             else:
                 if self.Leader:
                     maxi=1.
                 else:
-                    maxi=0.5
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, coeff_vert = 1.5, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
+                    maxi=0.8
+                nav=CP(coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
             #self.get_logger().info(f'erreur Z : {abs(self.pose_goal.point.z-self.pose.theta)}')
             if mode:
                 dist_cible=0.1

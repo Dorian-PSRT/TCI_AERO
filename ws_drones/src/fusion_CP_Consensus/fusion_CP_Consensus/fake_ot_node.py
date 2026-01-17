@@ -1,3 +1,5 @@
+# Cette node remplace OptiTrack en mode simulation et fait l'interface avec OptiTrack à la place en mode réel.
+
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.node import Node
@@ -20,7 +22,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-mode=int(file["mode"])
+mode=int(file["mode"])   #On récupère l'information du mode : 0=Simu, 1=Réel
 obstacles_data=file["obstacles"]
 
 class fake_ot_node(Node):
@@ -37,12 +39,6 @@ class fake_ot_node(Node):
                 obs_point.y=obs[1]
                 obs_point.z=obs[2]
                 self.obstacles_fixes.append(obs_point)
-
-        # obs_point=Point()    #obstacle virtuel
-        # obs_point.x=0.7
-        # obs_point.y=0.5
-        # obs_point.z=0.6
-        # self.obstacles_fixes    = []
 
         self.recu_pos_w=False
         self.recu_pos_O=False

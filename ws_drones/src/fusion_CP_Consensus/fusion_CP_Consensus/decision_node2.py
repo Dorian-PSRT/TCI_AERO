@@ -1,3 +1,6 @@
+#Node qui prend les décision des actions à suivre par le drone à base d'un Max Consensus et de logique en if/then pour programmer un scénario
+#actuellement le scénario est d'envoyer un drone leader proche de la fenêtre qui va prévenir les autres drones une fois arrivé pour qu'ils se mettent en formation avant de suivre le chemin pris par le leader.
+
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.node import Node
@@ -25,7 +28,7 @@ with open(utils) as f:
 
 nb_drones=int(file["nb_drones"])
 mode=int(file["mode"]) #On récupère l'information du mode : 0=Simu, 1=Réel
-aleatoire=False  #En attendant 
+aleatoire=False  #En attendant d'avoir une fonction score fonctionnel on simule l'obtention de score différent de façon aléatoire
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -67,7 +70,7 @@ class decision(Node):
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
         self.timer_maj     = self.create_timer(0.2, self.maj)  # Lance la boucle de publication de mise à jour
-        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 5sec au cas où max-consensus ai crash
+        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh toute les 5sec au cas où max-consensus ai crash
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -93,7 +96,6 @@ class decision(Node):
         
     def listener_callback_vois2(self, msg):
         self.buff_vois2.append(msg)
-
 
     def err_update(self, msg):
         self.err=msg.data
@@ -122,15 +124,15 @@ class decision(Node):
         else:
             self.crash = False   #cela signifi que le premier consensus n'a pas crash
             
-            #self.get_logger().info(f"Tor{id}: score {self.bestTurtle.y}")
+            self.get_logger().info(f"Tor{id}: score {self.bestTurtle.y}")
             if self.phase == 2 and self.formation_ok:
                 go=Go()
                 go.leader=self.Leader
                 go.nb=self.nb
                 self.publisher_go.publish(go) # C'est parti !
                 self.get_logger().info("Go 2!")
-                #self.timer_maj.cancel()
 
+                self.maj.cancel()
             else:
                 if self.repli:
                     if self.turtleID == self.bestTurtle.x:
@@ -140,12 +142,12 @@ class decision(Node):
                         self.publisher_repli_go.publish(go)
                         self.get_logger().info("Repli Go!")
                     else:
-                        self.turtleScore  = 1024.0-self.err#float(random.randrange(1,50,1))  #on calcul le score pour ceux qui passent dans la fenêtre
+                        self.turtleScore = 1024.0-self.err#
+                        if aleatoire:
+                            self.turtleScore = float(random.randrange(1,50,1))  #on calcul le score pour ceux qui passent dans la fenêtre
                         self.nb+=1
 
                 elif self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
-                    # self.timer_maj.cancel()
-                    # self.timer_refresh.cancel()
                     self.get_logger().info("Tout le monde est prêt ?")
                     
                     self.bestTurtle.x = self.turtleID # ID
@@ -212,7 +214,7 @@ class decision(Node):
                 self.bestTurtle.y = self.turtleScore # score
                 self.bestTurtle.z = self.curr_iter # itération actuelle
                 self.publisher.publish(self.bestTurtle)
-            self.get_logger().info('Refresh...')
+                self.get_logger().info('Refresh...')
             self.timer_refresh.cancel()
             
 

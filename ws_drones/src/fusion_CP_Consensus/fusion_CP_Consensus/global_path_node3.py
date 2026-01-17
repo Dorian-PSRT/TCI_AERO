@@ -1,3 +1,5 @@
+#Node qui prends en entrée les consigne de la node Décision et transmets une target globale à Local Path
+
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.node import Node
@@ -54,6 +56,10 @@ class global_path(Node):
         self.future = None
 
         #path du leader
+        self.wps = [] #la variable globale wps représente le vecteur qui donne les objectifs à atteindre
+
+        
+        #path du leader en fonction du mode
         if mode :
             self.path = [(float(id)-1.0 , 2.0,  1.0), #va devenir la target Window si elle est récupéré par OptiTrack
                     (float(id)-1.0 , 3.0,  1.0), #"float(id)" permet de donner une cible différente pour chaque drone
@@ -66,15 +72,18 @@ class global_path(Node):
         qos = QoSProfile(depth=10, reliability=ReliabilityPolicy.BEST_EFFORT)
         self.subscriptionW      = self.create_subscription(PoseStamped,'/window/pose', self.poseW,qos)
         self.subscription_go    = self.create_subscription(Go, f'/turtle{id}/go',self.send_waypoints, 10,callback_group=topic_cb_group)
-        self.subscription       = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos,callback_group=topic_cb_group)
+        if want_pos_init:
+            self.subscription   = self.create_subscription(Pose,f'/turtle{id}/pose', self.poseInit,qos,callback_group=topic_cb_group)
         self.client_goal        = self.create_client(Position3D, f'/turtle{id}/set_target_pose',callback_group=client_cb_group) #global_path_node est un client du service set_target_pose proposé par local_path_node
         self.client_result      = self.create_client(Trigger, f'/turtle{id}/set_result',callback_group=client_cb_group) #global_path_node est un client du service set_result proposé par local_path_node
         self.publisher_done     = self.create_publisher(Map, f'/leader/done', 10)
         self.subscription_done  = self.create_subscription(Map, f'/leader/done', self.update_graph, 10) #ils update leur graph
         self.publisher_ready    = self.create_publisher(Bool, f'/turtle{id}/ready', 10)
-        self.subscription_repli = self.create_subscription(Go, f'/turtle{id}/repli', self.repli_update, 10)
-        self.dist_init          = self.create_publisher(Float32,f'/turtle{id}/err_dist', 10)
-        self.timer_err          = self.create_timer(0.2, self.maj_err, callback_group=topic_cb_group)
+        #en construction :
+        #self.subscription_repli = self.create_subscription(Go, f'/turtle{id}/repli', self.repli_update, 10)
+        #self.dist_init          = self.create_publisher(Float32,f'/turtle{id}/err_dist', 10)
+        #self.timer_err          = self.create_timer(0.2, self.maj_err, callback_group=topic_cb_group)
+        
         self.__wait_services() 
 
         if mode :
@@ -93,6 +102,7 @@ class global_path(Node):
             wait_result_service = self.client_result.wait_for_service(timeout_sec=1.0)
             self.get_logger().info('Services not available, waiting...')
 
+#en construction
     def repli_update(self):
         self.repli=True
         if self.future is not None:
@@ -164,7 +174,7 @@ class global_path(Node):
             wp = self.wps[0]
             self.send_util(wp.x,wp.y,wp.z)
             newMap=Map()
-            newMap.graph=self.graph[::3]   #on garde un wp sur 3
+            newMap.graph=self.graph[3::3]   #on garde un wp sur 3
             self.publisher_done.publish(newMap)  
             #self.get_logger().info(f"New map : {newMap}")
             wp = self.wps[1]
@@ -175,7 +185,7 @@ class global_path(Node):
                 for wp in self.wps:          #on suit le graph
                     if self.repli:
                         return
-                    self.send_util(wp.x,wp.y,wp.z+altitude)
+                    self.send_util(wp.x,wp.y,wp.z)
                 
 
                 if mode:

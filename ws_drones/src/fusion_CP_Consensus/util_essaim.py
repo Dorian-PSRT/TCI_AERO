@@ -11,6 +11,13 @@
 # 
 #
 ##################################
+# Ce script va prendre les données d'utils.json pour connaitre le mode et le nombre de drones
+# Et il va copier coller les nodes qui doivent être propres à chaque drone pour en avoir autant que le nombre de drones désirés : decision_node, global_path_node et local_path_node. Le nom est à préciser dans liste_fichiers si il y a besoin d'une nouvelle node propre au drone.
+# Puis il va modifier les fichiers de setup avec les nodes à build et compléter le fichier launch.
+# Puis il va colcon build les deux workspace utilisés : ws_drones et ws_simu. (On peut désactiver le build à chaque exécution en passant "build" à False)
+# Enfin, si "autostart" est à True, il va lancer les nodes individuelles et le fichier launch de manière séquentielle.
+# note : après l'autostart les erreurs de type "# Failed to use specified server:" ne sont pas à craindre
+# mail : dimitri.nirpot@estaca.eu
 
 from pathlib import Path
 import shutil
@@ -19,14 +26,13 @@ import os
 import yaml
 import json, signal
 import subprocess
-import tkinter as tk
+import tkinter as tk  #librairie d'interface
 from tkinter import scrolledtext
 from tkinter import ttk
 from time import sleep
 
 
-
-mode=0      #0=simu, 1=simu et 2=Turtlesim
+#le mode est à modifier dans utils.json : 0=simu, 1=simu et 2=Turtlesim
 autostart=True  #lance automatiquement les nodes
 build=True
 
@@ -36,7 +42,7 @@ nodes_dir = "fusion_CP_Consensus"
 workspace_path = dossier.parents[1]
 
 # fichiers
-liste_fichiers = ["global_path_node","local_path_node","decision_node"]  #,"my_robot_driver_node"
+liste_fichiers = ["global_path_node","local_path_node","decision_node"]  
 setup_file = dossier / 'setup.py'
 launch_file = dossier / "launch/essaim_launch.yaml"
 
@@ -47,7 +53,7 @@ with open(utils) as f:
 
 
 nb_drones=file["nb_drones"]
-mode=int(file["mode"])
+mode=int(file["mode"])     
 
 for id in range (2,5+1):  #5 = nombre max de drones
     for fichier in liste_fichiers:
@@ -58,9 +64,6 @@ for id in range (2,5+1):  #5 = nombre max de drones
         if id <= nb_drones:
             shutil.copy(source, destination)
             print(f"✅ Copié : {source.name} → {destination.name}")
-
-
-
 
 
 node_files = [f for f in os.listdir(dossier / nodes_dir) if f.endswith('.py') and 'node' in f]
@@ -109,12 +112,6 @@ static_nodes = [
             'pkg': "tortues",
             'exec': "spawn",
             'name': "apparition",
-            'namespace': ""
-    }},
-    {   'node': {
-            'pkg': "fusion_CP_Consensus",
-            'exec': "fake_ot_node",
-            'name': "fake_ot_node",
             'namespace': ""
     }}
 ]
@@ -191,10 +188,6 @@ def open_terminal(*cmd):
         "--",
         "bash", "-c", full_cmd
     ])
-    #proc = subprocess.Popen([terminal_type,"--title", titre_terminal, "--", *cmd])
-    # if os.path.exists(utils):
-    #     file = json.load(open(utils))
-
 
 
 if autostart:
@@ -233,6 +226,11 @@ if autostart:
         open_terminal("ros2", "launch", "fusion_CP_Consensus", "essaim_launch.yaml")
         input("Appuie sur Entrée pour KILL.")
         subprocess.run(["pkill", "-f", terminal_type], check=False)
+
+
+
+
+# Essai de développement d'une interface tkinter généré par ChatGPT (actuellement non opérationelle):
 
 
 # def load_config():

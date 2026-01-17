@@ -1,4 +1,5 @@
-#version modifiée par ChatGPT pour isoler Z du champ X,Y en 2D
+#Ceci est la classe utilisée par local_path qui implémente le principe de navigation par Champ Potentiel
+#note : version modifiée par ChatGPT pour isoler Z du champ X,Y en 2D
 import numpy as np
 from geometry_msgs.msg import Point
 

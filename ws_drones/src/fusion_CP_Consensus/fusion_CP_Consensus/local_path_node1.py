@@ -1,3 +1,5 @@
+#Node qui reçoit une target globale venant de Global Path, calcule le prochain petit pas à l'aide de la classe Champs Potentiel et l'envoie en consigne au drone
+
 #import des bibliotheques ROS2
 import rclpy
 from rclpy.executors import MultiThreadedExecutor
@@ -56,8 +58,9 @@ class local_path(Node):
         self.cl_group = ReentrantCallbackGroup() #outil de ROS2 appeler les fonctions dans ce groupe en parrallèle avec un callback(prioritaire en temps normal)
         self.thread_event  = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
         self.subscription  = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
-        #self.publisher     = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
-        if mode : #définition du publisher de la position désirée en fonction du mode (interface différente entre Simulateur et OptiTrack)
+        if mode == 2 : #définition du publisher de la position désirée en fonction du mode (interface différente entre Simulateur et OptiTrack)
+            self.publisher = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
+        elif mode == 1:
             self.publisher = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
         else:
             self.publisher = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
