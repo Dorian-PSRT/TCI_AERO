@@ -27,7 +27,7 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-mode=int(file["mode"])
+mode=int(file["mode"]) #On récupère l'information du mode : 0=Simu, 1=Réel
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -53,30 +53,27 @@ class local_path(Node):
     
     def __create_topics(self): #méthode privée qui regroupe les déclarations faites à l'initialisation
         self.cl_group = ReentrantCallbackGroup() #outil de ROS2 appeler les fonctions dans ce groupe en parrallèle avec un callback(prioritaire en temps normal)
-        self.thread_event = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
-        self.subscription = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
-        #self.publisher    = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
-        if mode :
-            self.publisher    = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
+        self.thread_event  = threading.Event() #outil de python pour utiliser les interruptions (dans ce cas : à arrivée de la tortue à l'objectif)
+        self.subscription  = self.create_subscription(Pose,f'/turtle{id}/pose', self.listener_callback,10, callback_group= self.cl_group) #abonnement au topic pose publié par turtlesim_node en précisant callback_group de sorte que la récupérations des données se fasse en parralèlle d'autres actions
+        #self.publisher     = self.create_publisher(Point, f'/turtle{id}/pose_d', 10) #publication dans pose_d du prochain pas à faire à destination de pid_control_node
+        if mode : #définition du publisher de la position désirée en fonction du mode (interface différente entre Simulateur et OptiTrack)
+            self.publisher = self.create_publisher(PoseStamped, f'/crazyflie_{id}/TargetPose', 10)
         else:
-            self.publisher    = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
+            self.publisher = self.create_publisher(PoseStamped, f'/Crazyflie{id}/pose_d', 10)
         
-        self.timer        = self.create_timer(0.01, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.1 s
-        self.service      = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
-        self.service_r    = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
-        self.getobstacles = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
+        self.timer         = self.create_timer(0.01, self.set_pose_d) #création d'un timer qui appel la fonction set_pose_d chaque 0.01 s
+        self.service       = self.create_service(Position3D, f'/turtle{id}/set_target_pose', self.handle_goal_request) #local_path_node a un serveur set_target_pose à destination de global_path_node
+        self.service_r     = self.create_service(Trigger, f'/turtle{id}/set_result', self.handle_result_request, callback_group= self.cl_group)  #local_path_node a un serveur set_result à destination de global_path_node
+        self.getobstacles  = self.create_subscription(PosObstacles,'OptiTrack/obstacles',self.get_obstacles,10, callback_group= self.cl_group)
 
         self.subscription_go = self.create_subscription(Go, f'/turtle{id}/go',self.lead_update, 10)
 
     def lead_update(self,msg):
-        self.Leader=msg.leader
+        self.Leader = msg.leader
 
     def get_obstacles(self,obst_new):
         moi=obst_new.flotants.pop(id-1)      # ATTENTION : on retire l'obstacle de soit même. Le drône est un obstacle pour les autres mais pas pour soit même
-        if self.Leader:
-            self.obstacles  = obst_new.fixes+obst_new.flotants
-        else:
-            self.obstacles  = obst_new.fixes
+        self.obstacles  = obst_new.fixes+obst_new.flotants
         #self.get_logger().info(f'obstacle poped: CF {id} : {moi}')
         #self.get_logger().info(f'obstacles  {self.obstacles}')
    
@@ -84,7 +81,6 @@ class local_path(Node):
     def handle_goal_request(self, request, response):
         self.pose_goal = request            #la variable globale pose_goal (créée ici) correspond au prochain objectif fixé par global_path_node à travers le service set_target_pose
         #self.get_logger().info(f'position reçue par local : x={self.pose_goal.point.x}, y={self.pose_goal.point.y}, z={self.pose_goal.point.z}')
-        #response.success = True
         return response
 
     def handle_result_request(self, request, response): #fonction précisé en callback_group de sorte qu'elle se fasse en parralèlle de la réupération de données par listener_callback
@@ -108,14 +104,14 @@ class local_path(Node):
                 #self.publisher.publish(self.pose)
                 return
             
-            if mode:
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
+            if mode: #les coefficients de pas sont différents en fonction du mode
+                nav=CP(coeff_pas = 0.2, taille_du_pas_min=0.1, taille_du_pas_max = 0.4)
             else:
                 if self.Leader:
                     maxi=1.
                 else:
                     maxi=0.8
-                nav=CP(coeff_attraction = 2, coeff_repu = 3, coeff_prev = 0.2, rayon_obstacle = 1.5, rayon_secu = 0.15, coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
+                nav=CP(coeff_pas = 2, taille_du_pas_min=0.5, taille_du_pas_max = maxi)
             #self.get_logger().info(f'erreur Z : {abs(self.pose_goal.point.z-self.pose.theta)}')
             if mode:
                 dist_cible=0.1
@@ -123,12 +119,12 @@ class local_path(Node):
                 dist_cible=0.3
             if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.5 or abs(self.pose_goal.point.z-self.pose.theta) > dist_cible:   #pour preshot l'arrivée à la cible
                 if abs(nav.norme_erreur(self.pose_goal, self.pose)[0]) > 0.5 or abs(self.pose_goal.point.z-self.pose.theta) > dist_cible:
-                    prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)
+                    prochain_pas,self.period = nav.set_next_step(self.pose_goal, self.pose, self.obstacles)   #On récupère un pas et une période de rafraichissement pour avoir un comportement plus fluide en simulation
                     #self.get_logger().info(f"Prochaine période:({self.period})")
                     #self.get_logger().info(f"Prochain pas :({prochain_pas[0]} {prochain_pas[1]})")
                     
                     if mode :
-                        self.period=0.1
+                        self.period=0.1   #en mode réel on garde une période de rafraichissement de 0.1s
 
                     self.get_logger().info(f"Prochain pas : {prochain_pas}")
                     pose_d_ = np.array([self.pose.x, self.pose.y, self.pose.theta]) + prochain_pas   #somme de la position actuelle et du prochain pas à faire (multiplié par un gain) pour obtenir la prochaine position
@@ -161,7 +157,7 @@ class local_path(Node):
             else:                       #si on est arrivé
                 self.thread_event.set() #active l'interruption qui correspond à l'arrivée prochaine à l'objectif
         else :
-            self.c += 0.01
+            self.c += 0.01 #on compte le temps qui s'écoule (le timer a une période de 0.01s)
 
         
 

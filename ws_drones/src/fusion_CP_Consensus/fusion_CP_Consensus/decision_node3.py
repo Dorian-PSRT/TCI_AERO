@@ -22,7 +22,8 @@ with open(utils) as f:
     file = json.load(f)
 
 nb_drones=int(file["nb_drones"])
-mode=int(file["mode"])
+mode=int(file["mode"]) #On récupère l'information du mode : 0=Simu, 1=Réel
+aleatoire=False  #En attendant 
 
 # on récupère l'id du drone
 id=int(__file__[-4])
@@ -35,7 +36,9 @@ class decision(Node):
         ############## max consensus init ##############
 
         self.turtleID     = float(id) 
-        self.turtleScore  = float(id) #float(random.randrange(1,50,1))         #score aléatoire entre 0 et 50
+        self.turtleScore  = 5.0-float(id) 
+        if aleatoire:
+            self.turtleScore = float(random.randrange(1,50,1))  #score aléatoire entre 1 et 50
         self.curr_iter    = 0.0
         self.bestTurtle   = Point()
         self.bestTurtle.x = self.turtleID # ID
@@ -48,18 +51,18 @@ class decision(Node):
         self.formation_ok  = False
         self.leader_ok     = False
         self.nb            = 0
-        self.phase         = 1
-
+        self.phase         = 1    #Phase 1 : le leader ouvre la voie, trouve la fenêtre et si poste. Puis le reste des drones se mettent en formation.
+                                    #Phase 2 : Elle est déclenchée si les drones suiveurs sont en formation. Ils se déplacent en formation jusqu'à la fenêtre, puis passe par celle-ci.
         self.buff_vois1   = []
         self.buff_vois2   = []
         self.iter_max     = nb_drones//2  #uniquement valable en communication "circulaire"
 
         self.__create_topics()
-        sleep(0.5)
+        sleep(0.5) #Pour ralentir le processus et éviter les échecs d'initialisation
         self.publisher.publish(self.bestTurtle)  # Publie le premier message
 
         self.timer_maj     = self.create_timer(0.2, self.maj)  # Lance la boucle de publication de mise à jour
-        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 5sec au cas où max-consensus est crash
+        self.timer_refresh = self.create_timer(5, self.refresh)  # Refresh après 5sec au cas où max-consensus ai crash
         ################################################
 
         self.get_logger().info('Le nœud est démarré !')
@@ -69,17 +72,16 @@ class decision(Node):
 ########################   MAX CONSENSUS   ###########################
     def __create_topics(self):
         self.cl_group      = ReentrantCallbackGroup()
-        self.publisher     = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
-        self.subscription1 = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
-        self.subscription2 = self.create_subscription(Point,f'/turtle{((id+1)-1)%nb_drones+1}/bestTurtle' ,self.listener_callback_vois2,10, callback_group= self.cl_group)
-        self.publisher_go  = self.create_publisher(Go, f'/turtle{id}/go', 10)
-        self.subscriptionLead = self.create_subscription(Map,'/leader/done',self.listener_callback_Leader,10)
+        self.publisher          = self.create_publisher(Point, f'/turtle{id}/bestTurtle', 10)
+        self.subscription1      = self.create_subscription(Point,f'/turtle{((id-1)-1)%nb_drones+1}/bestTurtle',self.listener_callback_vois1,10, callback_group= self.cl_group)
+        self.subscription2      = self.create_subscription(Point,f'/turtle{((id+1)-1)%nb_drones+1}/bestTurtle' ,self.listener_callback_vois2,10, callback_group= self.cl_group)
+        self.publisher_go       = self.create_publisher(Go, f'/turtle{id}/go', 10)
+        self.subscriptionLead   = self.create_subscription(Map,'/leader/done',self.listener_callback_Leader,10)
         self.subscription_ready = self.create_subscription(Bool, f'/turtle{id}/ready',self.ready,10)
 
     def listener_callback_vois1(self, msg):
         self.buff_vois1.append(msg)
         
-    
     def listener_callback_vois2(self, msg):
         self.buff_vois2.append(msg)
 
@@ -118,15 +120,11 @@ class decision(Node):
                 self.timer_refresh.cancel()
             else:
                 if self.bestTurtle.y == 0.0:   #si après le max-consensus on est à 0 c'est que tout le monde est parti
-                    # self.timer_maj.cancel()
-                    # self.timer_refresh.cancel()
                     self.get_logger().info("Tout le monde est prêt ?")
                     
-                    #self.iter_max     = 1
                     self.bestTurtle.x = self.turtleID # ID
                     self.bestTurtle.y = 0.0 # score
                     self.bestTurtle.z = 0.0 # itération actuelle
-                    # sleep(1) 
                     # self.publisher.publish(self.bestTurtle)
                     self.phase = 2                                     #On déclenche la phase 2
                     
@@ -141,7 +139,9 @@ class decision(Node):
                         self.gone         = True
                     else:
                         self.Leader       = False #On est pas parti en premier donc on n'est pas leader
-                        self.turtleScore  = 5.0-float(id) #float(random.randrange(1,50,1))  #on calcul le score pour ceux qui passent dans la fenêtre
+                        self.turtleScore  = 5.0-float(id) 
+                        if aleatoire:
+                            self.turtleScore = float(random.randrange(1,50,1))  #score aléatoire entre 1 et 50
                         self.nb+=1
                         #self.get_logger().info(f"nb {self.nb}")
 
@@ -174,7 +174,9 @@ class decision(Node):
                 self.bestTurtle.y = self.turtleScore # score
                 self.bestTurtle.z = self.curr_iter # itération actuelle
                 self.publisher.publish(self.bestTurtle)
+            self.get_logger().info('Refresh...')
             self.timer_refresh.cancel()
+            
 
 ######################################################################
 
