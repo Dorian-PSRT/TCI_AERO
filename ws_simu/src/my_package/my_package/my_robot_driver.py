@@ -147,65 +147,91 @@ class CrazyflieDriver:
         self.use_position_control = True
         self.node.get_logger().info(f"Cible position reçue : ({x:.2f}, {y:.2f}, {z:.2f})")
 
-
-
     def navigate_to_target(self, current_position, target_position, dt):
+
+        x, y, z, roll, pitch, yaw = current_position
+        target_x, target_y, target_z, _, _, target_yaw = target_position
+
+        # === ERREUR DE YAW (INDÉPENDANTE DU DÉPLACEMENT) ===
+        yaw_error = target_yaw - yaw
+        yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
+        yaw_desired = np.clip(3.0 * yaw_error, -2.0, 2.0)
+
+        # === VITESSES TRANSLATION (GLOBAL) ===
+        vx_g, vy_g, _ = self.position_controller.control_quadrotor(
+            current_position, target_position, dt
+        )
+
+        # === CONVERSION GLOBAL → BODY ===
+        cosy = math.cos(yaw)
+        siny = math.sin(yaw)
+
+        forward_desired  =  vx_g * cosy + vy_g * siny
+        sideways_desired = -vx_g * siny + vy_g * cosy
+
+        # === ALTITUDE ===
+        height_diff_desired = np.clip(target_z - z, -0.1, 0.1)
+
+        return forward_desired, sideways_desired, yaw_desired, height_diff_desired
+
+
+    # def navigate_to_target(self, current_position, target_position, dt):
 
         
 
-        x, y, z, roll, pitch, yaw = current_position
+    #     x, y, z, roll, pitch, yaw = current_position
 
-        forward_desired     = 0.0
-        sideways_desired    = 0.0
-        yaw_desired         = 0.0
-        height_diff_desired = 0.0
+    #     forward_desired     = 0.0
+    #     sideways_desired    = 0.0
+    #     yaw_desired         = 0.0
+    #     height_diff_desired = 0.0
 
-        # === 1. Angle désiré vers la cible ===
-        alpha = math.atan2(target_position[1] - y, target_position[0] - x)
+    #     # === 1. Angle désiré vers la cible ===
+    #     alpha = math.atan2(target_position[1] - y, target_position[0] - x)
 
-        # === 2. Erreur yaw dans [-pi, pi] ===
-        yaw_error = alpha - yaw
-        yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
+    #     # === 2. Erreur yaw dans [-pi, pi] ===
+    #     yaw_error = alpha - yaw
+    #     yaw_error = (yaw_error + np.pi) % (2 * np.pi) - np.pi
 
-        ALIGN_TOLERANCE = 0.17  # ≈10°
+    #     ALIGN_TOLERANCE = 0.17  # ≈10°
 
-        # === PHASE 1 : rotation seule ===
-        if abs(yaw_error) > ALIGN_TOLERANCE:
-            yaw_desired = np.clip(5.5 * yaw_error, -4.5, 4.5)
-            forward_desired  = 0.0
-            sideways_desired = 0.0
+    #     # === PHASE 1 : rotation seule ===
+    #     if abs(yaw_error) > ALIGN_TOLERANCE:
+    #         yaw_desired = np.clip(5.5 * yaw_error, -4.5, 4.5)
+    #         forward_desired  = 0.0
+    #         sideways_desired = 0.0
 
-        # === PHASE 2 : déplacement + micro-correction yaw ===
-        else:
-            yaw_desired = np.clip(2.8 * yaw_error, -1.8, 1.8)
+    #     # === PHASE 2 : déplacement + micro-correction yaw ===
+    #     else:
+    #         yaw_desired = np.clip(2.8 * yaw_error, -1.8, 1.8)
 
-            # Vitesses dans le REPÈRE GLOBAL
-            vx_g, vy_g, _ = self.position_controller.control_quadrotor(
-                current_position, target_position, dt
-            )
+    #         # Vitesses dans le REPÈRE GLOBAL
+    #         vx_g, vy_g, _ = self.position_controller.control_quadrotor(
+    #             current_position, target_position, dt
+    #         )
 
-             # === Empêcher le ralentissement avant chaque waypoint ===
-            # MIN_SPEED = 0.35
-            # speed = math.hypot(vx_g, vy_g)
+    #          # === Empêcher le ralentissement avant chaque waypoint ===
+    #         # MIN_SPEED = 0.35
+    #         # speed = math.hypot(vx_g, vy_g)
 
-            # if speed < MIN_SPEED:
-            #     ang = math.atan2(vy_g, vx_g)
-            #     vx_g = MIN_SPEED * math.cos(ang)
-            #     vy_g = MIN_SPEED * math.sin(ang)
+    #         # if speed < MIN_SPEED:
+    #         #     ang = math.atan2(vy_g, vx_g)
+    #         #     vx_g = MIN_SPEED * math.cos(ang)
+    #         #     vy_g = MIN_SPEED * math.sin(ang)
 
-            # === 🔥 CONVERSION GLOBAL → BODY (CORRECTION DU BUG À 90°) ===
-            cosy = math.cos(yaw)
-            siny = math.sin(yaw)
+    #         # === 🔥 CONVERSION GLOBAL → BODY (CORRECTION DU BUG À 90°) ===
+    #         cosy = math.cos(yaw)
+    #         siny = math.sin(yaw)
 
-            forward_desired  = vx_g * cosy + vy_g * siny
-            sideways_desired = -vx_g * siny + vy_g * cosy
+    #         forward_desired  = vx_g * cosy + vy_g * siny
+    #         sideways_desired = -vx_g * siny + vy_g * cosy
 
-        # === Altitude ===
-        height_diff_desired = np.clip(target_position[2] - z, -0.1, 0.1)
+    #     # === Altitude ===
+    #     height_diff_desired = np.clip(target_position[2] - z, -0.1, 0.1)
 
  
 
-        return forward_desired, sideways_desired, yaw_desired, height_diff_desired
+    #     return forward_desired, sideways_desired, yaw_desired, height_diff_desired
 
 
 

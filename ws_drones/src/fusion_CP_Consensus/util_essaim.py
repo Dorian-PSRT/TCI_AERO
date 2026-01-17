@@ -26,7 +26,7 @@ from time import sleep
 
 
 
-mode=1      #0=simu, 1=simu et 2=Turtlesim
+mode=0      #0=simu, 1=simu et 2=Turtlesim
 autostart=True  #lance automatiquement les nodes
 build=True
 
