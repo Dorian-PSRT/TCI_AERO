@@ -9,6 +9,20 @@
 [Clara]
 ## Détails du code
 [Dorian]
+
+
+util_essaims.py
+
+utils.json à modifier 
+
+nb de drone
+
+mode  0 simu
+mode 1 réel
+
+position des obstacles virtuels
+
+
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbMTcyNzI0MzU1OV19
 -->
