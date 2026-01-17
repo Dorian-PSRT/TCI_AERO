@@ -20,7 +20,10 @@ Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 ## Ressources Crazyflie
 [Clara]
 ## Détails du code
-Il est maintenant temps de lancer le programme. Pour cela rendez vous sur la branche [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") afin d'avoir les dernières fonctionnalités développées.
+
+### Lancer le programme
+
+Pour cela rendez vous sur la branche [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") afin d'avoir les dernières fonctionnalités développées.
 Dans un premier temps choisissez les paramètres en modifiant le fichier *utils.json* dans le package *fusion_CP_Consensus*du workspace *ws_drones*. 
 Chemin complet : TCI_AERO\ws_drones\src\fusion_CP_Consensus\utils.json
 
@@ -59,6 +62,15 @@ Chemin complet : TCI_AERO\ws_drones\src\fusion_CP_Consensus\util_essaim.py
  1. Vérifiez que l'initialisation s'est bien passée (drone connectés, pas de messages d'erreur,...) puis appuyez sur "Entrée" pour donner la consigne de décollage.
  2. Assurez-vous que tous les drones sont stabilisés en vol puis appuyez à nouveau sur "Entrée" pour lancer le scénario.
  3. A tout moment vous pouvez appuyer un troisième fois sur "Entrée" pour faire atterir les drones.
+
+
+
+### Contenu du code
+Afin de faciliter l'interprétation chaque programme est commenté.
+Les types de messages et services ROS2 personnalisés sont définis dans le dossier *my_custom_interfaces*du workspace *ws_drones* 
+Chemin complet : TCI_AERO\ws_drones\src\my_custom_interfaces
+
+Pour mieux comprendre l'achitecture globale vous trouverez le [rqt_graph](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/rqt_graph.png) correspondant dans le dossier *Informations et documents* de la branche *main*.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNjI4OTQzMzUsMTcyNzI0MzU1OV19
+eyJoaXN0b3J5IjpbODA1MTExODU1LDE3MjcyNDM1NTldfQ==
 -->
