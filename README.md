@@ -5,7 +5,7 @@ Vous êtes sur la branche main qui rassemble toutes les informations et document
 
  - [Informations et documents](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents "Informations et documents") est mis à jour avec la documentation du projet.
  - [Nouveau dossier](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Nouveau%20dossier "Nouveau dossier") contient les archives de code.
- - [Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
+ - [Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
 
 Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 
