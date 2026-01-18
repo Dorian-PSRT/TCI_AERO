@@ -1,16 +1,17 @@
 # Tutoriel
 ## Organisation du dépôt
 Bienvenue sur le dépôt de la promo AERO-TCI 2026.
-Vous êtes sur la branche main qui rassemble toutes les informations et document du projet.
+Vous êtes sur la branche main qui rassemble toutes les informations et documents du projet.
 
  - [Informations et documents](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents "Informations et documents") est mis à jour avec la documentation du projet.
  - [Nouveau dossier](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Nouveau%20dossier "Nouveau dossier") contient les archives de code.
+ - [Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
 
 Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 
- - [develop](https://github.com/Dorian-PSRT/TCI_AERO/tree/develop "develop") a servit  à créer des fonctions en les testant sur TurtleSim 
- - [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") a d'abord été dédiés au tests sur simulateurs puis l'ensemble du code y a été regroupé
- - [crazyflie](https://github.com/Dorian-PSRT/TCI_AERO/tree/crazyflie "crazyflie") a servit à apprendre à contrôler les drones 
+ - [develop](https://github.com/Dorian-PSRT/TCI_AERO/tree/develop "develop") a servi à créer des fonctions en les testant sur TurtleSim 
+ - [simulateur](https://github.com/Dorian-PSRT/TCI_AERO/tree/simulateur "simulateur ") a d'abord été dédié au tests sur simulateur puis l'ensemble du code y a été regroupé
+ - [crazyflie](https://github.com/Dorian-PSRT/TCI_AERO/tree/crazyflie "crazyflie") a servi à apprendre à contrôler les drones 
 
 ## Présentation de l'ensemble du projet
  Ce projet avait pour but de participer au drone défense hackathon, qui a eu lieu entre le 24 octobre et le 24 novembre (phase préliminaire incluse), nous avons dû nous pencher sur la création d’un scénario ainsi que la programmation d’un essaim de drone collaboratif capable de le réaliser. Ce [scénario](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/Fil_rouge_projet.md "main/Information et documents/ Fil_rouge_projet.md") devait nous permettre de démontrer le côté collaboratif de notre essaim, ainsi que d’être le plus complet possible pour avoir une chance d’être sélectionné par le jury.
