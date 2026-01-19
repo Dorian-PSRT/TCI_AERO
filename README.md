@@ -5,7 +5,6 @@ Vous êtes sur la branche main qui rassemble toutes les informations et document
 
  - [Informations et documents](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents "Informations et documents") est mis à jour avec la documentation du projet.
  - [Nouveau dossier](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Nouveau%20dossier "Nouveau dossier") contient les archives de code.
- - [Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
 
 Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 
@@ -19,7 +18,7 @@ Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 ## Ressources Optitrack
 [Clara]
 ## Ressources Crazyflie
-[Clara]
+[Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
 ## Détails du code
 
 ### Lancer le programme
@@ -71,7 +70,7 @@ Afin de faciliter l'interprétation chaque programme est commenté.
 Les types de messages et services ROS2 personnalisés sont définis dans le dossier *my_custom_interfaces*du workspace *ws_drones* 
 Chemin complet : TCI_AERO\ws_drones\src\my_custom_interfaces
 
-Pour mieux comprendre l'achitecture globale vous trouverez le [rqt_graph](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/rqt_graph.png) correspondant dans le dossier *Informations et documents* de la branche *main*.
+Pour mieux comprendre l'achitecture globale vous trouverez le [rqt_graph](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/rqt_graph_3drones_simu.png) correspondant dans le dossier *Informations et documents* de la branche *main*.
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbODA1MTExODU1LDE3MjcyNDM1NTldfQ==
 -->
