@@ -15,9 +15,7 @@ Les autres branches ont permis d'avancer sur le projet sur 3 axes principaux :
 ## Présentation de l'ensemble du projet
  Ce projet avait pour but de participer au drone défense hackathon, qui a eu lieu entre le 24 octobre et le 24 novembre (phase préliminaire incluse), nous avons dû nous pencher sur la création d’un scénario ainsi que la programmation d’un essaim de drone collaboratif capable de le réaliser. Ce [scénario](https://github.com/Dorian-PSRT/TCI_AERO/blob/main/Informations%20et%20documents/Fil_rouge_projet.md "main/Information et documents/ Fil_rouge_projet.md") devait nous permettre de démontrer le côté collaboratif de notre essaim, ainsi que d’être le plus complet possible pour avoir une chance d’être sélectionné par le jury.
  
-## Ressources Optitrack
-[Clara]
-## Ressources Crazyflie
+## Ressources Crazyflie et Optitrack
 [Tutoriel Crazyflie 2.0](https://github.com/Dorian-PSRT/TCI_AERO/tree/main/Informations%20et%20documents/Tutoriel%20Crazyflie%202.0.md) contient un tutoriel sur la prise en main des Crazyflie 2.0 et d'OptiTrack.
 ## Détails du code
 
